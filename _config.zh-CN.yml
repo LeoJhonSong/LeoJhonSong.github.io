@@ -1,0 +1,23 @@
+# Site
+title: LeoJhon.Song's Blog
+subtitle: 欢迎来到我的博客!
+description: 记 / 录 / 与 / 分 / 享
+keywords:
+author: LeoJhon.Song
+language: zh-CN
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://leojhonsong.github.io/zh-CN
+root: /zh-CN
+
+# Directory
+source_dir: source/zh-CN
+public_dir: public/zh-CN
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:LeoJhonSong/zh-CN.git
+  branch: master
