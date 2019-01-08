@@ -56,10 +56,23 @@ npm install hexo-deployer-git --save
 
 check [here](https://hexo.io/docs/deployment.html#Git) for the configuration.
 
-<!-- TODO -->
+### cannot commit theme/next to github
+
+Here is the issue: [#932](https://github.com/iissnan/hexo-theme-next/issues/932)
+[#328](https://github.com/iissnan/hexo-theme-next/issues/328)
+
+Therefore you cannot backup your theme simply committing it to github since it
+is a subproject. Although a cool solution is provided in `#328`, it cannot solve
+my problem since I did further customization. But I did not try the solution
+**fork+submodule** mentioned in `#932`. I simply deleted files declaring its
+identity of a subproject so the theme folder becomes totally a part of my hexo
+instance.:man_facepalming: You can also change the theme's name from `next` to
+whatever else, for example `LeoJhonSong`. According to [Hexo](https://hexo.io/docs/themes),
+you have to then modify the theme setting in your site’s `_config.yml`, assign
+the name of your theme folder to it.
 
 ### custom settings show up locally but things did not change on web
-
+<!-- TODO -->
 try these:
 
 - `hexo clean` in cmd at the root of your blog
