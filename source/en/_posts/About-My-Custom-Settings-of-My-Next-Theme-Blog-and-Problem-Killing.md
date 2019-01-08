@@ -10,14 +10,14 @@ categories: Web
 <a href='{{ location.host }}/zh-CN/关于我的NexT主题博客的个性化配置以及遇到的一些问题'><code>中文</code></a>
 </div>
 
-<!-- TODO -->
-
-This blog site is powered by [Hexo](https://hexo.io), the scheme is `Pisces`. After
-I started building my blog with Hexo, I found that actually there are some more
-Static Site Generators which are considered better than Hexo.
-You can find a ranking list of the Static Site Generators [here](https://www.staticgen.com/).
+This blog site is powered by [Hexo](https://hexo.io), the theme is [NexT](https://github.com/theme-next/hexo-theme-next),
+the scheme is `Pisces`. After I started building my blog with Hexo, I found that
+actually there are some more Static Site Generators which are considered better
+than Hexo. You can find a ranking list of the Static Site Generators [here](https://www.staticgen.com/).
 (But if you have already get started with Hexo, it is O.K. At least I think it
 is good enough)
+
+<!-- More -->
 
 :warning:the generator named Next in the list is a different thing from the
 theme of Hexo I use.
@@ -30,19 +30,33 @@ theme of Hexo I use.
 
 ### GitHub Pages says I am using a unsupported theme
 
-**This problem is very likely to occur if you commit your whole root folder to
-github.**
+**This problem is very likely to occur if you simply commit your whole Hexo
+instance to your master branch.**
 
-You should use the [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
-plugin to deploy your site but not simply commit
-the whole folder to git. if you haven't installed it, use the following command
-at the root of your hexo instance.
+In fact, only [a few themes](https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/)
+are supported by GitHub Pages and NexT or any Hexo theme is not included
+:man_facepalming:But here is a little trick: the files are rendered at your
+desktop, simple HTML pages are uploaded to the master branch as the source code
+of your site. In this way, anytheme can be applied to your blog:smile:
+
+Therefore, you can not simply commit your Hexo instance to the master branch,
+what I did is to publish a new branch `Root` to store my Hexo instance and use
+the [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
+plugin to deploy my site to the master branch.
+
+:warning:your GitHub Pages can only published from the master branch if your
+repository is named `username.github.io`
+
+If you haven't installed this
+plugin, use the following command at the root of your hexo instance.
 
 ```bash
 npm install hexo-deployer-git --save
 ```
 
+check [here](https://hexo.io/docs/deployment.html#Git) for the configuration.
 
+<!-- TODO -->
 
 ### custom settings show up locally but things did not change on web
 
@@ -55,6 +69,7 @@ try these:
 - `hexo s` to run it locally to see if something goes wrong
 
 reasons could be:
+
 - your setting is not first priority in CSS, the value is overwritten
 - your browser uses the cache data of the page instead of reload it
 - there is grammar mistake in your modification
