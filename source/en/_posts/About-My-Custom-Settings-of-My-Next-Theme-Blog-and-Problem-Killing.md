@@ -19,7 +19,7 @@ is good enough)
 
 <!-- More -->
 
-:warning:the generator named Next in the list is a different thing from the
+:warning: the generator named Next in the list is a different thing from the
 theme of Hexo I use.
 
 > Here I want to share about the problems I meet and my custom settings.
