@@ -21,3 +21,6 @@ deploy:
   type: git
   repo: git@github.com:LeoJhonSong/zh-CN.git
   branch: master
+
+valine:
+  lang: 'zh-cn'

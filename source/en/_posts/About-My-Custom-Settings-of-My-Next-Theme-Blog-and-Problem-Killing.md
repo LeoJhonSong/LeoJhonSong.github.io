@@ -26,7 +26,7 @@ theme of Hexo I use.
 
 <!-- More -->
 
-## problems I met
+## Problems I met
 
 ### GitHub Pages says I am using a unsupported theme
 
@@ -42,7 +42,7 @@ of your site. In this way, anytheme can be applied to your blog:smile:
 Therefore, you can not simply commit your Hexo instance to the master branch,
 what I did is to publish a new branch `Root` to store my Hexo instance and use
 the [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
-plugin to deploy my site to the master branch.
+extension to deploy my site to the master branch.
 
 :warning:your GitHub Pages can only published from the master branch if your
 repository is named `username.github.io`
@@ -56,7 +56,7 @@ npm install hexo-deployer-git --save
 
 check [here](https://hexo.io/docs/deployment.html#Git) for the configuration.
 
-### cannot commit theme/next to github
+### Cannot commit theme/next to github
 
 Here is the issue: [#932](https://github.com/iissnan/hexo-theme-next/issues/932)
 [#328](https://github.com/iissnan/hexo-theme-next/issues/328)
@@ -66,87 +66,174 @@ is a subproject. Although a cool solution is provided in `#328`, it cannot solve
 my problem since I did further customization. But I did not try the solution
 **fork+submodule** mentioned in `#932`. I simply deleted files declaring its
 identity of a subproject so the theme folder becomes totally a part of my hexo
-instance.:man_facepalming: You can also change the theme's name from `next` to
-whatever else, for example `LeoJhonSong`. According to [Hexo](https://hexo.io/docs/themes),
-you have to then modify the theme setting in your site’s `_config.yml`, assign
+instance.:man_facepalming: You just need to left these files:
+
+```bash
+.
+├── languages
+├── layout
+├── scripts
+├── source
+├── _config.yml
+└── package.json
+```
+
+You can also change the theme's name from `next` to
+whatever else, for example `LeoJhonSong`:smile:. According to [Hexo](https://hexo.io/docs/themes),
+you have to then modify the theme setting in your site’s `_config.yml`, assigning
 the name of your theme folder to it.
 
-### custom settings show up locally but things did not change on web
-<!-- TODO -->
-try these:
+### Pages do not change after modification
 
-- `hexo clean` in cmd at the root of your blog
+the issue could be separated in to two situations.
+
+#### The modification works on local server
+
+the reason may be:
+
+- sometimes your modification will be ignored if you do not run `hexo clean` to
+  delete the cache file (**db.json**)
+- your setting is not first [priority](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) in CSS in all probability, the value is
+  overwritten somewhere else
+
+check if the attributes you changed is valid by
+[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/css/).
+The invalid attributes will look like this: ~~color: #fff~~
+
+- you can specific the class name of the item to rise the priority of yuor custom
+  attribute.
+- another way is to use
+  [!important](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#The_!important_exception)
+  to force priority to rise. for example, `color: #fff !important`. It is often
+  not recommanded since it ruins existing CSS and may cause difficulty when
+  debugging. In addition, there is still a low risk it is not raised to first
+  priority :sweat_smile: as examples are given [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#The_!important_exception)
+
+#### The modification even does not work on local server:man_facepalming:
+
+The reason could be:
+
+- your browser uses the cache data of the GitHub Page instead of reloading it
+- there is grammar mistakes in your modification
+
+The solution could be:
+
 - `Ctrl + F5` or `Ctrl + Fn + F5` to force the browser to refresh the page
-- delete the **.deploy_git** folder
-- specific the class of the item to rise its priority
-- `hexo s` to run it locally to see if something goes wrong
+- check the generation information to see if there is an error or run `hexo s`
+  to run the site locally to see if something goes wrong
 
-reasons could be:
+### Cannot show emoji
 
-- your setting is not first priority in CSS, the value is overwritten
-- your browser uses the cache data of the page instead of reload it
-- there is grammar mistake in your modification
+add [hexo-filter-github-emojis](https://www.npmjs.com/package/hexo-filter-github-emojis)
+and then you can use Emojis as you want just like me.:v:
 
-### cannot show emoji
+if you want to type a emoji but you have no idea what its shortcut is,
+you could go to [emojipedia](https://emojipedia.org/) for help.
 
-https://emojipedia.org/
-https://www.npmjs.com/package/hexo-filter-github-emojis
+### Will line feed whenever there is a return in the markdown file
 
-### will line feed whenever there is a line feed in the md file
+Actually this issue is mentioned in [github](https://github.com/iissnan/hexo-theme-next/issues/1672).
 
-https://github.com/iissnan/hexo-theme-next/issues/1672
+this happened to me because I uninstalled `hexo-renderer-marked` and installed
+`hexo-renderer-markdown-it` since the **markdown-it** markdown parser has [plenty of plugins](https://www.npmjs.com/search?q=markdown-it):man_facepalming:.
 
-### sitemap error
+### Sitemap error
 
-### error word-count
-https://github.com/theme-next/hexo-symbols-count-time/issues/17
+Google Search Console may tells you that there is errors in your site if you did
+not changed your site's url from `http://yoursite.com` to `your own root url` in
+your site's `_config.yml`...
+
+### Error word-count
+
+It had been mentioned [here](https://github.com/theme-next/hexo-symbols-count-time/issues/17).
+
 I enabled word count provided by Hexo but the count is definitely larger than it
-should be. But that is not a problem, it can be seen as a decoration :see_no_evil:
-
-https://alanlee.fun/2017/12/30/google-sitemap/
+should be. But that is not a problem, it can be seen as a decoration
+:see_no_evil:
 
 ## My custom settings
 
 I am proud of **some** settings because I tried and achieved it by myself, despite
 from simply copying others' code. :stuck_out_tongue_closed_eyes:
 
-### multi-language
+### Commit site to Google
+
+Unfortunately, Baidu crawler is blocked by GitHub because
+[Baidu has been used to attack GitHub](https://www.netresec.com/?month=2015-03&page=Blog&post=China%27s-Man-on-the-Side-Attack-on-GitHub).
+Actually poor Baidu did not mean to do this... But to be honest, Baidu is
+not a lovely search engine since it puts **plenty** of ads in its search
+results:roll_eyes:. So I won't bother solving the issue that Baidu con not find
+my blog. Besides, this blog is mainly wrote for myself:v:.
+
+1. install [hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)
+
+2. go to [Google Search Console](https://search.google.com/search-console/about)
+   and add your site.verify it by `HTML tag`. There you get a \<meta\> tag like this:
+
+   ```html
+   <meta name="google-site-verification" content="blablablablablabla" />
+   ```
+
+   the `content` is your verification code.
+
+3. add following code to your site's `_config.yml`:
+
+   ```yml
+   sitemap:
+     path: sitemap.xml
+
+   google_site_verification: your code
+   ```
+4. run the following code:
+
+   ```bash
+   hexo d -g
+   ```
+
+   now your site should have be added the verification tag.
+
+5. go back to google search console and commit your sitemap. Your sitemap should
+   be named `sitemap.xml`.
+
+6. DONE!
+
+### Multi-language
 
 can do as the document do
 
 ### Categories, About
 
-### search
+### Search
 
-### custom favicon
+### Custom favicon
 
-### better response for mobile devices
+### Better response for mobile devices
 
-### custom colors
+### Custom colors
 
 http://nipponcolors.com/
 
-### sidebar fot mobile devices
+### Sidebar fot mobile devices
 
 https://leaferx.online/2017/02/05/EnableTOConMobile/
 
-### alternative social links.
+### Alternative social links.
 
-### colorful icons
+### Colorful icons
 
 in `sidebar.swig`
 
-### better organized post-block
+### Better organized post-block
 
-### visitor number
+### Visitor number
 
-### post word count
+### Post word count
 
 https://github.com/theme-next/hexo-symbols-count-time
 
-### hide hexo copyright
+### Hide hexo copyright
 
-### improved the arrangement of images in asset folder
+### Improved the arrangement of images in asset folder
 
 in file **node_modules\hexo\lib\models\post_asset.js**
 
