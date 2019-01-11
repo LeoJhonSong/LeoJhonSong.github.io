@@ -71,12 +71,12 @@ instance.:man_facepalming: You just need to left these files:
 
 ```bash
 .
-├── languages
-├── layout
-├── scripts
-├── source
-├── _config.yml
-└── package.json
+├──languages
+├──layout
+├──scripts
+├──source
+├──_config.yml
+└──package.json
 ```
 
 You can also change the theme's name from `next` to
@@ -248,83 +248,20 @@ in `_config.yml`:
 
 ```yml
 # Site
-title: LeoJhon.Song's Blog
-subtitle: WELCOME TO MY BLOG!
-description: Logging   /   and   /   Sharing
-keywords:
-author: LeoJhon.Song
-language:
-- en
-- zh-CN
-- ja
-timezone:
+language: en
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://leojhonsong.github.io/
 root: /
-permalink: :title/
-permalink_defaults:
 
 # Directory
 source_dir: source/en
 public_dir: public/en
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
-
-# Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: true # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0
-render_drafts: false
-post_asset_folder: true
-relative_link: false
-future: true
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace:
-
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ''
-  per_page: 0
-  order_by: -date
-
-# Category & Tag
-default_category: uncategorized
-category_map:
-tag_map:
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-
-# Pagination
-## Set per_page to 0 to disable pagination
-per_page: 10
-pagination_dir: page
 
 # Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
 theme: LeoJhonSong
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: git@github.com:LeoJhonSong/LeoJhonSong.github.io.git
@@ -335,15 +272,9 @@ in `_config.zh-CN.yml`:
 
 ```yml
 # Site
-title: LeoJhon.Song's Blog
-subtitle: 欢迎来到我的博客!
-description: 记 / 录 / 与 / 分 / 享
-keywords:
-author: LeoJhon.Song
 language: zh-CN
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://leojhonsong.github.io/zh-CN
 root: /zh-CN
 
@@ -352,15 +283,26 @@ source_dir: source/zh-CN
 public_dir: public/zh-CN
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: git@github.com:LeoJhonSong/zh-CN.git
   branch: master
+```
 
-# Comment
-valine:
-  lang: 'zh-cn'
+Then after generation your directory should look like this:
+
+```bash
+.
+├──.deploy_git
+├──node_modules
+├──public
+│       ├─en
+│       └─zh-CN
+├──scaffolds
+├──source
+│       ├─en
+│       └─zh-CN
+└──themes
 ```
 
 ### Categories, About
