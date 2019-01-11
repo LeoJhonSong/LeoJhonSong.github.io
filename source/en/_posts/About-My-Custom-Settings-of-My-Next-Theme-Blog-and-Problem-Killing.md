@@ -44,8 +44,9 @@ what I did is to publish a new branch `Root` to store my Hexo instance and use
 the [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 extension to deploy my site to the master branch.
 
-:warning:your GitHub Pages can only published from the master branch if your
-repository is named `username.github.io`
+:warning:your GitHub Pages
+[can only published from the master branch](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/)
+if your repository is named `username.github.io`
 
 If you haven't installed this
 plugin, use the following command at the root of your hexo instance.
@@ -197,9 +198,170 @@ my blog. Besides, this blog is mainly wrote for myself:v:.
 
 6. DONE!
 
-### Multi-language
+### Multi-Language
 
-can do as the document do
+> This part! Guys, this is my proud since I worked out my own solution.
+My work is based on [this](http://kvh.io/en/hexo-nginx-multi-lingual.html)
+and [this](https://bambooom.github.io/2018/03/08/hexo-multi-lang/)
+
+It is described very clearly in **Keep Velocity High**'s post that a
+multilingual blog implemented with current tools is not good enough. He's idea
+of running two isolated blog is a good try and thanks to his great work I don't
+have to do those works again. But just as the second post pointed out, it
+becomes **too hassle** that we have to run two independent site if we just want
+our site could be shown in more than one language. As a individual blogger I do
+not have that much time to maintain my blog. **I have to run three sites, if I
+want it can be shown in Chinese, English and Japanese!** In addition, if we want
+to change the style of the blog, we have to repeat the work for each
+language:fearful:.
+
+The solution mentioned in the second post is also very smart, but there is still
+some problems.
+
+1. His idea of deploy two site to one repository is impossible since a
+   repository can only have one home page.  
+   In addition, you need a repository named `zh-CN` if you want your chinese
+   site's root url is `https://yourname.github.io/zh-CN`
+
+2. it definitely waste a lot of time if we have to copy the markdown files to
+   the source folder every time we generate the public folder.
+
+As we can see, most multilingual site will give each site a different root url.
+Therefore, I decided to use https://leojhonsong.github.io to be the home of my
+english site and https://leojhonsong.github.io/zh-CN for Chinese site. That is
+to say, I need a repository called [leojhonsong.github.io](https://github.com/LeoJhonSong/LeoJhonSong.github.io)
+and a repository called [zh-CN](https://github.com/LeoJhonSong/zh-CN) for my
+blog.
+
+Things are simple until now, but **here is the trick**: since hexo allows us to
+add
+[alternate config](https://hexo.io/docs/configuration#Using-an-Alternate-Config),
+we use the site's `_config.yml` for settings of the english site as well as the
+basic settings of the blog and create `_config.zh-CN.yml` for settings of
+Chinese site that differs from english site to override settings in
+`_config.yml`. There, we are able to set different source folder path, public
+folder path for each language and even different repository to deploy the site:smile:
+
+The following code are my settings.
+
+in `_config.yml`:
+
+```yml
+# Site
+title: LeoJhon.Song's Blog
+subtitle: WELCOME TO MY BLOG!
+description: Logging   /   and   /   Sharing
+keywords:
+author: LeoJhon.Song
+language:
+- en
+- zh-CN
+- ja
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://leojhonsong.github.io/
+root: /
+permalink: :title/
+permalink_defaults:
+
+# Directory
+source_dir: source/en
+public_dir: public/en
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: true # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 0
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: LeoJhonSong
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:LeoJhonSong/LeoJhonSong.github.io.git
+  branch: master
+```
+
+in `_config.zh-CN.yml`:
+
+```yml
+# Site
+title: LeoJhon.Song's Blog
+subtitle: 欢迎来到我的博客!
+description: 记 / 录 / 与 / 分 / 享
+keywords:
+author: LeoJhon.Song
+language: zh-CN
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://leojhonsong.github.io/zh-CN
+root: /zh-CN
+
+# Directory
+source_dir: source/zh-CN
+public_dir: public/zh-CN
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:LeoJhonSong/zh-CN.git
+  branch: master
+
+# Comment
+valine:
+  lang: 'zh-cn'
+```
 
 ### Categories, About
 

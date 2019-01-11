@@ -14,3 +14,8 @@ TODO
 [priority](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity)
 
 [这里](https://alanlee.fun/2017/12/30/google-sitemap/)
+
+### 多语言
+
+[参考1](https://www.ieclipse.cn/2016/06/02/other/tech-hexo-i18n/index.html)
+[参考2](https://bambooom.github.io/2018/03/08/hexo-multi-lang/)
