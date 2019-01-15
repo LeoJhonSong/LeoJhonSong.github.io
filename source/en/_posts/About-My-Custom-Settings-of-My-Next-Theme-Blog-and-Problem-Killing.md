@@ -471,7 +471,7 @@ Reference [here](https://theme-next.org/docs/getting-started/#Configuring-Menu-I
 
 2. configure settings for **hexo-generator-search** in **site**'s `_config.yml`:
 
-   ```bash
+   ```yml
    search:
      path: search.xml
      field: post
@@ -481,7 +481,7 @@ Reference [here](https://theme-next.org/docs/getting-started/#Configuring-Menu-I
 
 3. configure settings for **hexo-generator-searchdb** in **theme**'s `_config.yml`:
 
-   ```bash
+   ```yml
    local_search:
      enable: true
      trigger: auto
@@ -490,41 +490,248 @@ Reference [here](https://theme-next.org/docs/getting-started/#Configuring-Menu-I
 
 ### Better response for mobile devices
 
+In `theme/next/source/css/_custom/custom.styl`:
+
+```styl
+@media (max-width: 425px){
+    .site-title {
+        font-size: 6vw;
+    }
+    .content-wrap {
+        padding: 10px !important;
+    }
+}
+@media (max-width: 767px){
+    .posts-expand {
+        margin: 0 0px;
+    }
+}
+```
+
 ### Custom colors
 
-http://nipponcolors.com/
+> To customize the background colors of your site, I recommend [this site](http://nipponcolors.com/)
+> to you as it provides a lot of cool colors.
 
-### Sidebar fot mobile devices
+Things could be quite simply as most colors can be reset using variables in
+`theme/next/css/_variables/base.styl` and
+`theme/next/css/_variables/YourScheme.styl`. You can preview your custom settings
+utilizing developer tools of your browser.
+([Here](https://developers.google.com/web/tools/chrome-devtools/css/#declarations)
+is how we do this in Chrome DevTools.) After decided your custom settings, you
+reassign the variables which had been defined in the two yml files mentioned
+above in `theme/next/css/_variables/custom.styl`.
 
-https://leaferx.online/2017/02/05/EnableTOConMobile/
+:warning: you have to notice
+that only if your reassignments are in `theme/next/css/_variables/custom.styl`
+will they take effect. They are **invalid** if they are put in
+`theme/next/source/css/_custom/custom.styl`. Similarly, any other setting not related to the variables should be written in `theme/next/source/css/_custom/custom.styl`.
 
-### Alternative social links.
+you could find [my custom.styl](#My-custom.styl) at the end.
 
-### Colorful icons
+### Colorful icons for social links in sidebar
 
 in `sidebar.swig`
 
-### Better organized post-block
-
 ### Visitor number
+
+find `busuanzi_count` in your theme's `_config.yml` and enable it.
 
 ### Post word count
 
-https://github.com/theme-next/hexo-symbols-count-time
-
-### Hide hexo copyright
+Reference can be found [here](https://github.com/theme-next/hexo-symbols-count-time)
 
 ### Improved the arrangement of images in asset folder
 
-in file **node_modules\hexo\lib\models\post_asset.js**
+Now suppose there is a image **wow.jpg** in the asset folder of a post named
+**Hello**. We could to use `![wow](wow.jpg)` to insert this image. But the
+annoying problem is that the image won't show up in your markdown preview unless
+you use `![wow](Hello/wow.jpg)`. But... the image won't show up on your server
+if `Hello/wow.jpg` is used:man_facepalming:
 
-`line30`
+This is because hexo will put the HTML page **index.html** of the post Hello and
+the image **wow.jpg** into the same folder **Hello** in **public** folder.
+
+So I modified following file to create a subfolder of the same name of the post in the folder where the post's **index.html** is put.
+
+in **node_modules/hexo/lib/models/post_asset.js**
+
+emmm, I forgot what in details did I changed but anyway mine looks like this
+now :point_down:
 
 ```javascript
+'use strict';
+
+const Schema = require('warehouse').Schema;
+const pathFn = require('path');
+
+
+var fs = require('hexo-fs');
+var chalk = require('chalk');
+var moment = require('moment');
+
+
+module.exports = ctx => {
+  const PostAsset = new Schema({
+    _id: {type: String, required: true},
+    slug: {type: String, required: true},
+    modified: {type: Boolean, default: true},
+    post: {type: Schema.Types.CUID, ref: 'Post'},
+    renderable: {type: Boolean, default: true}
+  });
+
+  PostAsset.virtual('path').get(function() {
+    const Post = ctx.model('Post');
+    const post = Post.findById(this.post);
+    if (!post) return;
+
+    // PostAsset.path is file path relative to `public_dir`
+    // no need to urlescape, #1562
+    // strip /\.html?$/ extensions on permalink, #2134
     return pathFn.join(post.path.replace(/\.html?$/, ''), post.path.replace(/\.html?$/, ''), this.slug);
+  });
+
+  PostAsset.virtual('source').get(function() {
+    return pathFn.join(ctx.base_dir, this._id);
+  });
+
+  return PostAsset;
+};
 ```
+
+The key point is **line 30**.
+
 Unfortunately, according to my test, the tag method to insert images provided by [Hexo](https://hexo.io/docs/asset-folders.html#Tag-Plugins-For-Relative-Path-Referencing)
-does not work as it supposed to be anymore after modifying the **post_asset.js**:man_facepalming:.
-Since I would use anything but the tags so this doesn't bothers me:grin:. But if you want to improve this situation, I suppose you should modify the file **node_modules\hexo\lib\plugins\tag\asset_img.js**
+does not work as it supposed to anymore after modifying the **post_asset.js**:man_facepalming:.
+Since I would use anything but the tags so this doesn't bothers me:grin:. But if you want to improve this situation, I suppose you should modify **node_modules\hexo\lib\plugins\tag\asset_img.js**
 
 ### Valine comment system
+
+1. Search for **Vline** in your theme;s `_config.yml`
+
+2. then you just need to follow instructions [here](https://valine.js.org).
+
+### My custom.styl
+
+Although as I mentioned [here](#custom-colors), some settings only take effet if
+is put in `theme/next/source/css/_custom/custom.styl` while some other should be
+put in `theme/next/source/css/_variables/custom.styl`, but it is a little bit
+annoying that I have to decide where do I put my settings. So I simply put all
+the settings in both styl custom.styl:satisfied:.
+
+```styl
+// Custom styles.
+
+//------------------------------------------------------------------------------
+//better response for mobile devices
+//------------------------------------------------------------------------------
+@media (max-width: 425px){
+    .site-title {
+        font-size: 6vw;
+    }
+    .content-wrap {
+        padding: 10px !important;
+    }
+}
+@media (max-width: 767px){
+    .posts-expand {
+        margin: 0 0px;
+    }
+}
+//------------------------------------------------------------------------------
+//custom colors
+//more colors here: http://nipponcolors.com/
+//------------------------------------------------------------------------------
+$site-title-background          = #828282
+$site-background                = #828282
+$post-background                = #828282
+$font-color                     = #eee
+$font-color-title               = #FFFFFB
+$font-color-descript            = #ddd
+$font-color-link                = #ccc
+$font-color-menu                = #bbc
+$font-color-hover               = #fc6423
+
+//backgrounds color
+$body-bg-color                  = $site-background
+$brand-bg                       = $site-title-background
+.content-wrap {
+    background: $site-background;
+}
+.post-block{
+    background: $post-background;
+}
+.sidebar-inner, .header-inner, .sidebar {
+    background: rgba(255, 255, 255, 0); //opacity = 0
+}
+//fonts color
+$text-color                     = $font-color
+$site-author-name-color         = $font-color
+$sidebar-nav-color              = $font-color-descript
+$site-state-item-name-color     = $font-color-descript
+$link-color                     = $font-color
+$link-hover-color               = $font-color-link
+$link-decoration-hover-color    = $font-color-hover
+$toc-link-color                 = $font-color
+$toc-link-hover-color           = $font-color-link
+$toc-link-hover-border-color    = $font-color-hover
+$site-subtitle-color            = $font-color-descript
+$site-description-color         = $font-color-descript
+
+.menu-item a {
+    color: $font-color-menu;
+}
+.links-of-author-item a {
+    color: $font-color;
+}
+a.post-title-link, .post-title {
+    color: $font-color-title !important;
+}
+span.site-state-item-count{
+    color: $font-color-title;
+}
+.site-state-item {
+    &:hover {
+        span.site-state-item-count {
+            color: #ffd239;
+        }
+    }
+}
+blockquote {
+    color: #abd !important;
+}
+
+// shadow for post blocks
+.post {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 0px;
+    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+}
+//------------------------------------------------------------------------------
+//colorful icons
+//------------------------------------------------------------------------------
+.icon {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    vertical-align: -0.4em;
+    fill: currentColor;
+    overflow: hidden;
+}
+//------------------------------------------------------------------------------
+//better organized post-block
+//------------------------------------------------------------------------------
+.post-block{
+    padding: 15px;
+}
+.post-eof{
+    display: none;
+}
+//------------------------------------------------------------------------------
+//disable image border
+//------------------------------------------------------------------------------
+img {
+    border: none !important;
+}
+```
