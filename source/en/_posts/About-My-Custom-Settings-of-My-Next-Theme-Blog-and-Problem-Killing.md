@@ -10,7 +10,7 @@ categories: Web
 <a href='{{ location.host }}/zh-CN/关于我的NexT主题博客的个性化配置以及遇到的一些问题'><code>中文</code></a>
 </div>
 
-This blog site is powered by [Hexo](https://hexo.io), the theme is [NexT](https://github.com/theme-next/hexo-theme-next),
+This blog site is powered by [Hexo](https://hexo.io), the theme is [NexT](https://theme-next.org/),
 the scheme is `Pisces`. After I started building my blog with Hexo, I found that
 actually there are some more Static Site Generators which are considered better
 than Hexo. You can find a ranking list of the Static Site Generators [here](https://www.staticgen.com/).
@@ -321,7 +321,9 @@ English site, the English files will be mixed into **public/zh-CN**, which is
 annoying. So you should run `hexo clean` to delete `db.json` every time before
 generating files for **different language**.
 
-We can also write a batch file to shorten the commands:
+We can also write a batch script and python script to shorten the commands.
+
+put `a.bat` in the root directory:
 
 ```bash
 @echo off
@@ -336,7 +338,7 @@ if "%1"=="e" goto english
 if "%1"=="c" goto chinese
 if "%1"=="ne" hexo new %2
 if "%1"=="nc" hexo new %2 --config _config.yml,_config.zh-CN.yml
-if "%1"=="n" hexo new %2 && hexo new %3 --config _config.yml,_config.zh-CN.yml && multi-language.py %2 %3
+if "%1"=="na" hexo new %2 && hexo new %3 --config _config.yml,_config.zh-CN.yml && multi-language.py %2 %3
 goto end
 
 :generateDeployAll
@@ -403,22 +405,88 @@ goto end
 :end
 ```
 
-It will make things much easier. You just need to put this file in the root of
-your hexo instance and you are goo to go. **%1, %2** in the code are the
-parameters passed to the batch. For example, you can type `a c g` in cmd in the
-root of your hexo instance to generate the Chinese files. **a** is te name of my
-batch file as I named it **a.bat** but of course you can change it to want ever
-you want. By the way, the file name is also a parameter passed to the batch
-file, **%0**. **c** is the second parameter, **%1** passed to the batch and
+put `multi-language.py` in the root directory:
+
+```python
+# -*- coding: UTF-8 -*-
+
+import sys
+import re
+
+
+def filter(filename):
+        filename = filename.replace(' ', '-')
+        filename = filename = re.sub(r'[+/?#$%]', "", filename)
+        return filename
+
+
+englishName = filter(sys.argv[1])
+chineseName = filter(sys.argv[2])
+chineseName = chineseName.decode('gbk').encode('utf-8')
+
+englishFile = 'source/en/_posts/' + englishName + '.md'
+chineseFile = 'source/zh-CN/_posts/' + chineseName + '.md'
+Files = [englishFile, chineseFile]
+
+for filepath in Files:
+        with open(filepath, 'a') as post:
+                post.write("\n")
+                post.write("<div align='right'>Language:\n")
+                post.write("\t<a href='{{ location.host }}/"+englishName+"'><code>English</code></a>\n")
+                post.write("\t<a href='{{ location.host }}/zh-CN/"+chineseName+"'><code>中文</code></a>\n")
+                post.write("</div>")
+                post.write("\n")
+```
+
+These will make things much easier. You just need to put these two file in the
+root of your hexo instance and you are good to go. **%1, %2** in the code are
+the parameters passed to the batch. For example, you can type `a c g` in cmd in
+the root of your hexo instance to generate the Chinese files. **a** is te name
+of my batch file as I named it **a.bat** but of course you can change it to want
+ever you want. By the way, the file name is also a parameter passed to the batch
+file, **%0**. **c** is the second parameter (**%1**) passed to the batch and
 **g** is **%2**. It is interesting that the parameter's value could be null,
 that is to say, if you simply type `a`, the English files will be generated and
-deployed then Chinese files will be generated and deployed.
+deployed then Chinese files will be generated and deployed. The commands `a ne`,
+`a nc`, `a na` are used to generate new post.But the best part is that the
+command `a na` will call the **multi-language.py** to write HTML code to link
+the Chinese post and the corresponding English post. For example, if you want to
+new a English post named **Hello World** and its Chinese version **你好世界**, the
+command should be `a na 'Hello World' '你好世界'`
 
-### Categories, About
+### Categories, About page
+
+Reference [here](https://theme-next.org/docs/getting-started/#Configuring-Menu-Items)
 
 ### Search
 
-### Custom favicon
+1. install the dependencies [hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb)
+   and [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+   by:
+
+   ```bash
+   npm install hexo-generator-search  --save
+   npm install hexo-generator-searchdb --save
+   ```
+
+2. configure settings for **hexo-generator-search** in **site**'s `_config.yml`:
+
+   ```bash
+   search:
+     path: search.xml
+     field: post
+     format: html
+     limit: 10000
+   ```
+
+3. configure settings for **hexo-generator-searchdb** in **theme**'s `_config.yml`:
+
+   ```bash
+   local_search:
+     enable: true
+     trigger: auto
+     top_n_per_article: 1
+   ```
 
 ### Better response for mobile devices
 
