@@ -422,7 +422,6 @@ def filter(filename):
 
 englishName = filter(sys.argv[1])
 chineseName = filter(sys.argv[2])
-chineseName = chineseName.decode('gbk').encode('utf-8')
 
 englishFile = 'source/en/_posts/' + englishName + '.md'
 chineseFile = 'source/zh-CN/_posts/' + chineseName + '.md'
@@ -433,7 +432,7 @@ for filepath in Files:
                 post.write("\n")
                 post.write("<div align='right'>Language:\n")
                 post.write("\t<a href='{{ location.host }}/"+englishName+"'><code>English</code></a>\n")
-                post.write("\t<a href='{{ location.host }}/zh-CN/"+chineseName+"'><code>中文</code></a>\n")
+                post.write("\t<a href='{{ location.host }}/zh-CN/"+chineseName.decode('gbk').encode('utf-8')+"'><code>中文</code></a>\n")
                 post.write("</div>")
                 post.write("\n")
 ```
