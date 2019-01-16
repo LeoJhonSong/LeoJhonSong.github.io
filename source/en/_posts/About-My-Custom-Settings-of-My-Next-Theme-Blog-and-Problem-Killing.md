@@ -490,7 +490,7 @@ Reference [here](https://theme-next.org/docs/getting-started/#Configuring-Menu-I
 
 ### Better response for mobile devices
 
-In `theme/next/source/css/_custom/custom.styl`:
+In `themes/next/source/css/_custom/custom.styl`:
 
 ```styl
 @media (max-width: 425px){
@@ -514,24 +514,79 @@ In `theme/next/source/css/_custom/custom.styl`:
 > to you as it provides a lot of cool colors.
 
 Things could be quite simply as most colors can be reset using variables in
-`theme/next/css/_variables/base.styl` and
-`theme/next/css/_variables/YourScheme.styl`. You can preview your custom settings
+`themes/next/css/_variables/base.styl` and
+`themes/next/css/_variables/YourScheme.styl`. You can preview your custom settings
 utilizing developer tools of your browser.
 ([Here](https://developers.google.com/web/tools/chrome-devtools/css/#declarations)
 is how we do this in Chrome DevTools.) After decided your custom settings, you
 reassign the variables which had been defined in the two yml files mentioned
-above in `theme/next/css/_variables/custom.styl`.
+above in `themes/next/css/_variables/custom.styl`.
 
 :warning: you have to notice
-that only if your reassignments are in `theme/next/css/_variables/custom.styl`
+that only if your reassignments are in `themes/next/css/_variables/custom.styl`
 will they take effect. They are **invalid** if they are put in
-`theme/next/source/css/_custom/custom.styl`. Similarly, any other setting not related to the variables should be written in `theme/next/source/css/_custom/custom.styl`.
+`themes/next/source/css/_custom/custom.styl`. Similarly, any other setting not related to the variables should be written in `themes/next/source/css/_custom/custom.styl`.
 
 you could find [my custom.styl](#My-custom.styl) at the end.
 
 ### Colorful icons for social links in sidebar
 
-in `sidebar.swig`
+As I see it, the single color font icons used by NexT are a little bit dual. In
+addition, fontawsome does not have some icons I want.
+
+So I use icons from [iconfont](https://www.iconfont.cn/) instead. This site even provides **colorful font icons**!
+
+1. in `themes/next/layout/_macro/sidebar.swig`:
+
+   ```swig
+   {% set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' %}
+   ```
+
+   comment out but not delete `line 108`(the line above) by replacing it with
+   the following line, in case one day you want it back. Then we add a line to
+   use font icons from iconfont.
+
+   ```swig
+   {# % set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' % #}
+   {% set sidebarIcon = '<svg class="icon" aria-hidden="true"><use xlink:href="#' + link.split('||')[1] | trim + '"></use></svg>' %}
+   ```
+
+   Then add a line after `line 100` to import the source code of the icons:
+
+   ```swig
+   <script src="https:{{ theme.social_icons.source }}"></script>
+   ```
+
+2. create a project in [iconfont](https://www.iconfont.cn/) to collect icons you
+   want to use in your blog.
+
+   > [here](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.dfd524534&helptype=about) is
+   > the tutorial of iconfont.
+
+   You can log in with GitHub. After added icons you like to your project,
+   choose quote as `symbol` and `View the Online Link`, copy it and put it in  your theme's`_config.yml` under the **social_icons** settings like this:
+
+   ```yml
+   social_icons:
+     enable: true
+     icons_only: false
+     transition: false
+     source: //at.alicdn.com/t/font_980470_nj2qfdk05jb.js
+   ```
+
+3. simply put the code of your icons after your social links in your theme's
+   `_config.yml` like this:
+
+   ```yml
+   social:
+     GitHub: https://github.com/LeoJhonSong || icon-github
+     E-Mail: mailto:LeoJhon.Song@outlook.com || icon-OUTLOOK
+     FB Page: https://www.facebook.com/jhon.leo.100 || icon-Facebook
+     QQ: https://user.qzone.qq.com/719957017 || icon-QQ
+     WakaTime: https://wakatime.com/@LeoJhonSong || icon-waka-time
+   ```
+
+   :satisfied: quite easy right?
 
 ### Visitor number
 
@@ -607,15 +662,15 @@ Since I would use anything but the tags so this doesn't bothers me:grin:. But if
 
 ### Valine comment system
 
-1. Search for **Vline** in your theme;s `_config.yml`
+1. Search for **Valine** in your theme's `_config.yml`
 
-2. then you just need to follow instructions [here](https://valine.js.org).
+2. then you just need to follow instructions [here](https://valine.js.org/en/quickstart.html).
 
 ### My custom.styl
 
 Although as I mentioned [here](#custom-colors), some settings only take effet if
-is put in `theme/next/source/css/_custom/custom.styl` while some other should be
-put in `theme/next/source/css/_variables/custom.styl`, but it is a little bit
+is put in `themes/next/source/css/_custom/custom.styl` while some other should be
+put in `themes/next/source/css/_variables/custom.styl`, but it is a little bit
 annoying that I have to decide where do I put my settings. So I simply put all
 the settings in both styl custom.styl:satisfied:.
 
@@ -735,3 +790,5 @@ img {
     border: none !important;
 }
 ```
+
+>Thank you for reading!
