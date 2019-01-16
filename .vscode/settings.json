@@ -2,5 +2,6 @@
     "files.eol": "\n",
     "files.associations": {
         "string": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
