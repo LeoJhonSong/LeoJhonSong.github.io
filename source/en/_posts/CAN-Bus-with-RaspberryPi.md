@@ -1,7 +1,7 @@
 ---
 title: CAN Bus with RaspberryPi
 date: 2019-01-17 01:38:10
-categories:
+categories: Communication
 ---
 
 <div align='right'>Language:
@@ -11,6 +11,8 @@ categories:
 
 Recently I am working on A Formula E car, trying to do something with data in
 the car's CAN Bus. The very basic idea is first transmit data into a RaspberryPi.
+
+<!-- TODO -->
 
 > Reference:
 
