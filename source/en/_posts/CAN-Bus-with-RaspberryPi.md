@@ -12,6 +12,8 @@ categories: Communication
 Recently I am working on A Formula E car, trying to do something with data in
 the car's CAN Bus. The very basic idea is first transmit data into a RaspberryPi.
 
+<!-- More -->
+
 <!-- TODO -->
 
 > Reference:
