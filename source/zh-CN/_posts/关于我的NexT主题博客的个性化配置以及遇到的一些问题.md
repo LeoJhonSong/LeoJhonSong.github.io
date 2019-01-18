@@ -33,6 +33,10 @@ function fix(str) { return str.replace(/([¡«·»¿;·՚-՟։׀׃׆׳-״؉-؊�
 
 [这里](https://alanlee.fun/2017/12/30/google-sitemap/)
 
+### 如何建立多级分类
+
+参见[这里](http://aiellochan.com/2018/02/13/hexo/Hexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories/)
+
 ## 个性化配置
 
 ### 多语言
