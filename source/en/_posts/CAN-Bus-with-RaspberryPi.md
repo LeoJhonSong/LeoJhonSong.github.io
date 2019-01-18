@@ -18,6 +18,8 @@ the car's CAN Bus. The very basic idea is first transmit data into a RaspberryPi
 
 > Reference:
 
+https://www.cowfishstudios.com/blog/canned-pi-part1
+
 https://zhuanlan.zhihu.com/p/30657287
 https://zhuanlan.zhihu.com/p/30247549
 
