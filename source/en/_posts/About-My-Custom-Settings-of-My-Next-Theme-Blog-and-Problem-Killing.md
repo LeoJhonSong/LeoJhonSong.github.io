@@ -610,47 +610,14 @@ So I modified following file to create a subfolder of the same name of the post 
 
 in **node_modules/hexo/lib/models/post_asset.js**
 
-emmm, I forgot what in details did I changed but anyway mine looks like this
-now :point_down:
-
 ```javascript
-'use strict';
+    return pathFn.join(post.path.replace(/\.html?$/, ''), this.slug);
+```
 
-const Schema = require('warehouse').Schema;
-const pathFn = require('path');
+change `line23` from :arrow_up: to :arrow_down:
 
-
-var fs = require('hexo-fs');
-var chalk = require('chalk');
-var moment = require('moment');
-
-
-module.exports = ctx => {
-  const PostAsset = new Schema({
-    _id: {type: String, required: true},
-    slug: {type: String, required: true},
-    modified: {type: Boolean, default: true},
-    post: {type: Schema.Types.CUID, ref: 'Post'},
-    renderable: {type: Boolean, default: true}
-  });
-
-  PostAsset.virtual('path').get(function() {
-    const Post = ctx.model('Post');
-    const post = Post.findById(this.post);
-    if (!post) return;
-
-    // PostAsset.path is file path relative to `public_dir`
-    // no need to urlescape, #1562
-    // strip /\.html?$/ extensions on permalink, #2134
+```js
     return pathFn.join(post.path.replace(/\.html?$/, ''), post.path.replace(/\.html?$/, ''), this.slug);
-  });
-
-  PostAsset.virtual('source').get(function() {
-    return pathFn.join(ctx.base_dir, this._id);
-  });
-
-  return PostAsset;
-};
 ```
 
 The key point is **line 30**.
