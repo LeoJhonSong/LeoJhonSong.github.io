@@ -12,16 +12,23 @@ categories: 工具
 软件这东西更新太快了, 别人的教程总有自己这里不适用的地方:cry:, 记录一下自己配置VSC
 下C/C++的过程.
 
-> 基本参照[这个](https://www.zhihu.com/question/30315894). 当然VSC的
+> 基本参照[这个](https://blog.csdn.net/bat67/article/details/81268581)和
+> [这个](https://www.zhihu.com/question/30315894). 当然VSC的
 > [官方指导](https://code.visualstudio.com/docs/languages/cpp)也是很OK的
 
-由于我已经用了一阵子VSC了, 最近才开始学着写一点C/C++, 所以跳过了一点上面提及的知乎文章
-的步骤. 另外我也蛮庆幸我一开始用VSC主要是在写Python, Web什么的, 而我那打主意用VSC写点C/C++
+由于我已经用了一阵子VSC了, 最近才开始学着写一点C/C++, 所以跳过了一点步骤.
+另外我也蛮庆幸我一开始用VSC主要是在写Python, Web什么的, 而我那打主意用VSC写点C/C++
 的同学一看到如此麻烦的配置就放弃VSC了:smirk:
 
 # 下载安装LLVM和MinGW-w64
 
-虽然那篇文章中推荐下**MinGW-w64** 而不是**MinGW**, 看样子是担心MinGW太久没有更新会与哪里不兼容吧?
+emmmmm我是真的很无语了, 看知乎那篇文章气势汹汹我一开始还无脑地跟着做, 后来我我才发现根本不需要
+下clang而且我按他说的在`tasks.json`里command填的**clang++**而不是**g++**结果反而不对:roll_eyes:
+好吧也可能是我才疏学浅吧.
+
+虽然clang排不上大用处, 但VSC里几个lint插件似乎都基于clang, 因此也不能说白下了:man_facepalming:
+
+虽然知乎文章中推荐下**MinGW-w64** 而不是**MinGW**, 看样子是担心MinGW太久没有更新会与哪里不兼容吧?
 但我前阵子摆弄的时候已经下了一个MinGW...
 看了看感觉不是MinGW-w64, 但我懒得折腾了, 目前来看没有问题 (而且那位知乎博主也只是说不推荐):smile:
 因此我只是把**MinGW/bin**添加到了**path**里, 并没有复制任何东西到LLVM.
@@ -33,6 +40,7 @@ categories: 工具
 - [MinGW-w64](https://link.zhihu.com/?target=https%3A//sourceforge.net/projects/mingw-w64/)
 
 然后按文中方法测试一下clang是否安装成功
+:warning: 我遇到了命令行中测试成功但在VSC的终端测试失败的情况, 重启一次问题解决了.
 
 # 安装VSC插件
 
@@ -42,13 +50,14 @@ categories: 工具
 
 ## 推荐插件
 
-- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) : 拿来编译可执行文件不错的
+- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) : 
+  拿来编译可执行文件不错的, 只是打不了断点罢了
   (反正会在VSC写的C/C++程序只会是小程序, 大型工程还是VS走着)
 - [vscode-clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) : LLVM官方出品, 我觉得OK
 
 ## 配置配置文件和task文件
 
-此处与知乎文章的做法出入还是有一些, 大概是VSC更新了的缘故吧. 总之操作变简单了.
+:warning: 好了! 前面几步做完了就可以不去看那篇知乎文章的长篇大论了, 就看那位CSDN博主的方案就可以啦
 
 在VSC中打开一个C/C++文件后点侧边栏的`debug`一栏, 一个刚由VSC接手的工作区或者刚建立的项目
 需要先添加配置文件. 添加`(gdb)Launch`即可.
@@ -71,3 +80,104 @@ categories: 工具
 |`preLaunchTask`| "Compile" | 调试会话开始前执行的任务，一般为编译程序。与tasks.json的label相对应
 
 `框起来`的几个是重点.
+
+总之这几个文件就按照CSDN博主写的那样就可以了.
+
+# 附录
+
+啊! 夜深了, 懒得写了. 附上我的`c_cpp_properties.json`, `launch.json`, `tasks.json`:
+
+:heavy_check_mark: 值得一提的是, `.vscode`这个文件夹并不一定要放在你的工作区根目录, 可以再往上放几层,
+这样就减轻了我们每开一个C/C++项目就要配置一番的麻烦.
+
+**c_cpp_properties.json**:
+
+```json
+{
+    "configurations": [
+        {
+            "name": "MinGW",
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "includePath": [
+                "${workspaceFolder}",
+                "${vcpkgRoot}/x64-windows/include"
+            ],
+            "defines": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
+```
+
+**launch.json**:
+
+```json
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Compile"
+        }
+    ]
+}
+```
+
+**tasks.json**:
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-g",
+                "-Wall",
+                "-std=c++17"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
