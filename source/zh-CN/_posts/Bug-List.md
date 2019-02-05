@@ -42,7 +42,6 @@ def Xihua(image, array, num=1):
     iXihua = image.copy()
     for i in range(num):
         VThin(iXihua, array)
-        HThin(iXihua, array)
     return iXihua
 
 
@@ -55,7 +54,7 @@ def VThin(image, array):
             if NEXT == 0:
                 NEXT = 1
             else:
-                M = (int(image[i, j-1]) + int(image[i, j]) + int(image[i, j+1])) if 0<j<w-1 else 1
+                M = (image[i, j-1] + image[i, j] + image[i, j+1]) if 0<j<w-1 else 1
                 if image[i, j] == 0 and M != 0:
                     a = [0] * 9
                     for k in range(3):
@@ -72,3 +71,15 @@ def VThin(image, array):
 ## 报错信息
 
 ![报错信息](Bug-List/图像细化代码的报错.png)
+
+## 原因
+
+M默认与image[i, j]同数据类型，而image[i, j]设定的是ubyte类型，范围-255~256，M极有可能数据溢出。
+
+## 解决方法
+
+将18行改为下面代码, 将M数据类型强制转为int
+
+```python
+M = (int(image[i, j-1]) + int(image[i, j]) + int(image[i, j+1])) if 0<j<w-1 else 1
+```
