@@ -1,0 +1,3 @@
+TODO:
+vscode tricks
+RPi tricks
