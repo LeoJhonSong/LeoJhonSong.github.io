@@ -1,3 +1,4 @@
 TODO:
-vscode tricks
+add vscode extension description.
 RPi tricks
+git add keygen
