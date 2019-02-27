@@ -9,3 +9,11 @@ categories:
 <!-- More -->
 
 <!-- TODO -->
+
+<!-- apt-get install remove update upgrade
+source
+chmod
+rm
+ln
+cp
+& -->
