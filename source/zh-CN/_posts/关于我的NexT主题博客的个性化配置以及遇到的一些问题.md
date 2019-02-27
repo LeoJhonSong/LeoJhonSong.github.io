@@ -9,6 +9,8 @@ categories: "Web"
 <a href='{{ location.host }}/zh-CN/关于我的NexT主题博客的个性化配置以及遇到的一些问题'><code>中文</code></a>
 </div>
 
+<!-- More -->
+
 <!-- TODO -->
 
 ## 遇到的问题

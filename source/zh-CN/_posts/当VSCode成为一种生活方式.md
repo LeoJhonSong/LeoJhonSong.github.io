@@ -1,7 +1,7 @@
 ---
 title: 当VSCode成为一种生活方式
 date: 2019-01-07 01:11:16
-categories:
+categories: 杂记
 ---
 
 <div align='right'>Language:
@@ -9,7 +9,10 @@ categories:
 <a href='{{ location.host }}/zh-CN/当VSCode成为一种生活方式'><code>中文</code></a>
 </div>
 
+<!-- TODO -->
 在此为我认为不错的一些VSCode插件做一下安利:smirk:
+
+<!-- More -->
 
 :warning: 要注意的是最好不要在一个项目中使用过多插件, 这会让VSCode最开始的加载非常慢,
 这是得不偿失的. 我们仍要记得VSCode只是一个编辑器. 而我们通常面临的尴尬情况是:有很多日常
@@ -51,5 +54,3 @@ categories:
 ## LaTeX
 
 ## VSCode也能单片机程序了!!!
-
-<!-- TODO -->

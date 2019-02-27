@@ -12,6 +12,8 @@ categories: 工具
 软件这东西更新太快了, 别人的教程总有自己这里不适用的地方:cry:, 记录一下自己配置VSC
 下C/C++的过程.
 
+<!-- More -->
+
 > 基本参照[这个](https://blog.csdn.net/bat67/article/details/81268581)和
 > [这个](https://www.zhihu.com/question/30315894). 当然VSC的
 > [官方指导](https://code.visualstudio.com/docs/languages/cpp)也是很OK的
