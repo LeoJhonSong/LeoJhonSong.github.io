@@ -19,8 +19,6 @@ categories: 杂记
 会用到的插件, 但并不是在每个项目中都需要用到全部的插件, 有很多插件只是浪费资源.
 而通过将一些插件设为**禁用(工作区)**可以仅在这个项目中禁用这个插件! 这样能大大缩短VSCode启动时间:smile:
 
-
-
 # VSCode 个性化设置
 
 ## 改编辑器选项卡关闭按钮位置至左边
@@ -54,3 +52,27 @@ VSCode有许多很好用的功能!:satisfied: 这是其中之一. 你可以设�
 
 :heavy_check_mark: 设置方法: 在设置中搜索`editor.acceptSuggestionOnEnter`, 改为
 **off**
+
+## 设置git commit成功即上传
+
+在使用个人repository时我认为commit和push是没必要分开进行的, 因为只有自己用, 在本地存着
+和在云端存着没什么区别. 甚至有可能发生代码忘记上传云端就把电脑格式化了因而损失大段代码的
+惨案:sob: 因此git有一项选项特别适合我: commit成功即push
+
+:heavy_check_mark: 设置方法: 在设置中搜索`git.postCommitCommand`, 设置为**push**
+
+## 打开用户设置的同时打开默认设置
+
+虽然打开**settings.json**时同时打开默认设置的json文件应当是默认设置, 但我有一次安装
+VSCode之后发现这个选项没被勾上.
+
+:heavy_check_mark: 设置方法: 在设置中搜索`workbench.settings.openDefaultSettings`,
+设置为**true**.
+
+## 允许编辑器中水平滚动
+
+触摸板和一些鼠标 (比如我的Microsooft Arch) 是支持水平滚动界面的, 但VSCode默认禁止水平
+滚动, 只能滑动底下的滑条来左右滑, 但这个选项可以打开.
+
+:heavy_check_mark: 设置方法: 在设置中搜索`workbench.tree.horizontalScrolling`,
+设置为**true**
