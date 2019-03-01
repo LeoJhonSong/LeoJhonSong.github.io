@@ -10,6 +10,7 @@ if "%1"=="c" goto chinese
 if "%1"=="ne" %hexo% new %2
 if "%1"=="nc" %hexo% new %2 --config _config.yml,_config.zh-CN.yml
 if "%1"=="na" %hexo% new %2 && %hexo% new %3 --config _config.yml,_config.zh-CN.yml && multi-language.py %2 %3
+if "%1"=="clean" %hexo% clean
 goto end
 
 :generateDeployAll
