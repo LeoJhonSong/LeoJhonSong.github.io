@@ -1,7 +1,5 @@
 {
-    "files.eol": "\n",
-    "files.associations": {
-        "string": "cpp"
-    },
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "markdown.extension.toc.levels": "1..6",
+    "markdown.extension.toc.orderedList": true
 }

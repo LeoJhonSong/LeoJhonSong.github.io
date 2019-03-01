@@ -8,12 +8,100 @@ categories:
 
 <!-- More -->
 
-<!-- TODO -->
+1. [apt](#apt)
+   1. [源列表备份与恢复](#源列表备份与恢复)
+   2. [换源](#换源)
+   3. [软件列表更新](#软件列表更新)
+   4. [软件升级](#软件升级)
+   5. [软件安装](#软件安装)
+   6. [软件卸载](#软件卸载)
+2. [环境变量](#环境变量)
+3. [文本编辑](#文本编辑)
+   1. [只打一行](#只打一行)
+4. [文件权限设置](#文件权限设置)
+5. [删除](#删除)
+6. [复制](#复制)
+7. [后台运行](#后台运行)
+8. [链接](#链接)
 
-<!-- apt-get install remove update upgrade
-source
-chmod
-rm
-ln
-cp
-& -->
+# apt
+
+apt: **Advanced Packaging Tools**
+
+## 源列表备份与恢复
+
+:exclamation: 我建议换源之前做好备份. 使用如下命令可备份**source.list**至
+**source.list_backup**. 甚至再谨慎一些每次更新源列表后都可以做一份备份, 在文件名中
+加入时间或者更新信息来作区分.
+
+```shell
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+```
+
+如果哪天把源列表弄脏了可以随时用一下命令恢复.
+
+```shell
+sudo cp /etc/apt/sources.list_backup /etc/apt/sources.list
+```
+
+## 换源
+
+```shell
+sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+```
+
+另一种换源方式是进入source.list进行修改, 参见以下链接.
+
+:link: [中科大Ubuntu镜像使用帮助](https://lug.ustc.edu.cn/wiki/mirrors/help/ubuntu)
+
+(我对这个和我校校名只有一字之差的学校还是很有好感:smile:)
+
+## 软件列表更新
+
+```shell
+sudo apt update
+```
+
+## 软件升级
+
+```shell
+sudo apt upgrade
+```
+
+:warning: 需在运行`sudo apt update`后运行
+
+## 软件安装
+
+```shell
+sudo apt install [package]
+```
+
+## 软件卸载
+
+```shell
+sudo apt remove [package]
+```
+
+# 环境变量
+
+# 文本编辑
+
+## 只打一行
+
+# 文件权限设置
+
+chmod (change mode)
+
+# 删除
+
+rm (remove)
+
+# 复制
+
+cp (copy)
+
+# 后台运行
+
+# 链接
+
+ln (link)
