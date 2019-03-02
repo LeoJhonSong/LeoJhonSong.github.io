@@ -97,3 +97,5 @@ M = (int(image[i, j-1]) + int(image[i, j]) + int(image[i, j+1])) if 0<j<w-1 else
 # 迭代中的计数器记得归零
 
 # python中赋值的坑
+
+# python写入中文字符串变乱码
