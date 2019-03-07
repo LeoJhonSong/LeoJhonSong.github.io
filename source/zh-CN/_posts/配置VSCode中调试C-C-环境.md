@@ -120,3 +120,6 @@ C:\Users\LeoJh>gcc
 就能体验到很强大的支持了.
 
 # 配置文件
+
+在有些教程中, 要在VSCode中开发C/C++需要配置`c_cpp_properties.json`, `tasks.json`,
+`launch.json`三样, 但现在不是这样了! :tada: 
