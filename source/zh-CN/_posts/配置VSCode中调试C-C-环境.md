@@ -9,177 +9,114 @@ categories: 工具
 <a href='{{ location.host }}/zh-CN/配置VSCode中调试C-C-环境'><code>中文</code></a>
 </div>
 
-软件这东西更新太快了, 别人的教程总有自己这里不适用的地方:cry:, 记录一下自己配置VSC
-下C/C++的过程.
+这里是为我在VSCode插件市场发布的
+[C/C++扩展包](https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack)
+写的Windows下VSCode中C/C++配置教程:tada:
 
 <!-- More -->
 
-> 基本参照[这个](https://blog.csdn.net/bat67/article/details/81268581)和
-> [这个](https://www.zhihu.com/question/30315894). 当然VSC的
-> [官方指导](https://code.visualstudio.com/docs/languages/cpp)也是很OK的
+实际上在[VSCode的说明文档中C++部分](https://code.visualstudio.com/docs/languages/cpp)
+对如何配置环境有十分详细的说明, 本文仅是对其的部分整理和解读:smile: 因此如果你的能力足够看
+官方文档当然是更好的选择:thumbsup:
 
-由于我已经用了一阵子VSC了, 最近才开始学着写一点C/C++, 所以跳过了一点步骤.
-另外我也蛮庆幸我一开始用VSC主要是在写Python, Web什么的, 而我那打主意用VSC写点C/C++
-的同学一看到如此麻烦的配置就放弃VSC了:smirk:
+P.S.其实只要右键翻译成中文我觉得不难懂...
 
-# 下载安装LLVM和MinGW-w64
+1. [准备工作](#准备工作)
+   1. [编译器](#编译器)
+      1. [安装](#安装)
+      2. [添加至Path](#添加至path)
+      3. [测试](#测试)
+   2. [VSCode插件](#vscode插件)
+2. [配置文件](#配置文件)
 
-emmmmm我是真的很无语了, 看知乎那篇文章气势汹汹我一开始还无脑地跟着做, 后来我我才发现根本不需要
-下clang而且我按他说的在`tasks.json`里command填的**clang++**而不是**g++**结果反而不对:roll_eyes:
-好吧也可能是我才疏学浅吧.
+# 准备工作
 
-虽然clang排不上大用处, 但VSC里几个lint插件似乎都基于clang, 因此也不能说白下了:man_facepalming:
+VSCode本身只是一个编辑器, 也就是一个记事本, 是不包含编译器的. 即便我们安装了cpptools
+这个扩展, 他也并没有为我们安装编译器 (如果你想看看cpptools这个扩展里都有什么可以前往
+自己电脑的 **%HOMEPATH%\\.vscode\extensions**, 找到**ms-vscode.cpptools** 去看看)
 
-虽然知乎文章中推荐下**MinGW-w64** 而不是**MinGW**, 看样子是担心MinGW太久没有更新会与哪里不兼容吧?
-但我前阵子摆弄的时候已经下了一个MinGW...
-看了看感觉不是MinGW-w64, 但我懒得折腾了, 目前来看没有问题 (而且那位知乎博主也只是说不推荐):smile:
-因此我只是把**MinGW/bin**添加到了**path**里, 并没有复制任何东西到LLVM.
+## 编译器
 
-:heavy_check_mark: 下载链接:
+因此第一步我们需要安装编译器. 编译器不止一家, 在VSCode官方文档中推荐的是:
 
-- [LLVM](https://link.zhihu.com/?target=http%3A//releases.llvm.org/download.html)
-  选**Pre-Built Binaries**中的Clang for Windows (64-bit)，不需要下.sig文件
-- [MinGW-w64](https://link.zhihu.com/?target=https%3A//sourceforge.net/projects/mingw-w64/)
+- Windows平台: [MinGW-w64](https://sourceforge.net/projects/mingw-w64/)
 
-然后按文中方法测试一下clang是否安装成功
-:warning: 我遇到了命令行中测试成功但在VSC的终端测试失败的情况, 重启一次问题解决了.
+  :warning: 要注意另有一个叫MinGW的东西, 虽然功能差不多, 但那个已经很久没更新了,
+  安装没MinGW-w64容易, 还不是官宣, 因此不推荐. 后面所说的MinGW实际指的是MinGW-w64, 我
+  只是懒得打那么多字了
 
-# 安装VSC插件
+- macOS: [clang](http://releases.llvm.org/download.html)
+- Linux: [gcc](https://gcc.gnu.org/)
 
-## 必装插件
+:exclamation:因为我没钱买Mac, 暂时也没需求在Linux配置VSCode, 本文仅针对**Windows**
+平台, 当然也可以作为其他平台的参考. 甚至[有人在树莓派安装VSCode](https://pimylifeup.com/raspberry-pi-visual-studio-code/).
 
-- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+### 安装
 
-## 推荐插件
+将MinGW-w64下载下来之后点击安装, 以下几点要注意, 其余选项默认即可:
 
-- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) : 
-  拿来编译可执行文件不错的, 只是打不了断点罢了
-  (反正会在VSC写的C/C++程序只会是小程序, 大型工程还是VS走着)
-- [vscode-clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) : LLVM官方出品, 我觉得OK
+- 安装向导第一页有一项是选择`Architecture` (即电脑的架构, 此处i386代指32位电脑,
+  x86_64代指64位电脑), 此处选择**x86_64**. (当然如果你的电脑竟然是32位的话不用变)
 
-## 配置配置文件和task文件
+  :heavy_check_mark: 如何查看自己电脑是32位还是64位?
 
-:warning: 好了! 前面几步做完了就可以不去看那篇知乎文章的长篇大论了, 就看那位CSDN博主的方案就可以啦
+  Windows10的话, 前往 **设置** > **系统** > **关于** > **设备规格** > **系统类型**
 
-在VSC中打开一个C/C++文件后点侧边栏的`debug`一栏, 一个刚由VSC接手的工作区或者刚建立的项目
-需要先添加配置文件. 添加`(gdb)Launch`即可.
+  其他Windows的话上网搜索一下好啦 :wink:
 
-**launch.json**中大部分变量变量的含义知乎博主解释得蛮清楚, 整理如下 (不知含义的没有列出) :
+- 安装在哪里都可以, 但一定要是你找得到的地方, 因为安装完成后还要手动将MinGW加入**Path**.
 
-| 变量 | 建议值 | 含义 |
-| --- | ------ | ---- |
-| **name** | "(gdb) Launch" | 配置名称，将会在启动配置的下拉菜单中显示
-|**type** | "cppdbg" | 配置类型，这里只能为cppdbg
-|**request"** | "launch"| 请求配置类型，可以为**launch**（启动）或**attach**（附加）
-|`program` | "\${fileDirname}/${fileBasenameNoExtension}.exe"| 将要进行调试的程序的路径
-|**args** | []| 程序调试时传递给程序的命令行参数，一般设为空即可
-|`stopAtEntry` | false | 设为true时程序将暂停在程序入口处，我一般设置为true
-|**cwd** | "${workspaceFolder}" | 调试程序时的工作目录
-|**externalConsole**| true | 调试时是否显示控制台窗口，一般设置为true显示控制台
-|**internalConsoleOptions**| "neverOpen" | 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，你应该不需要对gdb手动输命令吧？
-|**MIMode**| "gdb"| 指定连接的调试器，可以为gdb或lldb。但目前lldb在windows下没有预编译好的版本。
-|**miDebuggerPath**| "gdb.exe"| 调试器路径，Windows下后缀不能省略，Linux下则去掉
-|`preLaunchTask`| "Compile" | 调试会话开始前执行的任务，一般为编译程序。与tasks.json的label相对应
+### 添加至Path
 
-`框起来`的几个是重点.
+安装完毕后我们需要将MinGW添加至**Path**, 这样我们通过命令行就可以调用它啦 (VSCode编译/调试
+C/C++程序实际上就是在内置命令行中调用MinGW)
 
-总之这几个文件就按照CSDN博主写的那样就可以了.
+要将什么路径添加到**Path**呢? 因为添加到Path的路径是要调用的程序的exe文件所在的文件夹
+比如我将MinGW安装到了 **D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0**
+这个文件夹下, 那么我将
+**D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin**加入环境变量.
+你会看到我们将要调用的`gcc`和`g++`两个程序正在其中.
 
-# 附录
+:link: 关于如何添加系统变量, [这篇百度知道](https://jingyan.baidu.com/article/ca41422f17107a1eaf99ed64.html)应该就够了
 
-啊! 夜深了, 懒得写了. 附上我的`c_cpp_properties.json`, `launch.json`, `tasks.json`:
+### 测试
 
-:heavy_check_mark: 值得一提的是, `.vscode`这个文件夹并不一定要放在你的工作区根目录, 可以再往上放几层,
-这样就减轻了我们每开一个C/C++项目就要配置一番的麻烦.
+这之后! 我们测试一下, 在命令行输入`gcc`
 
-**c_cpp_properties.json**:
+:heavy_check_mark: 你看到的应当是:
 
-```json
-{
-    "configurations": [
-        {
-            "name": "MinGW",
-            "intelliSenseMode": "clang-x64",
-            "compilerPath": "C:/MinGW/bin/gcc.exe",
-            "includePath": [
-                "${workspaceFolder}",
-                "${vcpkgRoot}/x64-windows/include"
-            ],
-            "defines": [],
-            "browse": {
-                "path": [
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
-            },
-            "cStandard": "c11",
-            "cppStandard": "c++17"
-        }
-    ],
-    "version": 4
-}
+```shell
+C:\Users\LeoJh>gcc
+gcc: fatal error: no input files
+compilation terminated.
 ```
 
-**launch.json**:
+这是说gcc被成功唤起,我们已经成功完成编译器的配置了, 但你没告诉它要编译的文件路径, 所以他就报错了.
 
-```json
-{
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "Compile"
-        }
-    ]
-}
+:x:而如果你看到的是:
+
+```shell
+C:\Users\LeoJh>gcc
+'gcc' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
 ```
 
-**tasks.json**:
+这是说无法从命令行调用gcc. 一种情况是没有把正确的路径加入**Path**, 另一种情况是该换电脑了
+:grin:
 
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Compile",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "-g",
-                "-Wall",
-                "-std=c++17"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
+## VSCode插件
+
+搞定了编译器我们就离完成不远了! 实际上你现在已经可以开始开发C/C++了, 只不过是硬核一些.
+不信你可以搓一段hello world放进一个.c文件, 比如**test.c**, 在该文件所在文件夹空白处
+按住`shift`同时按右键, 在此打开powershell, 输入`gcc test.c`, 然后你就会发现文件夹里
+多了一个**a.exe**. 这便是编译好的可执行文件了!
+
+但这样无论是编辑还是编译还是调试体验都太差了, 于是我们安装一些好用的扩展提高效率.
+
+因为我并不常在VSCode中编写C/C++, 因此[我的扩展包](https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack)
+中并没有几个插件. 但我认为这几个很不错的:smile:
+
+当然你看不上我的扩展包也没事:cry:只需要安装了[官方C/C++支持扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+就能体验到很强大的支持了.
+
+# 配置文件
