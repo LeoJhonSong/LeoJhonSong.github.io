@@ -28,6 +28,9 @@ P.S.其实只要右键翻译成中文我觉得不难懂...
       3. [测试](#测试)
    2. [VSCode插件](#vscode插件)
 2. [配置文件](#配置文件)
+   1. [配置IntelliSence](#配置intellisence)
+   2. [配置编译配置文件](#配置编译配置文件)
+   3. [配置调试配置文件](#配置调试配置文件)
 
 # 准备工作
 
@@ -122,4 +125,15 @@ C:\Users\LeoJh>gcc
 # 配置文件
 
 在有些教程中, 要在VSCode中开发C/C++需要配置`c_cpp_properties.json`, `tasks.json`,
-`launch.json`三样, 但现在不是这样了! :tada: 
+`launch.json`三样, 但现在不是这样了! :tada: 现在`c_cpp_properties.json`已经完全被
+`settings.json`取代了, 也就是说在设置中就可以进行原来在`c_cpp_properties.json`中进行的
+配置!
+
+:link:关于设置取代了`c_cpp_properties.json`的说明参见[这里](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md),
+另外给出对原本可以在`c_cpp_properties.json`中配置的内容的描述的[链接](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md)
+
+## 配置IntelliSence
+
+## 配置编译配置文件
+
+## 配置调试配置文件
