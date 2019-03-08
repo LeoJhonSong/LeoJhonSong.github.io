@@ -30,7 +30,13 @@ P.S.其实只要右键翻译成中文我觉得不难懂...
 2. [配置文件](#配置文件)
    1. [配置IntelliSence](#配置intellisence)
    2. [配置编译配置文件](#配置编译配置文件)
+      1. [合起来!](#合起来)
    3. [配置调试配置文件](#配置调试配置文件)
+      1. [调试对象](#调试对象)
+      2. [Debugger路径及选项](#debugger路径及选项)
+      3. [启动前编译](#启动前编译)
+      4. [合起来!](#合起来-1)
+3. [Enjoy](#enjoy)
 
 # 准备工作
 
@@ -132,8 +138,189 @@ C:\Users\LeoJh>gcc
 :link:关于设置取代了`c_cpp_properties.json`的说明参见[这里](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md),
 另外给出对原本可以在`c_cpp_properties.json`中配置的内容的描述的[链接](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md)
 
+:warning: 以下配置文件内容都以我的配置文件为例
+
 ## 配置IntelliSence
+
+正如前面所说, 我们不需要VSCode就可以编译/调试C/C++, 因此能够提供智能补全功能的
+IntelliSence是**cpptools**这个插件很重要的一部分, 通过在`settings.json` (原本是
+`c_cpp_properties.json`)中进行设置来设定IntelliSense的模式. 主要设置以下几个:
+
+```json
+"C_Cpp.autocomplete": "Default",
+"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+"C_Cpp.default.cStandard": "c99",
+"C_Cpp.default.cppStandard": "c++11",
+"C_Cpp.default.intelliSenseMode": "gcc-x64",
+"C_Cpp.intelliSenseEngine": "Default",
+"C_Cpp.errorSquiggles": "Enabled",
+```
 
 ## 配置编译配置文件
 
+然后配置编译用的`tasks.json`.
+
+:heavy_check_mark: 这个文件和之后配置的`launch.json`都是针对特定程序的,
+如何生成这两个文件请参见VSCode官方文档. 但你可以将满意的`tasks.json`和`launch.json`放
+在一个包含许多工程的目录中, 那么这些工程都将使用这两个配置文件. 如果你想给这之中某个工程
+配置不同的配置你可以在这个工程的根目录另外生成`tasks.json`和`launch.json`, 会覆盖上一层
+的配置.
+
+当你跟随VSCode官方文档创建了一个 `tasks.json` 之后, 将下面这个任务添加到tasks的列表,
+至于自带的label为 **echo** 的任务你可以删掉或者不管他.
+
+```json
+{
+   "label": "Compile",
+   "type": "shell",
+   "command": "gcc",
+   "args": [
+         "${file}",
+         "-o",
+         "${fileDirname}/${fileBasenameNoExtension}.exe",
+         "-g",
+         "-Wall",
+         "-std=c++17"
+   ],
+   "group": {
+         "kind": "build",
+         "isDefault": true
+   }
+}
+```
+
+`label`的意思是给这个任务取名为**Compile**, [稍后](#启动前编译)会用到.
+
+从中我们可以看出实际上当我们调用这个叫**Compile**的task的时候会在shell中输入:
+
+```shell
+gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension}.exe -g -Wall -std=c++17
+```
+
+其中**${file}**等是[VSCode中定义的变量](https://code.visualstudio.com/docs/editor/variables-reference)
+
+`-o`选项使我们可以[指定生成文件的名字](http://www.runoob.com/note/28613)
+
+其他几个选项可以上网查查.
+
+`group`这里的配置是我们能通过快捷键 `Ctrl+shift+B`来执行该任务.
+参见[这里](https://code.visualstudio.com/docs/editor/tasks#_typescript-hello-world)
+
+### 合起来!
+
+因此我的 `tashs.json` 长这样:
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-g",
+                "-Wall",
+                "-std=c++17"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
 ## 配置调试配置文件
+
+最后配置的这个是`launch.json`. 实际上这很简单, 因为VSCode已经提供了很多种模板, 需要
+改动的非常少.
+
+通常我们选择 **(gdb) Launch** 这种模板. Launch指的是要调试的程序是在开始调试时才开始运行,
+Attach指的是开始调试时程序已经在运行了 (比如在服务器上的程序)
+
+需要改动/添加的非常少:
+
+### 调试对象
+
+```json
+"program": "${workspaceFolder}/a.exe"
+```
+
+`program`指的是要调试的程序. 如果不特别指出的话大多数编译器默认将编译出来的可执行文件
+命名为 **a.exe**. 而如果你的`tasks.json`也像我一样加了
+"-o \${fileDirname}/${fileBasenameNoExtension}.exe" 这个选项的话, 将会生成和源文件
+同名的可执行文件, 因此要用:
+
+```json
+"program": "${workspaceFolder}/${fileBasenameNoExtension}.exe"
+```
+
+### Debugger路径及选项
+
+如果你在命令行输入 `gdb` 你会发现首先映入眼帘的是一串废话, 因此我们可以加上`-q`这个选项
+来让它少说废话.
+
+```json
+"miDebuggerPath": "gdb.exe",
+"miDebuggerArgs": "-q"
+```
+
+### 启动前编译
+
+如果你担心自己忘记每次调试前先编译一遍已更改的代码 (不然你会哭出声响), 可以添加一个
+**preLaunchTask**, 这个task指定为刚配置的那个**Compile**任务.
+这样每次调试前程序都会被先编译一遍:thumbsup:
+
+```json
+"preLaunchTask": "Compile"
+```
+
+### 合起来!
+
+因此我的`launch.json`长这样:
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe",
+            "miDebuggerArgs": "-q",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Compile"
+        }
+    ]
+}
+```
+
+# Enjoy
+
+这下我们可以轻松愉快的开发C/C++了! 祝各位水平日益提高:tada:
