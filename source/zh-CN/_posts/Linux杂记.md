@@ -68,15 +68,34 @@ sudo apt remove [package]
 
 # 文件系统
 
-## 链接
-
-ln: link
-
 :link: 在搜索过程中看到
 [这篇文章](https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html),
 感觉对Linux下文件系统描述得很好, 比如其中说
 
 > Linux系统中进程之外皆文件, 即便文件夹也是一个文件, 是记录了其他文件名的文件.
+> 设备也被视为一个文件.
+
+再比如其中说到了
+[Linux系统有多个文件系统](https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html/#major4),
+VFS 作为一个通用的文件系统, 抽象了文件系统的四个基本概念: 文件, 目录项
+(dentry, directory entry的缩写), 索引节点 (inode) 及挂载点.
+
+> 文件名仅是为了方便人们的记忆和使用, 系统或程序通过inode号寻找正确的文件数据块.
+
+## 链接
+
+ln: link
+
+:link: [这里](https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html/#major2)
+有对软链接与硬链接的比较. 其中:
+
+- 软链接以**路径**的形式存在,类似于Windows操作系统中的**快捷方式**. 硬链接以
+  **文件副本**的形式存在, 但不占用实际空间
+- 软链接可以跨文件系统创建，硬链接不可以
+- 软链接可以对一个不存在的文件名进行链接
+- 软链接可以对目录进行链接, 硬链接不可以
+
+暂时还没用过这条指令, 记下[命令讲解](http://www.runoob.com/linux/linux-comm-ln.html)
 
 ## 复制
 
@@ -92,6 +111,8 @@ cp: copy
 - -d：复制时建立软链接
 - -f：覆盖已经存在的目标文件而不给出提示
 - -i：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答"y"时目标文件将被覆盖
+
+  :warning:保险起见每次都加上此选项
 - -p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。
 - -r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件
 - -l：建立硬链接, 不复制文件
