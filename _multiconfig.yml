@@ -19,6 +19,7 @@ i18n_dir: ':lang'
 skip_render: null
 new_post_name: ':title.md'
 default_layout: post
+auto_spacing: true
 titlecase: true
 external_link: true
 filename_case: 0
