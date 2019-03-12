@@ -16,6 +16,10 @@ categories:
    5. [软件安装](#软件安装)
    6. [软件卸载](#软件卸载)
 2. [解压/压缩](#解压压缩)
+   1. [常见选项](#常见选项)
+   2. [列出压缩文件内容](#列出压缩文件内容)
+   3. [解压文件](#解压文件)
+   4. [压缩文件](#压缩文件)
 3. [环境变量](#环境变量)
 4. [文本编辑](#文本编辑)
    1. [只打一行](#只打一行)
@@ -85,7 +89,36 @@ sudo apt remove [package]
 
 # 解压/压缩
 
-tar: tape archive. `tar` 命令原本是
+tar: tape archive. `tar` 命令原本是用来建立，还原备份文件的工具程序, 但Linux下最常见的
+压缩包就是tar.gz格式的.
+
+## 常见选项
+
+- -c或--create 建立新的备份文件
+- -f<备份文件>或--file=<备份文件> 指定备份文件
+- -t或--list 列出备份文件的内容
+- -v或--verbose 显示指令执行过程
+- -x或--extract或--get 从备份文件中还原文件
+- -z或--gzip或--ungzip 通过gzip指令处理备份文件
+
+## 列出压缩文件内容
+
+```shell
+tar -tzvf test.tar.gz
+```
+
+## 解压文件
+
+```shell
+tar -xzvf test.tar.gz
+```
+
+## 压缩文件
+
+```shell
+touch a
+tar -czvf test.tar.gz a   #压缩 a文件为test.tar.gz
+```
 
 # 环境变量
 
