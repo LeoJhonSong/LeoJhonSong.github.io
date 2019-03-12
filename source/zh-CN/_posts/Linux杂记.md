@@ -40,13 +40,13 @@ sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 (我对这个和我校校名只有一字之差的学校还是很有好感:smile:)
 
-## 软件列表更新
+## 包列表更新
 
 ```shell
 sudo apt update
 ```
 
-## 软件升级
+## 包升级
 
 ```shell
 sudo apt upgrade
@@ -54,13 +54,21 @@ sudo apt upgrade
 
 :warning: 需在运行`sudo apt update`后运行
 
-## 软件安装
+## 包搜索
+
+这怕是少数几条不用sudo的`apt`命令
+
+```shell
+apt search [package]
+```
+
+## 包安装
 
 ```shell
 sudo apt install [package]
 ```
 
-## 软件卸载
+## 包卸载
 
 ```shell
 sudo apt remove [package]
@@ -116,6 +124,14 @@ cp: copy
 - -p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。
 - -r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件
 - -l：建立硬链接, 不复制文件
+
+### 正则使用举例
+
+将目录 **/usr/men** 中的以`m`打头的所有`.c`文件复制到目录 **/usr/zh** 中
+
+```shell
+cp /usr/men m*.c /usr/zh
+```
 
 ## 删除
 
@@ -181,6 +197,36 @@ tar -czvf test.tar.gz a   #压缩 a文件为test.tar.gz
 # 环境变量
 
 # 文本编辑
+
+## 显示文件内容
+
+cat: concatenate
+
+### 常用选项
+
+- -n 或 --number：由 1 开始对所有输出的行数编号。
+
+- -b 或 --number-nonblank：和 -n 相似，只不过对于空白行不编号。
+
+### 用一些文件的内容覆盖目标文件
+
+```shell
+cat [file1] [file2] > [target_file]
+```
+
+cat -n textfile1 > textfile2
+把 textfile1 和 textfile2 的文档内容加上行号（空白行不加）之后将内容附加到 textfile3 文档里：
+
+cat -b textfile1 textfile2 >> textfile3
+清空 /etc/test.txt 文档内容：
+
+cat /dev/null > /etc/test.txt
+cat 也可以用来制作镜像文件。例如要制作软盘的镜像文件，将软盘放好后输入：
+
+cat /dev/fd0 > OUTFILE
+相反的，如果想把 image file 写到软盘，输入：
+
+cat IMG_FILE > /dev/fd0
 
 ## 只打一行
 
