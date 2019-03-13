@@ -146,13 +146,13 @@ rm: remove
 ### 删除文件
 
 ```shell
-rm test.txt
+rm [path/to/file] [path/to/another/file]
 ```
 
 ### 删除文件夹
 
 ```shell
-rm -r test
+rm -r [path/to/folder]
 ```
 
 ### 删除当前文件夹下所有文件及文件夹
@@ -178,20 +178,19 @@ tar: tape archive. `tar` 命令原本是用来建立，还原备份文件的工�
 ### 列出压缩文件内容
 
 ```shell
-tar -tzvf test.tar.gz
+tar -tzvf [source.tar.gz]
 ```
 
 ### 解压文件
 
 ```shell
-tar -xzvf test.tar.gz
+tar -xzvf [source.tar.gz]
 ```
 
 ### 压缩文件
 
 ```shell
-touch a
-tar -czvf test.tar.gz a   #压缩 a文件为test.tar.gz
+tar -czvf [target.tar.gz] [file1] [file2] [file3]
 ```
 
 # 环境变量
@@ -208,25 +207,36 @@ cat: concatenate
 
 - -b 或 --number-nonblank：和 -n 相似，只不过对于空白行不编号。
 
-### 用一些文件的内容覆盖目标文件
+### 镜像
+
+cat 也可以用来制作镜像文件. 例如要制作软盘的镜像文件, 将软盘放好后输入：
+
+```shell
+cat /dev/fd0 > [OUTFILE]
+```
+
+相反的, 如果想把 image file 写到软盘, 输入：
+
+```shell
+cat [IMG_FILE] > /dev/fd0
+```
+
+## 用一些文件的内容覆盖目标文件
 
 ```shell
 cat [file1] [file2] > [target_file]
 ```
 
-cat -n textfile1 > textfile2
-把 textfile1 和 textfile2 的文档内容加上行号（空白行不加）之后将内容附加到 textfile3 文档里：
+## 将一些文件内容添加到目标文件
 
-cat -b textfile1 textfile2 >> textfile3
-清空 /etc/test.txt 文档内容：
+```shell
+cat [file1] [file2] >> [target_file]
+```
 
-cat /dev/null > /etc/test.txt
-cat 也可以用来制作镜像文件。例如要制作软盘的镜像文件，将软盘放好后输入：
+## 清空文件内容
 
-cat /dev/fd0 > OUTFILE
-相反的，如果想把 image file 写到软盘，输入：
+cat /dev/null > [target_file]
 
-cat IMG_FILE > /dev/fd0
 
 ## 只打一行
 
