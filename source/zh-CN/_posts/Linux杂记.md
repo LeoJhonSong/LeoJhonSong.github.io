@@ -195,6 +195,61 @@ tar -czvf [target.tar.gz] [file1] [file2] [file3]
 
 # 环境变量
 
+## 查看环境变量
+
+### 查看所有环境变量
+
+```shell
+export -p
+```
+
+### 查看PATH
+
+```shell
+echo $PATH
+```
+
+## 添加路径到PATH
+
+### 临时添加
+
+```shell
+export PATH=$PATH:[path/to/append]
+```
+
+:warning: 应注意export命令仅作用于当前终端.
+
+### 非临时添加
+
+在Linux系统中最常见与环境配置有关的文件是四个shell初始化文件, 他们的比较如下:
+
+:warning: 在Ubuntu, Debian以外的系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
+
+:warning: 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 如果这
+两个文件存在的话`~/.profile`不会被加载, 因此要将里面对应内容合并入相应的初始化文件.
+
+:exclamation: 有一点要说明: shell不止一种, 大多数Linux系统默认shell为
+**Bourne shell**, **Bash shell**似乎也是所有Linux发行版都默认安装了的. 比较著名的还有
+**Z shell** (Zsh), **friendly interactive shell** (fish).
+
+|`/etc/profile`|`/etc/bash.bashrc`|`~/.profile`|`~/.bashrc`|
+|-|-|-|-|
+|系统级|系统级|用户级|用户级|
+|
+
+
+## 删除一个环境变量
+
+### 临时删除
+
+```shell
+export -n [VARIABLE]
+```
+
+### 非临时删除
+
+参考非临时添加的操作.
+
 # 文本编辑
 
 ## 显示文件内容
@@ -221,24 +276,39 @@ cat /dev/fd0 > [OUTFILE]
 cat [IMG_FILE] > /dev/fd0
 ```
 
-## 用一些文件的内容覆盖目标文件
+## 覆盖目标文件的写入
+
+### 写入一些文件的内容
 
 ```shell
 cat [file1] [file2] > [target_file]
 ```
 
-## 将一些文件内容添加到目标文件
+### 写入一个字符串
+
+```shell
+echo ["string"] > [target_file]
+```
+
+## 添加到目标文件的写入
+
+### 写入一些文件的内容
 
 ```shell
 cat [file1] [file2] >> [target_file]
 ```
 
+### 写入一个字符串
+
+```shell
+echo ["string"] >> [target_file]
+```
+
 ## 清空文件内容
 
+```shell
 cat /dev/null > [target_file]
-
-
-## 只打一行
+```
 
 # 文件权限设置
 
