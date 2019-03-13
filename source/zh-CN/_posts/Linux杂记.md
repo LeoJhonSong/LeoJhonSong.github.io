@@ -223,20 +223,22 @@ export PATH=$PATH:[path/to/append]
 
 在Linux系统中最常见与环境配置有关的文件是四个shell初始化文件, 他们的比较如下:
 
+:exclamation: 有一点要说明: shell不止一种, 大多数Linux系统默认shell为
+**Bash shell**, 似乎**Bourne shell**是许多Unix系统默认的shell. 比较著名的还有
+**Z shell** (Zsh), **friendly interactive shell** (fish).
+
+| |`/etc/profile`|`/etc/bash.bashrc`|`~/.profile`|`~/.bashrc`|
+|-|-|-|-|-|
+|等级|系统级|系统级|用户级|用户级|
+|interactive login shell|自动加载|不自动加载|自动加载|不自动加载|
+|interactive no-login shell|不自动加载|自动加载|不自动加载|自动加载|
+|non-interactive no-login shell|不自动加载|不自动加载|不自动加载|不自动加载|
+||不自动加载|自动加载|不自动加载|自动加载|
+
 :warning: 在Ubuntu, Debian以外的系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
 
 :warning: 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 如果这
 两个文件存在的话`~/.profile`不会被加载, 因此要将里面对应内容合并入相应的初始化文件.
-
-:exclamation: 有一点要说明: shell不止一种, 大多数Linux系统默认shell为
-**Bourne shell**, **Bash shell**似乎也是所有Linux发行版都默认安装了的. 比较著名的还有
-**Z shell** (Zsh), **friendly interactive shell** (fish).
-
-|`/etc/profile`|`/etc/bash.bashrc`|`~/.profile`|`~/.bashrc`|
-|-|-|-|-|
-|系统级|系统级|用户级|用户级|
-|
-
 
 ## 删除一个环境变量
 
