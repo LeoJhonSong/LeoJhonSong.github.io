@@ -243,6 +243,8 @@ export PATH=$PATH:[path/to/append]
 |作用于哪些shell|Bourne系shell|仅Bash|Bourne系shell|仅Bash|
 |加载顺序|先|先|后|后|
 
+:link:关于何时哪个文件会被加载也可以参考[这里](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_02.html)
+
 :warning: 在有些系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
 
 :warning: `/etc/profile`仅针对Bourne系shell是指当shell为Bourne Shell, Bash, ksh
@@ -255,7 +257,7 @@ export PATH=$PATH:[path/to/append]
 
 :warning: 当**bashrc**一系和**profile**一系都会被加载时两者哪个会先被加载并不
 一定, 有点玄学... 经我测试运行`bash -cl bash` **profile**一系会先被加载, 而运行
-`bash -c bash`则**bashrc**一系会先被加载:man_facepalming: 但很明确的一点是:
+`bash -l`则**bashrc**一系会先被加载:man_facepalming: 但很明确的一点是:
 系统级初始化文件一定会先与用户级文件被加载. 即便根据应当允许用户个性化设置这种尝试也能
 推断出 (用户级初始化文件后于系统级初始化文件被加载, 所以用户级文件中的配置会覆盖系统级
 文件的对应配置)
