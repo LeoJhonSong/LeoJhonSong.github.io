@@ -209,6 +209,16 @@ export -p
 echo $PATH
 ```
 
+### 查看当前运行shell
+
+```shell
+echo $SHELL
+```
+
+:exclamation: shell不止一种, 大多数Linux系统默认shell为
+**Bash shell** (Bourne Again shell), 似乎**Bourne shell**仍是许多Unix系统默认的shell. 比较著名的还有
+**Z shell** (Zsh), **friendly interactive shell** (fish).
+
 ## 添加路径到PATH
 
 ### 临时添加
@@ -221,24 +231,44 @@ export PATH=$PATH:[path/to/append]
 
 ### 非临时添加
 
-在Linux系统中最常见与环境配置有关的文件是四个shell初始化文件, 他们的比较如下:
+在Linux系统中最常见与环境配置有关的文件是四个shell初始化文件, 想要添加环境变量最常见的
+方法就是将命令添加到适当文件中, 这样每当shell被唤起, 在初始化时, 环境变量都会被添加进去.
+但但不同情况下会加载不同的初始化文件, 究竟需要更改哪一个/几个呢? 他们的比较如下:
 
-:exclamation: 有一点要说明: shell不止一种, 大多数Linux系统默认shell为
-**Bash shell**, 似乎**Bourne shell**是许多Unix系统默认的shell. 比较著名的还有
-**Z shell** (Zsh), **friendly interactive shell** (fish).
 
 | |`/etc/profile`|`/etc/bash.bashrc`|`~/.profile`|`~/.bashrc`|
 |-|-|-|-|-|
 |等级|系统级|系统级|用户级|用户级|
-|interactive login shell|自动加载|不自动加载|自动加载|不自动加载|
-|interactive no-login shell|不自动加载|自动加载|不自动加载|自动加载|
-|non-interactive no-login shell|不自动加载|不自动加载|不自动加载|不自动加载|
-||不自动加载|自动加载|不自动加载|自动加载|
+|自动加载的情况|login shell|interactive shell|login shell|interactive shell|
+|作用于哪些shell|Bourne系shell|仅Bash|Bourne系shell|仅Bash|
+|加载顺序|先|先|后|后|
 
-:warning: 在Ubuntu, Debian以外的系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
+:warning: 在有些系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
 
-:warning: 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 如果这
-两个文件存在的话`~/.profile`不会被加载, 因此要将里面对应内容合并入相应的初始化文件.
+:warning: `/etc/profile`仅针对Bourne系shell是指当shell为Bourne Shell, Bash, ksh
+等的时候`/etc/profile`才可能被加载, 而当我唤起一个**zsh**时, **以上四个初始化文件都没有被加载**
+:man_shrugging:
+
+:warning: 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 系统会
+依次查找`~/.bash_profile`, `~/.bash_login` 和 `~/.profile`这三个配置文件, 读取和执行
+这三个中的**第一个**存在且可读的文件中命令, 因此建议将三个合并为一个.
+
+:warning: 当**bashrc**一系和**profile**一系都会被加载时两者哪个会先被加载并不
+一定, 有点玄学... 经我测试运行`bash -cl bash` **profile**一系会先被加载, 而运行
+`bash -c bash`则**bashrc**一系会先被加载:man_facepalming: 但很明确的一点是:
+系统级初始化文件一定会先与用户级文件被加载. 即便根据应当允许用户个性化设置这种尝试也能
+推断出 (用户级初始化文件后于系统级初始化文件被加载, 所以用户级文件中的配置会覆盖系统级
+文件的对应配置)
+
+:heavy_check_mark:有关四种shell模式个人感觉坑挺多的:
+
+- **login shell**: 笼统地理解就是有**输入用户名和密码**这一过程才能进入的shell, 比如
+  **通过ssh访问远程服务器**, 否则
+  就是**non-login shell** 但是! 比如**通过`su`切换用户**时默认进入的是**non-login shell**,
+  如需切换用户进入login shell需要加选项`-l`:man_facepalming: 还有, 经过GitHub
+  广大网友建议, **进入WSL**默认进入的是**login shell**, 即便你并没有输入用户名密码.
+- **interactive shell**指的是你一句电脑一句这样交互式的终端, 而**no-interactive shell**
+  指的是**通过脚本**, **运行`bash -c [command]`**之类指哪打哪和电脑没有交流的shell.
 
 ## 删除一个环境变量
 
