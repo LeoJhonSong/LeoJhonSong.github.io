@@ -272,6 +272,10 @@ export PATH=$PATH:[path/to/append]
 - **interactive shell**指的是你一句电脑一句这样交互式的终端, 而**no-interactive shell**
   指的是**通过脚本**, **运行`bash -c [command]`**之类指哪打哪和电脑没有交流的shell.
 
+- 检测当前是login shell还是non-login shell: 有一个特点是login模式运行的shell进程名
+  第一个字符是-, 因此如果你输入`echo $0`输出的是**-bash**, 那么你就是在login shell中,
+  如果是**bash**, 那就是在non-login shell中.
+
 ## 删除一个环境变量
 
 ### 临时删除
