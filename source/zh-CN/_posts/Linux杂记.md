@@ -8,6 +8,34 @@ categories: 杂记
 
 <!-- More -->
 
+# 查看Linux/Ubuntu版本
+
+## 查看Linux版本
+
+这条提issue时常用到
+
+```
+cat /proc/version
+```
+
+## 查看Ubuntu版本号
+
+```shell
+cat /etc/issue
+```
+
+这个更详细:
+
+```shell
+sudo lsb_release -a
+```
+
+## 查看内核版本
+
+```shell
+uname -r
+```
+
 # apt
 
 apt: **Advanced Packaging Tools**
