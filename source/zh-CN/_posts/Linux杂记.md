@@ -5,6 +5,12 @@ categories: 杂记
 ---
 
 最近使用Linux频繁了起来, 接触到更多各种各样的命令, 然后我脑容量不够了:grin:
+由于有[TLDR](https://github.com/tldr-pages/tldr)这种神器, 在这里并不会无脑记录所有
+看到的命令, 而是小白最常用或者不太容易懂含义的几个命令.
+
+:link:如果弄不清命令的含义, 我在
+[另一篇博客](https://leojhonsong.github.io/zh-CN/%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD%E7%BC%A9%E5%86%99/)
+记录了一些缩写及对应含义, 希望有所帮助.
 
 <!-- More -->
 
