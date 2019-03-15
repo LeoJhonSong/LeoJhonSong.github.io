@@ -356,6 +356,27 @@ cat /dev/null > [target_file]
 
 # 文件权限设置
 
-chmod: change mode
+chmod: change file mode bits
+
+chown: change file owner and group
+
+## 所有人可运行
+
+```shell
+chmod a+x
+```
+
+拥有者, 群组可读写, 运行, 其他用户可读, 执行
+
+```shell
+chmod 755
+```
+
+用一个三位八进制数来表示文件权限, 规定4, 2和1表示读、写、执行权限, 每一位都是这三个数相加
+的结果, 三位分别表示u (user), g (group), o (others).
 
 # 后台运行
+
+后台运行是指即便当前终端被关闭进程也会继续运行. 当进程被切换到后台, 称为**job**
+
+在命令后加 `&`
