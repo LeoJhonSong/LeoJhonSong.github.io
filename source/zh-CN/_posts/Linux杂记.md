@@ -14,17 +14,21 @@ categories: 杂记
 
 <!-- More -->
 
-# 查看Linux/Ubuntu版本
+# 查看版本
 
-## 查看Linux版本
+## 查看内核版本
 
-这条提issue时常用到
-
+```shell
+uname -r
 ```
+
+这条更加详细, 提issue时常用到
+
+```shell
 cat /proc/version
 ```
 
-## 查看Ubuntu版本号
+## 查看发行版版本
 
 ```shell
 cat /etc/issue
@@ -38,9 +42,7 @@ sudo lsb_release -a
 
 ## 查看内核版本
 
-```shell
-uname -r
-```
+
 
 # apt
 
