@@ -262,10 +262,20 @@ echo $SHELL
 ### 临时添加
 
 ```shell
-export PATH=$PATH:[path/to/append]
+export PATH=[path/to/append]:$PATH
 ```
 
 :warning: 应注意export命令仅作用于当前终端.
+
+:bulb: 在有些文档中会使用下面这样的方式来添加路径到PATH, 但我觉得这样不够稳妥. 因为用下面
+这种方式的话如果这个变量原本不存在, 假如我们添加`/usr/bin/bash`到PATH, 那么当我们使用
+`echo $PATH`来查看PATH变量的值会发现其值为 **:/usr/bin/bash**. 这是因为bash会将
+**PATH=**后的视为一整个字符串, 而 **$PATH**是取PATH现在的值的意思. 个人认为`/usr/bin/bash:`
+比`:/usr/bin/bash` OK一些:sweat_smile:
+
+```shell
+export PATH=$PATH:[path/to/append]
+```
 
 ### 永久添加
 
