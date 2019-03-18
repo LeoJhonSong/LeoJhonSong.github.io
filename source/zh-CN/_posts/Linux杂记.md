@@ -132,13 +132,33 @@ sudo apt remove [package]
 
 ##### 需要对包的依赖关系进行修改
 
-在要安装的deb包所在目录中执行:
+1. **在要安装的deb包所在目录中**创建相关文件夹:
 
-```shell
-dpkg -X [package] extract/
-dpkg -e [package] extract/DEBIAN/
-dpkg-deb -b extract/ build/
-```
+   ```shell
+   mkdir extract
+   mkdir extract/DEBIAN
+   mkdir build
+   ```
+
+2. 解压出包中的文件到**extract**目录下:
+
+   ```shell
+   dpkg -X [package] extract/
+   ```
+
+3. 解压出包的控制信息到**extract/DEBIAN/**下:
+
+   ```shell
+   dpkg -e [package] extract/DEBIAN/
+   ```
+
+4. 将修改后的内容重新进行打包生成deb包到**build**目录下:
+
+   ```shell
+   dpkg-deb -b extract/ build/
+   ```
+
+5. 进入**build**文件夹安装修改后的deb包
 
 ### 需要自己编译
 
