@@ -66,10 +66,10 @@ def chinese():
 
 
 def newEnglish():
-    os.system('hexo new' + sys.argv[2])
+    os.system('hexo new' + ' "' + sys.argv[2] + '"')
 
 def newChinese():
-    os.system('hexo new' + sys.argv[2] + '--config _config.yml,_config.zh-CN.yml')
+    os.system('hexo new' + ' "' + sys.argv[2] + '"' + '--config _config.yml,_config.zh-CN.yml')
 
 def newAll():
     os.system('hexo new' + sys.argv[2])
@@ -91,7 +91,7 @@ layer1 = {
 # ##############################################################################
 
 # add hexo to PATH
-os.system('export PATH=$PATH:$(pwd)/node_modules/hexo-cli/bin/')
+os.environ['PATH'] = os.path.abspath('.') + '/node_modules/hexo-cli/bin/' + ':' + os.environ['PATH']
 
 # the main process
 main = layer1[sys.argv[1] if len(sys.argv)>1 else 'default']
