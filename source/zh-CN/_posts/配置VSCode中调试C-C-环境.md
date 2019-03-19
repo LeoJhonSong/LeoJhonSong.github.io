@@ -1,7 +1,9 @@
 ---
 title: 配置VSCode中调试C/C++环境
 date: 2018-12-30 02:43:35
-categories: 工具
+categories:
+- 工具
+- 配置
 ---
 
 <div align='right'>Language:

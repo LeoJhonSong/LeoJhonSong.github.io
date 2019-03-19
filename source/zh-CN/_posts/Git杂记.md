@@ -59,6 +59,12 @@ ssh-keygen -t rsa -C "youremail@example.com"
 git clone [url]
 ```
 
+## 下载特定分支
+
+```shell
+git clone -b [branch] [url]
+```
+
 # 查看状态
 
 ```shell

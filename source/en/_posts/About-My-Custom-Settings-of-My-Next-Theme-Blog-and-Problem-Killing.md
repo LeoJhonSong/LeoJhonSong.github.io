@@ -2,7 +2,9 @@
 title: About My Custom Settings of My Next Theme Blog and Problem Killing
 date: 2018-12-24 13:30:40
 tags:
-categories: Web
+categories:
+- Web
+- Configuration
 ---
 
 <div align='right'>Language:
