@@ -28,10 +28,6 @@ pip install --user git+git://github.com/powerline/powerline
 💡e.g. the location of the script on my computer is
 **~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh**
 
-# onedrive
-
-1.install GoodSync
-
 # workspace
 
 ## isolated workspaces
