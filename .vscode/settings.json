@@ -6,4 +6,8 @@
         "**/node_modules/**",
         "**/python/**"
     ],
+    "cSpell.words": [
+        "onedrive",
+        "workspaces"
+    ],
 }
