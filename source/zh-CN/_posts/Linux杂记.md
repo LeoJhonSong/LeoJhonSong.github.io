@@ -78,6 +78,10 @@ sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 ## 包列表更新
 
+这一命令虽然看似唰唰唰下了好些东西, 实际上只是下载了个软件目录, 然后我们执行 `sudo apt install
+[package]` 的时候apt就会从这个列表中找到名字对应的下载连接之类的去下载和安装. 这就是为什么很多
+安装教程都会要求先执行一次这条命令 -- 保证安装的是最新版.
+
 ```shell
 sudo apt update
 ```
@@ -109,6 +113,15 @@ sudo apt install [package]
 ```shell
 sudo apt remove [package]
 ```
+
+💡`apt remove`只会删除软件包而不会删除配置文件, 而手动删除配置文件还容易有
+[麻烦](https://www.jianshu.com/p/f6176973b56f), 因此不想用某软件了应当运行:
+
+```shell
+ sudo apt purge [package]
+ ```
+
+中文唤做**净化**! 💪
 
 ## 进阶操作
 
@@ -489,3 +502,7 @@ chmod 755
 后台运行是指即便当前终端被关闭进程也会继续运行. 当进程被切换到后台, 称为**job**
 
 在命令后加 `&`
+
+# 遇到的问题
+
+- [Ubuntu1804中文输入法无法选择除第一个外的候选词](https://github.com/libpinyin/ibus-libpinyin/issues/127)
