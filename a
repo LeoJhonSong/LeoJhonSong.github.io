@@ -69,11 +69,12 @@ def newEnglish():
     os.system('hexo new' + ' "' + sys.argv[2] + '"')
 
 def newChinese():
-    os.system('hexo new' + ' "' + sys.argv[2] + '"' + '--config _config.yml,_config.zh-CN.yml')
+    os.system('hexo new' + ' "' + sys.argv[2] + '"' + ' --config _config.yml,_config.zh-CN.yml')
+    print(sys.argv[2])
 
 def newAll():
-    os.system('hexo new' + sys.argv[2])
-    os.system('hexo new' + sys.argv[3] + '--config _config.yml,_config.zh-CN.yml')
+    os.system('hexo new' + ' "' + sys.argv[2])
+    os.system('hexo new' + ' "' + sys.argv[3] + ' --config _config.yml,_config.zh-CN.yml')
     os.system('python\python.exe multi-language.py' + sys.argv[2] + sys.argv[3])
 
 def clean():
