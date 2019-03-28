@@ -70,7 +70,6 @@ def newEnglish():
 
 def newChinese():
     os.system('hexo new' + ' "' + sys.argv[2] + '"' + ' --config _config.yml,_config.zh-CN.yml')
-    print(sys.argv[2])
 
 def newAll():
     os.system('hexo new' + ' "' + sys.argv[2])
