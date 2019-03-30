@@ -2,12 +2,14 @@
 title: My configurations under Ubuntu
 date: 2019-03-20 16:46:21
 categories:
-- Linux
-- Configuration
+- [Linux]
+- [Configuration]
 ---
 
 I note down here my configurations in order to quick set up my environment on a new
 machine.
+
+<!-- More -->
 
 # shell
 

@@ -2,8 +2,8 @@
 title: 当VSCode成为一种生活方式
 date: 2019-01-07 01:11:16
 categories:
-  - [杂记]
-  - [工具]
+- [工具]
+- [配置]
 ---
 
 <div align='right'>Language:

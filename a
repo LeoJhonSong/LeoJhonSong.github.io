@@ -18,8 +18,8 @@ def deployEnglish():
     os.system('hexo d')
 
 def serverEnglish():
-    os.system('hexo s')
     os.system('xdg-open http://localhost:4000')
+    os.system('hexo s')
 
 def generateDeployChinese():
     os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
@@ -33,8 +33,8 @@ def deployChinese():
     os.system('hexo d --config _config.yml,_config.zh-CN.yml')
 
 def serverChinese():
+    os.system('xdg-open http://localhost:4000')
     os.system('hexo server --config _config.yml,_config.zh-CN.yml')
-    os.system('xdg-open http//localhost:4000')
 
 # ################################layer1 functions##############################
 
