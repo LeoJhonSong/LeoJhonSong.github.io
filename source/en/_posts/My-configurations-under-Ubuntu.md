@@ -30,32 +30,23 @@ pip install --user git+git://github.com/powerline/powerline
 💡 e.g. the location of the script on my computer is
 **~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh**
 
+## vim
+
+goto my [vimrc](https://github.com/LeoJhonSong/vimrc).
+
 # OneDrive
 
 there are a few onedrive tools on Linux platform, but most of them, for example
 `onedrive-d` just support personal onedrive account, onedrive 365 as well as
 onedrive business are not supported. Someone recommended `GoodSync`,
 unfortunately I didn't figure out how on earth do I use it 😢. Good news is I
-find a thing called `onedrive` (what a confusing name), which support personal
-account and onedrive 365. That is enough for me! ✌ ️
+find a thing called [onedrive](https://github.com/abraunegg/onedrive) (what a
+confusing name), which **support personal account and onedrive 365 and even
+onedrive business**!
 
-1.install onedrive (an open onedrive client):
+goto [abraunegg/onedrive](https://github.com/abraunegg/onedrive) for instructions.
 
-```shell
-sudo apt install onedrive
-```
-
-💡 if want to change default path to put the files, run `man onedrive` to learn
-more.
-
-2.run `onedrive` and log in your onedrive account.
-
-3.if want to sync file automatically:
-
-```shell
-systemctl --user enable onedrive
-systemctl --user start onedrive
-```
+the guide is clear enough! 👍
 
 # workspace
 
