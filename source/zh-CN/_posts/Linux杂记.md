@@ -305,6 +305,24 @@ tar -xvzf [source.tar.gz]
 tar -czvf [target.tar.gz] [file1] [file2] [file3]
 ```
 
+## 格式化U盘
+
+虽然在 Ubuntu 下图形化界面里可以无脑格式化U盘, 但是有时候U盘出问题的时候需要在命令行蛮力格式化.
+此处以U盘为 **/dev/sdb1** 为例.
+
+首先确保U盘未挂载:
+
+```shell
+sudo umount /dev/sdb1
+```
+
+然后将之格式化为FAT32格式(Linux, Windows都可识别的格式):
+
+```shell
+sudo mkfs.vfat -F 32 /dev/sdb1
+```
+
+这样之后可以回图形界面设置U盘的名字或者重新格式化为其他格式之类.
 # 环境变量
 
 ## 查看环境变量
