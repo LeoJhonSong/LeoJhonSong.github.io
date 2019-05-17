@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/zh-CN/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+
+  <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/zh-CN/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
+
+
+  <link rel="manifest" href="/zh-CN/images/site.webmanifest">
+
+
+  <meta name="msapplication-TileColor" content="#505050">
+  <meta name="msapplication-config" content="/zh-CN/images/browserconfig.xml">
+
+
+<meta name="theme-color" content="#505050">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/zh-CN/',
+    scheme: 'Pisces',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+  <meta name="description" content="因为父亲经常炒期货，我速成一下麦语言来减轻一下他的工作量吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="麦语言速成">
+<meta property="og:url" content="https://leojhonsong.github.io/zh-CN/麦语言速成/index.html">
+<meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
+<meta property="og:description" content="因为父亲经常炒期货，我速成一下麦语言来减轻一下他的工作量吧。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-14T18:58:58.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="麦语言速成">
+<meta name="twitter:description" content="因为父亲经常炒期货，我速成一下麦语言来减轻一下他的工作量吧。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://leojhonsong.github.io/zh-CN/麦语言速成/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>麦语言速成 | LeoJhon.Song's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/zh-CN/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeoJhon.Song's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">欢迎来到我的博客!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leojhonsong.github.io/zh-CN/zh-CN/麦语言速成/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LeoJhon.Song">
+      <meta itemprop="description" content="记 / 录 / 与 / 分 / 享">
+      <meta itemprop="image" content="/zh-CN/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeoJhon.Song's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">麦语言速成</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-17 01:33:55" itemprop="dateCreated datePublished" datetime="2019-01-17T01:33:55+08:00">2019-01-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-15 02:58:58" itemprop="dateModified" datetime="2019-05-15T02:58:58+08:00">2019-05-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/量化交易/" itemprop="url" rel="index"><span itemprop="name">量化交易</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/zh-CN/麦语言速成/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/麦语言速成/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.6k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>因为父亲经常炒期货，我速成一下 <a href="https://www.wenhua.com.cn/myy/" target="_blank" rel="noopener"> 麦语言 </a> 来减轻一下他的工作量吧。</p>
+</blockquote>
+<a id="more"></a>
+<p>:warning: 我体验下来觉得期货风险真的特别大, 能看盘时还是盯着点比较好.</p>
+<p>随着我逐渐了解才发现量化交易并没有我想象中那么简单…单说 <a href="https://www.zhihu.com/question/25404359" target="_blank" rel="noopener"> 这些业内人士使用的语言 </a> 就五花八门…:man_facepalming:
+<a href="https://zhuanlan.zhihu.com/p/33839493" target="_blank" rel="noopener">这位仁兄 </a> 则让我大概了解了局面.
+站在一个接触编程有一段时间的人的角度，我是觉得用 C# 编写模型比用麦语言看着 NB 多了，但我明显没那水平和精力, 更何况我觉得知乎这个提问里的回答都说的很有道理,<a href="https://www.zhihu.com/question/36803590" target="_blank" rel="noopener">能赚钱的工具就是好工具</a>
+。还是老老实实研究一下传说中用 <strong> 易语言 </strong> 编写的麦语言:man_facepalming:</p>
+<blockquote>
+<p>看资料过程中 <a href="http://www.tradeblazer.net/" target="_blank" rel="noopener"> 交易开拓者 </a>(简称<strong>TB</strong>) 和<a href="https://www.multicharts.cn/" target="_blank" rel="noopener">MultiCharts</a>(简称 <strong>MC</strong>) 也经常被提及。</p>
+</blockquote>
+<h2 id="主要参考资料"><a href="# 主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料 </h2><p> 我觉得最蛋疼的是这玩意好像没法 debug 啊!!:anguished:</p>
+<!-- TODO -->
+<ul>
+<li><a href="麦语言速成 / 教程.zip">网上找到的一套 PPT 教程 </a>，并附上对应视频教程的<a href="https://pan.baidu.com/s/1foE6ORfqdGHyTQ-ZW9NPVg" target="_blank" rel="noopener"> 百度云链接</a></li>
+<li><a href="http://www.wenhua.com.cn/guide/wh8/index.htm" target="_blank" rel="noopener">智赢 wh8 使用说明书</a></li>
+<li><a href="http://www.wenhua.com.cn/guide/views41a3.htm" target="_blank" rel="noopener">wh8 趋势跟踪模型语法参考</a></li>
+<li><a href="http://www.wenhua.com.cn/guide/wh8_zjyfhs2.htm" target="_blank" rel="noopener">wh8 算法交易模型语法参考</a></li>
+</ul>
+<p>这套 PPT 有文华财经的水印，大概是官方教程吧。而且我觉得讲得很浅显也比较详细了, 好评:smile:</p>
+<h2 id="麦语言语法简记"><a href="# 麦语言语法简记" class="headerlink" title="麦语言语法简记"></a>麦语言语法简记 </h2><h3 id="算法交易模型与趋势跟踪模型"><a href="# 算法交易模型与趋势跟踪模型" class="headerlink" title="算法交易模型与趋势跟踪模型"></a> 算法交易模型与趋势跟踪模型 </h3><p> 打开 wh8 后我发现可以用来交易的分两种模型 (即代码), 分 <a href="http://www.wenhua.com.cn/new_guide/Wh8/view4_6.html" target="_blank" rel="noopener"> 算法交易模型和趋势跟踪模型</a>,
+普通的趋势交易策略使用趋势模型编写，加载到程序化平台运行实现自动交易；与趋势无关的盘口高频交易模型，需要用算法模型编写. 一开始我并没有理解这两种模型的区别,
+(实际这两个模型的名字非常直白的指出了两者的应用领域)
+看到算法交易模型使用的是类 C 语法就果断开始写这个, 后来我才发现其中区别:</p>
+<ul>
+<li>趋势跟踪模型中可以调用很多常用分析指标, 比如布林通道, 比如指数加权移动平均, 更注重对目标的 <strong> 趋势 </strong> 的分析</li>
+<li>算法跟踪模型更多的是能调用未经处理的精确数据, 甚至不提供 EMA 等很常用的分析指标 (如果需要只能自己写), 这类模型更注重于对<strong> 实时行情 </strong> (即<strong> 盘口</strong>) 的处理.</li>
+<li>算法交易模型的回测只提供一日的 tick 数据, 不支持更久的回测.</li>
+</ul>
+<p>看了 wh8 说明书中 <a href="http://www.wenhua.com.cn/new_guide/Wh8/view4_5.html" target="_blank" rel="noopener"> 相关章节</a>
+个人觉得算法交易模型更多应当与趋势跟踪模型配合使用, 说明书有句话说得好</p>
+<blockquote>
+<p>利用趋势模型可以有效捕捉趋势行情的交易方向，当交易方向确定，下一步便是寻找入场点。一个精准的入场点位是交易成功的起点，使用盘口的高频报价辅助判断无疑是最合适的方案</p>
+</blockquote>
+<p>也即是说由 <strong> 趋势模型 </strong> 判断是做多还是做空, 由 <strong> 算法模型 </strong> 判断买, 卖精确时间是比较科学的运用方式.</p>
+<p>由于我需要写的模型并不要求高频交易, 主要的是做小时线, 因此只建立趋势模型. (趋势模型语法太低级也只好忍了:cry:)</p>
+<h3 id="一开一平信号过滤模型·加减仓模型等"><a href="# 一开一平信号过滤模型·加减仓模型等" class="headerlink" title="一开一平信号过滤模型·加减仓模型等"></a>一开一平信号过滤模型·加减仓模型等 </h3><p> 以上是一种分类方式, 另外按交易行为分类可以分为一开一平信号过滤模型, 加减仓模型等模型.
+<strong>一开一平模型 </strong> 限定了必须一平跟随一开或者一开跟随一平, 如果是简单模型还是很方便, 但无法特定开仓手数, 只能在开始运行模型时指定整个模型开仓手数, 也无法加仓. 而 <strong> 加减仓模型 </strong> 打破了前述弊端, 但需要自己设置开闭仓信号滤波器, 费点脑子.
+<a href="http://www.wenhua.com.cn/popwin/cxhmingci.htm" target="_blank" rel="noopener">模型列表</a></p>
+<h3 id="算法交易模型与 C 的比较"><a href="# 算法交易模型与 C 的比较" class="headerlink" title="算法交易模型与 C 的比较"></a>算法交易模型与 C 的比较 </h3><p> 因为也体验了一会算法模型的语法, 稍作整理. 使用下来感觉与 C 语言语法区别主要如下:</p>
+<ul>
+<li>不需要引用头文件</li>
+<li>变量可以用 <strong>GLOBAL_VAR</strong> 或<strong>VAR</strong>关键字来声明, 变量是动态数据类型, 似乎也可以使用<strong>WriteGlobal</strong>, <strong>WriteGlobalF</strong> 等来定义整型, 浮点等变量. (文华给出的所有示例中定义变量竟然全部定义的全局变量也是很迷了)</li>
+<li>函数类型可以是 <strong>VOID</strong> 或<strong>VAR</strong>, 当然如果需要返回值需要定义为 <strong>VAR</strong> 型</li>
+<li>函数, 变量可以先引用后声明</li>
+<li>麦语言的函数是可以有返回值的! 但是要把要返回的值括起来. (参考 <a href="http://www.wenhua.com.cn/guide/wh8_zjyfhs2.htm" target="_blank" rel="noopener"> 这里</a>)</li>
+</ul>
+<h3 id="趋势跟踪模型语法简记"><a href="# 趋势跟踪模型语法简记" class="headerlink" title="趋势跟踪模型语法简记"></a>趋势跟踪模型语法简记</h3><p>:heavy_check_mark: 常用语句:</p>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td><strong>等于 </strong> 操作符 :warning: 趋势模型中赋值操作符为 <code>:=</code>. 应注意等于操作符<strong> 只有一个</strong>=</td>
+</tr>
+<tr>
+<td>:</td>
+<td>定义变量并且加载模型时显示图线. 冒号前为变量名.</td>
+</tr>
+<tr>
+<td>:=</td>
+<td>定义变量并且不显示图线</td>
+</tr>
+<tr>
+<td>#IMPORT [PERIOD,N,FORMULA] AS VAR</td>
+<td><a href="# 跨周期编写">见下</a></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td></td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>IF, THEN</td>
+<td>参见 <a href="http://www.wenhua.com.cn/guide/views41a3.htm" target="_blank" rel="noopener"> 这里</a></td>
+</tr>
+</tbody>
+</table>
+<!-- TODO -->
+<h3 id="模组"><a href="# 模组" class="headerlink" title="模组"></a>模组 </h3><p> 算法交易模型中可以调用的一大串函数有类似:point_down: 这样的函数说明.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line">该函数前必须用 AA. 的形式来调用，其中 AA 为字符串变量或者模组名。该函数不能单独使用。</span><br></pre></td></tr></table></figure>
+<p>开始我以为模组也是模型的意思, 后来看到示例里的用法似乎模组类似于 <strong> 类</strong>, 每个模组对应一个实例, 可以调用里面的各种函数来处理这个合约的数据, 而且每个模型也可以是一个模组一个模型可以调用另一个模型的函数, 就很像类. :thinking: 我是这样理解的</p>
+<h3 id="逻辑判断"><a href="# 逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断 </h3><p> 看过 wh8 给出的示例后我发现官方风格写法里趋势模型基本没有用过 IF, ELSE 什么的, 普遍是一句话浓缩一串条件搞定. 主要这玩意语法就让人懒得写 IF, ELSE…而算法模型中运用 IF, ELSE 较多.</p>
+<p>很有意思的是趋势模型中可以将一串判断条件赋值给一个变量作为布林变量. 然后通常是以下面这样的形式来调用</p>
+<p><code>[布林变量], [交易指令]</code></p>
+<p>另外趋势模型中逻辑运算操作符只有逻辑与和逻辑或, 如果需要其他运算, 我是使用的 <code>NOT()</code> 函数</p>
+<h3 id="跨周期编写"><a href="# 跨周期编写" class="headerlink" title="跨周期编写"></a>跨周期编写 </h3><p> 跨周期模型函数: #IMPORT [PERIOD,N,FORMULA]</p>
+<p>举例: <code>#IMPORT[DAY,2,WHBXSF] AS VAR1</code><br>调取自定义 2 日线周期上 WHBXSF 指标中的数据. 需要先编写被引用的指标 (只有一串变量的模型似乎称为 <strong> 指标</strong>)</p>
+<p>具体可以参考 <a href="http://www.2818668.com/369.html" target="_blank" rel="noopener"> 这个</a></p>
+<h2 id="疑问"><a href="# 疑问" class="headerlink" title="疑问"></a>疑问</h2><ul>
+<li>到现在我也不确定这些模型是循环运行还是怎么在执行, 如果是循环运行一次运行时间是多长</li>
+</ul>
+<h2 id="附录"><a href="# 附录" class="headerlink" title="附录"></a>附录 </h2><p> 搜索过程中看到的 <a href="https://zhuanlan.zhihu.com/p/52867020" target="_blank" rel="noopener"> 十六套经典策略</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-CN/当VSCode成为一种生活方式/" rel="next" title="当 VSCode 成为一种生活方式">
+                <i class="fa fa-chevron-left"></i> 当 VSCode 成为一种生活方式</a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-CN/树莓派杂记/" rel="prev" title="树莓派杂记">
+                树莓派杂记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录</li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览</li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
+            
+              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+              <p class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/zh-CN/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/zh-CN/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要参考资料"><span class="nav-number">1.</span> <span class="nav-text">主要参考资料 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#麦语言语法简记"><span class="nav-number">2.</span> <span class="nav-text">麦语言语法简记 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法交易模型与趋势跟踪模型"><span class="nav-number">2.1.</span> <span class="nav-text"> 算法交易模型与趋势跟踪模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一开一平信号过滤模型·加减仓模型等"><span class="nav-number">2.2.</span> <span class="nav-text">一开一平信号过滤模型·加减仓模型等 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法交易模型与 C 的比较"><span class="nav-number">2.3.</span> <span class="nav-text">算法交易模型与 C 的比较 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#趋势跟踪模型语法简记"><span class="nav-number">2.4.</span> <span class="nav-text">趋势跟踪模型语法简记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模组"><span class="nav-number">2.5.</span> <span class="nav-text">模组 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑判断"><span class="nav-number">2.6.</span> <span class="nav-text">逻辑判断 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨周期编写"><span class="nav-number">2.7.</span> <span class="nav-text">跨周期编写 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#疑问"><span class="nav-number">3.</span> <span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录 </span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-hand-peace-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeoJhon.Song</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">40k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/zh-CN/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/zh-CN/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/zh-CN/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/zh-CN/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/zh-CN/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/zh-CN/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/zh-CN/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/zh-CN/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
+        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/zh-CN/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
