@@ -46,4 +46,4 @@ Windows哪个好?"
 # 信息整理
 
 我们可以发现虽然Linux是在服务器领域发家的, 但现在Windows也在服务器领域占领了不小的份额. 并且
-在某些领域比起Linux反而Windows更受青睐
+在某些领域比起Linux反而Windows更受青睐.
