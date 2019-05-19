@@ -16,6 +16,8 @@ categories: Linux
 时我的硬盘刚出现[要爆炸的迹象](https://leojhonsong.github.io/zh-CN/%E6%88%91%E6%89%93%E7%AE%97%E6%8D%A2%E7%94%B5%E8%84%91%E4%BA%86/)),
 总之我当时也说不上Linux哪里好到值得我不用Windows和它的Office套装.
 
+<!-- More -->
+
 # 相关链接
 
 因此当最近我再次想起这个问题时我进行了一番搜索:
