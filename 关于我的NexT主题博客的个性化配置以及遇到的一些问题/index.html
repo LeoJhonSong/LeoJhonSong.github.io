@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.1k</span>
+                <span title="本文字数">3k</span>
               
 
               
@@ -536,33 +536,30 @@
       
         <div align="right">Language:
 <a href="/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing"><code>English</code></a>
-<a href="/zh-CN/ &#x5173;&#x4E8E;&#x6211;&#x7684; NexT &#x4E3B;&#x9898;&#x535A;&#x5BA2;&#x7684;&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;&#x4EE5;&#x53CA;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;"><code>&#x4E2D;&#x6587;</code></a>
+<a href="/zh-CN/&#x5173;&#x4E8E;&#x6211;&#x7684;NexT&#x4E3B;&#x9898;&#x535A;&#x5BA2;&#x7684;&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;&#x4EE5;&#x53CA;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;"><code>&#x4E2D;&#x6587;</code></a>
 </div>
 
 <a id="more"></a>
 <!-- TODO -->
-<h2 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="# &#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898; </h2><h3 id="&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;"><a href="# &#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;" class="headerlink" title="&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;"></a> &#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="noopener">priority</a></p>
-<h3 id="markdown &#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;"><a href="#markdown &#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;" class="headerlink" title="markdown &#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;"></a>markdown &#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898; </h3><p> &#x8BF7;&#x770B; <a href="https://codehut.me/posts/Y3Vyc29yOjg=" target="_blank" rel="noopener"> &#x8FD9;&#x91CC; </a>&#xFF0C;&#x5B83;&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;&#x4E86;&#x95EE;&#x9898;&#x3002;&#x6211;&#x5728;<strong>themes/next/scripts/</strong> &#x4E0B;&#x653E;&#x4E86;&#x4E00;&#x4E2A;<code>fuck_chinese_space.js</code>, &#x91CC;&#x9762;&#x6B63;&#x662F;&#x4E0A;&#x9762;&#x8FD9;&#x4F4D;&#x8001;&#x5144;&#x535A;&#x6587;&#x91CC;&#x5199;&#x7684;&#xFF1A;</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">&apos;after_render:html&apos;</span>, fix);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fix</span>(<span class="params">str</span>) </span>{ <span class="keyword">return</span> str.replace(<span class="regexp">/([&#xA1;&#xAB;&#xB7;&#xBB;&#xBF;&#x37E;&#x387;&#x55A;-&#x55F;&#x589;&#x5C0;&#x5C3;&#x5C6;&#x5F3;-&#x5F4;&#x609;-&#x60A;&#x60C;-&#x60D;&#x61B;&#x61E;-&#x61F;&#x66A;-&#x66D;&#x6D4;&#x700;-&#x70D;&#x7F7;-&#x7F9;&#x964;-&#x965;&#x970;&#xDF4;&#xE4F;&#xE5A;-&#xE5B;&#xF04;-&#xF12;&#xF85;&#xFD0;-&#xFD4;&#x104A;-&#x104F;&#x10FB;&#x1361;-&#x1368;&#x166D;-&#x166E;&#x16EB;-&#x16ED;&#x1735;-&#x1736;&#x17D4;-&#x17D6;&#x17D8;-&#x17DA;&#x1800;-&#x1805;&#x1807;-&#x180A;&#x1944;-&#x1945;&#x19DE;-&#x19DF;&#x1A1E;-&#x1A1F;&#x1B5A;-&#x1B60;&#x1C3B;-&#x1C3F;&#x1C7E;-&#x1C7F;\u2000-\u206e&#x2CF9;-&#x2CFC;&#x2CFE;-&#x2CFF;&#x2E00;-\u2e7e&#x2E80;-\u2efe\u3000-&#x303E;&#x30FB;&#x31C0;-\u31ee &#x3200; - &#x32FE;&#x3300;-&#x33FE;&#x3400; -\u4dbe &#x4E00; -\u9ffe&#xA60D;-&#xA60F;&#xA673;&#xA67E;&#xA874;-&#xA877;&#xA8CE;-&#xA8CF;&#xA92E;-&#xA92F;&#xA95F;&#xAA5C;-&#xAA5F;&#xF900; -\ufafe&#xFE10;-&#xFE16;&#xFE19;&#xFE30;-&#xFE4E;&#xFE50;-&#xFE52;&#xFE54;-&#xFE57;&#xFE5F;-&#xFE61;&#xFE68;&#xFE6A;-&#xFE6B;&#xFF01;-&#xFF03;&#xFF05;-&#xFF07;&#xFF0A;&#xFF0C;&#xFF0E;-&#xFF0F;&#xFF1A;-&#xFF1B;&#xFF1F;-&#xFF20;&#xFF3C;&#xFF61;&#xFF64;-&#xFF65;]|[\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud800[\udd00-\udd01\udf9f\udfd0]|\ud802[\udd1f\udd3f\ude50-\ude58]|\ud809[\udc00-\udc7e]|\ud869[\udc00-\udede\udf00-\udfff]|\ud86d[\udc00-\udf3e\udf40-\udfff]|\ud86e[\udc00-\udc1e]|\ud87e[\udc00-\ude1e])\n\s*/g</span>, <span class="string">&apos;$1&apos;</span>); }</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Google &#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;"><a href="#Google &#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;" class="headerlink" title="Google &#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;"></a>Google &#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519; </h3><p><a href="https://alanlee.fun/2017/12/30/google-sitemap/" target="_blank" rel="noopener"> &#x8FD9;&#x91CC;</a></p>
-<h3 id="&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;"><a href="# &#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;" class="headerlink" title="&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;"></a>&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B; </h3><p> &#x53C2;&#x89C1; <a href="http://aiellochan.com/2018/02/13/hexo/Hexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories/" target="_blank" rel="noopener"> &#x8FD9;&#x91CC;</a></p>
-<h2 id="&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;"><a href="# &#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;"></a>&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E; </h2><h3 id="&#x591A;&#x8BED;&#x8A00;"><a href="# &#x591A;&#x8BED;&#x8A00;" class="headerlink" title="&#x591A;&#x8BED;&#x8A00;"></a> &#x591A;&#x8BED;&#x8A00; </h3><p><a href="https://www.ieclipse.cn/2016/06/02/other/tech-hexo-i18n/index.html" target="_blank" rel="noopener"> &#x53C2;&#x8003; 1</a>
-<a href="https://bambooom.github.io/2018/03/08/hexo-multi-lang/" target="_blank" rel="noopener">&#x53C2;&#x8003; 2</a></p>
+<h2 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="#&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h2><h3 id="&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;"><a href="#&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;" class="headerlink" title="&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;"></a>&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x540E;&#x9875;&#x9762;&#x672A;&#x51FA;&#x73B0;&#x53D8;&#x5316;</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="noopener">priority</a></p>
+<h3 id="markdown&#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;"><a href="#markdown&#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;" class="headerlink" title="markdown&#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;"></a>markdown&#x4E2D;&#x6587;&#x6362;&#x884C;&#x5BFC;&#x81F4;&#x7684;&#x7A7A;&#x683C;&#x95EE;&#x9898;</h3><p>&#x8BF7;&#x770B;<a href="https://codehut.me/posts/Y3Vyc29yOjg=" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a>&#xFF0C;&#x5B83;&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;&#x4E86;&#x95EE;&#x9898;&#x3002;&#x6211;&#x5728;<strong>themes/next/scripts/</strong>&#x4E0B;&#x653E;&#x4E86;&#x4E00;&#x4E2A;<code>fuck_chinese_space.js</code>,&#x91CC;&#x9762;&#x6B63;&#x662F;&#x4E0A;&#x9762;&#x8FD9;&#x4F4D;&#x8001;&#x5144;&#x535A;&#x6587;&#x91CC;&#x5199;&#x7684;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo.extend.filter.register(<span class="string">&apos;after_render:html&apos;</span>, fix);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fix</span>(<span class="params">str</span>) </span>{<span class="keyword">return</span> str.replace(<span class="regexp">/([&#xA1;&#xAB;&#xB7;&#xBB;&#xBF;&#x37E;&#x387;&#x55A;-&#x55F;&#x589;&#x5C0;&#x5C3;&#x5C6;&#x5F3;-&#x5F4;&#x609;-&#x60A;&#x60C;-&#x60D;&#x61B;&#x61E;-&#x61F;&#x66A;-&#x66D;&#x6D4;&#x700;-&#x70D;&#x7F7;-&#x7F9;&#x964;-&#x965;&#x970;&#xDF4;&#xE4F;&#xE5A;-&#xE5B;&#xF04;-&#xF12;&#xF85;&#xFD0;-&#xFD4;&#x104A;-&#x104F;&#x10FB;&#x1361;-&#x1368;&#x166D;-&#x166E;&#x16EB;-&#x16ED;&#x1735;-&#x1736;&#x17D4;-&#x17D6;&#x17D8;-&#x17DA;&#x1800;-&#x1805;&#x1807;-&#x180A;&#x1944;-&#x1945;&#x19DE;-&#x19DF;&#x1A1E;-&#x1A1F;&#x1B5A;-&#x1B60;&#x1C3B;-&#x1C3F;&#x1C7E;-&#x1C7F;\u2000-\u206e&#x2CF9;-&#x2CFC;&#x2CFE;-&#x2CFF;&#x2E00;-\u2e7e&#x2E80;-\u2efe\u3000-&#x303E;&#x30FB;&#x31C0;-\u31ee&#x3200;-&#x32FE;&#x3300;-&#x33FE;&#x3400;-\u4dbe&#x4E00;-\u9ffe&#xA60D;-&#xA60F;&#xA673;&#xA67E;&#xA874;-&#xA877;&#xA8CE;-&#xA8CF;&#xA92E;-&#xA92F;&#xA95F;&#xAA5C;-&#xAA5F;&#xF900;-\ufafe&#xFE10;-&#xFE16;&#xFE19;&#xFE30;-&#xFE4E;&#xFE50;-&#xFE52;&#xFE54;-&#xFE57;&#xFE5F;-&#xFE61;&#xFE68;&#xFE6A;-&#xFE6B;&#xFF01;-&#xFF03;&#xFF05;-&#xFF07;&#xFF0A;&#xFF0C;&#xFF0E;-&#xFF0F;&#xFF1A;-&#xFF1B;&#xFF1F;-&#xFF20;&#xFF3C;&#xFF61;&#xFF64;-&#xFF65;]|[\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud800[\udd00-\udd01\udf9f\udfd0]|\ud802[\udd1f\udd3f\ude50-\ude58]|\ud809[\udc00-\udc7e]|\ud869[\udc00-\udede\udf00-\udfff]|\ud86d[\udc00-\udf3e\udf40-\udfff]|\ud86e[\udc00-\udc1e]|\ud87e[\udc00-\ude1e])\n\s*/g</span>, <span class="string">&apos;$1&apos;</span>); }</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Google&#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;"><a href="#Google&#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;" class="headerlink" title="Google&#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;"></a>Google&#x7AD9;&#x70B9;&#x5730;&#x56FE;&#x62A5;&#x9519;</h3><p><a href="https://alanlee.fun/2017/12/30/google-sitemap/" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
+<h3 id="&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;"><a href="#&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;" class="headerlink" title="&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;"></a>&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x591A;&#x7EA7;&#x5206;&#x7C7B;</h3><p>&#x53C2;&#x89C1;<a href="http://aiellochan.com/2018/02/13/hexo/Hexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories/" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
+<h2 id="&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;"><a href="#&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;"></a>&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;</h2><h3 id="&#x591A;&#x8BED;&#x8A00;"><a href="#&#x591A;&#x8BED;&#x8A00;" class="headerlink" title="&#x591A;&#x8BED;&#x8A00;"></a>&#x591A;&#x8BED;&#x8A00;</h3><p><a href="https://www.ieclipse.cn/2016/06/02/other/tech-hexo-i18n/index.html" target="_blank" rel="noopener">&#x53C2;&#x8003;1</a>
+<a href="https://bambooom.github.io/2018/03/08/hexo-multi-lang/" target="_blank" rel="noopener">&#x53C2;&#x8003;2</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
+          .forEach(el => {if (!el.dataset.src) {return;}
             const img = document.createElement('img');
             img.style = 'display:none !important;';
             img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
+            img.addEventListener('error', () => {img.remove();
               el.style.color = 'inherit';
               el.style.backgroundImage = 'none';
               el.style.background = 'none';
             });
-            img.addEventListener('load', () => {
-              img.remove();
+            img.addEventListener('load', () => {img.remove();
             });
             document.body.appendChild(img);
           });
@@ -681,7 +678,7 @@
                 
                   <a href="/zh-CN/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -720,7 +717,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -822,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改配置后页面未出现变化"><span class="nav-number">1.1.</span> <span class="nav-text"> 更改配置后页面未出现变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown 中文换行导致的空格问题"><span class="nav-number">1.2.</span> <span class="nav-text">markdown 中文换行导致的空格问题 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google 站点地图报错"><span class="nav-number">1.3.</span> <span class="nav-text">Google 站点地图报错 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何建立多级分类"><span class="nav-number">1.4.</span> <span class="nav-text">如何建立多级分类 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化配置"><span class="nav-number">2.</span> <span class="nav-text">个性化配置 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多语言"><span class="nav-number">2.1.</span> <span class="nav-text"> 多语言 </span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改配置后页面未出现变化"><span class="nav-number">1.1.</span> <span class="nav-text">更改配置后页面未出现变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown中文换行导致的空格问题"><span class="nav-number">1.2.</span> <span class="nav-text">markdown中文换行导致的空格问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google站点地图报错"><span class="nav-number">1.3.</span> <span class="nav-text">Google站点地图报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何建立多级分类"><span class="nav-number">1.4.</span> <span class="nav-text">如何建立多级分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化配置"><span class="nav-number">2.</span> <span class="nav-text">个性化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多语言"><span class="nav-number">2.1.</span> <span class="nav-text">多语言</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -863,7 +862,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">194k</span>
+    <span title="站点总字数">201k</span>
   
 
   
