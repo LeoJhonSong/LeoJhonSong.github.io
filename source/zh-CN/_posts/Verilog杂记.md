@@ -6,7 +6,16 @@ categories:
   - [Verilog]
 ---
 
-Verilog学习笔记。
+Verilog学习笔记.
+
+这学期上了数字电路课, 从最开始的了解每个逻辑门的物理工作原理到学习每个组合电路, 时序电路元件是
+如何由逻辑门构成的, 再到后来跟着指导书设计出了很简易的8位CPU, 我个人是觉得很震撼的. 这也让我小
+时候的一个问题得到了解答: 集成电路这么复杂的东西真的是人能设计出来的吗? 其实我一直是知道答案的,
+这些小黑块既不可能是土里长出来的也不可能是从什么动物身上割下来的. 我只是一直不敢想象这么复杂而
+精妙的东西 (即便是一根充电线里的小巧电路也不是那时的我能弄清的). 最近我稍微体会到了那群伟大的
+工程师们是如何设计出了那样精密的芯片的: 不断积累基本模块. 实际上从最开始的黑底白字的电脑系统到
+现在繁华多样的炫酷系统, 也是很令人震撼的变化. 虽然大佬可能会觉得这些很简单, 但我仍认为该对这些
+技术保持敬畏之心.
 
 <!-- More -->
 
@@ -23,6 +32,10 @@ Verilog学习笔记。
 
 🔗[Verilog代码和FPGA硬件的映射关系](https://copyfuture.com/blogs-details/83fc5f52af0e6c318e3c5cfa5baf2ac0) 这里通过一个例子清晰的展示了Verilog代码是怎样一步步
 映射到FPGA的基本逻辑单元的👍
+
+## 编写代码实现功能
+
+## 验证功能(仿真)
 
 ## 编译
 
@@ -117,10 +130,36 @@ always块的讲究很多:
 
 ### 为什么一定要有default这种情况
 
-1. 避免产生Latch. 此处的Lathc特指FPGA中的latch, 
+一些参考资料:
+
+🔗[FPGA 和ASIC开发的区别](https://blog.csdn.net/wordwarwordwar/article/details/80299636)
+
+🔗[当ASIC和FPGA之间的界限日益模糊，FPGA跟ASIC还有啥区别](https://www.eetoday.com/application/control/201806/1537.html)
+
+🔗[知乎-请问：FPGA,PLD,CPLD,PLC,DSP什么区别？看他们的定义觉着都是可编程的逻辑器件](https://www.zhihu.com/question/20555065/answer/20357525)
+
+🔗[组合逻辑设计中的毛刺现象](https://forums.xilinx.com/t5/%E7%BB%BC%E5%90%88%E8%AE%A8%E8%AE%BA/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%AF%9B%E5%88%BA%E7%8E%B0%E8%B1%A1/td-p/295029)
+
+:link:[锁存器、触发器、寄存器和缓冲器的区别](https://blog.csdn.net/surgeddd/article/details/4683657)
+
+1. 避免产生Latch.
+
    > latch是一种对脉冲电平敏感的存储单元路径，可以在特定输入脉冲作用下改变电平
 
-   由这个描述我们可以看出在if-else结构和case结构中很容易产生latch.
+   由这个描述我们可以看出在if-else结构和case结构中很容易产生latch: 当遇到在当前情况没有赋值的
+   变量或遇到没有定义的情况时需要沿用上一时刻的值, 因此我们需要一个**存储上一时刻状态的器件**,
+   并且是电平触发的 (if-else和case的判断条件都是电平), 这就是为什么latch会出现. 在
+   [这篇文章](https://blog.csdn.net/u012923751/article/details/79475568?comment_content=%E6%84%9F%E8%B0%A2%21&comment_replyId=&article_id=79475568&comment_userId=&commentId=)有控制语句产生latch的实例, 在[这篇文章](https://zhuanlan.zhihu.com/p/34408492)中有latch产生原因的详细讨论.
+
+   ❗️ 值得注意的是, 即便if-else结构或者case结构完整了也并不能保证不会产生latch, 只是避免了
+   因这种情况产生的latch.
+
+   至于为什么要避免产生latch, 因为此处产生的latch容易产生毛刺.
+
+   ❗️ 此处的Latch特指PLD中的latch. 因为latch在实现同一功能时需要的门比用FF实现少, 在ASIC
+   开发中latch使用较多 (ASIC的设计中可以保证latch信号的质量). 而由于PLD芯片中的基本单元是
+   查找表和触发器, 没有标准的latch单元, 因此FGPA中的latch更耗资源, 也容易产生毛刺. 并不是
+   所有latch都容易产生毛刺.
 
 2. 方便调试
 
@@ -133,3 +172,11 @@ always块的讲究很多:
 
 如果default对应的情况不应当出现, 在仿真时将变量都赋值为不定态X, 方便看出错误 (在Modelsim里
 不定态的信号会显示为红色), 在实际应用时全部置零 (复位态).
+
+## 关于wire和reg
+
+🔗[知乎-Verilog 中定义信号为什么要区分 wire 和 reg 两种类型？-屯屯屯屯的回答](https://www.zhihu.com/question/21021718/answer/17195122)
+
+🔗[知乎-Verilog 中定义信号为什么要区分 wire 和 reg 两种类型？-BruceX的回答](https://www.zhihu.com/question/21021718/answer/28802850https://www.zhihu.com/question/21021718)
+
+🔗[UC Berkley讲义-Verilog: wire VS. reg](https://link.zhihu.com/?target=http%3A//inst.eecs.berkeley.edu/~cs150/Documents/Nets.pdf)
