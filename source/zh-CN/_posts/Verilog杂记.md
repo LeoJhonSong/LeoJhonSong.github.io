@@ -21,6 +21,9 @@ Verilog学习笔记。
 
 # verilog开发流程
 
+🔗[Verilog代码和FPGA硬件的映射关系](https://copyfuture.com/blogs-details/83fc5f52af0e6c318e3c5cfa5baf2ac0) 这里通过一个例子清晰的展示了Verilog代码是怎样一步步
+映射到FPGA的基本逻辑单元的👍
+
 ## 编译
 
 ### 语法分析
@@ -104,3 +107,29 @@ always块的讲究很多:
            ...
    end
    ```
+
+## 关于default
+
+在写case块时发现所有示例里都写出了default这种情况, 无论情况是否完备. 这让我有了两个问题:
+
+- 为什么一定要有default这种情况?
+- default情况该给变量赋什么值?
+
+### 为什么一定要有default这种情况
+
+1. 避免产生Latch. 此处的Lathc特指FPGA中的latch, 
+   > latch是一种对脉冲电平敏感的存储单元路径，可以在特定输入脉冲作用下改变电平
+
+   由这个描述我们可以看出在if-else结构和case结构中很容易产生latch.
+
+2. 方便调试
+
+   如果default对应的情况是不应当出现的情况, 在仿真时可以将default情况下的变量赋值为不定态X,
+   方便看出问题.
+
+3. 这已经是一种代码规范, 最好养成严谨的习惯, 避免出错.
+
+### default情况下该赋什么值
+
+如果default对应的情况不应当出现, 在仿真时将变量都赋值为不定态X, 方便看出错误 (在Modelsim里
+不定态的信号会显示为红色), 在实际应用时全部置零 (复位态).
