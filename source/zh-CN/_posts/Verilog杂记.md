@@ -146,7 +146,7 @@ always块的讲究很多:
 
    > latch是一种对脉冲电平敏感的存储单元路径，可以在特定输入脉冲作用下改变电平
 
-   由这个描述我们可以看出在if-else结构和case结构中很容易产生latch: 当遇到在当前情况没有赋值的
+   由这个描述我们可以看出**在if-else结构和case结构中很容易产生latch**: 当遇到在当前情况没有赋值的
    变量或遇到没有定义的情况时需要沿用上一时刻的值, 因此我们需要一个**存储上一时刻状态的器件**,
    并且是电平触发的 (if-else和case的判断条件都是电平), 这就是为什么latch会出现. 在
    [这篇文章](https://blog.csdn.net/u012923751/article/details/79475568?comment_content=%E6%84%9F%E8%B0%A2%21&comment_replyId=&article_id=79475568&comment_userId=&commentId=)有控制语句产生latch的实例, 在[这篇文章](https://zhuanlan.zhihu.com/p/34408492)中有latch产生原因的详细讨论.

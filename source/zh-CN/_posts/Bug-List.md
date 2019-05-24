@@ -190,3 +190,13 @@ python中的可变对象有:
 # python写入中文字符串变乱码
 
 <!-- TODO -->
+
+# Verilog中要写完整控制语句
+
+Verilog中如果不写完整if-else结构和case结构会产生latch, 会将毛刺传给下一级电路的那种latch.
+
+参见我的另一篇博客 [Verilog 杂记-有关default](https://leojhonsong.github.io/zh-CN/Verilog%E6%9D%82%E8%AE%B0/#%E5%85%B3%E4%BA%8E%20default)
+
+# Verilog中因不同条件触发的变量应在不同always块中描述
+
+参见我的另一篇博客 [Verilog 杂记-有关always](https://leojhonsong.github.io/zh-CN/Verilog%E6%9D%82%E8%AE%B0/#%E6%9C%89%E5%85%B3%20always)
