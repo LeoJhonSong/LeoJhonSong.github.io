@@ -523,9 +523,53 @@ chmod 755
 
 # 遇到过的问题
 
-- [开机紫屏](https://blog.csdn.net/liujianlin01/article/details/82937708)
-- [Ubuntu开机弹出System porgram detected](https://www.cnblogs.com/greatfish/p/8042026.html)
-- [Ubuntu1804中文输入法无法选择除第一个外的候选词](https://github.com/libpinyin/ibus-libpinyin/issues/127)
-- 没有显卡驱动无法正常显示.
+## Ubuntu开机紫屏
 
-  在grub界面按 `e` 将 什么什么splash后的---改为 `nomodeset`. 这样就会让内核不改变显示设置, 保证至少能看到东西. (但这模式很有可能显示出来辣眼睛😅)
+linux文件系统损坏导致的不正常开/关机, 此时一般等一等系统就会提示你进行文件系统修复.
+
+```shell
+fsck -a /dev/sda1
+```
+
+一般用这条命令修复. fsck (file system check) 是检测与修复文件系统的命令.`-a`选项会报告损坏
+block并自动修复 (反正手动修复也只是确认是否修复).
+
+具体参考[这里](https://blog.csdn.net/liujianlin01/article/details/82937708)
+
+## Ubuntu烦人的开机报错
+
+把这个报错关了就完事了😁
+
+参考[Ubuntu开机弹出System porgram detected](https://www.cnblogs.com/greatfish/p/8042026.html)
+
+## ibus的中文输入法无法选择除第一个的候选词bug
+
+需要删除几个缓存的数据库文件
+
+```shell
+sudo rm -rf ~/.cache/ibus/libpinyin/
+```
+
+这个issue具体参考[这里](https://github.com/libpinyin/ibus-libpinyin/issues/127)
+
+⭐️推荐直接换掉ibus转用**fcitx**. fcitx的中文输入法推荐**GooglePinyin**, 日语输入法推荐
+**Mocz**. 通过以下命令可以安装.
+
+```shell
+# 安装谷歌拼音
+sudo apt install fcitx-googlepinyin
+# 安装Mocz日语输入法
+sudo apt install fcitx-mozc
+```
+
+❗️值得一提的是fcitx的输入法分激活和非激活 (通常将英语设为非激活), 输入法切换快捷键也分两种,
+一种在非激活输入法和激活输入法间切换, 一种在激活输入法间切换.
+
+## 没有显卡驱动无法正常显示
+
+有时候买了不靠谱的显卡可能你的发行版中没有, 或者你安装的时候没有安装对应的驱动, 因此开机后可能是
+花屏或者黑屏. 解决方法是: 开机时在grub界面按 `e` 进入编辑模式将什么什么splash后的---改为 
+`nomodeset`. 这样就会让内核不改变显示设置, 保证至少能看到东西. (但这模式很有可能显示出来辣
+眼睛😅)
+
+## 解压.zip压缩包中文文件名为乱码
