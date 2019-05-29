@@ -573,3 +573,21 @@ sudo apt install fcitx-mozc
 眼睛😅)
 
 ## 解压.zip压缩包中文文件名为乱码
+
+当我在Ubuntu1804像往常解压`.tar.gz`文件那样用右键菜单的**extract here**解压`.zip`文件后
+我发现中文文件名全部变成了乱码, 文件里面倒是没问题.
+
+这是因为**zip压缩包并没有指明编码格式**, 解压工具会以Linux的默认编码格式**UTF-8**解压, 而在
+系统语言为简体中文的Windows系统下默认**字符集**为`GBK`, **编码格式**为`EUC-CN`, 所以会
+文件名乱码.
+
+我目前的解决方法是命令行输入以下命令解压.
+
+```shell
+unzip -O cp936 [filename]
+```
+
+此处选项`-O`指以指定编码格式解压. **cp936**指[微软编写的代码页936页](https://en.wikipedia.org/wiki/Code_page_936_(Microsoft_Windows))的编码格式
+(注意与[IBM的code page936](https://en.wikipedia.org/wiki/Code_page_936_(IBM))区别),
+即字符集为GBK, 编码格式为EUC-CN. (经我实验UTF-8编码的文件名以cp936编码解压出来显示正常...
+我也不知道为什么)
