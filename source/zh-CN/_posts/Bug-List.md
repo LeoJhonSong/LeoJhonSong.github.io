@@ -189,7 +189,20 @@ python中的可变对象有:
 
 # python写入中文字符串变乱码
 
-<!-- TODO -->
+🔗 [Python 2 字符串编码踩坑小结](https://ericfu.me/python-2-str-and-unicode/)
+
+虽然我并不怎么写python2的代码但👆这篇文章确实对python中编码问题很有启发.
+
+🔗 [Processing Raw Text](https://www.nltk.org/book/ch03.html)
+
+而在网上搜图的时候我搜到了这段讲python中处理文本的各种方法的话.
+
+其中提到了如下图这样的方式防止出现乱码.
+
+![Unicode Decoding and Encoding](Bug-List/Unicode_Decoding_and_Encoding.png)
+
+正如 "Python 2 字符串编码踩坑小结" 中提到的, 在python3中`str`类型数据都以Unicode码点格式
+储存. 实际上我们[可以直接输入Unicode码点](https://zh.wikipedia.org/wiki/Unicode#%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95).
 
 # Verilog中要写完整控制语句
 
