@@ -128,7 +128,8 @@
 <meta property="og:description" content="我想记录一下我遇到过的各种bug, 不论大小. 原本我从一开始学编程的时候就在这么做了, 但我也忘了我什么时候竟然怠慢了这件事! 我会想到记录这些是上大学前的暑假看到这篇让人深受启发的教诲而想要养成的习惯之一. 我认为这绝对不是浪费时间. 正如初高中学习时的错题本 (虽然我那时的错题本一共也没能记几笔) 只要我偶尔能想起来记几笔, 我想总是能为以后节省一些时间的.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://leojhonsong.github.io/zh-CN/Bug-List/Bug-List/%20图像细化代码的报错.png">
-<meta property="og:updated_time" content="2019-05-24T13:14:42.825Z">
+<meta property="og:image" content="https://leojhonsong.github.io/zh-CN/Bug-List/Bug-List/Unicode_Decoding_and_Encoding.png">
+<meta property="og:updated_time" content="2019-05-29T20:33:13.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bug List">
 <meta name="twitter:description" content="我想记录一下我遇到过的各种bug, 不论大小. 原本我从一开始学编程的时候就在这么做了, 但我也忘了我什么时候竟然怠慢了这件事! 我会想到记录这些是上大学前的暑假看到这篇让人深受启发的教诲而想要养成的习惯之一. 我认为这绝对不是浪费时间. 正如初高中学习时的错题本 (虽然我那时的错题本一共也没能记几笔) 只要我偶尔能想起来记几笔, 我想总是能为以后节省一些时间的.">
@@ -450,7 +451,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-24 21:14:42" itemprop="dateModified" datetime="2019-05-24T21:14:42+08:00">2019-05-24</time>
+                <time title="修改时间：2019-05-30 04:33:13" itemprop="dateModified" datetime="2019-05-30T04:33:13+08:00">2019-05-30</time>
               
             
           </span>
@@ -512,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">15k</span>
+                <span title="本文字数">16k</span>
               
 
               
@@ -599,7 +600,13 @@
 <h2 id="&#x590D;&#x5236;&#x5217;&#x8868;&#x7684;&#x6B63;&#x786E;&#x64CD;&#x4F5C;"><a href="# &#x590D;&#x5236;&#x5217;&#x8868;&#x7684;&#x6B63;&#x786E;&#x64CD;&#x4F5C;" class="headerlink" title="&#x590D;&#x5236;&#x5217;&#x8868;&#x7684;&#x6B63;&#x786E;&#x64CD;&#x4F5C;"></a>&#x590D;&#x5236;&#x5217;&#x8868;&#x7684;&#x6B63;&#x786E;&#x64CD;&#x4F5C; </h2><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span> &#x8FD9;&#x4E2A;<a href="https://www.cnblogs.com/ifantastic/p/3811145.html" target="_blank" rel="noopener"> &#x94FE;&#x63A5; </a> &#x8BF4;&#x660E;&#x4E86;&#x6211;&#x7684;&#x9519;&#x8BEF;&#x539F;&#x56E0;&#x5E76;&#x5217;&#x51FA;&#x4E86;&#x4E94;&#x79CD;&#x590D;&#x5236;&#x5217;&#x8868;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x6BD4;&#x8F83;, &#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x6709;&#x4E00;&#x79CD; <a href="https://www.programiz.com/python-programming/methods/list/copy" target="_blank" rel="noopener"> &#x6211;&#x5F88;&#x559C;&#x6B22;&#x7684;&#x65B9;&#x6CD5;</a>
 &#x4ED6;&#x6CA1;&#x6709;&#x5217;&#x51FA;. &#x4ECE;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA; <code>copy.deepcopy()</code> &#x662F;&#x6700;&#x4FDD;&#x9669;&#x7684;&#x65B9;&#x6CD5;.</p>
 <h2 id="&#x8D4B;&#x503C; - &#x6D45;&#x62F7;&#x8D1D;&#x4E0E;&#x6DF1;&#x62F7;&#x8D1D;"><a href="# &#x8D4B;&#x503C; - &#x6D45;&#x62F7;&#x8D1D;&#x4E0E;&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="&#x8D4B;&#x503C;, &#x6D45;&#x62F7;&#x8D1D;&#x4E0E;&#x6DF1;&#x62F7;&#x8D1D;"></a>&#x8D4B;&#x503C;, &#x6D45;&#x62F7;&#x8D1D;&#x4E0E;&#x6DF1;&#x62F7;&#x8D1D; </h2><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span> &#x8BF7;&#x53C2;&#x8003;<a href="https://www.jianshu.com/p/1059318d38e0" target="_blank" rel="noopener"> &#x8FD9;&#x91CC;</a></p>
-<h1 id="python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;"><a href="#python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;" class="headerlink" title="python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;"></a>python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;</h1><!-- TODO -->
+<h1 id="python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;"><a href="#python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;" class="headerlink" title="python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;"></a>python &#x5199;&#x5165;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x4E71;&#x7801;</h1><p>&#x1F517; <a href="https://ericfu.me/python-2-str-and-unicode/" target="_blank" rel="noopener">Python 2 &#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x8E29;&#x5751;&#x5C0F;&#x7ED3;</a></p>
+<p>&#x867D;&#x7136;&#x6211;&#x5E76;&#x4E0D;&#x600E;&#x4E48;&#x5199; python2 &#x7684;&#x4EE3;&#x7801;&#x4F46;&#x1F446;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x786E;&#x5B9E;&#x5BF9; python &#x4E2D;&#x7F16;&#x7801;&#x95EE;&#x9898;&#x5F88;&#x6709;&#x542F;&#x53D1;.</p>
+<p>&#x1F517; <a href="https://www.nltk.org/book/ch03.html" target="_blank" rel="noopener">Processing Raw Text</a></p>
+<p>&#x800C;&#x5728;&#x7F51;&#x4E0A;&#x641C;&#x56FE;&#x7684;&#x65F6;&#x5019;&#x6211;&#x641C;&#x5230;&#x4E86;&#x8FD9;&#x6BB5;&#x8BB2; python &#x4E2D;&#x5904;&#x7406;&#x6587;&#x672C;&#x7684;&#x5404;&#x79CD;&#x65B9;&#x6CD5;&#x7684;&#x8BDD;.</p>
+<p>&#x5176;&#x4E2D;&#x63D0;&#x5230;&#x4E86;&#x5982;&#x4E0B;&#x56FE;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x9632;&#x6B62;&#x51FA;&#x73B0;&#x4E71;&#x7801;.</p>
+<p><img src="Bug-List/Unicode_Decoding_and_Encoding.png" alt="Unicode Decoding and Encoding"></p>
+<p>&#x6B63;&#x5982; &#x201C;Python 2 &#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x8E29;&#x5751;&#x5C0F;&#x7ED3;&#x201D; &#x4E2D;&#x63D0;&#x5230;&#x7684;, &#x5728; python3 &#x4E2D; <code>str</code> &#x7C7B;&#x578B;&#x6570;&#x636E;&#x90FD;&#x4EE5; Unicode &#x7801;&#x70B9;&#x683C;&#x5F0F;&#x50A8;&#x5B58;. &#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC; <a href="https://zh.wikipedia.org/wiki/Unicode#%E8%BE%93%E5%85%A5%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"> &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x5165; Unicode &#x7801;&#x70B9;</a>.</p>
 <h1 id="Verilog &#x4E2D;&#x8981;&#x5199;&#x5B8C;&#x6574;&#x63A7;&#x5236;&#x8BED;&#x53E5;"><a href="#Verilog &#x4E2D;&#x8981;&#x5199;&#x5B8C;&#x6574;&#x63A7;&#x5236;&#x8BED;&#x53E5;" class="headerlink" title="Verilog &#x4E2D;&#x8981;&#x5199;&#x5B8C;&#x6574;&#x63A7;&#x5236;&#x8BED;&#x53E5;"></a>Verilog &#x4E2D;&#x8981;&#x5199;&#x5B8C;&#x6574;&#x63A7;&#x5236;&#x8BED;&#x53E5;</h1><p>Verilog &#x4E2D;&#x5982;&#x679C;&#x4E0D;&#x5199;&#x5B8C;&#x6574; if-else &#x7ED3;&#x6784;&#x548C; case &#x7ED3;&#x6784;&#x4F1A;&#x4EA7;&#x751F; latch, &#x4F1A;&#x5C06;&#x6BDB;&#x523A;&#x4F20;&#x7ED9;&#x4E0B;&#x4E00;&#x7EA7;&#x7535;&#x8DEF;&#x7684;&#x90A3;&#x79CD; latch.</p>
 <p>&#x53C2;&#x89C1;&#x6211;&#x7684;&#x53E6;&#x4E00;&#x7BC7;&#x535A;&#x5BA2; <a href="https://leojhonsong.github.io/zh-CN/Verilog%E6%9D%82%E8%AE%B0/#%E5%85%B3%E4%BA%8E%20default">Verilog &#x6742;&#x8BB0; - &#x6709;&#x5173; default</a></p>
 <h1 id="Verilog &#x4E2D;&#x56E0;&#x4E0D;&#x540C;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x53D8;&#x91CF;&#x5E94;&#x5728;&#x4E0D;&#x540C; always &#x5757;&#x4E2D;&#x63CF;&#x8FF0;"><a href="#Verilog &#x4E2D;&#x56E0;&#x4E0D;&#x540C;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x53D8;&#x91CF;&#x5E94;&#x5728;&#x4E0D;&#x540C; always &#x5757;&#x4E2D;&#x63CF;&#x8FF0;" class="headerlink" title="Verilog &#x4E2D;&#x56E0;&#x4E0D;&#x540C;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x53D8;&#x91CF;&#x5E94;&#x5728;&#x4E0D;&#x540C; always &#x5757;&#x4E2D;&#x63CF;&#x8FF0;"></a>Verilog &#x4E2D;&#x56E0;&#x4E0D;&#x540C;&#x6761;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x53D8;&#x91CF;&#x5E94;&#x5728;&#x4E0D;&#x540C; always &#x5757;&#x4E2D;&#x63CF;&#x8FF0; </h1><p> &#x53C2;&#x89C1;&#x6211;&#x7684;&#x53E6;&#x4E00;&#x7BC7;&#x535A;&#x5BA2; <a href="https://leojhonsong.github.io/zh-CN/Verilog%E6%9D%82%E8%AE%B0/#%E6%9C%89%E5%85%B3%20always">Verilog &#x6742;&#x8BB0; - &#x6709;&#x5173; always</a></p>
@@ -922,7 +929,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">223k</span>
+    <span title="站点总字数">232k</span>
   
 
   
