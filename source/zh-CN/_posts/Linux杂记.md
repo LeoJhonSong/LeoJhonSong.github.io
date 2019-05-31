@@ -215,7 +215,20 @@ ln: link
 - 软链接可以对一个不存在的文件名进行链接
 - 软链接可以对目录进行链接, 硬链接不可以
 
-暂时还没用过这条指令, 记下[命令讲解](http://www.runoob.com/linux/linux-comm-ln.html)
+目前我只用到了软链, 还没有用到硬链. 个人觉得软链很方便, 它使得一个文件/文件夹在另一个地方有了
+一个时刻同步的备份. 比如可以像[这样](https://github.com/LeoJhonSong/vimrc), 从github
+下载了一个.vimrc, 将它软链到home目录 (vim默认从这里读取.vimrc). 这样一来无论是修改了这两处
+那一个.vimrc另一个也会同步. 这很方便将更改备份到github.
+
+### 建立软链
+
+```shell
+ln -s [destination] [source]
+```
+
+❗️要注意的是此处`destination`和`source`似乎必须写**绝对路径**, 不然建立的链接就是损坏的.
+如果`destination`处写的是一个目录, 那会生成一个和源文件/文件夹同名的软链, 而如果`destination`
+写的是一个存在的目录下一个不存在的名字, 那么会生成一个这个名字的软链, 和源文件/文件夹链接.
 
 ## 复制
 
@@ -278,6 +291,15 @@ rm -r *
 tar: tape archive. `tar` 命令原本是用来建立，还原备份文件的工具程序, 但Linux下最常见的
 压缩包就是tar.gz格式的. **.gz**是GNU zip的缩写.
 
+❗️ 要注意`tar`命令无法解压 **.rar** 格式的压缩包, 也无法生成 **.rar** 格式. 需要另外安装
+rar工具:
+
+```shell
+sudo apt install rar
+```
+
+另外在Linux下解压来自Windows的zip压缩包容易出[文件名乱码问题](#解压.zip压缩包中文文件名为乱码).
+
 ### 常用选项
 
 - -c或--create 建立新的备份文件
@@ -299,12 +321,22 @@ tar -tvzf [source.tar.gz]
 tar -xvzf [source.tar.gz]
 ```
 
+如果是.rar文件:
 
+```shell
+rar x [source.rar]
+```
 
 ### 压缩文件
 
 ```shell
 tar -czvf [target.tar.gz] [file1] [file2] [file3]
+```
+
+如果是要压缩成.rar文件 (不是别人要求的话不推荐):
+
+```shell
+rar a [compressede_package_name] [source_folder_name]
 ```
 
 ## 格式化U盘
@@ -433,6 +465,42 @@ export -n [VARIABLE]
 ### 永久删除
 
 参考永久添加的操作.
+
+## 系统命令软链
+
+⭐️⭐️⭐️ `update-alternatives`是一条十分实用的命令! 这是Debian一系系统 (比如Ubuntu)
+中创建, 删除, 管理系统命令软链的工具. 在一个系统中同时存在同一软件的多个版本是很常见的事, 比如
+python2和python3并存, gcc多个版本并存. 当在命令行输入`python`时到底该进入python2还是
+python3呢? update-altenatives能够帮助我们.
+
+### 创建/添加一个系统命令软链
+
+```shell
+update-alternatives --install [path/to/system_link] [command_name] [path/to/command_binary] [priority]
+```
+
+几个参数分别是: 系统命令的链接, 系统命令名, 要用系统命令调用的软件的二进制文件的链接, 优先级大小
+
+以**python**这个命令举例:
+
+```shell
+update-alternatives --install /usr/bin/python python /home/leo/anaconda3/bin/python3 100
+```
+
+### 配置系统命令软链
+
+```sehll
+update-alternatives --config [command_name]
+```
+
+alternative软链系统会把优先级数值最大的一个软件二进制文件链接作为当前该系统命令链接到的二进制
+文件地址, 因此比如要改变python版本只需调整优先级大小.
+
+### 删除一个系统命令软链
+
+```shell
+update-alternatives --remove [path/to/system_link] [command_name] [path/to/command_binary] [priority]
+```
 
 # 文本编辑
 
