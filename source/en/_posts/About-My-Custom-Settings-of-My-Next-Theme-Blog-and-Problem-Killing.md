@@ -622,8 +622,6 @@ change `line23` from :arrow_up: to :arrow_down:
     return pathFn.join(post.path.replace(/\.html?$/, ''), post.path.replace(/\.html?$/, ''), this.slug);
 ```
 
-The key point is **line 30**.
-
 Unfortunately, according to my test, the tag method to insert images provided by [Hexo](https://hexo.io/docs/asset-folders.html#Tag-Plugins-For-Relative-Path-Referencing)
 does not work as it supposed to anymore after modifying the **post_asset.js**:man_facepalming:.
 Since I would use anything but the tags so this doesn't bothers me:grin:. But if you want to improve this situation, I suppose you should modify **node_modules\hexo\lib\plugins\tag\asset_img.js**
