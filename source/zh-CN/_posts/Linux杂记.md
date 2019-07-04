@@ -223,7 +223,7 @@ ln: link
 ### 建立软链
 
 ```shell
-ln -s [destination] [source]
+ln -s [source] [destination]
 ```
 
 ❗️要注意的是此处`destination`和`source`似乎必须写**绝对路径**, 不然建立的链接就是损坏的.
