@@ -16,6 +16,7 @@ categories: Python
    1. [生成等差数列](#生成等差数列)
    2. [生成任意指定列表](#生成任意指定列表)
       1. [利用列表推导式](#利用列表推导式)
+      2. [利用lambda函数](#利用lambda函数)
 3. [字典](#字典)
    1. [由列表生成字典](#由列表生成字典)
    2. [对字典按值排序](#对字典按值排序)
@@ -89,6 +90,33 @@ LONG_NAMES = [name.upper() for name in names if len(name)>3]
 a = [x*y for x in range(1,5) if x > 2 for y in range(1,4) if y < 3]
 ```
 
+### 利用lambda函数
+
+lambda函数在python, C++, Java等语言中都有, 我理解的作用主要有三:
+
+- 少写几个字
+- 能将一个"函数"以参数的形式传入另一个函数, ❗️注意此处普通函数能被传递并不是什么
+  稀罕事, 更重要的是类似[这
+  里](https://www.zhihu.com/question/20125256/answer/29733906)提到的"伪函数"
+- 避免污染命名空间, 需要一个函数但不知道命什么名时用lambda函数
+
+lambda函数主要用在filter(), map(), reduce()中
+
+💡 在python3中`reduce()`从内建函数中移除了, 被移到了functools模块中
+
+```python
+>>> foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+>>>
+>>> print filter(lambda x: x % 3 == 0, foo)
+[18, 9, 24, 12, 27]
+>>> 
+>>> print map(lambda x: x * 2 + 10, foo)
+[14, 46, 28, 54, 44, 58, 26, 34, 64]
+>>>
+>>> print reduce(lambda x, y: x + y, foo)
+139
+```
+
 # 字典
 
 ## 由列表生成字典
@@ -100,14 +128,6 @@ c = dict(zip(a, b))
 ```
 
 ## 对字典按值排序
-
-lambda函数在python, C++, Java等语言中都有, 我理解的作用主要有三:
-
-- 少写几个字
-- 能将一个"函数"以参数的形式传入另一个函数, ❗️注意此处普通函数能被传递并不是什么
-  稀罕事, 更重要的是类似[这
-  里](https://www.zhihu.com/question/20125256/answer/29733906)提到的"伪函数"
-- 避免污染命名空间, 需要一个函数但不知道命什么名时用lambda函数
 
 ```python
 d = {'a':1, 'b':2, 'c': 5, 'd':4, 'e':3}
