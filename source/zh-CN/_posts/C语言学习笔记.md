@@ -158,7 +158,35 @@ MacOS是“\r”. 如果在Windows下读取Windows文件, fgetc和getchar会把�
 |name_of_option| 我猜的全名|含义|
 |-|-|-|
 |-o [filename]|output| 指定输出文件名|
+|-g|gdb|生成调试用的符号表|
 |-Wall| warning all|This enables all the warnings about constructions that some users consider questionable, and that are easy to avoid (or modify to prevent the warning), even in conjunction with macros.|
 |-lm| link math.h| 链接math.h. C++编译器会自动链接, 但C的代码使用了math.h却不启动这个选项很可能出错|
 |-ansi| ANSI| 检查代码是否符合ANSI标准 (常与-Wpedantic连用)|
 |-Wpedantic| warning pedantic| Issue all the warnings demanded by strict ISO C and ISO C++; reject all programs that use forbidden extensions, and some other programs that do not follow ISO C and ISO C++. For ISO C, follows the version of the ISO C standard specified by any -std option used.|
+|-O1, -O2, -O3|optimize|开启速度优化. 开启后编译出的程序比直接编译出的程序快, -O2比-O1快, -O3比-O2快, 但为了避免优化误解代码含义, 在算法比赛中推荐-O2. 当然如果程序十分规范就没有这种担心.|
+|-DXX|define XX|在编译时定义XX符号 (此处XX是随意什么大写单词的意思), 位于#ifdef XX和#endif中间的语句会被编译|
+
+## gdb
+
+💡执行gdb时加选项`-q` (quiet)可以去掉进入gdb开头的废话.
+
+常用命令:
+
+|命令|全名|含义|
+|-|-|-|
+|l|list|列出十行代码. 但可以通过`set listsize`来更改显示多少行, 用`show listsize`能查看listsize. l后可以接行号, 函数名|
+|r|run|开始运行程序|
+|b|break|设置断点, b后接行号或函数名|
+|c|continue|继续运行. 要注意在断点处停下后用c继续而不是r|
+|n|next|下一行|
+|s|step|与n的区别是n会执行完本行语句, 而有函数调用时s会停在函数内|
+|u|until| 执行到指定行号或者指定函数的开头|
+|i|info| 显示各种信息。如i b显示所有断点,i disp显示display,而i lo显示所有局部变量|
+|disp|display| 把一个表达式设置为display, 当程序每次停下来时都会显示其值|
+|cl|clear|取消断点, 和b的格式相同. 如果该位置有多个断点, 将同时取消|
+|cond|condition|用来设置条件断点|
+|ig|ignore|设置记次断点, count次以前不停止|
+|wa|watch point|watch a(简写为wa a)可以在变量a修改时停下,并显示出修改前后的变量值|
+|aw|all watch point| 读写时都停下|
+|rw|read watch point| 被读取时停下|
+|q|quit|退出gdb|
