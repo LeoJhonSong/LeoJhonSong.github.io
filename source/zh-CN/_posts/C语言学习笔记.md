@@ -81,7 +81,22 @@ C语言为内存的分配和管理提供了几个函数. 这些函数可以在 <
 部变量, 函数参数等. **堆**是由`malloc()`函数分配的内存块,内存释放由程序员手动控
 制, 在C语言由`free()`完成.
 
-# 字符串
+# 数组
+
+较大的数组时应在main函数之外声明.
+
+`memset(a, 0, sizeof(a))`能方便地把数组a清零,它在**string.h**中定义.
+
+用strcpy(a, b), strcmp(a, b), strcat(a, b)来执行“赋值”、“比较”和“连接”操作, 在
+**string.h**中定义
+
+## 字符串
+
+C语言中的字符串是以“\0”结尾的字符数组
+
+不同操作系统的回车换行符是不一致的。Windows是“\r”和“\n”两个字符,Linux是“\n”,而
+MacOS是“\r”. 如果在Windows下读取Windows文件, fgetc和getchar会把“\r""吃掉”, 只剩
+下“\n”; 但如果要在Linux下读取同样一个文件, 它们会忠实地先读取“\r”, 然后才是“\n”.
 
 很有意思的一个小问题: "5", '5' 和 5 有什么区别?  
 "5"是一个字符串, '5'是一个字符常量, 5是一个数字常量
@@ -133,3 +148,17 @@ C语言为内存的分配和管理提供了几个函数. 这些函数可以在 <
 循环结构程序设计中最常见的两个问题: **算术运算溢出**, **程序效率低下**
 
 变量在未赋值之前的值是不确定的.
+
+# gcc与gdb命令简记
+
+## gcc
+
+常用选项:
+
+|name_of_option| 我猜的全名|含义|
+|-|-|-|
+|-o [filename]|output| 指定输出文件名|
+|-Wall| warning all|This enables all the warnings about constructions that some users consider questionable, and that are easy to avoid (or modify to prevent the warning), even in conjunction with macros.|
+|-lm| link math.h| 链接math.h. C++编译器会自动链接, 但C的代码使用了math.h却不启动这个选项很可能出错|
+|-ansi| ANSI| 检查代码是否符合ANSI标准 (常与-Wpedantic连用)|
+|-Wpedantic| warning pedantic| Issue all the warnings demanded by strict ISO C and ISO C++; reject all programs that use forbidden extensions, and some other programs that do not follow ISO C and ISO C++. For ISO C, follows the version of the ISO C standard specified by any -std option used.|
