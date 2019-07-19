@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,15 +29,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/zh-CN/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-
-  <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
 
 
 
@@ -51,38 +42,23 @@
 
 
 
+<link rel="stylesheet" href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/zh-CN/css/main.css?v=7.2.0">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon-next.png?v=7.2.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32-next.png?v=7.2.0">
 
 
-
-<link href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/zh-CN/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16-next.png?v=7.2.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=6.6.0">
+  <link rel="mask-icon" href="/zh-CN/images/logo.svg?v=7.2.0" color="#222">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
-
-
-  <link rel="manifest" href="/zh-CN/images/site.webmanifest">
-
-
-  <meta name="msapplication-TileColor" content="#505050">
-  <meta name="msapplication-config" content="/zh-CN/images/browserconfig.xml">
-
-
-<meta name="theme-color" content="#505050">
 
 
 
@@ -92,9 +68,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/zh-CN/',
-    scheme: 'Pisces',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -106,19 +84,14 @@
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
-
-
-  
-
-
-
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-
 
   <meta name="description" content="使用vim开发也有半年多啦, 不过配置vim也是个漫长的过程. 记录一下常用快捷键和用法和配置过程.">
 <meta property="og:type" content="article">
@@ -136,7 +109,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://leojhonsong.github.io/zh-CN/vim使用杂记/">
 
 
@@ -147,6 +121,7 @@
   };
 </script>
 
+  
   <title>Vim使用杂记 | LeoJhon.Song's Blog</title>
   
 
@@ -163,26 +138,26 @@
 
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -241,7 +216,6 @@
 
     
     
-    
       
     
 
@@ -254,26 +228,8 @@
         
         
           
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/zh-CN/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
-    
     
     
       
@@ -284,66 +240,19 @@
     <a href="/zh-CN/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/zh-CN/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
 
       
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
       
     </ul>
   
 
   
+    
 
   
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
 
-
-
-    </div>
   
 </nav>
-
-
-
-  
 
 
 
@@ -351,23 +260,11 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -405,17 +302,21 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vim使用杂记</h1>
+          <h1 class="post-title" itemprop="name headline">Vim使用杂记
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -428,16 +329,14 @@
               
 
               <time title="创建时间：2019-07-10 15:58:14" itemprop="dateCreated datePublished" datetime="2019-07-10T15:58:14+08:00">2019-07-10</time>
+            </span>
+          
+
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
@@ -445,15 +344,12 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2019-07-16 15:51:41" itemprop="dateModified" datetime="2019-07-16T15:51:41+08:00">2019-07-16</time>
-              
+              </span>
             
-          </span>
+          
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -471,15 +367,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/zh-CN/vim使用杂记/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/vim使用杂记/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -487,32 +374,22 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">0</span>
             </span>
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">10k</span>
-              
-
-              
-
-              
-            </div>
           
 
           
@@ -524,7 +401,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -541,12 +418,15 @@
 <h2 id="&#x5728;&#x7A97;&#x53E3;&#x95F4;&#x79FB;&#x52A8;"><a href="#&#x5728;&#x7A97;&#x53E3;&#x95F4;&#x79FB;&#x52A8;" class="headerlink" title="&#x5728;&#x7A97;&#x53E3;&#x95F4;&#x79FB;&#x52A8;"></a>&#x5728;&#x7A97;&#x53E3;&#x95F4;&#x79FB;&#x52A8;</h2><p><code>Ctrl w</code> &#x63A5; hjkl&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x5728;&#x5404;&#x7A97;&#x53E3;&#x95F4;&#x79FB;&#x52A8;&#x5149;&#x6807;<br><code>Ctrl w t</code> &#x79FB;&#x52A8;&#x5149;&#x6807;&#x81F3;&#x6700;&#x5DE6;&#x4E0A;&#x7A97;&#x53E3;<br><code>Ctrl w b</code> &#x79FB;&#x52A8;&#x5149;&#x6807;&#x81F3;&#x6700;&#x53F3;&#x4E0B;&#x7A97;&#x53E3;</p>
 <h2 id="&#x8C03;&#x6574;&#x5927;&#x5C0F;"><a href="#&#x8C03;&#x6574;&#x5927;&#x5C0F;" class="headerlink" title="&#x8C03;&#x6574;&#x5927;&#x5C0F;"></a>&#x8C03;&#x6574;&#x5927;&#x5C0F;</h2><p>&#x5BBD;&#x5EA6;&#x8C03;&#x6574;:</p>
 <p><code>Ctrl w [n] &gt;</code> &#x53F3;&#x79FB;&#x8FB9;&#x754C;<br><code>Ctrl w [n] &lt;</code> &#x5DE6;&#x79FB;&#x8FB9;&#x754C;</p>
-<p>&#x1F4A1;&#x9ED8;&#x8BA4;&#x589E;&#x51CF;1&#x4E2A;&#x5B57;&#x7B26;&#x5BBD;&#x5EA6;, &#x53EF;&#x4EE5;&#x5728;Ctrl w&#x548C;+/-&#x95F4;&#x52A0;&#x6570;&#x5B57;&#x6765;&#x6307;&#x5B9A;&#x589E;&#x51CF;&#x5BBD;&#x5EA6;. &#x4E0D;&#x662F;&#x6700;&#x53F3;&#x8FB9;&#x7684;&#x7A97;&#x53E3;&#x8C03;&#x6574;&#x7684;&#x662F;&#x53F3;&#x8FB9;&#x754C;, &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x7A97;&#x53E3;&#x8C03;&#x6574;&#x7684;&#x662F;&#x5DE6;&#x8FB9;&#x754C;.</p>
+<p>&#x1F4A1;&#x9ED8;&#x8BA4;&#x589E;&#x51CF;1&#x4E2A;&#x5B57;&#x7B26;&#x5BBD;&#x5EA6;, &#x53EF;&#x4EE5;&#x5728;Ctrl w&#x548C;+/-&#x95F4;&#x52A0;&#x6570;&#x5B57;&#x6765;&#x6307;&#x5B9A;&#x589E;&#x51CF;&#x5BBD;&#x5EA6;. &#x4E0D;&#x662F;&#x6700;&#x53F3;&#x8FB9;&#x7684;&#x7A97;&#x53E3;
+&#x8C03;&#x6574;&#x7684;&#x662F;&#x53F3;&#x8FB9;&#x754C;, &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x7A97;&#x53E3;&#x8C03;&#x6574;&#x7684;&#x662F;&#x5DE6;&#x8FB9;&#x754C;.</p>
 <p>&#x9AD8;&#x5EA6;&#x8C03;&#x6574;:</p>
 <p><code>Ctrl w [n] +</code> &#x589E;&#x52A0;&#x9AD8;&#x5EA6;<br><code>Ctrl w [n] -</code> &#x51CF;&#x5C0F;&#x9AD8;&#x5EA6;</p>
 <h2 id="&#x8C03;&#x6574;&#x4F4D;&#x7F6E;"><a href="#&#x8C03;&#x6574;&#x4F4D;&#x7F6E;" class="headerlink" title="&#x8C03;&#x6574;&#x4F4D;&#x7F6E;"></a>&#x8C03;&#x6574;&#x4F4D;&#x7F6E;</h2><p><code>Ctrl w</code> &#x63A5;HJKL&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x81F3;&#x6700;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x5E76;&#x4E14;&#x5BBD;&#x5EA6;&#x6216;&#x9AD8;&#x5EA6;&#x4E3A;&#x6700;&#x5927;.<br><code>Ctrl w r</code> &#x987A;&#x65F6;&#x9488;&#x79FB;&#x52A8;&#x7A97;&#x53E3;<br><code>Ctrl w R</code> &#x9006;&#x65F6;&#x9488;&#x79FB;&#x52A8;&#x7A97;&#x53E3;</p>
 <p>&#x5F53;&#x7136;&#x8FD8;&#x6709; <code>:resize</code> &#x8FD9;&#x6837;&#x7684;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7ED1;&#x5B9A;&#x4E2A;&#x5FEB;&#x6377;&#x952E;&#x4EC0;&#x4E48;&#x7684;, &#x4F46;&#x6211;&#x61D2;&#x5F97;&#x7ED1;&#x4E86;.</p>
-<h1 id="&#x952E;&#x6620;&#x5C04;"><a href="#&#x952E;&#x6620;&#x5C04;" class="headerlink" title="&#x952E;&#x6620;&#x5C04;"></a>&#x952E;&#x6620;&#x5C04;</h1><p>vim&#x662F;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x9AD8;&#x5EA6;&#x4E2A;&#x6027;&#x5316;&#x7684;&#x7F16;&#x8F91;&#x5668;, &#x56E0;&#x6B64;&#x6BCF;&#x4E2A;&#x4EBA;&#x80AF;&#x5B9A;&#x90FD;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x987A;&#x624B;&#x7684;&#x5FEB;&#x6377;&#x952E;, &#x56E0;&#x4E3A;&#x6211;&#x662F;&#x4ECE;VSCode&#x8F6C;&#x6765;vim&#x7684;, &#x56E0;&#x6B64;&#x6211;&#x7684;&#x5FEB;&#x6377;&#x952E;&#x8BBE;&#x7F6E;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x53C2;&#x8003;&#x4E86;VSC&#x7684;&#x5FEB;&#x6377;&#x952E;&#x8BBE;&#x7F6E;. &#x7528;&#x4EE5;&#x5728; <strong>.vimrc</strong> &#x4E2D;&#x8BBE;&#x5B9A;&#x5FEB;&#x6377;&#x952E;&#x7684;&#x547D;&#x4EE4;&#x6709;&#x597D;&#x51E0;&#x4E2A;, &#x6211;&#x7684;vimrc&#x91CC;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x662F;<code>nnoremap</code>&#x548C;<code>map</code>. &#x4EE5;&#x4E0B;&#x662F;&#x6211;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x53CA;&#x5176;&#x542B;&#x4E49;.</p>
+<h1 id="&#x952E;&#x6620;&#x5C04;"><a href="#&#x952E;&#x6620;&#x5C04;" class="headerlink" title="&#x952E;&#x6620;&#x5C04;"></a>&#x952E;&#x6620;&#x5C04;</h1><p>vim&#x662F;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x9AD8;&#x5EA6;&#x4E2A;&#x6027;&#x5316;&#x7684;&#x7F16;&#x8F91;&#x5668;, &#x56E0;&#x6B64;&#x6BCF;&#x4E2A;&#x4EBA;&#x80AF;&#x5B9A;&#x90FD;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x987A;&#x624B;&#x7684;&#x5FEB;&#x6377;&#x952E;, &#x56E0;
+&#x4E3A;&#x6211;&#x662F;&#x4ECE;VSCode&#x8F6C;&#x6765;vim&#x7684;, &#x56E0;&#x6B64;&#x6211;&#x7684;&#x5FEB;&#x6377;&#x952E;&#x8BBE;&#x7F6E;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x53C2;&#x8003;&#x4E86;VSC&#x7684;&#x5FEB;&#x6377;&#x952E;&#x8BBE;&#x7F6E;. &#x7528;&#x4EE5;
+&#x5728; <strong>.vimrc</strong> &#x4E2D;&#x8BBE;&#x5B9A;&#x5FEB;&#x6377;&#x952E;&#x7684;&#x547D;&#x4EE4;&#x6709;&#x597D;&#x51E0;&#x4E2A;, &#x6211;&#x7684;vimrc&#x91CC;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x662F;<code>nnoremap</code>&#x548C;<code>map</code>. &#x4EE5;&#x4E0B;&#x662F;&#x6211;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x53CA;&#x5176;&#x542B;&#x4E49;.</p>
 <table>
 <thead>
 <tr>
@@ -637,18 +517,26 @@
 </tr>
 </tbody>
 </table>
-<p>&#x1F4A1; &#x5173;&#x4E8E;&#x5E94;&#x5F53;&#x907F;&#x514D;&#x4F7F;&#x7528;<code>map</code>&#x7684;&#x5177;&#x4F53;&#x539F;&#x56E0;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://learnvimscriptthehardway.stevelosh.com/chapters/05.html#nonrecursive-mapping" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
-<h1 id="&#x4EE3;&#x7801;&#x6298;&#x53E0;"><a href="#&#x4EE3;&#x7801;&#x6298;&#x53E0;" class="headerlink" title="&#x4EE3;&#x7801;&#x6298;&#x53E0;"></a>&#x4EE3;&#x7801;&#x6298;&#x53E0;</h1><p>&#x539F;&#x672C;&#x5C55;&#x5F00;&#x4EE3;&#x7801;&#x548C;&#x6298;&#x53E0;&#x4EE3;&#x7801;&#x662F;&#x7ED1;&#x5B9A;&#x5728;&#x4E86; <code>zo</code> (z open) &#x548C; <code>zc</code> (z close), &#x4E0D;&#x8FC7;&#x6211;&#x91CD;&#x65B0;&#x6620;&#x5C04;&#x5230;&#x4E86;&#x7A7A;&#x683C;&#x952E;, normal&#x6A21;&#x5F0F;&#x4E0B;&#x6309;&#x4E00;&#x6B21;&#x5C55;&#x5F00;, &#x518D;&#x6309;&#x4E00;&#x6B21;&#x6298;&#x53E0;, &#x611F;&#x89C9;&#x66F4;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;.</p>
+<p>&#x1F4A1; &#x5173;&#x4E8E;&#x5E94;&#x5F53;&#x907F;&#x514D;&#x4F7F;&#x7528;<code>map</code>&#x7684;&#x5177;&#x4F53;&#x539F;&#x56E0;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://learnvimscriptthehardway.stevelosh.com/chapters/05.html#nonrecursive-mapping" target="_blank" rel="noopener">&#x8FD9;
+&#x91CC;</a></p>
+<h1 id="&#x4EE3;&#x7801;&#x6298;&#x53E0;"><a href="#&#x4EE3;&#x7801;&#x6298;&#x53E0;" class="headerlink" title="&#x4EE3;&#x7801;&#x6298;&#x53E0;"></a>&#x4EE3;&#x7801;&#x6298;&#x53E0;</h1><p>&#x539F;&#x672C;&#x5C55;&#x5F00;&#x4EE3;&#x7801;&#x548C;&#x6298;&#x53E0;&#x4EE3;&#x7801;&#x662F;&#x7ED1;&#x5B9A;&#x5728;&#x4E86; <code>zo</code> (z open) &#x548C; <code>zc</code> (z close), &#x4E0D;&#x8FC7;&#x6211;&#x91CD;&#x65B0;&#x6620;&#x5C04;
+&#x5230;&#x4E86;&#x7A7A;&#x683C;&#x952E;, normal&#x6A21;&#x5F0F;&#x4E0B;&#x6309;&#x4E00;&#x6B21;&#x5C55;&#x5F00;, &#x518D;&#x6309;&#x4E00;&#x6B21;&#x6298;&#x53E0;, &#x611F;&#x89C9;&#x66F4;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;.</p>
 <figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;space&gt;</span> @=((<span class="built_in">foldclosed</span>(<span class="built_in">line</span>(<span class="string">&apos;.&apos;</span>)) &lt; <span class="number">0</span>) ? <span class="string">&apos;zc&apos;</span> : <span class="string">&apos;zo&apos;</span>)<span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <h1 id="&#x62FC;&#x5199;&#x68C0;&#x67E5;"><a href="#&#x62FC;&#x5199;&#x68C0;&#x67E5;" class="headerlink" title="&#x62FC;&#x5199;&#x68C0;&#x67E5;"></a>&#x62FC;&#x5199;&#x68C0;&#x67E5;</h1><figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> spell</span><br><span class="line"><span class="keyword">set</span> spellfile=~/.<span class="keyword">vim</span>/spell/<span class="keyword">en</span>.utf-<span class="number">8</span>.<span class="built_in">add</span></span><br></pre></td></tr></tbody></table></figure>
 <p>&#x6309;<code>]s</code>&#x8DF3;&#x5F80;&#x4E0B;&#x4E00;&#x9519;&#x8BEF;&#x62FC;&#x5199;, <code>[s</code>&#x5F80;&#x524D;&#x8DF3;.</p>
-<p>&#x6309;<code>zg</code> &#x5C06;&#x5F53;&#x524D;&#x5149;&#x6807;&#x6240;&#x5728;&#x5355;&#x8BCD;&#x8BB0;&#x5F55;&#x5230;&#x5B57;&#x5178; (&#x6307;&#x51FA;&#x5F53;&#x524D;word &#x662F; good word), <code>zw</code>&#x5C06;&#x5F53;&#x524D;&#x5355;&#x8BCD;&#x4ECE;&#x5B57;&#x5178;&#x5220;&#x9664; (&#x6307;&#x51FA;&#x5F53;&#x524D;word&#x4E3A;wrong word)</p>
-<p>vim&#x5141;&#x8BB8;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5B57;&#x5178;, &#x901A;&#x8FC7;&#x8F93;&#x5165;<code>:set spellfile+=path/to/dic/en.utf-8.add</code>&#x6765;&#x6DFB;&#x52A0;, &#x4F46;&#x8981;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x540D;&#x4E00;&#x5B9A;&#x662F; <strong>.[encoding].add</strong></p>
-<p>&#x8FD9;&#x4E4B;&#x540E;&#x4F60;&#x53EF;&#x4EE5;&#x8F93;&#x5165; <code>set spellfile?</code> &#x6765;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5728;&#x4F7F;&#x7528;&#x54EA;&#x4E9B;&#x5B57;&#x5178;, &#x8981;&#x5C06;&#x5355;&#x8BCD;&#x6DFB;&#x52A0;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x5C31;&#x6309; <code>1zg</code>, &#x6DFB;&#x52A0;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;&#x5C31;&#x6309; <code>2zg</code>. &#x5F88;&#x597D;&#x7684;&#x4E00;&#x70B9;&#x662F;spellfile&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x53EA;&#x5728;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x533A;&#x6709;&#x6548;, &#x5373;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;spellfile&#x503C;. &#x8FD9;&#x7ED9;&#x4FDD;&#x5B58;&#x5355;&#x8BCD;&#x5230;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x5E26;&#x6765;&#x4E86;&#x53EF;&#x80FD;. &#x56E0;&#x6B64;&#x6211;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x5FEB;&#x6377;&#x952E;:</p>
+<p>&#x6309;<code>zg</code> &#x5C06;&#x5F53;&#x524D;&#x5149;&#x6807;&#x6240;&#x5728;&#x5355;&#x8BCD;&#x8BB0;&#x5F55;&#x5230;&#x5B57;&#x5178; (&#x6307;&#x51FA;&#x5F53;&#x524D;word &#x662F; good word), <code>zw</code>&#x5C06;&#x5F53;&#x524D;&#x5355;&#x8BCD;
+&#x4ECE;&#x5B57;&#x5178;&#x5220;&#x9664; (&#x6307;&#x51FA;&#x5F53;&#x524D;word&#x4E3A;wrong word)</p>
+<p>vim&#x5141;&#x8BB8;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5B57;&#x5178;, &#x901A;&#x8FC7;&#x8F93;&#x5165;<code>:set spellfile+=path/to/dic/en.utf-8.add</code>&#x6765;&#x6DFB;
+&#x52A0;, &#x4F46;&#x8981;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x540D;&#x4E00;&#x5B9A;&#x662F; <strong>.[encoding].add</strong></p>
+<p>&#x8FD9;&#x4E4B;&#x540E;&#x4F60;&#x53EF;&#x4EE5;&#x8F93;&#x5165; <code>set spellfile?</code> &#x6765;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5728;&#x4F7F;&#x7528;&#x54EA;&#x4E9B;&#x5B57;&#x5178;, &#x8981;&#x5C06;&#x5355;&#x8BCD;&#x6DFB;&#x52A0;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;
+&#x5B57;&#x5178;&#x5C31;&#x6309; <code>1zg</code>, &#x6DFB;&#x52A0;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;&#x5C31;&#x6309; <code>2zg</code>. &#x5F88;&#x597D;&#x7684;&#x4E00;&#x70B9;&#x662F;spellfile&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x53EA;&#x5728;&#x5F53;&#x524D;&#x7F13;
+&#x51B2;&#x533A;&#x6709;&#x6548;, &#x5373;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;spellfile&#x503C;. &#x8FD9;&#x7ED9;&#x4FDD;&#x5B58;&#x5355;&#x8BCD;&#x5230;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x5E26;&#x6765;&#x4E86;&#x53EF;
+&#x80FD;. &#x56E0;&#x6B64;&#x6211;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x5FEB;&#x6377;&#x952E;:</p>
 <figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;leader&gt;</span><span class="symbol">&lt;C-z&gt;</span> :<span class="keyword">exe</span> <span class="string">&quot;setlocal spellfile+=&quot;</span> . <span class="symbol">&lt;C-r&gt;</span>=<span class="built_in">shellescape</span>(<span class="built_in">fnamemodify</span>(<span class="string">&quot;en.utf-8.add&quot;</span>, <span class="string">&quot;:p&quot;</span>), <span class="number">1</span>)<span class="symbol">&lt;CR&gt;</span><span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>&#x8FD9;&#x6837;&#x6BCF;&#x6B21;&#x6309;<code>Ctrl , z</code>&#x5C31;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x5B57;&#x5178;&#x5230;spellfile</p>
 <h1 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h1><h2 id="vim-plug"><a href="#vim-plug" class="headerlink" title="vim-plug"></a>vim-plug</h2><p>&#x6211;&#x7528;<a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">vim-plug</a>&#x6765;&#x7BA1;&#x7406;&#x6211;&#x7684;vim&#x63D2;&#x4EF6;, &#x4F7F;&#x7528;&#x5F88;&#x7B80;&#x5355;, &#x5199;&#x6CD5;&#x53EF;&#x4EE5;&#x53C2;&#x7167;&#x6211;&#x7684;vimrc. &#x6BCF;&#x6B21;&#x8981;&#x4E0B;&#x8F7D;&#x63D2;&#x4EF6;&#x65F6;&#x5728;vim&#x4E2D;&#x8F93;&#x5165;<code>:PlugInstall</code>&#x5373;&#x53EF;. &#x8D85;&#x597D;&#x7528;&#x1F606;</p>
-<h2 id="NERDtree"><a href="#NERDtree" class="headerlink" title="NERDtree"></a>NERDtree</h2><p>NERDtree&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x5668;, &#x4F53;&#x9A8C;&#x548C;VSC&#x7684;explorer&#x5DEE;&#x4E0D;&#x591A;. &#x89C9;&#x5F97;&#x6BCF;&#x6B21;&#x8F93;<code>:NERDTreeToggle</code>&#x592A;&#x9EBB;&#x70E6;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x952E;&#x7ED1;&#x5B9A;&#x4E00;&#x4E0B;:</p>
+<h2 id="NERDtree"><a href="#NERDtree" class="headerlink" title="NERDtree"></a>NERDtree</h2><p>NERDtree&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x5668;, &#x4F53;&#x9A8C;&#x548C;VSC&#x7684;explorer&#x5DEE;&#x4E0D;&#x591A;. &#x89C9;&#x5F97;&#x6BCF;&#x6B21;&#x8F93;
+<code>:NERDTreeToggle</code>&#x592A;&#x9EBB;&#x70E6;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x952E;&#x7ED1;&#x5B9A;&#x4E00;&#x4E0B;:</p>
 <figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;leader&gt;</span><span class="symbol">&lt;C-e&gt;</span> :NERDTreeToggle<span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>&#x6211;&#x7ED1;&#x5B9A;&#x5230;&#x4E86;<code>Ctrl , e</code>, &#x548C;&#x672C;&#x6765;&#x60F3;&#x7ED1;&#x7684;VSC&#x91CC;&#x7684;<code>Ctrl shift e</code>&#x4E0D;&#x540C;. &#x56E0;&#x4E3A;&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;<code>Ctrl
 shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&#x8F93;&#x51FA;&#x6CA1;&#x6709;&#x533A;&#x522B;.</p>
@@ -708,6 +596,10 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
     
 
     
+      
+    
+
+    
     
     
 
@@ -732,7 +624,8 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
           <div class="post-nav-next post-nav-item">
             
               <a href="/zh-CN/Python杂记/" rel="next" title="Python杂记">
-                <i class="fa fa-chevron-left"></i> Python杂记</a>
+                <i class="fa fa-chevron-left"></i> Python杂记
+              </a>
             
           </div>
 
@@ -765,10 +658,6 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -785,7 +674,6 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -793,171 +681,110 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录</li>
+            文章目录
+          </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览</li>
+            站点概览
+          </li>
         </ul>
       
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
-            
-              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
-              <p class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</p>
-          </div>
+  
+  <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+  <div class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</div>
+</div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/zh-CN/archives/">
-                
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/zh-CN/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/zh-CN/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
 
-              
-            </nav>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
           
+            <a href="/zh-CN/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
 
-          
+    
+  </nav>
 
-          
-            <div class="links-of-author motion-element">
-              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
-                </span>
-              
-            </div>
-          
 
-          
+
+
+
+
+
+
+
+
+
+
 
           
           
-
-          
-            
-          
-          
-
         </div>
       </div>
 
@@ -967,7 +794,8 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
@@ -980,16 +808,10 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
         
@@ -998,9 +820,9 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-hand-peace-o"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">LeoJhon.Song</span>
 
@@ -1010,41 +832,27 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
-    
-    <span title="站点总字数">292k</span>
+    <span title="站点总字数">297k</span>
   
 
   
 </div>
 
 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -1058,7 +866,10 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
     </footer>
 
     
-
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
@@ -1083,9 +894,8 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
 
 
 
-
-
-
+  
+  
 
 
 
@@ -1100,27 +910,20 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
 
 
   
-  
-    <script src="/zh-CN/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/zh-CN/lib/jquery/index.js?v=3.4.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
 
 
-  <script src="/zh-CN/js/src/utils.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/utils.js?v=7.2.0"></script>
 
-  <script src="/zh-CN/js/src/motion.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/motion.js?v=7.2.0"></script>
 
 
 
@@ -1128,388 +931,33 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
   
 
 
-  <script src="/zh-CN/js/src/affix.js?v=6.6.0"></script>
-
-  <script src="/zh-CN/js/src/schemes/pisces.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/schemes/muse.js?v=7.2.0"></script>
 
 
 
   
-  <script src="/zh-CN/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/zh-CN/js/src/post-details.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/scrollspy.js?v=7.2.0"></script>
+<script src="/zh-CN/js/post-details.js?v=7.2.0"></script>
 
+
+
+  <script src="/zh-CN/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
   
 
 
-  <script src="/zh-CN/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
   
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-  <script>
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
-        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
-
-
-
-
-  
-
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/zh-CN/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
 
 
 
@@ -1525,7 +973,6 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
   
 
   
-  
 
   
 
@@ -1536,79 +983,10 @@ shift &#x5B57;&#x6BCD;</code>&#x548C;<code>Ctrl &#x5B57;&#x6BCD;</code>&#x7684;&
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
 
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
+  
 
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap');
-      $(e).after($wrap);
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text();
-        }).toArray().join('\n');
-        var ta = document.createElement('textarea');
-        var range = document.createRange(); //For Chrome
-        var sel = window.getSelection(); //For Chrome
-        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-        ta.style.top = yPosition + 'px'; //Prevent page scroll
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.value = code;
-        ta.textContent = code; //For FireFox
-        ta.contentEditable = true;
-        ta.readOnly = false;
-        document.body.appendChild(ta);
-        range.selectNode(ta);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ta.setSelectionRange(0, code.length);
-        var result = document.execCommand('copy');
-        
-        ta.blur(); //For iOS
-        $(this).blur();
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function () {
-          $b.text('复制');
-        }, 300);
-      }).append(e);
-    })
-  </script>
+  
 
 
   

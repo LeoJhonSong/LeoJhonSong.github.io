@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,15 +29,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/zh-CN/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-
-  <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
 
 
 
@@ -51,38 +42,23 @@
 
 
 
+<link rel="stylesheet" href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/zh-CN/css/main.css?v=7.2.0">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon-next.png?v=7.2.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32-next.png?v=7.2.0">
 
 
-
-<link href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/zh-CN/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16-next.png?v=7.2.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=6.6.0">
+  <link rel="mask-icon" href="/zh-CN/images/logo.svg?v=7.2.0" color="#222">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
-
-
-  <link rel="manifest" href="/zh-CN/images/site.webmanifest">
-
-
-  <meta name="msapplication-TileColor" content="#505050">
-  <meta name="msapplication-config" content="/zh-CN/images/browserconfig.xml">
-
-
-<meta name="theme-color" content="#505050">
 
 
 
@@ -92,9 +68,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/zh-CN/',
-    scheme: 'Pisces',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -106,37 +84,33 @@
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
 
-
-  
-
-
-
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-
-
-  <meta name="description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回答一位">
+  <meta name="description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日 我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们 能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没 有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回">
 <meta property="og:type" content="article">
 <meta property="og:title" content="当我安利软体机器人时我在谈什么">
 <meta property="og:url" content="https://leojhonsong.github.io/zh-CN/当我安利软体机器人时我在谈什么/index.html">
 <meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
-<meta property="og:description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回答一位">
+<meta property="og:description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日 我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们 能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没 有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-06-13T11:04:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="当我安利软体机器人时我在谈什么">
-<meta name="twitter:description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回答一位">
+<meta name="twitter:description" content="从小我就喜欢仿生机器人. 我敬畏着各种精妙的仿生设计和它们的设计者, 渴望着有朝一日 我也能参与这样的工作. 当我看到波士顿动力的Atlas的仿生腿部结构时, 我就在想: 我们 能不能造出人造人呢? 那时的我并没有想很多, 并不会去想这样浩大的工程的性价比, 并没 有意识到背后的伦理问题, 只是出于一种探索, 好奇. 我也曾听到一句很有趣的话:  “在一项技术成熟前不要谈论他的价值”  法拉第在回">
 
 
 
 
 
-
+  
+  
   <link rel="canonical" href="https://leojhonsong.github.io/zh-CN/当我安利软体机器人时我在谈什么/">
 
 
@@ -147,6 +121,7 @@
   };
 </script>
 
+  
   <title>当我安利软体机器人时我在谈什么 | LeoJhon.Song's Blog</title>
   
 
@@ -163,26 +138,26 @@
 
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -241,7 +216,6 @@
 
     
     
-    
       
     
 
@@ -254,26 +228,8 @@
         
         
           
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/zh-CN/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
-    
     
     
       
@@ -284,66 +240,19 @@
     <a href="/zh-CN/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/zh-CN/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
 
       
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
       
     </ul>
   
 
   
+    
 
   
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
 
-
-
-    </div>
   
 </nav>
-
-
-
-  
 
 
 
@@ -351,23 +260,11 @@
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
-
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -405,17 +302,21 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">当我安利软体机器人时我在谈什么</h1>
+          <h1 class="post-title" itemprop="name headline">当我安利软体机器人时我在谈什么
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -428,16 +329,14 @@
               
 
               <time title="创建时间：2019-06-10 02:02:47" itemprop="dateCreated datePublished" datetime="2019-06-10T02:02:47+08:00">2019-06-10</time>
+            </span>
+          
+
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
@@ -445,15 +344,12 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2019-06-13 19:04:04" itemprop="dateModified" datetime="2019-06-13T19:04:04+08:00">2019-06-13</time>
-              
+              </span>
             
-          </span>
+          
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -465,7 +361,10 @@
 
                 
                 
-                  ，<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/Robotics/Soft-Robotics/" itemprop="url" rel="index"><span itemprop="name">Soft Robotics</span></a></span>
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/Robotics/Soft-Robotics/" itemprop="url" rel="index"><span itemprop="name">Soft Robotics</span></a></span>
 
                 
                 
@@ -475,48 +374,29 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/zh-CN/当我安利软体机器人时我在谈什么/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/当我安利软体机器人时我在谈什么/" itemprop="commentCount"></span>
-                </a>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">0</span>
             </span>
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">7.9k</span>
-              
-
-              
-
-              
-            </div>
           
 
           
@@ -528,18 +408,24 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <p>&#x4ECE;&#x5C0F;&#x6211;&#x5C31;&#x559C;&#x6B22;&#x4EFF;&#x751F;&#x673A;&#x5668;&#x4EBA;. &#x6211;&#x656C;&#x754F;&#x7740;&#x5404;&#x79CD;&#x7CBE;&#x5999;&#x7684;&#x4EFF;&#x751F;&#x8BBE;&#x8BA1;&#x548C;&#x5B83;&#x4EEC;&#x7684;&#x8BBE;&#x8BA1;&#x8005;, &#x6E34;&#x671B;&#x7740;&#x6709;&#x671D;&#x4E00;&#x65E5;&#x6211;&#x4E5F;&#x80FD;&#x53C2;&#x4E0E;&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x4F5C;. &#x5F53;&#x6211;&#x770B;&#x5230;&#x6CE2;&#x58EB;&#x987F;&#x52A8;&#x529B;&#x7684;Atlas&#x7684;&#x4EFF;&#x751F;&#x817F;&#x90E8;&#x7ED3;&#x6784;&#x65F6;, &#x6211;&#x5C31;&#x5728;&#x60F3;: &#x6211;&#x4EEC;&#x80FD;&#x4E0D;&#x80FD;&#x9020;&#x51FA;&#x4EBA;&#x9020;&#x4EBA;&#x5462;? &#x90A3;&#x65F6;&#x7684;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x60F3;&#x5F88;&#x591A;, &#x5E76;&#x4E0D;&#x4F1A;&#x53BB;&#x60F3;&#x8FD9;&#x6837;&#x6D69;&#x5927;&#x7684;&#x5DE5;&#x7A0B;&#x7684;&#x6027;&#x4EF7;&#x6BD4;, &#x5E76;&#x6CA1;&#x6709;&#x610F;&#x8BC6;&#x5230;&#x80CC;&#x540E;&#x7684;&#x4F26;&#x7406;&#x95EE;&#x9898;, &#x53EA;&#x662F;&#x51FA;&#x4E8E;&#x4E00;&#x79CD;&#x63A2;&#x7D22;, &#x597D;&#x5947;. &#x6211;&#x4E5F;&#x66FE;&#x542C;&#x5230;&#x4E00;&#x53E5;&#x5F88;&#x6709;&#x8DA3;&#x7684;&#x8BDD;:</p>
+        <p>&#x4ECE;&#x5C0F;&#x6211;&#x5C31;&#x559C;&#x6B22;&#x4EFF;&#x751F;&#x673A;&#x5668;&#x4EBA;. &#x6211;&#x656C;&#x754F;&#x7740;&#x5404;&#x79CD;&#x7CBE;&#x5999;&#x7684;&#x4EFF;&#x751F;&#x8BBE;&#x8BA1;&#x548C;&#x5B83;&#x4EEC;&#x7684;&#x8BBE;&#x8BA1;&#x8005;, &#x6E34;&#x671B;&#x7740;&#x6709;&#x671D;&#x4E00;&#x65E5;
+&#x6211;&#x4E5F;&#x80FD;&#x53C2;&#x4E0E;&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x4F5C;. &#x5F53;&#x6211;&#x770B;&#x5230;&#x6CE2;&#x58EB;&#x987F;&#x52A8;&#x529B;&#x7684;Atlas&#x7684;&#x4EFF;&#x751F;&#x817F;&#x90E8;&#x7ED3;&#x6784;&#x65F6;, &#x6211;&#x5C31;&#x5728;&#x60F3;: &#x6211;&#x4EEC;
+&#x80FD;&#x4E0D;&#x80FD;&#x9020;&#x51FA;&#x4EBA;&#x9020;&#x4EBA;&#x5462;? &#x90A3;&#x65F6;&#x7684;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x60F3;&#x5F88;&#x591A;, &#x5E76;&#x4E0D;&#x4F1A;&#x53BB;&#x60F3;&#x8FD9;&#x6837;&#x6D69;&#x5927;&#x7684;&#x5DE5;&#x7A0B;&#x7684;&#x6027;&#x4EF7;&#x6BD4;, &#x5E76;&#x6CA1;
+&#x6709;&#x610F;&#x8BC6;&#x5230;&#x80CC;&#x540E;&#x7684;&#x4F26;&#x7406;&#x95EE;&#x9898;, &#x53EA;&#x662F;&#x51FA;&#x4E8E;&#x4E00;&#x79CD;&#x63A2;&#x7D22;, &#x597D;&#x5947;. &#x6211;&#x4E5F;&#x66FE;&#x542C;&#x5230;&#x4E00;&#x53E5;&#x5F88;&#x6709;&#x8DA3;&#x7684;&#x8BDD;:</p>
 <blockquote>
 <p>&#x201C;&#x5728;&#x4E00;&#x9879;&#x6280;&#x672F;&#x6210;&#x719F;&#x524D;&#x4E0D;&#x8981;&#x8C08;&#x8BBA;&#x4ED6;&#x7684;&#x4EF7;&#x503C;&#x201D;</p>
 </blockquote>
-<p>&#x6CD5;&#x62C9;&#x7B2C;&#x5728;&#x56DE;&#x7B54;&#x4E00;&#x4F4D;&#x8D35;&#x65CF;&#x592B;&#x4EBA;&#x5BF9;&#x53D1;&#x7535;&#x673A;&#x7684;&#x7528;&#x5904;&#x7684;&#x8D28;&#x7591;&#x65F6;&#x5C31;&#x53CD;&#x95EE;&#x5230;: &#x201C;&#x5A74;&#x513F;&#x80FD;&#x505A;&#x4EC0;&#x4E48;&#x5462;?&#x201D;. &#x6700;&#x8FD1;&#x5F88;&#x706B;&#x7684;<a href="https://www.bilibili.com/video/av54737593?from=search&amp;seid=16639379942704237214" target="_blank" rel="noopener">&#x4F55;&#x540C;&#x5B66;&#x5BF9;5G&#x7684;&#x770B;&#x6CD5;</a>
-&#x4E5F;&#x53D1;&#x4EBA;&#x6DF1;&#x7701;. &#x5728;&#x4ED6;&#x63D0;&#x9192;&#x540E;&#x6211;&#x624D;&#x60F3;&#x8D77;&#x6CE8;&#x610F;&#x5230;&#x6709;&#x8BB8;&#x591A;&#x6280;&#x672F; (&#x6BD4;&#x5982;&#x6709;&#x6B3E;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x65E0;&#x7EBF;&#x63A7;&#x5236;&#x5BF9;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x8981;&#x6C42;&#x5F88;&#x9AD8;, 4G&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;)&#x4F9D;&#x8D56;&#x4E8E;5G. 5G&#x5FC5;&#x5C06;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x751F;&#x6D3B;&#x5E26;&#x6765;&#x73B0;&#x5728;&#x7684;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x60F3;&#x8C61;&#x7684;&#x6539;&#x53D8;.</p>
+<p>&#x6CD5;&#x62C9;&#x7B2C;&#x5728;&#x56DE;&#x7B54;&#x4E00;&#x4F4D;&#x8D35;&#x65CF;&#x592B;&#x4EBA;&#x5BF9;&#x53D1;&#x7535;&#x673A;&#x7684;&#x7528;&#x5904;&#x7684;&#x8D28;&#x7591;&#x65F6;&#x5C31;&#x53CD;&#x95EE;&#x5230;: &#x201C;&#x5A74;&#x513F;&#x80FD;&#x505A;&#x4EC0;&#x4E48;&#x5462;?&#x201D;. &#x6700;&#x8FD1;
+&#x5F88;&#x706B;&#x7684;<a href="https://www.bilibili.com/video/av54737593?from=search&amp;seid=16639379942704237214" target="_blank" rel="noopener">&#x4F55;&#x540C;&#x5B66;&#x5BF9;5G&#x7684;&#x770B;
+&#x6CD5;</a>
+&#x4E5F;&#x53D1;&#x4EBA;&#x6DF1;&#x7701;. &#x5728;&#x4ED6;&#x63D0;&#x9192;&#x540E;&#x6211;&#x624D;&#x60F3;&#x8D77;&#x6CE8;&#x610F;&#x5230;&#x6709;&#x8BB8;&#x591A;&#x6280;&#x672F; (&#x6BD4;&#x5982;&#x6709;&#x6B3E;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x65E0;&#x7EBF;&#x63A7;&#x5236;&#x5BF9;&#x4F20;&#x8F93;&#x901F;
+&#x5EA6;&#x8981;&#x6C42;&#x5F88;&#x9AD8;, 4G&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;)&#x4F9D;&#x8D56;&#x4E8E;5G. 5G&#x5FC5;&#x5C06;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x751F;&#x6D3B;&#x5E26;&#x6765;&#x73B0;&#x5728;&#x7684;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x60F3;&#x8C61;&#x7684;&#x6539;&#x53D8;.</p>
 <p>&#x800C;<strong>&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;</strong>&#x4E5F;&#x5FC5;&#x7136;&#x662F;&#x8FD9;&#x6837;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x671F;&#x5F85;&#x7684;&#x6280;&#x672F;.</p>
 <a id="more"></a>
 <p>&#x6211;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x662F;<a href=""></a>. &#x5B83;&#x7684;&#x7075;&#x6D3B;, &#x7CBE;&#x51C6;&#x9707;&#x64BC;&#x4E86;&#x6211;.
@@ -547,11 +433,18 @@
 <p>&#x1F4FA; &#x8FD9;&#x4E2A;&#x89C6;&#x9891;<strong>&#x611F;&#x6027;&#x5730;</strong>&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E9B;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x80FD;&#x89E3;&#x51B3;&#x7684;&#x9700;&#x6C42;, &#x5B9E;&#x9645;&#x5E94;&#x7528;, &#x7814;&#x7A76;&#x65B9;&#x5411;.
 <!-- TODO --></p>
 <blockquote>
-<p>&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x57FA;&#x672C;&#x7531;&#x7535;&#x673A;&#x63A7;&#x5236;, &#x9700;&#x8981;&#x7CBE;&#x51C6;&#x63A7;&#x5236;, &#x5BF9;&#x8FD9;&#x4E9B;&#x521A;&#x6027;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x8FD0;&#x7528;&#x503E;&#x5411;&#x4E8E;<strong>&#x4E13;&#x4E1A;&#x5316;&#x4E0E;&#x7CBE;&#x786E;&#x5316;</strong>, &#x5B83;&#x4EEC;&#x5F88;&#x96BE;&#x8868;&#x73B0;&#x51FA;<strong>&#x9AD8;&#x5EA6;&#x53EF;&#x53D8;&#x5F62;&#x80FD;&#x529B;&#x4E0E;&#x5BF9;&#x590D;&#x6742;&#x73AF;&#x5883;&#x7684;&#x9002;&#x5E94;&#x6027;</strong>. &#x968F;&#x7740;&#x673A;&#x5668;&#x4EBA;&#x8FD0;&#x7528;&#x9886;&#x57DF;&#x7EE7;&#x7EED;&#x6269;&#x5927;, &#x533B;&#x7597;&#x4FDD;&#x5065;&#x3001;&#x590D;&#x6742;&#x5730;&#x5F62;&#x52D8;&#x63A2;&#x7B49;&#x7279;&#x6B8A;&#x9886;&#x57DF;&#x5BF9;&#x673A;&#x5668;&#x4EBA;&#x63D0;&#x51FA;&#x4E86;&#x66F4;&#x52A0;&#x4E25;&#x82DB;&#x7684;&#x8981;&#x6C42;.</p>
+<p>&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x57FA;&#x672C;&#x7531;&#x7535;&#x673A;&#x63A7;&#x5236;, &#x9700;&#x8981;&#x7CBE;&#x51C6;&#x63A7;&#x5236;, &#x5BF9;&#x8FD9;&#x4E9B;&#x521A;&#x6027;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x8FD0;&#x7528;&#x503E;&#x5411;&#x4E8E;<strong>&#x4E13;&#x4E1A;&#x5316;&#x4E0E;
+&#x7CBE;&#x786E;&#x5316;</strong>, &#x5B83;&#x4EEC;&#x5F88;&#x96BE;&#x8868;&#x73B0;&#x51FA;<strong>&#x9AD8;&#x5EA6;&#x53EF;&#x53D8;&#x5F62;&#x80FD;&#x529B;&#x4E0E;&#x5BF9;&#x590D;&#x6742;&#x73AF;&#x5883;&#x7684;&#x9002;&#x5E94;&#x6027;</strong>. &#x968F;&#x7740;&#x673A;&#x5668;&#x4EBA;&#x8FD0;&#x7528;
+&#x9886;&#x57DF;&#x7EE7;&#x7EED;&#x6269;&#x5927;, &#x533B;&#x7597;&#x4FDD;&#x5065;&#x3001;&#x590D;&#x6742;&#x5730;&#x5F62;&#x52D8;&#x63A2;&#x7B49;&#x7279;&#x6B8A;&#x9886;&#x57DF;&#x5BF9;&#x673A;&#x5668;&#x4EBA;&#x63D0;&#x51FA;&#x4E86;&#x66F4;&#x52A0;&#x4E25;&#x82DB;&#x7684;&#x8981;&#x6C42;.</p>
 </blockquote>
-<p>&#x1F517; <a href="https://zhuanlan.zhihu.com/p/30700859" target="_blank" rel="noopener">&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;</a>&#x6E90;&#x81EA;&#x6587;&#x529B;&#x8001;&#x5E08;&#x7684;&#x62A5;&#x544A;, &#x8BB2;&#x5230;&#x4E86;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x5B9A;&#x4E49;, &#x53D1;&#x5C55;&#x5386;&#x7A0B;, &#x53D1;&#x5C55;&#x8D8B;&#x52BF;&#x5206;&#x6790;, &#x4E5F;&#x6709;&#x6587;&#x8001;&#x5E08;&#x4E3E;&#x4F8B;&#x4ECE;&#x4EA7;&#x751F;&#x7075;&#x611F;&#x5230;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x7B80;&#x8FF0;.</p>
+<p>&#x1F517; <a href="https://zhuanlan.zhihu.com/p/30700859" target="_blank" rel="noopener">&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;</a>&#x6E90;&#x81EA;&#x6587;&#x529B;&#x8001;&#x5E08;&#x7684;&#x62A5;&#x544A;, &#x8BB2;&#x5230;&#x4E86;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;
+&#x7684;&#x5B9A;&#x4E49;, &#x53D1;&#x5C55;&#x5386;&#x7A0B;, &#x53D1;&#x5C55;&#x8D8B;&#x52BF;&#x5206;&#x6790;, &#x4E5F;&#x6709;&#x6587;&#x8001;&#x5E08;&#x4E3E;&#x4F8B;&#x4ECE;&#x4EA7;&#x751F;&#x7075;&#x611F;&#x5230;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x7B80;&#x8FF0;.</p>
 <blockquote>
-<p>&#x6240;&#x4EE5;&#x4ECE;2011&#x5E74;&#x5230;2017&#x5E74;, &#x8FD9;&#x4E03;&#x5E74;&#x7684;&#x65F6;&#x95F4;&#x5185;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x5355;&#x4E00;&#x7684;&#x6750;&#x6599;&#x8FC7;&#x6E21;&#x5230;&#x4E86;&#x591A;&#x6750;&#x6599;, &#x518D;&#x5230;&#x4E86;&#x667A;&#x80FD;&#x6750;&#x6599;, &#x6700;&#x540E;&#x6709;&#x53EF;&#x80FD;&#x5230;&#x751F;&#x7269;&#x6750;&#x6599;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x53D1;&#x5C55;&#x7684;&#x8D8B;&#x52BF;. &#x6240;&#x4EE5;&#x4ECE;&#x8FD9;&#x4E2A;&#x8D8B;&#x52BF;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x8BB2;&#xFF0C;&#x672A;&#x6765;&#x7684;&#x53D1;&#x5C55;&#x65B9;&#x5411;&#x4E00;&#x5B9A;&#x662F;&#x5B83;<strong>&#x7ED3;&#x5408;&#x9A71;&#x52A8;&#x3001;&#x4F20;&#x611F;&#x3001;&#x53D8;&#x521A;&#x5EA6;&#x3001;&#x591A;&#x529F;&#x80FD;&#x7684;&#x590D;&#x5408;&#x6750;&#x6599;, &#x4EE5;&#x53CA;&#x6DFB;&#x52A0;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x63A7;&#x5236;&#x65B9;&#x6CD5;</strong>. &#x76EE;&#x524D;&#x63A7;&#x5236;&#x65B9;&#x6CD5;&#x8FD9;&#x4E00;&#x5757;&#x662F;&#x6BD4;&#x8F83;&#x6B20;&#x7F3A;&#x7684;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5B66;&#x672F;&#x6216;&#x8005;&#x662F;&#x521B;&#x65B0;&#x65B9;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x53D1;&#x5C55;&#x8D8B;&#x52BF;.</p>
+<p>&#x6240;&#x4EE5;&#x4ECE;2011&#x5E74;&#x5230;2017&#x5E74;, &#x8FD9;&#x4E03;&#x5E74;&#x7684;&#x65F6;&#x95F4;&#x5185;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x5355;&#x4E00;&#x7684;&#x6750;&#x6599;&#x8FC7;&#x6E21;&#x5230;&#x4E86;&#x591A;&#x6750;&#x6599;, &#x518D;
+&#x5230;&#x4E86;&#x667A;&#x80FD;&#x6750;&#x6599;, &#x6700;&#x540E;&#x6709;&#x53EF;&#x80FD;&#x5230;&#x751F;&#x7269;&#x6750;&#x6599;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x53D1;&#x5C55;&#x7684;&#x8D8B;&#x52BF;. &#x6240;&#x4EE5;&#x4ECE;&#x8FD9;&#x4E2A;&#x8D8B;&#x52BF;&#x7ED3;&#x5408;&#x8D77;&#x6765;
+&#x8BB2;&#xFF0C;&#x672A;&#x6765;&#x7684;&#x53D1;&#x5C55;&#x65B9;&#x5411;&#x4E00;&#x5B9A;&#x662F;&#x5B83;<strong>&#x7ED3;&#x5408;&#x9A71;&#x52A8;&#x3001;&#x4F20;&#x611F;&#x3001;&#x53D8;&#x521A;&#x5EA6;&#x3001;&#x591A;&#x529F;&#x80FD;&#x7684;&#x590D;&#x5408;&#x6750;&#x6599;, &#x4EE5;&#x53CA;&#x6DFB;&#x52A0;
+&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x63A7;&#x5236;&#x65B9;&#x6CD5;</strong>. &#x76EE;&#x524D;&#x63A7;&#x5236;&#x65B9;&#x6CD5;&#x8FD9;&#x4E00;&#x5757;&#x662F;&#x6BD4;&#x8F83;&#x6B20;&#x7F3A;&#x7684;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5B66;&#x672F;&#x6216;&#x8005;&#x662F;&#x521B;&#x65B0;
+&#x65B9;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x53D1;&#x5C55;&#x8D8B;&#x52BF;.</p>
 </blockquote>
 <p>(&#x6B64;&#x5904;&#x6709;&#x4E2A;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x6982;&#x5FF5;: <strong>&#x667A;&#x80FD;</strong>. &#x6211;&#x76EE;&#x524D;&#x7684;&#x7406;&#x89E3;&#x662F;: <strong>&#x80FD;&#x4E0E;&#x73AF;&#x5883;&#x4EA4;&#x4E92;, &#x4F5C;&#x51FA;&#x53CD;&#x9988;</strong>)</p>
 <p>&#x76EE;&#x524D;&#x4E3B;&#x8981;&#x7684;&#x5E94;&#x7528;&#x65B9;&#x5411;&#x6709;:</p>
@@ -562,7 +455,9 @@
 <li>&#x5FAE;&#x521B;&#x5916;&#x79D1;&#x624B;&#x672F;</li>
 </ol>
 <p>&#x5F53;&#x7136;&#x6211;&#x76F8;&#x4FE1;&#x968F;&#x7740;&#x63A2;&#x7A76;&#x4F1A;&#x9010;&#x6E10;&#x53D1;&#x73B0;&#x66F4;&#x591A;&#x7684;, &#x4EE4;&#x4EBA;&#x9707;&#x60CA;&#x7684;&#x5E94;&#x7528;&#x524D;&#x666F;.</p>
-<p>&#x800C;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x5D1B;&#x8D77;&#x7684;&#x540C;&#x65F6;&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x5E76;&#x4E0D;&#x4F1A;&#x9000;&#x51FA;&#x821E;&#x53F0;, &#x5728;&#x5DE5;&#x4E1A;&#x7B49;&#x673A;&#x5668;&#x4EBA;&#x63D0;&#x4F9B;&#x4E3B;&#x8981;&#x751F;&#x4EA7;&#x529B;&#x7684;&#x73AF;&#x5883;&#x5B83;&#x4EEC;&#x662F;&#x65E0;&#x53EF;&#x66FF;&#x4EE3;&#x7684;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x76EE;&#x524D;&#x8FD8;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x5F88;&#x5927;&#x7684;&#x529B;&#x77E9;, &#x5E76;&#x4E14;&#x6211;&#x8BA4;&#x4E3A;&#x4ED6;&#x4EEC;&#x4E0D;&#x5FC5;&#x5177;&#x5907;&#x8FD9;&#x79CD;&#x80FD;&#x529B;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x548C;&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x662F;<strong>&#x4E92;&#x8865;&#x7684;</strong>&#x800C;&#x975E;&#x54EA;&#x4E2A;&#x4E00;&#x5B9A;&#x66F4;&#x4F18;&#x4E8E;&#x54EA;&#x4E2A;.</p>
+<p>&#x800C;&#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x5D1B;&#x8D77;&#x7684;&#x540C;&#x65F6;&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x5E76;&#x4E0D;&#x4F1A;&#x9000;&#x51FA;&#x821E;&#x53F0;, &#x5728;&#x5DE5;&#x4E1A;&#x7B49;&#x673A;&#x5668;&#x4EBA;&#x63D0;&#x4F9B;&#x4E3B;&#x8981;&#x751F;&#x4EA7;&#x529B;&#x7684;&#x73AF;
+&#x5883;&#x5B83;&#x4EEC;&#x662F;&#x65E0;&#x53EF;&#x66FF;&#x4EE3;&#x7684;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x76EE;&#x524D;&#x8FD8;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x5F88;&#x5927;&#x7684;&#x529B;&#x77E9;, &#x5E76;&#x4E14;&#x6211;&#x8BA4;&#x4E3A;&#x4ED6;&#x4EEC;&#x4E0D;&#x5FC5;&#x5177;&#x5907;&#x8FD9;
+&#x79CD;&#x80FD;&#x529B;, &#x8F6F;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x548C;&#x521A;&#x4F53;&#x673A;&#x5668;&#x4EBA;&#x662F;<strong>&#x4E92;&#x8865;&#x7684;</strong>&#x800C;&#x975E;&#x54EA;&#x4E2A;&#x4E00;&#x5B9A;&#x66F4;&#x4F18;&#x4E8E;&#x54EA;&#x4E2A;.</p>
 <p>&#x8FD9;&#x592A;&#x9177;&#x4E86;!</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -586,6 +481,10 @@
       
     </div>
 
+    
+
+    
+      
     
 
     
@@ -613,7 +512,8 @@
           <div class="post-nav-next post-nav-item">
             
               <a href="/zh-CN/有关字符集与编码/" rel="next" title="有关字符集与编码">
-                <i class="fa fa-chevron-left"></i> 有关字符集与编码</a>
+                <i class="fa fa-chevron-left"></i> 有关字符集与编码
+              </a>
             
           </div>
 
@@ -646,10 +546,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -666,7 +562,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -675,179 +570,110 @@
 
       <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
-            
-              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
-              <p class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</p>
-          </div>
+  
+  <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+  <div class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</div>
+</div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/zh-CN/archives/">
-                
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/zh-CN/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/zh-CN/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
 
-              
-            </nav>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
           
+            <a href="/zh-CN/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
 
-          
+    
+  </nav>
 
-          
-            <div class="links-of-author motion-element">
-              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
-                </span>
-              
-            </div>
-          
 
-          
+
+
+
+
+
+
+
+
+
+
 
           
           
-
-          
-            
-          
-          
-
         </div>
       </div>
 
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
         
@@ -856,9 +682,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-hand-peace-o"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">LeoJhon.Song</span>
 
@@ -868,41 +694,27 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
-    
-    <span title="站点总字数">292k</span>
+    <span title="站点总字数">297k</span>
   
 
   
 </div>
 
 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -916,7 +728,10 @@
     </footer>
 
     
-
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
@@ -941,9 +756,8 @@
 
 
 
-
-
-
+  
+  
 
 
 
@@ -958,27 +772,20 @@
 
 
   
-  
-    <script src="/zh-CN/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/zh-CN/lib/jquery/index.js?v=3.4.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
 
 
-  <script src="/zh-CN/js/src/utils.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/utils.js?v=7.2.0"></script>
 
-  <script src="/zh-CN/js/src/motion.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/motion.js?v=7.2.0"></script>
 
 
 
@@ -986,388 +793,33 @@
   
 
 
-  <script src="/zh-CN/js/src/affix.js?v=6.6.0"></script>
-
-  <script src="/zh-CN/js/src/schemes/pisces.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/schemes/muse.js?v=7.2.0"></script>
 
 
 
   
-  <script src="/zh-CN/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/zh-CN/js/src/post-details.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/scrollspy.js?v=7.2.0"></script>
+<script src="/zh-CN/js/post-details.js?v=7.2.0"></script>
 
+
+
+  <script src="/zh-CN/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
   
 
 
-  <script src="/zh-CN/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
   
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-  <script>
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
-        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
-
-
-
-
-  
-
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/zh-CN/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
 
 
 
@@ -1383,7 +835,6 @@
   
 
   
-  
 
   
 
@@ -1394,79 +845,10 @@
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
 
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
+  
 
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap');
-      $(e).after($wrap);
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text();
-        }).toArray().join('\n');
-        var ta = document.createElement('textarea');
-        var range = document.createRange(); //For Chrome
-        var sel = window.getSelection(); //For Chrome
-        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-        ta.style.top = yPosition + 'px'; //Prevent page scroll
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.value = code;
-        ta.textContent = code; //For FireFox
-        ta.contentEditable = true;
-        ta.readOnly = false;
-        document.body.appendChild(ta);
-        range.selectNode(ta);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ta.setSelectionRange(0, code.length);
-        var result = document.execCommand('copy');
-        
-        ta.blur(); //For iOS
-        $(this).blur();
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function () {
-          $b.text('复制');
-        }, 300);
-      }).append(e);
-    })
-  </script>
+  
 
 
   
