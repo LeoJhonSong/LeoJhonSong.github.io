@@ -28,15 +28,6 @@
 
 
 
-
-  
-  
-  <link rel="stylesheet" media="all" href="/zh-CN/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-
   <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
 
 
@@ -53,36 +44,27 @@
 
 
 
+<link rel="stylesheet" href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/zh-CN/css/main.css?v=7.2.0">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=7.2.0">
 
 
-
-<link href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/zh-CN/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=7.2.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=6.6.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=7.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
+  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=7.2.0" color="#222">
 
 
   <link rel="manifest" href="/zh-CN/images/site.webmanifest">
 
 
-  <meta name="msapplication-TileColor" content="#505050">
   <meta name="msapplication-config" content="/zh-CN/images/browserconfig.xml">
-
-
-<meta name="theme-color" content="#505050">
 
 
 
@@ -93,8 +75,10 @@
   var CONFIG = {
     root: '/zh-CN/',
     scheme: 'Pisces',
-    version: '6.6.0',
+    version: '7.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    back2top: "",
+    copycode: {"enable":true,"show_result":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -106,19 +90,14 @@
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
-
-
-  
-
-
-
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-
 
   <meta name="description" content="稍微记录一下常用git命令">
 <meta property="og:type" content="article">
@@ -136,7 +115,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://leojhonsong.github.io/zh-CN/Git杂记/">
 
 
@@ -147,6 +127,7 @@
   };
 </script>
 
+  
   <title>Git杂记 | LeoJhon.Song's Blog</title>
   
 
@@ -163,26 +144,26 @@
 
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -200,7 +181,7 @@
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -215,6 +196,10 @@
         <p class="site-subtitle">欢迎来到我的博客!</p>
       
     
+    
+      <a>
+        <img class="custom-logo-image" src="[object Object]" alt="LeoJhon.Song's Blog">
+      </a>
     
   </div>
 
@@ -241,7 +226,6 @@
 
     
     
-    
       
     
 
@@ -256,7 +240,6 @@
           
           <li class="menu-item menu-item-categories">
 
-    
     
     
       
@@ -275,7 +258,6 @@
 
     
     
-    
       
     
 
@@ -290,7 +272,6 @@
           
           <li class="menu-item menu-item-about">
 
-    
     
     
       
@@ -343,23 +324,10 @@
 
 
 
-  
-
-
-
 </div>
     </header>
 
     
-  
-  
-  
-  
-
-  
-
-    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
-
 
 
     <main id="main" class="main">
@@ -405,17 +373,21 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git杂记</h1>
+          <h1 class="post-title" itemprop="name headline">Git杂记
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -428,32 +400,13 @@
               
 
               <time title="创建时间：2019-02-27 23:12:27" itemprop="dateCreated datePublished" datetime="2019-02-27T23:12:27+08:00">2019-02-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-17 14:57:26" itemprop="dateModified" datetime="2019-05-17T14:57:26+08:00">2019-05-17</time>
-              
-            
-          </span>
+            </span>
+          
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -465,7 +418,10 @@
 
                 
                 
-                  ，<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/版本控制/" itemprop="url" rel="index"><span itemprop="name">版本控制</span></a></span>
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/版本控制/" itemprop="url" rel="index"><span itemprop="name">版本控制</span></a></span>
 
                 
                 
@@ -475,13 +431,16 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+            
+              
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/zh-CN/Git杂记/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/Git杂记/" itemprop="commentCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/Git杂记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -491,32 +450,30 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
             </span>
           
 
           
-            <div class="post-symbolscount">
-              
 
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">4.2k</span>
+                <span class="post-meta-item-text">本文字数：</span>
               
+              <span title="本文字数">0</span>
+            </span>
+          
 
-              
-
-              
-            </div>
           
 
           
@@ -528,7 +485,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -541,12 +498,14 @@
 <p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x6BCF;&#x53F0;&#x673A;&#x5668;&#x8981;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;user.name! &#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x8BB0;&#x5FC6;&#x53EF;&#x4EE5;&#x540C;&#x610F;&#x4F7F;&#x7528;<strong>&#x6635;&#x79F0;-&#x673A;&#x5668;&#x578B;&#x53F7;</strong>
 &#x7684;&#x547D;&#x540D;&#x65B9;&#x5F0F;.</p>
 <p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;git&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5206;&#x4E09;&#x7EA7;: &#x7CFB;&#x7EDF;&#x7EA7;(&#x6240;&#x6709;&#x7528;&#x6237;&#x7684;), &#x5168;&#x5C40;&#x7EA7;(&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;), &#x4ED3;&#x5E93;&#x7EA7;.
-&#x5728;&#x914D;&#x7F6E;&#x65F6;&#x5206;&#x522B;&#x4F7F;&#x7528;<code>--system</code>, <code>--global</code>, <code>--local</code>&#x53C2;&#x6570;&#x6765;&#x8BBF;&#x95EE;.&#x5982;&#x679C;&#x60F3;&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8F93;&#x5165;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
+&#x5728;&#x914D;&#x7F6E;&#x65F6;&#x5206;&#x522B;&#x4F7F;&#x7528;<code>--system</code>, <code>--global</code>, <code>--local</code>&#x53C2;&#x6570;&#x6765;&#x8BBF;&#x95EE;.&#x5982;&#x679C;&#x60F3;&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x800C;
+&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8F93;&#x5165;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config -e</span><br></pre></td></tr></tbody></table></figure>
 <p>&#x8981;&#x6CE8;&#x610F;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;<code>git config -e</code>&#x8BBF;&#x95EE;<strong>&#x4ED3;&#x5E93;&#x7EA7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</strong>.</p>
 <h1 id="&#x83B7;&#x53D6;SSH-Key"><a href="#&#x83B7;&#x53D6;SSH-Key" class="headerlink" title="&#x83B7;&#x53D6;SSH Key"></a>&#x83B7;&#x53D6;SSH Key</h1><p>&#x9996;&#x5148;&#x67E5;&#x770B;&#x6709;&#x6CA1;&#x6709;<strong>~/.ssh</strong>&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6709;&#x6CA1;&#x6709;<code>id_rsa</code>&#x548C;<code>id_rsa.pub</code>&#x4E24;&#x4E2A;&#x6587;&#x4EF6;.
 &#x5982;&#x679C;&#x6709;, &#x90A3;&#x5C31;&#x4E0D;&#x7528;&#x751F;&#x6210;&#x4E86;.</p>
-<p>&#x8FD9;&#x4E24;&#x4E2A;&#x5C31;&#x662F;SSH Key&#x7684;&#x79D8;&#x94A5;&#x5BF9;&#xFF0C;<code>id_rsa</code>&#x662F;&#x79C1;&#x94A5;&#xFF0C;&#x4E0D;&#x80FD;&#x6CC4;&#x9732;&#x51FA;&#x53BB;&#xFF0C;<code>id_rsa.pub</code>&#x662F;&#x516C;&#x94A5;&#x53EF;&#x4EE5;&#x653E;&#x5FC3;&#x5730;&#x544A;&#x8BC9;&#x4EFB;&#x4F55;&#x4EBA;. &#x6BD4;&#x5982;&#x52A0;&#x5165;GitHub&#x7684;SSH Key.</p>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x5C31;&#x662F;SSH Key&#x7684;&#x79D8;&#x94A5;&#x5BF9;&#xFF0C;<code>id_rsa</code>&#x662F;&#x79C1;&#x94A5;&#xFF0C;&#x4E0D;&#x80FD;&#x6CC4;&#x9732;&#x51FA;&#x53BB;&#xFF0C;<code>id_rsa.pub</code>&#x662F;&#x516C;&#x94A5;
+&#x53EF;&#x4EE5;&#x653E;&#x5FC3;&#x5730;&#x544A;&#x8BC9;&#x4EFB;&#x4F55;&#x4EBA;. &#x6BD4;&#x5982;&#x52A0;&#x5165;GitHub&#x7684;SSH Key.</p>
 <h2 id="&#x751F;&#x6210;key"><a href="#&#x751F;&#x6210;key" class="headerlink" title="&#x751F;&#x6210;key"></a>&#x751F;&#x6210;key</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x522B;&#x9700;&#x6C42;(&#x6BD4;&#x5982;&#x751A;&#x81F3;&#x60F3;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;), &#x76F4;&#x63A5;&#x8FDE;&#x6572;&#x4E09;&#x6B21;&#x56DE;&#x8F66;.</p>
 <p>&#x6709;&#x8DA3;&#x7684;&#x662F;&#x6211;&#x53D1;&#x73B0;&#x540C;&#x4E00;&#x53F0;&#x673A;&#x5668;, &#x5982;&#x679C;&#x4ECD;&#x662F;&#x6572;&#x4E09;&#x6B21;&#x56DE;&#x8F66;&#x751F;&#x6210;&#x7684;Key&#x6BCF;&#x6B21;&#x662F;&#x4E00;&#x6837;&#x7684;.</p>
@@ -582,6 +541,10 @@
       
     </div>
 
+    
+
+    
+      
     
 
     
@@ -663,7 +626,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -671,171 +633,171 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录</li>
+            文章目录
+          </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览</li>
+            站点概览
+          </li>
         </ul>
       
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
-            
-              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
-              <p class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</p>
-          </div>
+  
+    <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
+  
+  <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+  <div class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/zh-CN/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/zh-CN/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><i class="fa fa-fw fa-icon-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-icon-OUTLOOK"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><i class="fa fa-fw fa-icon-Facebook"></i>FB Page</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><i class="fa fa-fw fa-icon-QQ"></i>QQ</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><i class="fa fa-fw fa-icon-waka-time"></i>WakaTime</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/zh-CN/archives/">
-                
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/zh-CN/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-            </nav>
           
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                      
-                      
-                  
-                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
         </div>
       </div>
 
@@ -845,7 +807,8 @@
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
@@ -858,16 +821,10 @@
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
         
@@ -909,15 +866,23 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -934,8 +899,6 @@
         
       </div>
     </footer>
-
-    
 
     
 
@@ -961,9 +924,8 @@
 
 
 
-
-
-
+  
+  
 
 
 
@@ -978,27 +940,20 @@
 
 
   
-  
-    <script src="/zh-CN/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/zh-CN/lib/jquery/index.js?v=3.4.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
 
 
-  <script src="/zh-CN/js/src/utils.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/utils.js?v=7.2.0"></script>
 
-  <script src="/zh-CN/js/src/motion.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/motion.js?v=7.2.0"></script>
 
 
 
@@ -1006,68 +961,61 @@
   
 
 
-  <script src="/zh-CN/js/src/affix.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/affix.js?v=7.2.0"></script>
 
-  <script src="/zh-CN/js/src/schemes/pisces.js?v=6.6.0"></script>
-
-
-
-  
-  <script src="/zh-CN/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/zh-CN/js/src/post-details.js?v=6.6.0"></script>
+  <script src="/zh-CN/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 
   
+  <script src="/zh-CN/js/scrollspy.js?v=7.2.0"></script>
+<script src="/zh-CN/js/post-details.js?v=7.2.0"></script>
 
 
-  <script src="/zh-CN/js/src/bootstrap.js?v=6.6.0"></script>
 
-
-
-  
-
-
+  <script src="/zh-CN/js/next-boot.js?v=7.2.0"></script>
 
   
 
+  
 
+  
 
+  
 
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   
   
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
-  <script>
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
-        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
+    appKey: '4tRQARdokQJVTj0cOPYdeXE0',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
 
 
 
 
   
 
+
+  
   <script>
     // Popup Window;
     var isfetched = false;
@@ -1154,7 +1102,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1323,9 +1271,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1403,7 +1351,6 @@
   
 
   
-  
 
   
 
@@ -1414,79 +1361,10 @@
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
 
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
+  
 
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap');
-      $(e).after($wrap);
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text();
-        }).toArray().join('\n');
-        var ta = document.createElement('textarea');
-        var range = document.createRange(); //For Chrome
-        var sel = window.getSelection(); //For Chrome
-        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-        ta.style.top = yPosition + 'px'; //Prevent page scroll
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.value = code;
-        ta.textContent = code; //For FireFox
-        ta.contentEditable = true;
-        ta.readOnly = false;
-        document.body.appendChild(ta);
-        range.selectNode(ta);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ta.setSelectionRange(0, code.length);
-        var result = document.execCommand('copy');
-        
-        ta.blur(); //For iOS
-        $(this).blur();
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function () {
-          $b.text('复制');
-        }, 300);
-      }).append(e);
-    })
-  </script>
+  
 
 
   
