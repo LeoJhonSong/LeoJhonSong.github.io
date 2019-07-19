@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/zh-CN/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+
+  <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/zh-CN/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/zh-CN/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-CN/images/apple-touch-icon.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-CN/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-CN/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/zh-CN/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
+
+
+  <link rel="manifest" href="/zh-CN/images/site.webmanifest">
+
+
+  <meta name="msapplication-TileColor" content="#505050">
+  <meta name="msapplication-config" content="/zh-CN/images/browserconfig.xml">
+
+
+<meta name="theme-color" content="#505050">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/zh-CN/',
+    scheme: 'Pisces',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+  <meta name="description" content="最近使用Linux频繁了起来, 接触到更多各种各样的命令, 然后我脑容量不够了:grin: 由于有TLDR这种神器, 在这里并不会无脑记录所有看到的命令, 而是小白最常用或者不太容易懂含义的几个命令. :link:如果弄不清命令的含义, 我在另一篇博客 记录了一些缩写及对应含义, 希望有所帮助.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux杂记">
+<meta property="og:url" content="https://leojhonsong.github.io/zh-CN/Linux杂记/index.html">
+<meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
+<meta property="og:description" content="最近使用Linux频繁了起来, 接触到更多各种各样的命令, 然后我脑容量不够了:grin: 由于有TLDR这种神器, 在这里并不会无脑记录所有看到的命令, 而是小白最常用或者不太容易懂含义的几个命令. :link:如果弄不清命令的含义, 我在另一篇博客 记录了一些缩写及对应含义, 希望有所帮助.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T09:42:10.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux杂记">
+<meta name="twitter:description" content="最近使用Linux频繁了起来, 接触到更多各种各样的命令, 然后我脑容量不够了:grin: 由于有TLDR这种神器, 在这里并不会无脑记录所有看到的命令, 而是小白最常用或者不太容易懂含义的几个命令. :link:如果弄不清命令的含义, 我在另一篇博客 记录了一些缩写及对应含义, 希望有所帮助.">
+
+
+
+
+
+
+  <link rel="canonical" href="https://leojhonsong.github.io/zh-CN/Linux杂记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux杂记 | LeoJhon.Song's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/zh-CN/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeoJhon.Song's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">欢迎来到我的博客!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/zh-CN/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leojhonsong.github.io/zh-CN/zh-CN/Linux杂记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LeoJhon.Song">
+      <meta itemprop="description" content="记 / 录 / 与 / 分 / 享">
+      <meta itemprop="image" content="/zh-CN/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeoJhon.Song's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux杂记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-27 23:23:09" itemprop="dateCreated datePublished" datetime="2019-02-27T23:23:09+08:00">2019-02-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-10 17:42:10" itemprop="dateModified" datetime="2019-07-10T17:42:10+08:00">2019-07-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/杂记/" itemprop="url" rel="index"><span itemprop="name">杂记</span></a></span>
+
+                
+                
+                  ，<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/zh-CN/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/zh-CN/Linux杂记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/zh-CN/Linux杂记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">44k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x6700;&#x8FD1;&#x4F7F;&#x7528;Linux&#x9891;&#x7E41;&#x4E86;&#x8D77;&#x6765;, &#x63A5;&#x89E6;&#x5230;&#x66F4;&#x591A;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x547D;&#x4EE4;, &#x7136;&#x540E;&#x6211;&#x8111;&#x5BB9;&#x91CF;&#x4E0D;&#x591F;&#x4E86;<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f601.png?v8">&#x1F601;</span>
+&#x7531;&#x4E8E;&#x6709;<a href="https://github.com/tldr-pages/tldr" target="_blank" rel="noopener">TLDR</a>&#x8FD9;&#x79CD;&#x795E;&#x5668;, &#x5728;&#x8FD9;&#x91CC;&#x5E76;&#x4E0D;&#x4F1A;&#x65E0;&#x8111;&#x8BB0;&#x5F55;&#x6240;&#x6709;&#x770B;&#x5230;&#x7684;&#x547D;&#x4EE4;, &#x800C;&#x662F;&#x5C0F;&#x767D;&#x6700;&#x5E38;&#x7528;&#x6216;&#x8005;&#x4E0D;&#x592A;&#x5BB9;&#x6613;&#x61C2;&#x542B;&#x4E49;&#x7684;&#x51E0;&#x4E2A;&#x547D;&#x4EE4;.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span>&#x5982;&#x679C;&#x5F04;&#x4E0D;&#x6E05;&#x547D;&#x4EE4;&#x7684;&#x542B;&#x4E49;, &#x6211;&#x5728;<a href="https://leojhonsong.github.io/zh-CN/%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD%E7%BC%A9%E5%86%99/">&#x53E6;&#x4E00;&#x7BC7;&#x535A;&#x5BA2;</a>
+&#x8BB0;&#x5F55;&#x4E86;&#x4E00;&#x4E9B;&#x7F29;&#x5199;&#x53CA;&#x5BF9;&#x5E94;&#x542B;&#x4E49;, &#x5E0C;&#x671B;&#x6709;&#x6240;&#x5E2E;&#x52A9;.</p>
+<a id="more"></a>
+<h1 id="&#x67E5;&#x770B;&#x7248;&#x672C;"><a href="#&#x67E5;&#x770B;&#x7248;&#x672C;" class="headerlink" title="&#x67E5;&#x770B;&#x7248;&#x672C;"></a>&#x67E5;&#x770B;&#x7248;&#x672C;</h1><h2 id="&#x67E5;&#x770B;&#x5185;&#x6838;&#x7248;&#x672C;"><a href="#&#x67E5;&#x770B;&#x5185;&#x6838;&#x7248;&#x672C;" class="headerlink" title="&#x67E5;&#x770B;&#x5185;&#x6838;&#x7248;&#x672C;"></a>&#x67E5;&#x770B;&#x5185;&#x6838;&#x7248;&#x672C;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x6761;&#x66F4;&#x52A0;&#x8BE6;&#x7EC6;, &#x63D0;issue&#x65F6;&#x5E38;&#x7528;&#x5230;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x67E5;&#x770B;&#x53D1;&#x884C;&#x7248;&#x7248;&#x672C;"><a href="#&#x67E5;&#x770B;&#x53D1;&#x884C;&#x7248;&#x7248;&#x672C;" class="headerlink" title="&#x67E5;&#x770B;&#x53D1;&#x884C;&#x7248;&#x7248;&#x672C;"></a>&#x67E5;&#x770B;&#x53D1;&#x884C;&#x7248;&#x7248;&#x672C;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x66F4;&#x8BE6;&#x7EC6;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5378;&#x8F7D;&#x7B49;"><a href="#&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5378;&#x8F7D;&#x7B49;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5378;&#x8F7D;&#x7B49;"></a>&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5378;&#x8F7D;&#x7B49;</h1><p>apt: <strong>Advanced Packaging Tools</strong></p>
+<h2 id="&#x6E90;&#x5217;&#x8868;&#x5907;&#x4EFD;&#x4E0E;&#x6062;&#x590D;"><a href="#&#x6E90;&#x5217;&#x8868;&#x5907;&#x4EFD;&#x4E0E;&#x6062;&#x590D;" class="headerlink" title="&#x6E90;&#x5217;&#x8868;&#x5907;&#x4EFD;&#x4E0E;&#x6062;&#x590D;"></a>&#x6E90;&#x5217;&#x8868;&#x5907;&#x4EFD;&#x4E0E;&#x6062;&#x590D;</h2><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8">&#x2757;</span> &#x6211;&#x5EFA;&#x8BAE;&#x6362;&#x6E90;&#x4E4B;&#x524D;&#x505A;&#x597D;&#x5907;&#x4EFD;. &#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x53EF;&#x5907;&#x4EFD;<strong>source.list</strong>&#x81F3;<strong>source.list_backup</strong>. &#x751A;&#x81F3;&#x518D;&#x8C28;&#x614E;&#x4E00;&#x4E9B;&#x6BCF;&#x6B21;&#x66F4;&#x65B0;&#x6E90;&#x5217;&#x8868;&#x540E;&#x90FD;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4EFD;&#x5907;&#x4EFD;, &#x5728;&#x6587;&#x4EF6;&#x540D;&#x4E2D;&#x52A0;&#x5165;&#x65F6;&#x95F4;&#x6216;&#x8005;&#x66F4;&#x65B0;&#x4FE1;&#x606F;&#x6765;&#x4F5C;&#x533A;&#x5206;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x54EA;&#x5929;&#x628A;&#x6E90;&#x5217;&#x8868;&#x5F04;&#x810F;&#x4E86;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x7528;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;&#x6062;&#x590D;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list_backup /etc/apt/sources.list</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x6362;&#x6E90;"><a href="#&#x6362;&#x6E90;" class="headerlink" title="&#x6362;&#x6E90;"></a>&#x6362;&#x6E90;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i &apos;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x6362;&#x6E90;&#x65B9;&#x5F0F;&#x662F;&#x8FDB;&#x5165;source.list&#x8FDB;&#x884C;&#x4FEE;&#x6539;, &#x53C2;&#x89C1;&#x4EE5;&#x4E0B;&#x94FE;&#x63A5;.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span> <a href="https://lug.ustc.edu.cn/wiki/mirrors/help/ubuntu" target="_blank" rel="noopener">&#x4E2D;&#x79D1;&#x5927;Ubuntu&#x955C;&#x50CF;&#x4F7F;&#x7528;&#x5E2E;&#x52A9;</a></p>
+<p>(&#x6211;&#x5BF9;&#x8FD9;&#x4E2A;&#x548C;&#x6211;&#x6821;&#x6821;&#x540D;&#x53EA;&#x6709;&#x4E00;&#x5B57;&#x4E4B;&#x5DEE;&#x7684;&#x5B66;&#x6821;&#x8FD8;&#x662F;&#x5F88;&#x6709;&#x597D;&#x611F;<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">&#x1F604;</span>)</p>
+<p>&#x1F4A1; &#x5176;&#x4E2D;&#x4EE5;<strong>deb-src</strong>&#x5F00;&#x5934;&#x7684;&#x884C;&#x662F;&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x5730;&#x5740;, &#x53EA;&#x6709;&#x53D6;&#x6D88;&#x8FD9;&#x4E9B;&#x884C;&#x7684;&#x6CE8;&#x91CA;&#x624D;&#x80FD;&#x4E0B;&#x8F7D;&#x6E90;&#x4EE3;&#x7801;.</p>
+<h2 id="&#x5305;&#x5217;&#x8868;&#x66F4;&#x65B0;"><a href="#&#x5305;&#x5217;&#x8868;&#x66F4;&#x65B0;" class="headerlink" title="&#x5305;&#x5217;&#x8868;&#x66F4;&#x65B0;"></a>&#x5305;&#x5217;&#x8868;&#x66F4;&#x65B0;</h2><p>&#x8FD9;&#x4E00;&#x547D;&#x4EE4;&#x867D;&#x7136;&#x770B;&#x4F3C;&#x5530;&#x5530;&#x5530;&#x4E0B;&#x4E86;&#x597D;&#x4E9B;&#x4E1C;&#x897F;, &#x5B9E;&#x9645;&#x4E0A;&#x53EA;&#x662F;&#x4E0B;&#x8F7D;&#x4E86;&#x4E2A;&#x8F6F;&#x4EF6;&#x76EE;&#x5F55;, &#x7136;&#x540E;&#x6211;&#x4EEC;&#x6267;&#x884C; <code>sudo apt install
+[package]</code> &#x7684;&#x65F6;&#x5019;apt&#x5C31;&#x4F1A;&#x4ECE;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x4E2D;&#x627E;&#x5230;&#x540D;&#x5B57;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x8F7D;&#x8FDE;&#x63A5;&#x4E4B;&#x7C7B;&#x7684;&#x53BB;&#x4E0B;&#x8F7D;&#x548C;&#x5B89;&#x88C5;. &#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5F88;&#x591A;&#x5B89;&#x88C5;&#x6559;&#x7A0B;&#x90FD;&#x4F1A;&#x8981;&#x6C42;&#x5148;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x8FD9;&#x6761;&#x547D;&#x4EE4; &#x2013; &#x4FDD;&#x8BC1;&#x5B89;&#x88C5;&#x7684;&#x662F;&#x6700;&#x65B0;&#x7248;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x5305;&#x5347;&#x7EA7;"><a href="#&#x5305;&#x5347;&#x7EA7;" class="headerlink" title="&#x5305;&#x5347;&#x7EA7;"></a>&#x5305;&#x5347;&#x7EA7;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x9700;&#x5728;&#x8FD0;&#x884C;<code>sudo apt update</code>&#x540E;&#x8FD0;&#x884C;</p>
+<h2 id="&#x5305;&#x641C;&#x7D22;"><a href="#&#x5305;&#x641C;&#x7D22;" class="headerlink" title="&#x5305;&#x641C;&#x7D22;"></a>&#x5305;&#x641C;&#x7D22;</h2><p>&#x8FD9;&#x6015;&#x662F;&#x5C11;&#x6570;&#x51E0;&#x6761;&#x4E0D;&#x7528;sudo&#x7684;<code>apt</code>&#x547D;&#x4EE4;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt search [package]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x5305;&#x5B89;&#x88C5;"><a href="#&#x5305;&#x5B89;&#x88C5;" class="headerlink" title="&#x5305;&#x5B89;&#x88C5;"></a>&#x5305;&#x5B89;&#x88C5;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install [package]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x5305;&#x5378;&#x8F7D;"><a href="#&#x5305;&#x5378;&#x8F7D;" class="headerlink" title="&#x5305;&#x5378;&#x8F7D;"></a>&#x5305;&#x5378;&#x8F7D;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove [package]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x1F4A1;<code>apt remove</code>&#x53EA;&#x4F1A;&#x5220;&#x9664;&#x8F6F;&#x4EF6;&#x5305;&#x800C;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x914D;&#x7F6E;&#x6587;&#x4EF6;, &#x800C;&#x624B;&#x52A8;&#x5220;&#x9664;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8FD8;&#x5BB9;&#x6613;&#x6709;<a href="https://www.jianshu.com/p/f6176973b56f" target="_blank" rel="noopener">&#x9EBB;&#x70E6;</a>, &#x56E0;&#x6B64;&#x4E0D;&#x60F3;&#x7528;&#x67D0;&#x8F6F;&#x4EF6;&#x4E86;&#x5E94;&#x5F53;&#x8FD0;&#x884C;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge [package]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E2D;&#x6587;&#x5524;&#x505A;<strong>&#x51C0;&#x5316;</strong>! &#x1F4AA;</p>
+<h2 id="&#x8FDB;&#x9636;&#x64CD;&#x4F5C;"><a href="#&#x8FDB;&#x9636;&#x64CD;&#x4F5C;" class="headerlink" title="&#x8FDB;&#x9636;&#x64CD;&#x4F5C;"></a>&#x8FDB;&#x9636;&#x64CD;&#x4F5C;</h2><p>&#x6709;&#x5F88;&#x591A;&#x4E1C;&#x897F;&#x5E76;&#x4E0D;&#x662F;&#x7528;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x5C31;&#x80FD;&#x8F7B;&#x677E;&#x641E;&#x5B9A;&#x7684;&#xFF0C; &#x8BA9;&#x4EBA;&#x6B32;&#x54ED;&#x65E0;&#x6CEA;&#xFF0C; &#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<h3 id="&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x7684;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x6709;&#x770B;&#x7740;&#x50CF;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x7684;&#x73A9;&#x610F;"><a href="#&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x7684;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x6709;&#x770B;&#x7740;&#x50CF;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x7684;&#x73A9;&#x610F;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x7684;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x6709;&#x770B;&#x7740;&#x50CF;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x7684;&#x73A9;&#x610F;"></a>&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x7684;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x6709;&#x770B;&#x7740;&#x50CF;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x7684;&#x73A9;&#x610F;</h3><p>&#x8FD9;&#x79CD;&#x4E00;&#x822C;&#x4F1A;&#x7ED9;&#x51FA;<strong>README</strong>&#x7684;, &#x4E0D;&#x7528;&#x62C5;&#x5FC3;, &#x5373;&#x4FBF;&#x6CA1;&#x7ED9;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x7F16;&#x8F91;&#x5668;&#x70B9;&#x5F00;&#x770B;&#x7740;&#x50CF;&#x5B89;&#x88C5;&#x7528;&#x811A;&#x672C;&#x7684;&#x6587;&#x4EF6;&#x8111;&#x529B;&#x8FD0;&#x884C;&#x4E00;&#x8FB9;&#x770B;&#x770B;&#x662F;&#x4E0D;&#x662F;&#x5B83;&#x1F60F; &#x6709;&#x7684;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x662F;&#x4EA4;&#x4E92;&#x5F0F;&#x7684;, &#x8FD8;&#x662F;&#x633A;&#x6709;&#x8DA3;&#x7684;, &#x6709;&#x7684;&#x751A;&#x81F3;&#x6709;&#x56FE;&#x5F62;&#x754C;&#x9762; (&#x4E00;&#x822C;&#x9700;&#x8981;&#x52A0;&#x9009;&#x9879;&#x624D;&#x80FD;&#x6709;&#x56FE;&#x5F62;&#x754C;&#x9762;)</p>
+<h3 id="&#x6709;deb&#x5305;"><a href="#&#x6709;deb&#x5305;" class="headerlink" title="&#x6709;deb&#x5305;"></a>&#x6709;deb&#x5305;</h3><h4 id="&#x666E;&#x901A;&#x5B89;&#x88C5;"><a href="#&#x666E;&#x901A;&#x5B89;&#x88C5;" class="headerlink" title="&#x666E;&#x901A;&#x5B89;&#x88C5;"></a>&#x666E;&#x901A;&#x5B89;&#x88C5;</h4><ol>
+<li>&#x6709;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x7684;&#x8BDD;&#x70B9;&#x51FB;&#x5C31;&#x80FD;&#x5B89;&#x88C5;</li>
+<li>&#x7EC8;&#x7AEF;&#x8FDB;&#x5165;deb&#x5305;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x5939;, &#x8FD0;&#x884C;<code>sudo dpkg -i [package]</code></li>
+</ol>
+<h4 id="&#x9047;&#x5230;&#x62A5;&#x9519;"><a href="#&#x9047;&#x5230;&#x62A5;&#x9519;" class="headerlink" title="&#x9047;&#x5230;&#x62A5;&#x9519;"></a>&#x9047;&#x5230;&#x62A5;&#x9519;</h4><h5 id="&#x4FEE;&#x590D;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;"><a href="#&#x4FEE;&#x590D;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;" class="headerlink" title="&#x4FEE;&#x590D;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;"></a>&#x4FEE;&#x590D;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</h5><p>&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x4F1A;&#x56E0;&#x4E3A;&#x7F3A;&#x5C11;&#x4E00;&#x4E9B;&#x5305;&#x800C;&#x5B89;&#x88C5;&#x5931;&#x8D25;, &#x8FD9;&#x4E2A;&#x662F;&#x4E2A;&#x5F88;&#x5BB9;&#x6613;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;, &#x53EA;&#x9700;&#x8FD0;&#x884C;<code>apt --fix-broken install</code>. &#x8FD9;&#x6837;&#x666E;&#x901A;&#x95EE;&#x9898;apt&#x5C31;&#x80FD;&#x5E2E;&#x6211;&#x4EEC;&#x89E3;&#x51B3;&#x4E86;&#x270C;&#xFE0F;</p>
+<p>&#x1F4A1;&#x53E6;&#x4E00;&#x6761;&#x76F8;&#x540C;&#x4F5C;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x662F;<code>apt install -f</code></p>
+<h5 id="&#x9700;&#x8981;&#x5BF9;&#x5305;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;"><a href="#&#x9700;&#x8981;&#x5BF9;&#x5305;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;" class="headerlink" title="&#x9700;&#x8981;&#x5BF9;&#x5305;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;"></a>&#x9700;&#x8981;&#x5BF9;&#x5305;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;</h5><ol>
+<li><p><strong>&#x5728;&#x8981;&#x5B89;&#x88C5;&#x7684;deb&#x5305;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E2D;</strong>&#x521B;&#x5EFA;&#x76F8;&#x5173;&#x6587;&#x4EF6;&#x5939;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir extract</span><br><span class="line">mkdir extract/DEBIAN</span><br><span class="line">mkdir build</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>&#x89E3;&#x538B;&#x51FA;&#x5305;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5230;<strong>extract</strong>&#x76EE;&#x5F55;&#x4E0B;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -X [package] extract/</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>&#x89E3;&#x538B;&#x51FA;&#x5305;&#x7684;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x5230;<strong>extract/DEBIAN/</strong>&#x4E0B;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -e [package] extract/DEBIAN/</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>&#x5C06;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x5185;&#x5BB9;&#x91CD;&#x65B0;&#x8FDB;&#x884C;&#x6253;&#x5305;&#x751F;&#x6210;deb&#x5305;&#x5230;<strong>build</strong>&#x76EE;&#x5F55;&#x4E0B;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-deb -b extract/ build/</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>&#x8FDB;&#x5165;<strong>build</strong>&#x6587;&#x4EF6;&#x5939;&#x5B89;&#x88C5;&#x4FEE;&#x6539;&#x540E;&#x7684;deb&#x5305;</p>
+</li>
+</ol>
+<h3 id="&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x8BD1;"><a href="#&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x8BD1;" class="headerlink" title="&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x8BD1;"></a>&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x8BD1;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><a href="#&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;" class="headerlink" title="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"></a>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h1><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span> &#x5728;&#x641C;&#x7D22;&#x8FC7;&#x7A0B;&#x4E2D;&#x770B;&#x5230;<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html" target="_blank" rel="noopener">&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;</a>,
+&#x611F;&#x89C9;&#x5BF9;Linux&#x4E0B;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x63CF;&#x8FF0;&#x5F97;&#x5F88;&#x597D;, &#x6BD4;&#x5982;&#x5176;&#x4E2D;&#x8BF4;</p>
+<blockquote>
+<p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x8FDB;&#x7A0B;&#x4E4B;&#x5916;&#x7686;&#x6587;&#x4EF6;, &#x5373;&#x4FBF;&#x6587;&#x4EF6;&#x5939;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;, &#x662F;&#x8BB0;&#x5F55;&#x4E86;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x6587;&#x4EF6;.
+&#x8BBE;&#x5907;&#x4E5F;&#x88AB;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;.</p>
+</blockquote>
+<p>&#x518D;&#x6BD4;&#x5982;&#x5176;&#x4E2D;&#x8BF4;&#x5230;&#x4E86;<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html/#major4" target="_blank" rel="noopener">Linux&#x7CFB;&#x7EDF;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a>,
+VFS &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;, &#x62BD;&#x8C61;&#x4E86;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x56DB;&#x4E2A;&#x57FA;&#x672C;&#x6982;&#x5FF5;: &#x6587;&#x4EF6;, &#x76EE;&#x5F55;&#x9879;(dentry, directory entry&#x7684;&#x7F29;&#x5199;), &#x7D22;&#x5F15;&#x8282;&#x70B9; (inode) &#x53CA;&#x6302;&#x8F7D;&#x70B9;.</p>
+<blockquote>
+<p>&#x6587;&#x4EF6;&#x540D;&#x4EC5;&#x662F;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x4EBA;&#x4EEC;&#x7684;&#x8BB0;&#x5FC6;&#x548C;&#x4F7F;&#x7528;, &#x7CFB;&#x7EDF;&#x6216;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;inode&#x53F7;&#x5BFB;&#x627E;&#x6B63;&#x786E;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x5757;.</p>
+</blockquote>
+<h2 id="&#x94FE;&#x63A5;"><a href="#&#x94FE;&#x63A5;" class="headerlink" title="&#x94FE;&#x63A5;"></a>&#x94FE;&#x63A5;</h2><p>ln: link</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span> <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html/#major2" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a>
+&#x6709;&#x5BF9;&#x8F6F;&#x94FE;&#x63A5;&#x4E0E;&#x786C;&#x94FE;&#x63A5;&#x7684;&#x6BD4;&#x8F83;. &#x5176;&#x4E2D;:</p>
+<ul>
+<li>&#x8F6F;&#x94FE;&#x63A5;&#x4EE5;<strong>&#x8DEF;&#x5F84;</strong>&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;,&#x7C7B;&#x4F3C;&#x4E8E;Windows&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;<strong>&#x5FEB;&#x6377;&#x65B9;&#x5F0F;</strong>. &#x786C;&#x94FE;&#x63A5;&#x4EE5;<strong>&#x6587;&#x4EF6;&#x526F;&#x672C;</strong>&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;, &#x4F46;&#x4E0D;&#x5360;&#x7528;&#x5B9E;&#x9645;&#x7A7A;&#x95F4;</li>
+<li>&#x8F6F;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x8DE8;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#xFF0C;&#x786C;&#x94FE;&#x63A5;&#x4E0D;&#x53EF;&#x4EE5;</li>
+<li>&#x8F6F;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x5BF9;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x8FDB;&#x884C;&#x94FE;&#x63A5;</li>
+<li>&#x8F6F;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x5BF9;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x94FE;&#x63A5;, &#x786C;&#x94FE;&#x63A5;&#x4E0D;&#x53EF;&#x4EE5;</li>
+</ul>
+<p>&#x76EE;&#x524D;&#x6211;&#x53EA;&#x7528;&#x5230;&#x4E86;&#x8F6F;&#x94FE;, &#x8FD8;&#x6CA1;&#x6709;&#x7528;&#x5230;&#x786C;&#x94FE;. &#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x8F6F;&#x94FE;&#x5F88;&#x65B9;&#x4FBF;, &#x5B83;&#x4F7F;&#x5F97;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x540C;&#x6B65;&#x7684;&#x5907;&#x4EFD;. &#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x50CF;<a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">&#x8FD9;&#x6837;</a>, &#x4ECE;github
+&#x4E0B;&#x8F7D;&#x4E86;&#x4E00;&#x4E2A;.vimrc, &#x5C06;&#x5B83;&#x8F6F;&#x94FE;&#x5230;home&#x76EE;&#x5F55; (vim&#x9ED8;&#x8BA4;&#x4ECE;&#x8FD9;&#x91CC;&#x8BFB;&#x53D6;.vimrc). &#x8FD9;&#x6837;&#x4E00;&#x6765;&#x65E0;&#x8BBA;&#x662F;&#x4FEE;&#x6539;&#x4E86;&#x8FD9;&#x4E24;&#x5904;&#x90A3;&#x4E00;&#x4E2A;.vimrc&#x53E6;&#x4E00;&#x4E2A;&#x4E5F;&#x4F1A;&#x540C;&#x6B65;. &#x8FD9;&#x5F88;&#x65B9;&#x4FBF;&#x5C06;&#x66F4;&#x6539;&#x5907;&#x4EFD;&#x5230;github.</p>
+<h3 id="&#x5EFA;&#x7ACB;&#x8F6F;&#x94FE;"><a href="#&#x5EFA;&#x7ACB;&#x8F6F;&#x94FE;" class="headerlink" title="&#x5EFA;&#x7ACB;&#x8F6F;&#x94FE;"></a>&#x5EFA;&#x7ACB;&#x8F6F;&#x94FE;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s [source] [destination]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x2757;&#xFE0F;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x6B64;&#x5904;<code>destination</code>&#x548C;<code>source</code>&#x4F3C;&#x4E4E;&#x5FC5;&#x987B;&#x5199;<strong>&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</strong>, &#x4E0D;&#x7136;&#x5EFA;&#x7ACB;&#x7684;&#x94FE;&#x63A5;&#x5C31;&#x662F;&#x635F;&#x574F;&#x7684;.
+&#x5982;&#x679C;<code>destination</code>&#x5904;&#x5199;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;, &#x90A3;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x548C;&#x6E90;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;&#x540C;&#x540D;&#x7684;&#x8F6F;&#x94FE;, &#x800C;&#x5982;&#x679C;<code>destination</code>
+&#x5199;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x540D;&#x5B57;, &#x90A3;&#x4E48;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x7684;&#x8F6F;&#x94FE;, &#x548C;&#x6E90;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;&#x94FE;&#x63A5;.</p>
+<h2 id="&#x590D;&#x5236;"><a href="#&#x590D;&#x5236;" class="headerlink" title="&#x590D;&#x5236;"></a>&#x590D;&#x5236;</h2><p>cp: copy</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x76EE;&#x6807;&#x4F4D;&#x7F6E;&#x5FC5;&#x987B;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;, <code>cp</code>&#x547D;&#x4EE4;&#x65E0;&#x6CD5;&#x521B;&#x5EFA;&#x76EE;&#x5F55;. &#x53E6;&#x5916;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x7684;&#x6743;&#x9650;&#x4F1A;&#x62A5;&#x9519;. <code>cp</code>&#x547D;&#x4EE4;&#x4E0D;&#x6B62;&#x53EF;&#x4EE5;&#x590D;&#x5236;, &#x8FD8;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x94FE;&#x63A5;.
+<code>cp</code>&#x547D;&#x4EE4;&#x652F;&#x6301;..&#x8868;&#x793A;&#x4E0A;&#x7EA7;&#x6587;&#x4EF6;&#x5939;&#x7B49;, &#x652F;&#x6301;&#x6B63;&#x5219;&#x8868;&#x8FBE;</p>
+<h3 id="&#x5E38;&#x7528;&#x9009;&#x9879;"><a href="#&#x5E38;&#x7528;&#x9009;&#x9879;" class="headerlink" title="&#x5E38;&#x7528;&#x9009;&#x9879;"></a>&#x5E38;&#x7528;&#x9009;&#x9879;</h3><ul>
+<li>-a&#xFF1A;&#x6B64;&#x9009;&#x9879;&#x901A;&#x5E38;&#x5728;&#x590D;&#x5236;&#x76EE;&#x5F55;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x5B83;&#x4FDD;&#x7559;&#x94FE;&#x63A5;&#x3001;&#x6587;&#x4EF6;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x3002;&#x5176;&#x4F5C;&#x7528;&#x7B49;&#x4E8E;dpR&#x53C2;&#x6570;&#x7EC4;&#x5408;</li>
+<li>-d&#xFF1A;&#x590D;&#x5236;&#x65F6;&#x5EFA;&#x7ACB;&#x8F6F;&#x94FE;&#x63A5;</li>
+<li>-f&#xFF1A;&#x8986;&#x76D6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x7ED9;&#x51FA;&#x63D0;&#x793A;</li>
+<li><p>-i&#xFF1A;&#x4E0E;-f&#x9009;&#x9879;&#x76F8;&#x53CD;&#xFF0C;&#x5728;&#x8986;&#x76D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x4E4B;&#x524D;&#x7ED9;&#x51FA;&#x63D0;&#x793A;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x6237;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x8986;&#x76D6;&#xFF0C;&#x56DE;&#x7B54;&#x201D;y&#x201D;&#x65F6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x5C06;&#x88AB;&#x8986;&#x76D6;</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span>&#x4FDD;&#x9669;&#x8D77;&#x89C1;&#x6BCF;&#x6B21;&#x90FD;&#x52A0;&#x4E0A;&#x6B64;&#x9009;&#x9879;</p>
+</li>
+<li>-p&#xFF1A;&#x9664;&#x590D;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x5916;&#xFF0C;&#x8FD8;&#x628A;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x548C;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4E5F;&#x590D;&#x5236;&#x5230;&#x65B0;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</li>
+<li>-r&#xFF1A;&#x82E5;&#x7ED9;&#x51FA;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#xFF0C;&#x6B64;&#x65F6;&#x5C06;&#x590D;&#x5236;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x5B50;&#x76EE;&#x5F55;&#x548C;&#x6587;&#x4EF6;</li>
+<li>-l&#xFF1A;&#x5EFA;&#x7ACB;&#x786C;&#x94FE;&#x63A5;, &#x4E0D;&#x590D;&#x5236;&#x6587;&#x4EF6;</li>
+</ul>
+<h3 id="&#x6B63;&#x5219;&#x4F7F;&#x7528;&#x4E3E;&#x4F8B;"><a href="#&#x6B63;&#x5219;&#x4F7F;&#x7528;&#x4E3E;&#x4F8B;" class="headerlink" title="&#x6B63;&#x5219;&#x4F7F;&#x7528;&#x4E3E;&#x4F8B;"></a>&#x6B63;&#x5219;&#x4F7F;&#x7528;&#x4E3E;&#x4F8B;</h3><p>&#x5C06;&#x76EE;&#x5F55; <strong>/usr/men</strong> &#x4E2D;&#x7684;&#x4EE5;<code>m</code>&#x6253;&#x5934;&#x7684;&#x6240;&#x6709;<code>.c</code>&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;&#x76EE;&#x5F55; <strong>/usr/zh</strong> &#x4E2D;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/men m*.c /usr/zh</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x5220;&#x9664;"><a href="#&#x5220;&#x9664;" class="headerlink" title="&#x5220;&#x9664;"></a>&#x5220;&#x9664;</h2><p>rm: remove</p>
+<h3 id="&#x5E38;&#x7528;&#x9009;&#x9879;-1"><a href="#&#x5E38;&#x7528;&#x9009;&#x9879;-1" class="headerlink" title="&#x5E38;&#x7528;&#x9009;&#x9879;"></a>&#x5E38;&#x7528;&#x9009;&#x9879;</h3><ul>
+<li>-i &#x5220;&#x9664;&#x524D;&#x9010;&#x4E00;&#x8BE2;&#x95EE;&#x786E;&#x8BA4;</li>
+<li>-f &#x5373;&#x4F7F;&#x539F;&#x6863;&#x6848;&#x5C5E;&#x6027;&#x8BBE;&#x4E3A;&#x552F;&#x8BFB;&#xFF0C;&#x4EA6;&#x76F4;&#x63A5;&#x5220;&#x9664;&#xFF0C;&#x65E0;&#x9700;&#x9010;&#x4E00;&#x786E;&#x8BA4;</li>
+<li>-r &#x5C06;&#x76EE;&#x5F55;&#x53CA;&#x4EE5;&#x4E0B;&#x4E4B;&#x6863;&#x6848;&#x4EA6;&#x9010;&#x4E00;&#x5220;&#x9664;</li>
+</ul>
+<h3 id="&#x5220;&#x9664;&#x6587;&#x4EF6;"><a href="#&#x5220;&#x9664;&#x6587;&#x4EF6;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x4EF6;"></a>&#x5220;&#x9664;&#x6587;&#x4EF6;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm [path/to/file] [path/to/another/file]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;"><a href="#&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;"></a>&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r [path/to/folder]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x5220;&#x9664;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53CA;&#x6587;&#x4EF6;&#x5939;"><a href="#&#x5220;&#x9664;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53CA;&#x6587;&#x4EF6;&#x5939;" class="headerlink" title="&#x5220;&#x9664;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53CA;&#x6587;&#x4EF6;&#x5939;"></a>&#x5220;&#x9664;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53CA;&#x6587;&#x4EF6;&#x5939;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r *</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x89E3;&#x538B;-&#x538B;&#x7F29;"><a href="#&#x89E3;&#x538B;-&#x538B;&#x7F29;" class="headerlink" title="&#x89E3;&#x538B;/&#x538B;&#x7F29;"></a>&#x89E3;&#x538B;/&#x538B;&#x7F29;</h2><p>tar: tape archive. <code>tar</code> &#x547D;&#x4EE4;&#x539F;&#x672C;&#x662F;&#x7528;&#x6765;&#x5EFA;&#x7ACB;&#xFF0C;&#x8FD8;&#x539F;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x7684;&#x5DE5;&#x5177;&#x7A0B;&#x5E8F;, &#x4F46;Linux&#x4E0B;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x538B;&#x7F29;&#x5305;&#x5C31;&#x662F;tar.gz&#x683C;&#x5F0F;&#x7684;. <strong>.gz</strong>&#x662F;GNU zip&#x7684;&#x7F29;&#x5199;.</p>
+<p>&#x2757;&#xFE0F; &#x8981;&#x6CE8;&#x610F;<code>tar</code>&#x547D;&#x4EE4;&#x65E0;&#x6CD5;&#x89E3;&#x538B; <strong>.rar</strong> &#x683C;&#x5F0F;&#x7684;&#x538B;&#x7F29;&#x5305;, &#x4E5F;&#x65E0;&#x6CD5;&#x751F;&#x6210; <strong>.rar</strong> &#x683C;&#x5F0F;. &#x9700;&#x8981;&#x53E6;&#x5916;&#x5B89;&#x88C5;rar&#x5DE5;&#x5177;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install rar</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x53E6;&#x5916;&#x5728;Linux&#x4E0B;&#x89E3;&#x538B;&#x6765;&#x81EA;Windows&#x7684;zip&#x538B;&#x7F29;&#x5305;&#x5BB9;&#x6613;&#x51FA;<a href="#&#x89E3;&#x538B;.zip&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x4E3A;&#x4E71;&#x7801;">&#x6587;&#x4EF6;&#x540D;&#x4E71;&#x7801;&#x95EE;&#x9898;</a>.</p>
+<h3 id="&#x5E38;&#x7528;&#x9009;&#x9879;-2"><a href="#&#x5E38;&#x7528;&#x9009;&#x9879;-2" class="headerlink" title="&#x5E38;&#x7528;&#x9009;&#x9879;"></a>&#x5E38;&#x7528;&#x9009;&#x9879;</h3><ul>
+<li>-c&#x6216;&#x2013;create &#x5EFA;&#x7ACB;&#x65B0;&#x7684;&#x5907;&#x4EFD;&#x6587;&#x4EF6;</li>
+<li>-f&lt;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&gt;&#x6216;&#x2013;file=&lt;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&gt; &#x6307;&#x5B9A;&#x5907;&#x4EFD;&#x6587;&#x4EF6;</li>
+<li>-t&#x6216;&#x2013;list &#x5217;&#x51FA;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</li>
+<li>-v&#x6216;&#x2013;verbose &#x663E;&#x793A;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x8FC7;&#x7A0B;</li>
+<li>-x&#x6216;&#x2013;extract&#x6216;&#x2013;get &#x4ECE;&#x5907;&#x4EFD;&#x6587;&#x4EF6;&#x4E2D;&#x8FD8;&#x539F;&#x6587;&#x4EF6;</li>
+<li>-z&#x6216;&#x2013;gzip&#x6216;&#x2013;ungzip &#x901A;&#x8FC7;gzip&#x6307;&#x4EE4;&#x5904;&#x7406;&#x5907;&#x4EFD;&#x6587;&#x4EF6;</li>
+</ul>
+<h3 id="&#x5217;&#x51FA;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"><a href="#&#x5217;&#x51FA;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x5185;&#x5BB9;" class="headerlink" title="&#x5217;&#x51FA;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"></a>&#x5217;&#x51FA;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -tvzf [source.tar.gz]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x89E3;&#x538B;&#x6587;&#x4EF6;"><a href="#&#x89E3;&#x538B;&#x6587;&#x4EF6;" class="headerlink" title="&#x89E3;&#x538B;&#x6587;&#x4EF6;"></a>&#x89E3;&#x538B;&#x6587;&#x4EF6;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvzf [source.tar.gz]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x662F;.rar&#x6587;&#x4EF6;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar x [source.rar]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x538B;&#x7F29;&#x6587;&#x4EF6;"><a href="#&#x538B;&#x7F29;&#x6587;&#x4EF6;" class="headerlink" title="&#x538B;&#x7F29;&#x6587;&#x4EF6;"></a>&#x538B;&#x7F29;&#x6587;&#x4EF6;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf [target.tar.gz] [file1] [file2] [file3]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x662F;&#x8981;&#x538B;&#x7F29;&#x6210;.rar&#x6587;&#x4EF6; (&#x4E0D;&#x662F;&#x522B;&#x4EBA;&#x8981;&#x6C42;&#x7684;&#x8BDD;&#x4E0D;&#x63A8;&#x8350;):</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar a [compressede_package_name] [source_folder_name]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x683C;&#x5F0F;&#x5316;U&#x76D8;"><a href="#&#x683C;&#x5F0F;&#x5316;U&#x76D8;" class="headerlink" title="&#x683C;&#x5F0F;&#x5316;U&#x76D8;"></a>&#x683C;&#x5F0F;&#x5316;U&#x76D8;</h2><p>&#x867D;&#x7136;&#x5728; Ubuntu &#x4E0B;&#x56FE;&#x5F62;&#x5316;&#x754C;&#x9762;&#x91CC;&#x53EF;&#x4EE5;&#x65E0;&#x8111;&#x683C;&#x5F0F;&#x5316;U&#x76D8;, &#x4F46;&#x662F;&#x6709;&#x65F6;&#x5019;U&#x76D8;&#x51FA;&#x95EE;&#x9898;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x86EE;&#x529B;&#x683C;&#x5F0F;&#x5316;.
+&#x6B64;&#x5904;&#x4EE5;U&#x76D8;&#x4E3A; <strong>/dev/sdb1</strong> &#x4E3A;&#x4F8B;.</p>
+<p>&#x9996;&#x5148;&#x786E;&#x4FDD;U&#x76D8;&#x672A;&#x6302;&#x8F7D;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /dev/sdb1</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7136;&#x540E;&#x5C06;&#x4E4B;&#x683C;&#x5F0F;&#x5316;&#x4E3A;FAT32&#x683C;&#x5F0F;(Linux, Windows&#x90FD;&#x53EF;&#x8BC6;&#x522B;&#x7684;&#x683C;&#x5F0F;):</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.vfat -F 32 /dev/sdb1</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x6837;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x56DE;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x8BBE;&#x7F6E;U&#x76D8;&#x7684;&#x540D;&#x5B57;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x4E4B;&#x7C7B;.</p>
+<h1 id="&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x73AF;&#x5883;&#x53D8;&#x91CF;</h1><h2 id="&#x67E5;&#x770B;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x67E5;&#x770B;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x67E5;&#x770B;&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x67E5;&#x770B;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2><h3 id="&#x67E5;&#x770B;&#x6240;&#x6709;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x67E5;&#x770B;&#x6240;&#x6709;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x67E5;&#x770B;&#x6240;&#x6709;&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x67E5;&#x770B;&#x6240;&#x6709;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export -p</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x67E5;&#x770B;PATH"><a href="#&#x67E5;&#x770B;PATH" class="headerlink" title="&#x67E5;&#x770B;PATH"></a>&#x67E5;&#x770B;PATH</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;shell"><a href="#&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;shell" class="headerlink" title="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;shell"></a>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;shell</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8">&#x2757;</span> shell&#x4E0D;&#x6B62;&#x4E00;&#x79CD;, &#x5927;&#x591A;&#x6570;Linux&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;shell&#x4E3A;<strong>Bash shell</strong> (Bourne Again shell), &#x4F3C;&#x4E4E;<strong>Bourne shell</strong>&#x4ECD;&#x662F;&#x8BB8;&#x591A;Unix&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x7684;shell. &#x6BD4;&#x8F83;&#x8457;&#x540D;&#x7684;&#x8FD8;&#x6709;<strong>Z shell</strong> (Zsh), <strong>friendly interactive shell</strong> (fish).</p>
+<h2 id="&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;PATH"><a href="#&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;PATH" class="headerlink" title="&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;PATH"></a>&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;PATH</h2><h3 id="&#x4E34;&#x65F6;&#x6DFB;&#x52A0;"><a href="#&#x4E34;&#x65F6;&#x6DFB;&#x52A0;" class="headerlink" title="&#x4E34;&#x65F6;&#x6DFB;&#x52A0;"></a>&#x4E34;&#x65F6;&#x6DFB;&#x52A0;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=[path/to/append]:$PATH</span><br></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x5E94;&#x6CE8;&#x610F;export&#x547D;&#x4EE4;&#x4EC5;&#x4F5C;&#x7528;&#x4E8E;&#x5F53;&#x524D;&#x7EC8;&#x7AEF;.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f4a1.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4a1.png?v8">&#x1F4A1;</span> &#x5728;&#x6709;&#x4E9B;&#x6587;&#x6863;&#x4E2D;&#x4F1A;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;PATH, &#x4F46;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x6837;&#x4E0D;&#x591F;&#x7A33;&#x59A5;. &#x56E0;&#x4E3A;&#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x8BDD;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x539F;&#x672C;&#x4E0D;&#x5B58;&#x5728;, &#x5047;&#x5982;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;<code>/usr/bin/bash</code>&#x5230;PATH, &#x90A3;&#x4E48;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>echo $PATH</code>&#x6765;&#x67E5;&#x770B;PATH&#x53D8;&#x91CF;&#x7684;&#x503C;&#x4F1A;&#x53D1;&#x73B0;&#x5176;&#x503C;&#x4E3A; <strong>:/usr/bin/bash</strong>. &#x8FD9;&#x662F;&#x56E0;&#x4E3A;bash&#x4F1A;&#x5C06;<strong>PATH=</strong>&#x540E;&#x7684;&#x89C6;&#x4E3A;&#x4E00;&#x6574;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;, &#x800C; <strong>$PATH</strong>&#x662F;&#x53D6;PATH&#x73B0;&#x5728;&#x7684;&#x503C;&#x7684;&#x610F;&#x601D;. &#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;<code>/usr/bin/bash:</code>
+&#x6BD4;<code>:/usr/bin/bash</code> OK&#x4E00;&#x4E9B;:sweat_smile:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:[path/to/append]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x6C38;&#x4E45;&#x6DFB;&#x52A0;"><a href="#&#x6C38;&#x4E45;&#x6DFB;&#x52A0;" class="headerlink" title="&#x6C38;&#x4E45;&#x6DFB;&#x52A0;"></a>&#x6C38;&#x4E45;&#x6DFB;&#x52A0;</h3><p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x4E0E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6709;&#x5173;.</p>
+<p>&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E2D;<strong>&#x6700;&#x5E38;&#x89C1;</strong>&#x4E0E;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x6709;&#x5173;&#x7684;&#x6587;&#x4EF6;&#x662F;&#x56DB;&#x4E2A;shell&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;, &#x60F3;&#x8981;&#x6DFB;&#x52A0;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5C06;&#x547D;&#x4EE4;&#x6DFB;&#x52A0;&#x5230;&#x9002;&#x5F53;&#x6587;&#x4EF6;&#x4E2D;, &#x8FD9;&#x6837;&#x6BCF;&#x5F53;shell&#x88AB;&#x5524;&#x8D77;, &#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;, &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x90FD;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x8FDB;&#x53BB;.
+&#x4F46;&#x4F46;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x7684;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;, &#x7A76;&#x7ADF;&#x9700;&#x8981;&#x66F4;&#x6539;&#x54EA;&#x4E00;&#x4E2A;/&#x51E0;&#x4E2A;&#x5462;? &#x4ED6;&#x4EEC;&#x7684;&#x6BD4;&#x8F83;&#x5982;&#x4E0B;:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>/etc/profile</code></th>
+<th><code>/etc/bash.bashrc</code></th>
+<th><code>~/.profile</code></th>
+<th><code>~/.bashrc</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x7B49;&#x7EA7;</td>
+<td>&#x7CFB;&#x7EDF;&#x7EA7;</td>
+<td>&#x7CFB;&#x7EDF;&#x7EA7;</td>
+<td>&#x7528;&#x6237;&#x7EA7;</td>
+<td>&#x7528;&#x6237;&#x7EA7;</td>
+</tr>
+<tr>
+<td>&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7684;&#x60C5;&#x51B5;</td>
+<td>login shell</td>
+<td>interactive shell</td>
+<td>login shell</td>
+<td>interactive shell</td>
+</tr>
+<tr>
+<td>&#x4F5C;&#x7528;&#x4E8E;&#x54EA;&#x4E9B;shell</td>
+<td>Bourne&#x7CFB;shell</td>
+<td>&#x4EC5;Bash</td>
+<td>Bourne&#x7CFB;shell</td>
+<td>&#x4EC5;Bash</td>
+</tr>
+<tr>
+<td>&#x52A0;&#x8F7D;&#x987A;&#x5E8F;</td>
+<td>&#x5148;</td>
+<td>&#x5148;</td>
+<td>&#x540E;</td>
+<td>&#x540E;</td>
+</tr>
+</tbody>
+</table>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f517.png?v8">&#x1F517;</span>&#x5173;&#x4E8E;&#x4F55;&#x65F6;&#x54EA;&#x4E2A;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;&#x4E5F;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_02.html" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x5728;&#x6709;&#x4E9B;&#x7CFB;&#x7EDF;&#x4E2D;&#x4E0D;&#x662F;<code>/etc/bash.bashrc</code>, &#x800C;&#x662F;<code>/etc/bashrc</code></p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> <code>/etc/profile</code>&#x4EC5;&#x9488;&#x5BF9;Bourne&#x7CFB;shell&#x662F;&#x6307;&#x5F53;shell&#x4E3A;Bourne Shell, Bash, ksh
+&#x7B49;&#x7684;&#x65F6;&#x5019;<code>/etc/profile</code>&#x624D;&#x53EF;&#x80FD;&#x88AB;&#x52A0;&#x8F7D;, &#x800C;&#x5F53;&#x6211;&#x5524;&#x8D77;&#x4E00;&#x4E2A;<strong>zsh</strong>&#x65F6;, <strong>&#x4EE5;&#x4E0A;&#x56DB;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;&#x90FD;&#x6CA1;&#x6709;&#x88AB;&#x52A0;&#x8F7D;</strong>
+:man_shrugging:</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x5728;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x53EF;&#x80FD;&#x8FD8;&#x5B58;&#x5728;<code>~/.bash_profile</code>, <code>~/.bash_login</code>&#x8FD9;&#x4E24;&#x6587;&#x4EF6;, &#x7CFB;&#x7EDF;&#x4F1A;&#x4F9D;&#x6B21;&#x67E5;&#x627E;<code>~/.bash_profile</code>, <code>~/.bash_login</code> &#x548C; <code>~/.profile</code>&#x8FD9;&#x4E09;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;, &#x8BFB;&#x53D6;&#x548C;&#x6267;&#x884C;&#x8FD9;&#x4E09;&#x4E2A;&#x4E2D;&#x7684;<strong>&#x7B2C;&#x4E00;&#x4E2A;</strong>&#x5B58;&#x5728;&#x4E14;&#x53EF;&#x8BFB;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x547D;&#x4EE4;, &#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x5C06;&#x4E09;&#x4E2A;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> &#x5F53;<strong>bashrc</strong>&#x4E00;&#x7CFB;&#x548C;<strong>profile</strong>&#x4E00;&#x7CFB;&#x90FD;&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;&#x65F6;&#x4E24;&#x8005;&#x54EA;&#x4E2A;&#x4F1A;&#x5148;&#x88AB;&#x52A0;&#x8F7D;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;, &#x6709;&#x70B9;&#x7384;&#x5B66;&#x2026; &#x7ECF;&#x6211;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;<code>bash -cl bash</code> <strong>profile</strong>&#x4E00;&#x7CFB;&#x4F1A;&#x5148;&#x88AB;&#x52A0;&#x8F7D;, &#x800C;&#x8FD0;&#x884C;<code>bash -l</code>&#x5219;<strong>bashrc</strong>&#x4E00;&#x7CFB;&#x4F1A;&#x5148;&#x88AB;&#x52A0;&#x8F7D;:man_facepalming: &#x4F46;&#x5F88;&#x660E;&#x786E;&#x7684;&#x4E00;&#x70B9;&#x662F;:
+&#x7CFB;&#x7EDF;&#x7EA7;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;&#x4E00;&#x5B9A;&#x4F1A;&#x5148;&#x4E0E;&#x7528;&#x6237;&#x7EA7;&#x6587;&#x4EF6;&#x88AB;&#x52A0;&#x8F7D;. &#x5373;&#x4FBF;&#x6839;&#x636E;&#x5E94;&#x5F53;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x4E2A;&#x6027;&#x5316;&#x8BBE;&#x7F6E;&#x8FD9;&#x79CD;&#x5C1D;&#x8BD5;&#x4E5F;&#x80FD;&#x63A8;&#x65AD;&#x51FA; (&#x7528;&#x6237;&#x7EA7;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;&#x540E;&#x4E8E;&#x7CFB;&#x7EDF;&#x7EA7;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;&#x88AB;&#x52A0;&#x8F7D;, &#x6240;&#x4EE5;&#x7528;&#x6237;&#x7EA7;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x7CFB;&#x7EDF;&#x7EA7;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x5E94;&#x914D;&#x7F6E;)</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2714.png?v8">&#x2714;</span>&#x6709;&#x5173;&#x56DB;&#x79CD;shell&#x6A21;&#x5F0F;&#x4E2A;&#x4EBA;&#x611F;&#x89C9;&#x5751;&#x633A;&#x591A;&#x7684;:</p>
+<ul>
+<li><strong>login shell</strong>: &#x7B3C;&#x7EDF;&#x5730;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x6709;<strong>&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;</strong>&#x8FD9;&#x4E00;&#x8FC7;&#x7A0B;&#x624D;&#x80FD;&#x8FDB;&#x5165;&#x7684;shell, &#x6BD4;&#x5982;<strong>&#x901A;&#x8FC7;ssh&#x8BBF;&#x95EE;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</strong>, &#x5426;&#x5219;&#x5C31;&#x662F;<strong>non-login shell</strong> &#x4F46;&#x662F;! &#x6BD4;&#x5982;<strong>&#x901A;&#x8FC7;<code>su</code>&#x5207;&#x6362;&#x7528;&#x6237;</strong>&#x65F6;&#x9ED8;&#x8BA4;&#x8FDB;&#x5165;&#x7684;&#x662F;<strong>non-login shell</strong>,
+&#x5982;&#x9700;&#x5207;&#x6362;&#x7528;&#x6237;&#x8FDB;&#x5165;login shell&#x9700;&#x8981;&#x52A0;&#x9009;&#x9879;<code>-l</code><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span> &#x8FD8;&#x6709;, &#x7ECF;&#x8FC7;GitHub
+&#x5E7F;&#x5927;&#x7F51;&#x53CB;&#x5EFA;&#x8BAE;, <strong>&#x8FDB;&#x5165;WSL</strong>&#x9ED8;&#x8BA4;&#x8FDB;&#x5165;&#x7684;&#x662F;<strong>login shell</strong>, &#x5373;&#x4FBF;&#x4F60;&#x5E76;&#x6CA1;&#x6709;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;.</li>
+<li><p><strong>interactive shell</strong>&#x6307;&#x7684;&#x662F;&#x4F60;&#x4E00;&#x53E5;&#x7535;&#x8111;&#x4E00;&#x53E5;&#x8FD9;&#x6837;&#x4EA4;&#x4E92;&#x5F0F;&#x7684;&#x7EC8;&#x7AEF;, &#x800C;<strong>no-interactive shell</strong>
+&#x6307;&#x7684;&#x662F;<strong>&#x901A;&#x8FC7;&#x811A;&#x672C;</strong>, <strong>&#x8FD0;&#x884C;<code>bash -c [command]</code></strong>&#x4E4B;&#x7C7B;&#x6307;&#x54EA;&#x6253;&#x54EA;&#x548C;&#x7535;&#x8111;&#x6CA1;&#x6709;&#x4EA4;&#x6D41;&#x7684;shell.</p>
+</li>
+<li><p>&#x68C0;&#x6D4B;&#x5F53;&#x524D;&#x662F;login shell&#x8FD8;&#x662F;non-login shell: &#x6709;&#x4E00;&#x4E2A;&#x7279;&#x70B9;&#x662F;login&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x7684;shell&#x8FDB;&#x7A0B;&#x540D;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F;-, &#x56E0;&#x6B64;&#x5982;&#x679C;&#x4F60;&#x8F93;&#x5165;<code>echo $0</code>&#x8F93;&#x51FA;&#x7684;&#x662F;<strong>-bash</strong>, &#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x662F;&#x5728;login shell&#x4E2D;,
+&#x5982;&#x679C;&#x662F;<strong>bash</strong>, &#x90A3;&#x5C31;&#x662F;&#x5728;non-login shell&#x4E2D;.</p>
+</li>
+</ul>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f31f.png?v8">&#x1F31F;</span>&#x6709;&#x4E86;&#x4EE5;&#x4E0A;&#x7684;&#x77E5;&#x8BC6;&#x50A8;&#x5907;&#x6211;&#x4EEC;&#x5C31;&#x77E5;&#x9053;&#x9700;&#x8981;&#x5C06;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6DFB;&#x52A0;&#x5230;&#x4EC0;&#x4E48;&#x6587;&#x4EF6;&#x91CC;&#x4E86;.</p>
+<h2 id="&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2><h3 id="&#x4E34;&#x65F6;&#x5220;&#x9664;"><a href="#&#x4E34;&#x65F6;&#x5220;&#x9664;" class="headerlink" title="&#x4E34;&#x65F6;&#x5220;&#x9664;"></a>&#x4E34;&#x65F6;&#x5220;&#x9664;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export -n [VARIABLE]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x6C38;&#x4E45;&#x5220;&#x9664;"><a href="#&#x6C38;&#x4E45;&#x5220;&#x9664;" class="headerlink" title="&#x6C38;&#x4E45;&#x5220;&#x9664;"></a>&#x6C38;&#x4E45;&#x5220;&#x9664;</h3><p>&#x53C2;&#x8003;&#x6C38;&#x4E45;&#x6DFB;&#x52A0;&#x7684;&#x64CD;&#x4F5C;.</p>
+<h2 id="&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"><a href="#&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"></a>&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;</h2><p>&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F; <code>update-alternatives</code>&#x662F;&#x4E00;&#x6761;&#x5341;&#x5206;&#x5B9E;&#x7528;&#x7684;&#x547D;&#x4EE4;! &#x8FD9;&#x662F;Debian&#x4E00;&#x7CFB;&#x7CFB;&#x7EDF; (&#x6BD4;&#x5982;Ubuntu)
+&#x4E2D;&#x521B;&#x5EFA;, &#x5220;&#x9664;, &#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;&#x7684;&#x5DE5;&#x5177;. &#x5728;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#x540C;&#x65F6;&#x5B58;&#x5728;&#x540C;&#x4E00;&#x8F6F;&#x4EF6;&#x7684;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x662F;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x4E8B;, &#x6BD4;&#x5982;python2&#x548C;python3&#x5E76;&#x5B58;, gcc&#x591A;&#x4E2A;&#x7248;&#x672C;&#x5E76;&#x5B58;. &#x5F53;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;<code>python</code>&#x65F6;&#x5230;&#x5E95;&#x8BE5;&#x8FDB;&#x5165;python2&#x8FD8;&#x662F;python3&#x5462;? update-altenatives&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;.</p>
+<h3 id="&#x521B;&#x5EFA;-&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"><a href="#&#x521B;&#x5EFA;-&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;" class="headerlink" title="&#x521B;&#x5EFA;/&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"></a>&#x521B;&#x5EFA;/&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --install [path/to/system_link] [command_name] [path/to/command_binary] [priority]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x662F;: &#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x7684;&#x94FE;&#x63A5;, &#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x540D;, &#x8981;&#x7528;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8C03;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x94FE;&#x63A5;, &#x4F18;&#x5148;&#x7EA7;&#x5927;&#x5C0F;</p>
+<p>&#x4EE5;<strong>python</strong>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4E3E;&#x4F8B;:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --install /usr/bin/python python /home/leo/anaconda3/bin/python3 100</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"><a href="#&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;" class="headerlink" title="&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"></a>&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config [command_name]</span><br></pre></td></tr></tbody></table></figure>
+<p>alternative&#x8F6F;&#x94FE;&#x7CFB;&#x7EDF;&#x4F1A;&#x628A;&#x4F18;&#x5148;&#x7EA7;&#x6570;&#x503C;&#x6700;&#x5927;&#x7684;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x94FE;&#x63A5;&#x4F5C;&#x4E3A;&#x5F53;&#x524D;&#x8BE5;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x94FE;&#x63A5;&#x5230;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5730;&#x5740;, &#x56E0;&#x6B64;&#x6BD4;&#x5982;&#x8981;&#x6539;&#x53D8;python&#x7248;&#x672C;&#x53EA;&#x9700;&#x8C03;&#x6574;&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x5C0F;.</p>
+<h3 id="&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"><a href="#&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;" class="headerlink" title="&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;"></a>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x8F6F;&#x94FE;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --remove [path/to/system_link] [command_name] [path/to/command_binary] [priority]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="&#x6587;&#x672C;&#x7F16;&#x8F91;"><a href="#&#x6587;&#x672C;&#x7F16;&#x8F91;" class="headerlink" title="&#x6587;&#x672C;&#x7F16;&#x8F91;"></a>&#x6587;&#x672C;&#x7F16;&#x8F91;</h1><h2 id="&#x663E;&#x793A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"><a href="#&#x663E;&#x793A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;" class="headerlink" title="&#x663E;&#x793A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"></a>&#x663E;&#x793A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</h2><p>cat: concatenate</p>
+<h3 id="&#x5E38;&#x7528;&#x9009;&#x9879;-3"><a href="#&#x5E38;&#x7528;&#x9009;&#x9879;-3" class="headerlink" title="&#x5E38;&#x7528;&#x9009;&#x9879;"></a>&#x5E38;&#x7528;&#x9009;&#x9879;</h3><ul>
+<li><p>-n &#x6216; &#x2013;number&#xFF1A;&#x7531; 1 &#x5F00;&#x59CB;&#x5BF9;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x7684;&#x884C;&#x6570;&#x7F16;&#x53F7;&#x3002;</p>
+</li>
+<li><p>-b &#x6216; &#x2013;number-nonblank&#xFF1A;&#x548C; -n &#x76F8;&#x4F3C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5BF9;&#x4E8E;&#x7A7A;&#x767D;&#x884C;&#x4E0D;&#x7F16;&#x53F7;&#x3002;</p>
+</li>
+</ul>
+<h3 id="&#x955C;&#x50CF;"><a href="#&#x955C;&#x50CF;" class="headerlink" title="&#x955C;&#x50CF;"></a>&#x955C;&#x50CF;</h3><p>cat &#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5236;&#x4F5C;&#x955C;&#x50CF;&#x6587;&#x4EF6;. &#x4F8B;&#x5982;&#x8981;&#x5236;&#x4F5C;&#x8F6F;&#x76D8;&#x7684;&#x955C;&#x50CF;&#x6587;&#x4EF6;, &#x5C06;&#x8F6F;&#x76D8;&#x653E;&#x597D;&#x540E;&#x8F93;&#x5165;&#xFF1A;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /dev/fd0 &gt; [OUTFILE]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x76F8;&#x53CD;&#x7684;, &#x5982;&#x679C;&#x60F3;&#x628A; image file &#x5199;&#x5230;&#x8F6F;&#x76D8;, &#x8F93;&#x5165;&#xFF1A;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [IMG_FILE] &gt; /dev/fd0</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x8986;&#x76D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;"><a href="#&#x8986;&#x76D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;" class="headerlink" title="&#x8986;&#x76D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;"></a>&#x8986;&#x76D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;</h2><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png?v8">&#x2757;</span>&#x4E00;&#x5B9A;&#x522B;&#x548C;&#x6DFB;&#x52A0;&#x5185;&#x5BB9;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x547D;&#x4EE4;&#x641E;&#x6DF7;&#x4E86;!</p>
+<h3 id="&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;"><a href="#&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;" class="headerlink" title="&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;"></a>&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [file1] [file2] &gt; [target_file]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;"><a href="#&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;"></a>&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo [&quot;string&quot;] &gt; [target_file]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x6DFB;&#x52A0;&#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;"><a href="#&#x6DFB;&#x52A0;&#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;" class="headerlink" title="&#x6DFB;&#x52A0;&#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;"></a>&#x6DFB;&#x52A0;&#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;</h2><h3 id="&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;-1"><a href="#&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;-1" class="headerlink" title="&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;"></a>&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [file1] [file2] &gt;&gt; [target_file]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;-1"><a href="#&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;-1" class="headerlink" title="&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;"></a>&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo [&quot;string&quot;] &gt;&gt; [target_file]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x6E05;&#x7A7A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"><a href="#&#x6E05;&#x7A7A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;" class="headerlink" title="&#x6E05;&#x7A7A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;"></a>&#x6E05;&#x7A7A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /dev/null &gt; [target_file]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8BBE;&#x7F6E;"><a href="#&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8BBE;&#x7F6E;" class="headerlink" title="&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8BBE;&#x7F6E;"></a>&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8BBE;&#x7F6E;</h1><p>chmod: change file mode bits</p>
+<p>chown: change file owner and group</p>
+<h2 id="&#x6240;&#x6709;&#x4EBA;&#x53EF;&#x8FD0;&#x884C;"><a href="#&#x6240;&#x6709;&#x4EBA;&#x53EF;&#x8FD0;&#x884C;" class="headerlink" title="&#x6240;&#x6709;&#x4EBA;&#x53EF;&#x8FD0;&#x884C;"></a>&#x6240;&#x6709;&#x4EBA;&#x53EF;&#x8FD0;&#x884C;</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x62E5;&#x6709;&#x8005;, &#x7FA4;&#x7EC4;&#x53EF;&#x8BFB;&#x5199;, &#x8FD0;&#x884C;, &#x5176;&#x4ED6;&#x7528;&#x6237;&#x53EF;&#x8BFB;, &#x6267;&#x884C;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7528;&#x4E00;&#x4E2A;&#x4E09;&#x4F4D;&#x516B;&#x8FDB;&#x5236;&#x6570;&#x6765;&#x8868;&#x793A;&#x6587;&#x4EF6;&#x6743;&#x9650;, &#x89C4;&#x5B9A;4, 2&#x548C;1&#x8868;&#x793A;&#x8BFB;&#x3001;&#x5199;&#x3001;&#x6267;&#x884C;&#x6743;&#x9650;, &#x6BCF;&#x4E00;&#x4F4D;&#x90FD;&#x662F;&#x8FD9;&#x4E09;&#x4E2A;&#x6570;&#x76F8;&#x52A0;&#x7684;&#x7ED3;&#x679C;, &#x4E09;&#x4F4D;&#x5206;&#x522B;&#x8868;&#x793A;u (user), g (group), o (others).</p>
+<h1 id="&#x540E;&#x53F0;&#x8FD0;&#x884C;"><a href="#&#x540E;&#x53F0;&#x8FD0;&#x884C;" class="headerlink" title="&#x540E;&#x53F0;&#x8FD0;&#x884C;"></a>&#x540E;&#x53F0;&#x8FD0;&#x884C;</h1><p>&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x662F;&#x6307;&#x5373;&#x4FBF;&#x5F53;&#x524D;&#x7EC8;&#x7AEF;&#x88AB;&#x5173;&#x95ED;&#x8FDB;&#x7A0B;&#x4E5F;&#x4F1A;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;. &#x5F53;&#x8FDB;&#x7A0B;&#x88AB;&#x5207;&#x6362;&#x5230;&#x540E;&#x53F0;, &#x79F0;&#x4E3A;<strong>job</strong></p>
+<p>&#x5728;&#x547D;&#x4EE4;&#x540E;&#x52A0; <code>&amp;</code></p>
+<h1 id="&#x9047;&#x5230;&#x8FC7;&#x7684;&#x95EE;&#x9898;"><a href="#&#x9047;&#x5230;&#x8FC7;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x9047;&#x5230;&#x8FC7;&#x7684;&#x95EE;&#x9898;"></a>&#x9047;&#x5230;&#x8FC7;&#x7684;&#x95EE;&#x9898;</h1><h2 id="Ubuntu&#x5F00;&#x673A;&#x7D2B;&#x5C4F;"><a href="#Ubuntu&#x5F00;&#x673A;&#x7D2B;&#x5C4F;" class="headerlink" title="Ubuntu&#x5F00;&#x673A;&#x7D2B;&#x5C4F;"></a>Ubuntu&#x5F00;&#x673A;&#x7D2B;&#x5C4F;</h2><p>linux&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x635F;&#x574F;&#x5BFC;&#x81F4;&#x7684;&#x4E0D;&#x6B63;&#x5E38;&#x5F00;/&#x5173;&#x673A;, &#x6B64;&#x65F6;&#x4E00;&#x822C;&#x7B49;&#x4E00;&#x7B49;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x63D0;&#x793A;&#x4F60;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4FEE;&#x590D;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fsck -a /dev/sda1</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E00;&#x822C;&#x7528;&#x8FD9;&#x6761;&#x547D;&#x4EE4;&#x4FEE;&#x590D;. fsck (file system check) &#x662F;&#x68C0;&#x6D4B;&#x4E0E;&#x4FEE;&#x590D;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x547D;&#x4EE4;.<code>-a</code>&#x9009;&#x9879;&#x4F1A;&#x62A5;&#x544A;&#x635F;&#x574F;block&#x5E76;&#x81EA;&#x52A8;&#x4FEE;&#x590D; (&#x53CD;&#x6B63;&#x624B;&#x52A8;&#x4FEE;&#x590D;&#x4E5F;&#x53EA;&#x662F;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x4FEE;&#x590D;).</p>
+<p>&#x5177;&#x4F53;&#x53C2;&#x8003;<a href="https://blog.csdn.net/liujianlin01/article/details/82937708" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
+<h2 id="Ubuntu&#x70E6;&#x4EBA;&#x7684;&#x5F00;&#x673A;&#x62A5;&#x9519;"><a href="#Ubuntu&#x70E6;&#x4EBA;&#x7684;&#x5F00;&#x673A;&#x62A5;&#x9519;" class="headerlink" title="Ubuntu&#x70E6;&#x4EBA;&#x7684;&#x5F00;&#x673A;&#x62A5;&#x9519;"></a>Ubuntu&#x70E6;&#x4EBA;&#x7684;&#x5F00;&#x673A;&#x62A5;&#x9519;</h2><p>&#x628A;&#x8FD9;&#x4E2A;&#x62A5;&#x9519;&#x5173;&#x4E86;&#x5C31;&#x5B8C;&#x4E8B;&#x4E86;&#x1F601;</p>
+<p>&#x53C2;&#x8003;<a href="https://www.cnblogs.com/greatfish/p/8042026.html" target="_blank" rel="noopener">Ubuntu&#x5F00;&#x673A;&#x5F39;&#x51FA;System porgram detected</a></p>
+<h2 id="ibus&#x7684;&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;&#x65E0;&#x6CD5;&#x9009;&#x62E9;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x7684;&#x5019;&#x9009;&#x8BCD;bug"><a href="#ibus&#x7684;&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;&#x65E0;&#x6CD5;&#x9009;&#x62E9;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x7684;&#x5019;&#x9009;&#x8BCD;bug" class="headerlink" title="ibus&#x7684;&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;&#x65E0;&#x6CD5;&#x9009;&#x62E9;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x7684;&#x5019;&#x9009;&#x8BCD;bug"></a>ibus&#x7684;&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;&#x65E0;&#x6CD5;&#x9009;&#x62E9;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x7684;&#x5019;&#x9009;&#x8BCD;bug</h2><p>&#x9700;&#x8981;&#x5220;&#x9664;&#x51E0;&#x4E2A;&#x7F13;&#x5B58;&#x7684;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf ~/.cache/ibus/libpinyin/</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x4E2A;issue&#x5177;&#x4F53;&#x53C2;&#x8003;<a href="https://github.com/libpinyin/ibus-libpinyin/issues/127" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a></p>
+<p>&#x2B50;&#xFE0F;&#x63A8;&#x8350;&#x76F4;&#x63A5;&#x6362;&#x6389;ibus&#x8F6C;&#x7528;<strong>fcitx</strong>. fcitx&#x7684;&#x4E2D;&#x6587;&#x8F93;&#x5165;&#x6CD5;&#x63A8;&#x8350;<strong>GooglePinyin</strong>, &#x65E5;&#x8BED;&#x8F93;&#x5165;&#x6CD5;&#x63A8;&#x8350;<strong>Mocz</strong>. &#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> &#x5B89;&#x88C5;&#x8C37;&#x6B4C;&#x62FC;&#x97F3;</span></span><br><span class="line">sudo apt install fcitx-googlepinyin</span><br><span class="line"><span class="meta">#</span><span class="bash"> &#x5B89;&#x88C5;Mocz&#x65E5;&#x8BED;&#x8F93;&#x5165;&#x6CD5;</span></span><br><span class="line">sudo apt install fcitx-mozc</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x2757;&#xFE0F;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;fcitx&#x7684;&#x8F93;&#x5165;&#x6CD5;&#x5206;&#x6FC0;&#x6D3B;&#x548C;&#x975E;&#x6FC0;&#x6D3B; (&#x901A;&#x5E38;&#x5C06;&#x82F1;&#x8BED;&#x8BBE;&#x4E3A;&#x975E;&#x6FC0;&#x6D3B;), &#x8F93;&#x5165;&#x6CD5;&#x5207;&#x6362;&#x5FEB;&#x6377;&#x952E;&#x4E5F;&#x5206;&#x4E24;&#x79CD;,
+&#x4E00;&#x79CD;&#x5728;&#x975E;&#x6FC0;&#x6D3B;&#x8F93;&#x5165;&#x6CD5;&#x548C;&#x6FC0;&#x6D3B;&#x8F93;&#x5165;&#x6CD5;&#x95F4;&#x5207;&#x6362;, &#x4E00;&#x79CD;&#x5728;&#x6FC0;&#x6D3B;&#x8F93;&#x5165;&#x6CD5;&#x95F4;&#x5207;&#x6362;.</p>
+<h2 id="&#x6CA1;&#x6709;&#x663E;&#x5361;&#x9A71;&#x52A8;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;"><a href="#&#x6CA1;&#x6709;&#x663E;&#x5361;&#x9A71;&#x52A8;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;" class="headerlink" title="&#x6CA1;&#x6709;&#x663E;&#x5361;&#x9A71;&#x52A8;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;"></a>&#x6CA1;&#x6709;&#x663E;&#x5361;&#x9A71;&#x52A8;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;</h2><p>&#x6709;&#x65F6;&#x5019;&#x4E70;&#x4E86;&#x4E0D;&#x9760;&#x8C31;&#x7684;&#x663E;&#x5361;&#x53EF;&#x80FD;&#x4F60;&#x7684;&#x53D1;&#x884C;&#x7248;&#x4E2D;&#x6CA1;&#x6709;, &#x6216;&#x8005;&#x4F60;&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x5B89;&#x88C5;&#x5BF9;&#x5E94;&#x7684;&#x9A71;&#x52A8;, &#x56E0;&#x6B64;&#x5F00;&#x673A;&#x540E;&#x53EF;&#x80FD;&#x662F;&#x82B1;&#x5C4F;&#x6216;&#x8005;&#x9ED1;&#x5C4F;. &#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;: &#x5F00;&#x673A;&#x65F6;&#x5728;grub&#x754C;&#x9762;&#x6309; <code>e</code> &#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#x5C06;&#x4EC0;&#x4E48;&#x4EC0;&#x4E48;splash&#x540E;&#x7684;&#x2014;&#x6539;&#x4E3A; 
+<code>nomodeset</code>. &#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x8BA9;&#x5185;&#x6838;&#x4E0D;&#x6539;&#x53D8;&#x663E;&#x793A;&#x8BBE;&#x7F6E;, &#x4FDD;&#x8BC1;&#x81F3;&#x5C11;&#x80FD;&#x770B;&#x5230;&#x4E1C;&#x897F;. (&#x4F46;&#x8FD9;&#x6A21;&#x5F0F;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x663E;&#x793A;&#x51FA;&#x6765;&#x8FA3;&#x773C;&#x775B;&#x1F605;)</p>
+<h2 id="&#x89E3;&#x538B;-zip&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x4E3A;&#x4E71;&#x7801;"><a href="#&#x89E3;&#x538B;-zip&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x4E3A;&#x4E71;&#x7801;" class="headerlink" title="&#x89E3;&#x538B;.zip&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x4E3A;&#x4E71;&#x7801;"></a>&#x89E3;&#x538B;.zip&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x4E3A;&#x4E71;&#x7801;</h2><p>&#x5F53;&#x6211;&#x5728;Ubuntu1804&#x50CF;&#x5F80;&#x5E38;&#x89E3;&#x538B;<code>.tar.gz</code>&#x6587;&#x4EF6;&#x90A3;&#x6837;&#x7528;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x7684;<strong>extract here</strong>&#x89E3;&#x538B;<code>.zip</code>&#x6587;&#x4EF6;&#x540E;&#x6211;&#x53D1;&#x73B0;&#x4E2D;&#x6587;&#x6587;&#x4EF6;&#x540D;&#x5168;&#x90E8;&#x53D8;&#x6210;&#x4E86;&#x4E71;&#x7801;, &#x6587;&#x4EF6;&#x91CC;&#x9762;&#x5012;&#x662F;&#x6CA1;&#x95EE;&#x9898;.</p>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;<strong>zip&#x538B;&#x7F29;&#x5305;&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x660E;&#x7F16;&#x7801;&#x683C;&#x5F0F;</strong>, &#x89E3;&#x538B;&#x5DE5;&#x5177;&#x4F1A;&#x4EE5;Linux&#x7684;&#x9ED8;&#x8BA4;&#x7F16;&#x7801;&#x683C;&#x5F0F;<strong>UTF-8</strong>&#x89E3;&#x538B;, &#x800C;&#x5728;&#x7CFB;&#x7EDF;&#x8BED;&#x8A00;&#x4E3A;&#x7B80;&#x4F53;&#x4E2D;&#x6587;&#x7684;Windows&#x7CFB;&#x7EDF;&#x4E0B;&#x9ED8;&#x8BA4;<strong>&#x5B57;&#x7B26;&#x96C6;</strong>&#x4E3A;<code>GBK</code>, <strong>&#x7F16;&#x7801;&#x683C;&#x5F0F;</strong>&#x4E3A;<code>EUC-CN</code>, &#x6240;&#x4EE5;&#x4F1A;&#x6587;&#x4EF6;&#x540D;&#x4E71;&#x7801;.</p>
+<p>&#x6211;&#x76EE;&#x524D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x89E3;&#x538B;.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -O cp936 [filename]</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6B64;&#x5904;&#x9009;&#x9879;<code>-O</code>&#x6307;&#x4EE5;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x89E3;&#x538B;. <strong>cp936</strong>&#x6307;<a href="https://en.wikipedia.org/wiki/Code_page_936_(Microsoft_Windows" target="_blank" rel="noopener">&#x5FAE;&#x8F6F;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x9875;936&#x9875;</a>)&#x7684;&#x7F16;&#x7801;&#x683C;&#x5F0F;(&#x6CE8;&#x610F;&#x4E0E;<a href="https://en.wikipedia.org/wiki/Code_page_936_(IBM" target="_blank" rel="noopener">IBM&#x7684;code page936</a>)&#x533A;&#x522B;),
+&#x5373;&#x5B57;&#x7B26;&#x96C6;&#x4E3A;GBK, &#x7F16;&#x7801;&#x683C;&#x5F0F;&#x4E3A;EUC-CN. (&#x7ECF;&#x6211;&#x5B9E;&#x9A8C;UTF-8&#x7F16;&#x7801;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4EE5;cp936&#x7F16;&#x7801;&#x89E3;&#x538B;&#x51FA;&#x6765;&#x663E;&#x793A;&#x6B63;&#x5E38;&#x2026;&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;)</p>
+<h2 id="Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x548C;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x5DEE;8&#x5C0F;&#x65F6;"><a href="#Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x548C;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x5DEE;8&#x5C0F;&#x65F6;" class="headerlink" title="Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x548C;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x5DEE;8&#x5C0F;&#x65F6;"></a>Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x548C;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x5DEE;8&#x5C0F;&#x65F6;</h2><p>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x86EE;&#x6709;&#x610F;&#x601D;&#x7684;:</p>
+<p>Linux&#x7CFB;&#x7EDF;&#x5C06;&#x786C;&#x4EF6;&#x65F6;&#x95F4; (BIOS&#x4E2D;&#x7684;&#x65F6;&#x95F4;) &#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x7684;<strong>UTC&#x65F6;&#x95F4;</strong>, &#x800C;Windows&#x7CFB;&#x7EDF;&#x5C06;&#x786C;&#x4EF6;&#x65F6;&#x95F4;&#x4F5C;&#x4E3A;<strong>&#x672C;&#x5730;&#x65F6;&#x95F4;</strong>.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5982;&#x679C;&#x73B0;&#x5728;&#x6211;&#x6709;&#x4E00;&#x53F0;&#x5728;&#x5317;&#x4EAC; (&#x4E1C;&#x516B;&#x533A;) &#x7684;&#x7535;&#x8111;, <strong>BIOS&#x65F6;&#x95F4;</strong>
+&#x4E3A;8:30 (24&#x5C0F;&#x65F6;&#x5236;), &#x90A3;<strong>Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;</strong>&#x4E3A;16:30, <strong>Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;</strong>&#x4E3A;8:30.</p>
+<p>&#x56E0;&#x6B64;Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x4E0E;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x6709;&#x65F6;&#x5DEE;&#x662F;&#x6B63;&#x5E38;&#x7684; (&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x8BA9;Windows&#x7CFB;&#x7EDF;&#x5C06;&#x786C;&#x4EF6;&#x65F6;&#x95F4;&#x4F5C;&#x4E3A;UTC&#x65F6;&#x95F4;). &#x4F46;&#x6211;&#x7684;Linux&#x548C;Windows&#x7CFB;&#x7EDF;&#x90FD;&#x5F00;&#x542F;&#x4E86;&#x7F51;&#x7EDC;&#x6821;&#x65F6;&#x529F;&#x80FD;, &#x7406;&#x8BBA;&#x4E0A;&#x5373;&#x4FBF;&#x5B58;&#x5728;&#x4E0A;&#x8FF0;&#x95EE;&#x9898;&#x4E5F;&#x4E0D;&#x5E94;&#x5F53;&#x8868;&#x73B0;&#x51FA;&#x6765;, &#x800C;&#x5E94;&#x662F;&#x5F00;&#x673A;&#x540E;&#x81EA;&#x52A8;&#x6821;&#x51C6;&#x4E86;. &#x6211;&#x9762;&#x4E34;&#x7684;&#x95EE;&#x9898;&#x662F;Linux&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x662F;&#x51C6;&#x786E;&#x7684;,&#x800C;Windows&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x603B;&#x662F;&#x65E9;&#x4E86;8&#x5C0F;&#x65F6;, &#x8FD9;&#x8BF4;&#x660E;Windows&#x7CFB;&#x7EDF;&#x7684;&#x7F51;&#x7EDC;&#x6821;&#x65F6;&#x529F;&#x80FD;&#x672A;&#x751F;&#x6548;.</p>
+<p>&#x540E;&#x6765;&#x6211;&#x53D1;&#x73B0;&#x662F;&#x6709;&#x4E2A;&#x53EB;<strong>Windows Time</strong>&#x7684;&#x670D;&#x52A1; (&#x7F51;&#x7EDC;&#x6821;&#x65F6;&#x529F;&#x80FD;&#x5728;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x91CC;) &#x7684;&#x542F;&#x52A8;&#x7C7B;&#x578B;&#x4E0D;&#x5408;&#x7406; (<strong>&#x670D;&#x52A1;</strong>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x5F00;&#x59CB;&#x641C;&#x7D22;&#x6846;&#x641C;&#x7D22;&#x6253;&#x5F00;). &#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x7F3A;&#x7701;&#x542F;&#x52A8;&#x7C7B;&#x578B;&#x4E3A;<code>&#x624B;&#x52A8;(&#x89E6;&#x53D1;&#x5668;&#x542F;&#x52A8;)</code>, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x5728;&#x67D0;&#x5904;&#x89E6;&#x53D1;. (&#x4E0E;&#x53E6;&#x4E00;&#x79CD;&#x542F;&#x52A8;&#x7C7B;&#x578B;<code>&#x624B;&#x52A8;</code>&#x7684;&#x533A;&#x522B;&#x662F;&#x540E;&#x8005;&#x53EA;&#x80FD;&#x5728;<strong>&#x670D;&#x52A1;</strong>&#x9875;&#x9762;&#x624B;&#x52A8;&#x542F;&#x52A8;)&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;, &#x6BCF;&#x6B21;&#x6211;&#x4ECE;Linux&#x7CFB;&#x7EDF;&#x5173;&#x673A;,&#x91CD;&#x542F;&#x6253;&#x5F00;Windows&#x7CFB;&#x7EDF;&#x540E;, Windows&#x7CFB;&#x7EDF;&#x663E;&#x793A;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x4E0D;&#x51C6;&#x786E;&#x7684;, &#x6B64;&#x5904;<strong>Windows Time</strong>&#x670D;&#x52A1;&#x56E0;&#x4E3A;&#x672A;&#x89E6;&#x53D1;,&#x5904;&#x4E8E;&#x672A;&#x8FD0;&#x884C;&#x72B6;&#x6001;, &#x800C;&#x5F53;&#x6211;&#x5728;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x95F4;&#x4E0E;&#x5730;&#x533A;&#x91CC;&#x624B;&#x52A8;&#x5173;&#x95ED; <strong>&#x201C;&#x81EA;&#x52A8;&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x201D;</strong> &#x518D;&#x6253;&#x5F00;&#x540E;, &#x6211;&#x53D1;&#x73B0;<strong>Windows Time</strong>&#x670D;&#x52A1;&#x6B64;&#x65F6;&#x5DF2;&#x7ECF;&#x5904;&#x4E8E;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x4E86;.</p>
+<p>&#x1F926;&#x200D;&#x2026; &#x6CA1;&#x51C6;&#x662F;&#x5FAE;&#x8F6F;&#x7684;&#x9505;? &#x54B1;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;, &#x54B1;&#x4E5F;&#x4E0D;&#x6562;&#x95EE;.</p>
+<p>&#x5F53;&#x6211;&#x5C06;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x542F;&#x52A8;&#x7C7B;&#x578B;&#x8BBE;&#x7F6E;&#x4E3A;<code>&#x81EA;&#x52A8;(&#x5EF6;&#x8FDF;&#x542F;&#x52A8;)</code> (&#x5EF6;&#x8FDF;&#x542F;&#x52A8;&#x6307;&#x5728;&#x6240;&#x6709;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x542F;&#x52A8;&#x540E;&#x518D;&#x542F;&#x52A8;&#x672C;&#x670D;&#x52A1;) &#x540E;&#x95EE;&#x9898;&#x89E3;&#x51B3;.</p>
+<h2 id="fcitx&#x65E0;&#x6CD5;&#x7528;Super-Space&#x5207;&#x6362;&#x8F93;&#x5165;&#x6CD5;"><a href="#fcitx&#x65E0;&#x6CD5;&#x7528;Super-Space&#x5207;&#x6362;&#x8F93;&#x5165;&#x6CD5;" class="headerlink" title="fcitx&#x65E0;&#x6CD5;&#x7528;Super+Space&#x5207;&#x6362;&#x8F93;&#x5165;&#x6CD5;"></a>fcitx&#x65E0;&#x6CD5;&#x7528;Super+Space&#x5207;&#x6362;&#x8F93;&#x5165;&#x6CD5;</h2><p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x7EC4;&#x5408;&#x952E;&#x88AB;&#x7CFB;&#x7EDF;&#x7684;&#x8F93;&#x5165;&#x6CD5;&#x5207;&#x6362;&#x5FEB;&#x6377;&#x952E;&#x5360;&#x7528;&#x4E86;. &#x5728;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;&#x91CC; <strong>Devices -&gt;
+Keyboard -&gt; Switch to next input source</strong> &#x5173;&#x6389;&#x8FD9;&#x4E2A;&#x5FEB;&#x6377;&#x952E;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;.</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-CN/我发布了扩展包/" rel="next" title="我发布了扩展包!">
+                <i class="fa fa-chevron-left"></i> 我发布了扩展包!
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-CN/常见术语缩写/" rel="prev" title="常见术语缩写">
+                常见术语缩写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录</li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览</li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/zh-CN/images/avatar.gif" alt="LeoJhon.Song">
+            
+              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+              <p class="site-description motion-element" itemprop="description">记 / 录 / 与 / 分 / 享</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/zh-CN/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/zh-CN/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看版本"><span class="nav-number">1.</span> <span class="nav-text">查看版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看内核版本"><span class="nav-number">1.1.</span> <span class="nav-text">查看内核版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看发行版版本"><span class="nav-number">1.2.</span> <span class="nav-text">查看发行版版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装卸载等"><span class="nav-number">2.</span> <span class="nav-text">软件安装卸载等</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#源列表备份与恢复"><span class="nav-number">2.1.</span> <span class="nav-text">源列表备份与恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换源"><span class="nav-number">2.2.</span> <span class="nav-text">换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包列表更新"><span class="nav-number">2.3.</span> <span class="nav-text">包列表更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包升级"><span class="nav-number">2.4.</span> <span class="nav-text">包升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包搜索"><span class="nav-number">2.5.</span> <span class="nav-text">包搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包安装"><span class="nav-number">2.6.</span> <span class="nav-text">包安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包卸载"><span class="nav-number">2.7.</span> <span class="nav-text">包卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶操作"><span class="nav-number">2.8.</span> <span class="nav-text">进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载下来的压缩包里有看着像安装脚本的玩意"><span class="nav-number">2.8.1.</span> <span class="nav-text">下载下来的压缩包里有看着像安装脚本的玩意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有deb包"><span class="nav-number">2.8.2.</span> <span class="nav-text">有deb包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通安装"><span class="nav-number">2.8.2.1.</span> <span class="nav-text">普通安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇到报错"><span class="nav-number">2.8.2.2.</span> <span class="nav-text">遇到报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修复依赖关系"><span class="nav-number">2.8.2.2.1.</span> <span class="nav-text">修复依赖关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#需要对包的依赖关系进行修改"><span class="nav-number">2.8.2.2.2.</span> <span class="nav-text">需要对包的依赖关系进行修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要自己编译"><span class="nav-number">2.8.3.</span> <span class="nav-text">需要自己编译</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件系统"><span class="nav-number">3.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">3.1.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立软链"><span class="nav-number">3.1.1.</span> <span class="nav-text">建立软链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-number">3.2.</span> <span class="nav-text">复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项"><span class="nav-number">3.2.1.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则使用举例"><span class="nav-number">3.2.2.</span> <span class="nav-text">正则使用举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">3.3.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-number">3.3.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件夹"><span class="nav-number">3.3.3.</span> <span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除当前文件夹下所有文件及文件夹"><span class="nav-number">3.3.4.</span> <span class="nav-text">删除当前文件夹下所有文件及文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压-压缩"><span class="nav-number">3.4.</span> <span class="nav-text">解压/压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出压缩文件内容"><span class="nav-number">3.4.2.</span> <span class="nav-text">列出压缩文件内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压文件"><span class="nav-number">3.4.3.</span> <span class="nav-text">解压文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩文件"><span class="nav-number">3.4.4.</span> <span class="nav-text">压缩文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化U盘"><span class="nav-number">3.5.</span> <span class="nav-text">格式化U盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量"><span class="nav-number">4.</span> <span class="nav-text">环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看环境变量"><span class="nav-number">4.1.</span> <span class="nav-text">查看环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有环境变量"><span class="nav-number">4.1.1.</span> <span class="nav-text">查看所有环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看PATH"><span class="nav-number">4.1.2.</span> <span class="nav-text">查看PATH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前运行shell"><span class="nav-number">4.1.3.</span> <span class="nav-text">查看当前运行shell</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加路径到PATH"><span class="nav-number">4.2.</span> <span class="nav-text">添加路径到PATH</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#临时添加"><span class="nav-number">4.2.1.</span> <span class="nav-text">临时添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久添加"><span class="nav-number">4.2.2.</span> <span class="nav-text">永久添加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除一个环境变量"><span class="nav-number">4.3.</span> <span class="nav-text">删除一个环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#临时删除"><span class="nav-number">4.3.1.</span> <span class="nav-text">临时删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久删除"><span class="nav-number">4.3.2.</span> <span class="nav-text">永久删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统命令软链"><span class="nav-number">4.4.</span> <span class="nav-text">系统命令软链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-添加一个系统命令软链"><span class="nav-number">4.4.1.</span> <span class="nav-text">创建/添加一个系统命令软链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置系统命令软链"><span class="nav-number">4.4.2.</span> <span class="nav-text">配置系统命令软链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个系统命令软链"><span class="nav-number">4.4.3.</span> <span class="nav-text">删除一个系统命令软链</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本编辑"><span class="nav-number">5.</span> <span class="nav-text">文本编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示文件内容"><span class="nav-number">5.1.</span> <span class="nav-text">显示文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项-3"><span class="nav-number">5.1.1.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像"><span class="nav-number">5.1.2.</span> <span class="nav-text">镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#覆盖目标文件的写入"><span class="nav-number">5.2.</span> <span class="nav-text">覆盖目标文件的写入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写入一些文件的内容"><span class="nav-number">5.2.1.</span> <span class="nav-text">写入一些文件的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入一个字符串"><span class="nav-number">5.2.2.</span> <span class="nav-text">写入一个字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加到目标文件的写入"><span class="nav-number">5.3.</span> <span class="nav-text">添加到目标文件的写入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写入一些文件的内容-1"><span class="nav-number">5.3.1.</span> <span class="nav-text">写入一些文件的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入一个字符串-1"><span class="nav-number">5.3.2.</span> <span class="nav-text">写入一个字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空文件内容"><span class="nav-number">5.4.</span> <span class="nav-text">清空文件内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件权限设置"><span class="nav-number">6.</span> <span class="nav-text">文件权限设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#所有人可运行"><span class="nav-number">6.1.</span> <span class="nav-text">所有人可运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台运行"><span class="nav-number">7.</span> <span class="nav-text">后台运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到过的问题"><span class="nav-number">8.</span> <span class="nav-text">遇到过的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu开机紫屏"><span class="nav-number">8.1.</span> <span class="nav-text">Ubuntu开机紫屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu烦人的开机报错"><span class="nav-number">8.2.</span> <span class="nav-text">Ubuntu烦人的开机报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ibus的中文输入法无法选择除第一个的候选词bug"><span class="nav-number">8.3.</span> <span class="nav-text">ibus的中文输入法无法选择除第一个的候选词bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#没有显卡驱动无法正常显示"><span class="nav-number">8.4.</span> <span class="nav-text">没有显卡驱动无法正常显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压-zip压缩包中文文件名为乱码"><span class="nav-number">8.5.</span> <span class="nav-text">解压.zip压缩包中文文件名为乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux系统时间和Windows系统时间差8小时"><span class="nav-number">8.6.</span> <span class="nav-text">Linux系统时间和Windows系统时间差8小时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fcitx无法用Super-Space切换输入法"><span class="nav-number">8.7.</span> <span class="nav-text">fcitx无法用Super+Space切换输入法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-hand-peace-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeoJhon.Song</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">297k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/zh-CN/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/zh-CN/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/zh-CN/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/zh-CN/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/zh-CN/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/zh-CN/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/zh-CN/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/zh-CN/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/zh-CN/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/zh-CN/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
+        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/zh-CN/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
