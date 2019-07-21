@@ -100,9 +100,10 @@ search:
 #----------------------------------------------------------------
 symbols_count_time:
   symbols: true
-  time: false
+  time: true
   total_symbols: true
-  total_time: false
+  total_time: true
+  exclude_codeblock: false
 #----------------------------------------------------------------
 #disable break as return
 #----------------------------------------------------------------
