@@ -591,6 +591,80 @@ chmod 755
 
 在命令后加 `&`
 
+# TCP/UDP工具
+
+nc: netcat, 是一个读写TCP/UDP协议下数据的工具.
+
+我感觉netcat能当作Windows下的TCP调试助手, 但也有远比TCP调试助手多的功能和用途,是
+很强大的工具, 但得自己加选项来实现各种功能, 可能还需要和其他工具配合, 使用不是很
+直观.
+
+常用选项:
+
+- -l listen, 监听
+- -u 使用UDP协议而不是默认的TCP协议
+- -v 显示详细信息
+- -z 指定nc只扫描端口而不发送数据过去, 不能和-l选项一起用
+- -w 一定时间内无法连接则timeout, 单位为秒
+
+我目前遇到的几种用法:
+
+## 监听某端口
+
+```shell
+nc -l localhost 8000
+```
+
+❗️ nc的manpage说在建立链接后就不要在意哪边是server哪边是client了.
+
+## 发送一段16进制的ASCII码
+
+在看网友们实现这个时我体会到了linux命令是多么强大, 以下收录几个例子
+
+```shell
+echo '0006303030304e43' | xxd -r -p | nc -l localhost 8000
+```
+
+```shell
+echo -ne '\x00\x06\x30\x30\x30\x30\x4e\x43' | nc -l localhost 8000
+```
+
+```shell
+echo -ne "$(echo '0006303030304e43' | sed -e 's/../\\x&/g')" | nc -l localhost 8000
+```
+
+## 以16进制显示接收到的信息
+
+hd: hexdump
+xxd: make a hexdump or do the reverse
+
+hexdump和xxd都可以将数据转为16进制, 但体验后我觉得xxd更易记, 显示更直观.
+
+xxd默认按单字节转换, 而hexdump默认按双字节小端转换, 差评.
+
+### 按单字节以一定格式显示
+
+```shell
+nc localhost 8000 | xxd -c [cols]
+```
+
+选项-c指定一行显示列数, 如果显示的数据是定长的话设置为数据长度很舒服. xxd默认两
+字节一组显示, 即两个字节间一个空格, 可以用`-g [bytes]`指定几个字节一组.
+
+```shell
+nc localhost 8000 | hexdump -C
+```
+
+选项-C指定按单字节以一定格式显示. 这个格式可以看hexdump的manpage下`-C`选项的描述
+
+不过看manpage似乎hexdump支持的骚显示方式更多.
+
+## 扫描端口
+
+```shell
+nc -v -n -z -w 1 localhost 1-1000
+```
+
 # 遇到过的问题
 
 ## Ubuntu开机紫屏

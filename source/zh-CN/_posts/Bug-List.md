@@ -213,3 +213,61 @@ Verilog中如果不写完整if-else结构和case结构会产生latch, 会将毛�
 # Verilog中因不同条件触发的变量应在不同always块中描述
 
 参见我的另一篇博客 [Verilog 杂记-有关always](https://leojhonsong.github.io/zh-CN/Verilog%E6%9D%82%E8%AE%B0/#%E6%9C%89%E5%85%B3%20always)
+
+# C++字符串赋值坑
+
+在写一段C++代码时我遇到了这样的问题: 用如下代码给一个string类型的变量`str`赋值为
+"\xfe\xfe\x03\x00\x00\x3e\xfd", 也就是一个16进制表示的ASCII编码值为 fe fe 03 00 00 3e fd 的字符串,但这样做始终只能让`str`的值变为"\xfe\xfe\x03"!
+
+```C++
+std::string str = "\xfe\xfe\x03\x00\x00\x3e\xfd";
+```
+
+但同时我发现用`assign()`来指定长度赋值就不会出现这种问题:
+
+```C++
+std::string str;
+str.assign("\xfe\xfe\x03\x00\x00\x3e\xfd", 7);
+```
+
+⚠️要注意的是传给`assign()`的字符串长度不能用`length()`, `size()`等函数来给出, 他们同样
+会把\0视为字符串末尾... 我的方法是手动给出, 反正我的程序里字符串是定长的.
+
+我拿这个问题问我的C++大佬同学, 他说应该是因为\0让C++认为字符串到头了, 于是只有前三个字符.
+
+我说: ? 我这字符串里哪有\0? 你别骗我读书少.
+
+然后他发了一张图来:
+
+![C++字符串结束符](Bug-List/C++字符串结束符.jpg)
+
+...我是真的吃了读书少的亏, 竟然特么\0和\x00是一个意思🤦‍
+
+然后在string类型变量里写入\0的方法似乎只有用`assign()`和指定字符串长度的构造函数
+. 其实用`=`赋值在变量声明和定义同时出现时是只有字符串值这个参数的构造函数, 否则
+就是只有字符串值这个参数的`assign()`函数.
+
+# socket的Address already in use问题
+
+前几天写了一段socket服务器端的代码, 运行了一遍没毛病, 再运行第二遍竟然在创建业务
+socket时报错了. 过了一会运行第三遍竟然又没问题了🤦‍ 我记得报错似乎是这个**Error:
+Address already in use**, 我的服务器端监听的端口处于 **TIME_WAIT** 状态. 后来我
+发现[这个描
+述](https://stackoverflow.com/questions/15198834/bind-failed-address-already-in-use/15199016#15199016)
+符合我的情况 (虽然我是在创建业务socket时出错的). 没想到是因为socket关得太慢了我
+重新启动程序时上次程序的socket还在占用端口...虽然我觉得这有点神奇但设置
+**SO_REUSEADDR** 确实解决了我的问题. 解决方法很简单,紧跟着创建了监听socket代码的
+那一行后面加两句:
+
+```C++
+int enable = 1;
+setsocketopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable));
+```
+
+或者更严谨一点:
+
+```C++
+int enable = 1;
+if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable)) < 0)
+    error("setsockopt(SO_REUSEADDR) failed");
+```
