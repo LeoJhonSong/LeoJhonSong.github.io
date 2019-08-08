@@ -1,0 +1,48 @@
+---
+title: MATLAB杂记
+date: 2019-08-05 22:25:20
+categories: MATLAB
+---
+
+再开学的课程就要用MATLAB了, 而且了解很多机械系唯一要求学的编程语言就是MATLAB, 我
+决定还是稍微了解下.
+
+<!-- More -->
+
+首先, [MATLAB到底是不是编程语言?](https://www.zhihu.com/question/37824202/answer/767114071)
+
+从**TIOBE**上有MATLAB而且MATLAB排名还不低可以看出MATLAB确实是一门编程语言, 但从
+上面链接可以看出MATLAB算是残疾的编程语言, 很多特性没有, 更多的是用来验证算法可行
+性.但我又想验证算法可行性为啥不用Python什么的? 然后我发现原本用Octave教深度学习
+的吴恩达现在用该用Python了 😁 而且因为商业使用MATLAB很贵, 速度也慢, 因此公司里基
+本没有用MATLAB的
+
+因此我觉得MATLAB的优势主要就在:
+
+- 语法简单, 没有编程基础的工科生也能快速掌握
+- 集成度特别高, 各种工具都能轻松快速配置好
+- 能和多种语言交互, 编写界面简单
+- 很多工具都有图形界面, 操作简单, 按按键就可以, 不用写那么多代码.
+
+🤦‍
+
+行吧我就简单学学
+
+# MATLAB软件个性化设置
+
+## 设置初始工作文件夹
+
+使用HOME目录作为起始工作文件夹我觉得不是什么好事, 所以最好自己指定一个合适的目录. 我使用的是MATLAB默认的`userpath`, 即**Documents/MATLAB**文件夹. 一方面这个文件夹看着比较合理一方面MATLAB说[使用userpath作为初始工作文件夹有一定好处](https://ww2.mathworks.cn/help/matlab/matlab_env/matlab-startup-folder.html#bujzf43)
+
+Linux下设置MATLAB的初始工作文件夹方法和在Windows下改快捷方式的起始位置这种方法不一样, 要
+达到这个目的有两种方式:
+
+1. 在终端输入 `matlab -useStartupFolderPref` 打开MATLAB, -useStartupFolderPref选
+   项指定初始工作文件夹为在**Preference**中**Initial working folder option**的指
+   定文件夹.
+2. 在终端输入 `matlab -sd [folder]` 打开MATLAB, -sd选项指定初始工作文件夹为
+   [folder]文件夹.
+   
+## 更改编辑界面颜色主题
+
+# MATLAB语法和工具

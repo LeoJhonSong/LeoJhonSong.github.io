@@ -665,6 +665,10 @@ nc localhost 8000 | hexdump -C
 nc -v -n -z -w 1 localhost 1-1000
 ```
 
+nc甚至可以通过重定向文件描述符来在端口使用终端 🐮🍺
+
+在nc的manpage可以找到操作方式.
+
 # 遇到过的问题
 
 ## Ubuntu开机紫屏

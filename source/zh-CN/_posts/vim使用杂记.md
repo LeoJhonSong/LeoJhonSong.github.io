@@ -98,6 +98,8 @@ vim是能够进行高度个性化的编辑器, 因此每个人肯定都会添加
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 ```
 
+另外`zn`为全部展开, `zN`为全部折叠.
+
 # 拼写检查
 
 ```vim
