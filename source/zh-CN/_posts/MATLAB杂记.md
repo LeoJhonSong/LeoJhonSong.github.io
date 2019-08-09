@@ -42,7 +42,24 @@ Linux下设置MATLAB的初始工作文件夹方法和在Windows下改快捷方�
    定文件夹.
 2. 在终端输入 `matlab -sd [folder]` 打开MATLAB, -sd选项指定初始工作文件夹为
    [folder]文件夹.
-   
+
 ## 更改编辑界面颜色主题
+
+在vim, VSC, VS, CLION, Pycharm等工具用惯了黑暗主题以后拿到啥都想先换个黑暗主题. 但是找了半天也只找到了设置编辑界面颜色主题的方式, 普通操作似乎并不能自定义丑陋的灰色工具栏.
+
+最终我把界面变成了这样 👇
+
+![界面](MATLAB杂记/appearance.png)
+
+- 颜色主题是通过[MATLAB Schemer](https://github.com/scottclowe/matlab-schemer)里
+  的脚本更换的, 一键更换好评👍 因为我比较喜欢糖果色的颜色主题然后又不喜欢注释是
+  灰色 (不管在黑色背景还是白色背景里辨析度都很低), 于是选择的主题是[Dark
+  Steel](https://github.com/scottclowe/matlab-schemer/tree/master/schemes#dark-steel)
+- 字体用的是[DejaVu Sans Mono for
+  Powerline](https://github.com/powerline/fonts/tree/master/DejaVuSansMono), 大
+  小是11, 不过不知道为什么MATLAB显示无效果的字体看着很粗糙, 边缘锯齿状过于明显,
+  效果设置为了 **bold**, 这回好多了!
+- 布局改成了和我常用的vim, VSC差不多的布局: 资源管理器在左上, 细节信息在左下, 编
+  辑窗口在右
 
 # MATLAB语法和工具
