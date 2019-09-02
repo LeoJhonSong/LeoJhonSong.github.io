@@ -33,5 +33,11 @@
 			"<!-- More -->"
 		],
 		"description": "Read More Label"
+	},
+	"kbd tag": {
+		"scope": "markdown",
+		"prefix": "kbd",
+		"body": "<kbd>$1</kbd>",
+		"description": "keboard html tag"
 	}
 }
