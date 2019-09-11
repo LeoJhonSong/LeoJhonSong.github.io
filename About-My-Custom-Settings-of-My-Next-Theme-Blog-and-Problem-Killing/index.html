@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+
+  <meta name="google-site-verification" content="MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.6.0" color="#222">
+
+
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-TileColor" content="#505050">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+<meta name="theme-color" content="#505050">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+  <meta name="description" content="Language: English 中文   This blog site is powered by Hexo, the theme is NexT, the scheme is Pisces. After I started building my blog with Hexo, I found that actually there are some more Static Site Gen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="About My Custom Settings of My Next Theme Blog and Problem Killing">
+<meta property="og:url" content="https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/index.html">
+<meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
+<meta property="og:description" content="Language: English 中文   This blog site is powered by Hexo, the theme is NexT, the scheme is Pisces. After I started building my blog with Hexo, I found that actually there are some more Static Site Gen">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-16T17:11:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About My Custom Settings of My Next Theme Blog and Problem Killing">
+<meta name="twitter:description" content="Language: English 中文   This blog site is powered by Hexo, the theme is NexT, the scheme is Pisces. After I started building my blog with Hexo, I found that actually there are some more Static Site Gen">
+
+
+
+
+
+
+  <link rel="canonical" href="https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>About My Custom Settings of My Next Theme Blog and Problem Killing | LeoJhon.Song's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeoJhon.Song's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">WELCOME TO MY BLOG!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/LeoJhonSong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LeoJhon.Song">
+      <meta itemprop="description" content="Logging   /   and   /   Sharing">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeoJhon.Song's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">About My Custom Settings of My Next Theme Blog and Problem Killing
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-24 13:30:40" itemprop="dateCreated datePublished" datetime="2018-12-24T13:30:40+08:00">2018-12-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-17 01:11:32" itemprop="dateModified" datetime="2019-06-17T01:11:32+08:00">2019-06-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">25k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">45 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <div align="right">Language:
+<a href="/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing"><code>English</code></a>
+<a href="/zh-CN/&#x5173;&#x4E8E;&#x6211;&#x7684;NexT&#x4E3B;&#x9898;&#x535A;&#x5BA2;&#x7684;&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;&#x4EE5;&#x53CA;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;"><code>&#x4E2D;&#x6587;</code></a>
+</div>
+
+<p>This blog site is powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>, the theme is <a href="https://theme-next.org/" target="_blank" rel="noopener">NexT</a>,
+the scheme is <code>Pisces</code>. After I started building my blog with Hexo, I found that
+actually there are some more Static Site Generators which are considered better
+than Hexo. You can find a ranking list of the Static Site Generators <a href="https://www.staticgen.com/" target="_blank" rel="noopener">here</a>.
+(But if you have already get started with Hexo, it is O.K. At least I think it
+is good enough)</p>
+<a id="more"></a>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> the generator named Next in the list is a different thing from the
+theme of Hexo I use.</p>
+<blockquote>
+<p>Here I want to share about the problems I meet and my custom settings.</p>
+</blockquote>
+<!-- More -->
+<h2 id="Problems-I-met"><a href="#Problems-I-met" class="headerlink" title="Problems I met"></a>Problems I met</h2><h3 id="GitHub-Pages-says-I-am-using-a-unsupported-theme"><a href="#GitHub-Pages-says-I-am-using-a-unsupported-theme" class="headerlink" title="GitHub Pages says I am using a unsupported theme"></a>GitHub Pages says I am using a unsupported theme</h3><p><strong>This problem is very likely to occur if you simply commit your whole Hexo
+instance to your master branch.</strong></p>
+<p>In fact, only <a href="https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/" target="_blank" rel="noopener">a few themes</a>
+are supported by GitHub Pages and NexT or any Hexo theme is not included
+<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span>But here is a little trick: the files are rendered at your
+desktop, simple HTML pages are uploaded to the master branch as the source code
+of your site. In this way, anytheme can be applied to your blog<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">&#x1F604;</span></p>
+<p>Therefore, you can not simply commit your Hexo instance to the master branch,
+what I did is to publish a new branch <code>Root</code> to store my Hexo instance and use
+the <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>
+extension to deploy my site to the master branch.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span>your GitHub Pages
+<a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/" target="_blank" rel="noopener">can only published from the master branch</a>
+if your repository is named <code>username.github.io</code></p>
+<p>If you haven&#x2019;t installed this
+plugin, use the following command at the root of your hexo instance.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
+<p>check <a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="noopener">here</a> for the configuration.</p>
+<h3 id="Cannot-commit-theme-next-to-github"><a href="#Cannot-commit-theme-next-to-github" class="headerlink" title="Cannot commit theme/next to github"></a>Cannot commit theme/next to github</h3><p>Here is the issue: <a href="https://github.com/iissnan/hexo-theme-next/issues/932" target="_blank" rel="noopener">#932</a>
+<a href="https://github.com/iissnan/hexo-theme-next/issues/328" target="_blank" rel="noopener">#328</a></p>
+<p>Therefore you cannot backup your theme simply committing it to github since it
+is a subproject. Although a cool solution is provided in <code>#328</code>, it cannot solve
+my problem since I did further customization. But I did not try the solution
+<strong>fork+submodule</strong> mentioned in <code>#932</code>. I simply deleted files declaring its
+identity of a subproject so the theme folder becomes totally a part of my hexo
+instance.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span> You just need to left these files:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">&#x251C;&#x2500;&#x2500;languages</span><br><span class="line">&#x251C;&#x2500;&#x2500;layout</span><br><span class="line">&#x251C;&#x2500;&#x2500;scripts</span><br><span class="line">&#x251C;&#x2500;&#x2500;<span class="built_in">source</span></span><br><span class="line">&#x251C;&#x2500;&#x2500;_config.yml</span><br><span class="line">&#x2514;&#x2500;&#x2500;package.json</span><br></pre></td></tr></tbody></table></figure>
+<p>You can also change the theme&#x2019;s name from <code>next</code> to
+whatever else, for example <code>LeoJhonSong</code><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">&#x1F604;</span>. According to <a href="https://hexo.io/docs/themes" target="_blank" rel="noopener">Hexo</a>,
+you have to then modify the theme setting in your site&#x2019;s <code>_config.yml</code>, assigning
+the name of your theme folder to it.</p>
+<h3 id="Pages-do-not-change-after-modification"><a href="#Pages-do-not-change-after-modification" class="headerlink" title="Pages do not change after modification"></a>Pages do not change after modification</h3><p>the issue could be separated in to two situations.</p>
+<h4 id="The-modification-works-on-local-server"><a href="#The-modification-works-on-local-server" class="headerlink" title="The modification works on local server"></a>The modification works on local server</h4><p>the reason may be:</p>
+<ul>
+<li>sometimes your modification will be ignored if you do not run <code>hexo clean</code> to
+delete the cache file (<strong>db.json</strong>)</li>
+<li>your setting is not first <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity" target="_blank" rel="noopener">priority</a> in CSS in all probability, the value is
+overwritten somewhere else</li>
+</ul>
+<p>check if the attributes you changed is valid by
+<a href="https://developers.google.com/web/tools/chrome-devtools/css/" target="_blank" rel="noopener">Chrome DevTools</a>.
+The invalid attributes will look like this: <del>color: #fff</del></p>
+<ul>
+<li>you can specific the class name of the item to rise the priority of yuor custom
+attribute.</li>
+<li>another way is to use
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#The_!important_exception" target="_blank" rel="noopener">!important</a>
+to force priority to rise. for example, <code>color: #fff !important</code>. It is often
+not recommanded since it ruins existing CSS and may cause difficulty when
+debugging. In addition, there is still a low risk it is not raised to first
+priority <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png?v8">&#x1F605;</span> as examples are given <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#The_!important_exception" target="_blank" rel="noopener">here</a></li>
+</ul>
+<h4 id="The-modification-even-does-not-work-on-local-server-man-facepalming"><a href="#The-modification-even-does-not-work-on-local-server-man-facepalming" class="headerlink" title="The modification even does not work on local server:man_facepalming:"></a>The modification even does not work on local server<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span></h4><p>The reason could be:</p>
+<ul>
+<li>your browser uses the cache data of the GitHub Page instead of reloading it</li>
+<li>there is grammar mistakes in your modification</li>
+</ul>
+<p>The solution could be:</p>
+<ul>
+<li><code>Ctrl + F5</code> or <code>Ctrl + Fn + F5</code> to force the browser to refresh the page</li>
+<li>check the generation information to see if there is an error or run <code>hexo s</code>
+to run the site locally to see if something goes wrong</li>
+</ul>
+<h3 id="Cannot-show-emoji"><a href="#Cannot-show-emoji" class="headerlink" title="Cannot show emoji"></a>Cannot show emoji</h3><p>add <a href="https://www.npmjs.com/package/hexo-filter-github-emojis" target="_blank" rel="noopener">hexo-filter-github-emojis</a>
+and then you can use Emojis as you want just like me.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/270c.png?v8">&#x270C;</span></p>
+<p>if you want to type a emoji but you have no idea what its shortcut is,
+you could go to <a href="https://emojipedia.org/" target="_blank" rel="noopener">emojipedia</a> for help.</p>
+<h3 id="Will-line-feed-whenever-there-is-a-return-in-the-markdown-file"><a href="#Will-line-feed-whenever-there-is-a-return-in-the-markdown-file" class="headerlink" title="Will line feed whenever there is a return in the markdown file"></a>Will line feed whenever there is a return in the markdown file</h3><p>Actually this issue is mentioned in <a href="https://github.com/iissnan/hexo-theme-next/issues/1672" target="_blank" rel="noopener">github</a>.</p>
+<p>this happened to me because I uninstalled <code>hexo-renderer-marked</code> and installed
+<code>hexo-renderer-markdown-it</code> since the <strong>markdown-it</strong> markdown parser has <a href="https://www.npmjs.com/search?q=markdown-it" target="_blank" rel="noopener">plenty of plugins</a><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span>.</p>
+<h3 id="Sitemap-error"><a href="#Sitemap-error" class="headerlink" title="Sitemap error"></a>Sitemap error</h3><p>Google Search Console may tells you that there is errors in your site if you did
+not changed your site&#x2019;s url from <code>http://yoursite.com</code> to <code>your own root url</code> in
+your site&#x2019;s <code>_config.yml</code>&#x2026;</p>
+<h3 id="Error-word-count"><a href="#Error-word-count" class="headerlink" title="Error word-count"></a>Error word-count</h3><p>It had been mentioned <a href="https://github.com/theme-next/hexo-symbols-count-time/issues/17" target="_blank" rel="noopener">here</a>.</p>
+<p>I enabled word count provided by Hexo but the count is definitely larger than it
+should be. But that is not a problem, it can be seen as a decoration
+<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f648.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f648.png?v8">&#x1F648;</span></p>
+<h2 id="My-custom-settings"><a href="#My-custom-settings" class="headerlink" title="My custom settings"></a>My custom settings</h2><p>I am proud of <strong>some</strong> settings because I tried and achieved it by myself, despite
+from simply copying others&#x2019; code. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61d.png?v8">&#x1F61D;</span></p>
+<h3 id="Commit-site-to-Google"><a href="#Commit-site-to-Google" class="headerlink" title="Commit site to Google"></a>Commit site to Google</h3><p>Unfortunately, Baidu crawler is blocked by GitHub because
+<a href="https://www.netresec.com/?month=2015-03&amp;page=Blog&amp;post=China%27s-Man-on-the-Side-Attack-on-GitHub" target="_blank" rel="noopener">Baidu has been used to attack GitHub</a>.
+Actually poor Baidu did not mean to do this&#x2026; But to be honest, Baidu is
+not a lovely search engine since it puts <strong>plenty</strong> of ads in its search
+results<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f644.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f644.png?v8">&#x1F644;</span>. So I won&#x2019;t bother solving the issue that Baidu con not find
+my blog. Besides, this blog is mainly wrote for myself<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/270c.png?v8">&#x270C;</span>.</p>
+<ol>
+<li><p>install <a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener">hexo-generator-sitemap</a></p>
+</li>
+<li><p>go to <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener">Google Search Console</a>
+and add your site.verify it by <code>HTML tag</code>. There you get a \&lt;meta&gt; tag like this:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;google-site-verification&quot;</span> <span class="attr">content</span>=<span class="string">&quot;blablablablablabla&quot;</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>the <code>content</code> is your verification code.</p>
+</li>
+<li><p>add following code to your site&#x2019;s <code>_config.yml</code>:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="string">your</span> <span class="string">code</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>run the following code:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></tbody></table></figure>
+<p>now your site should have be added the verification tag.</p>
+</li>
+<li><p>go back to google search console and commit your sitemap. Your sitemap should
+be named <code>sitemap.xml</code>.</p>
+</li>
+<li><p>DONE!</p>
+</li>
+</ol>
+<h3 id="Multi-Language"><a href="#Multi-Language" class="headerlink" title="Multi-Language"></a>Multi-Language</h3><blockquote>
+<p>This part! Guys, this is my proud since I worked out my own solution.
+My work is based on <a href="http://kvh.io/en/hexo-nginx-multi-lingual.html" target="_blank" rel="noopener">this</a>
+and <a href="https://bambooom.github.io/2018/03/08/hexo-multi-lang/" target="_blank" rel="noopener">this</a></p>
+</blockquote>
+<p>It is described very clearly in <strong>Keep Velocity High</strong>&#x2018;s post that a
+multilingual blog implemented with current tools is not good enough. He&#x2019;s idea
+of running two isolated blog is a good try and thanks to his great work I don&#x2019;t
+have to do those works again. But just as the second post pointed out, it
+becomes <strong>too hassle</strong> that we have to run two independent site if we just want
+our site could be shown in more than one language. As a individual blogger I do
+not have that much time to maintain my blog. <strong>I have to run three sites, if I
+want it can be shown in Chinese, English and Japanese!</strong> In addition, if we want
+to change the style of the blog, we have to repeat the work for each
+language<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f628.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f628.png?v8">&#x1F628;</span>.</p>
+<p>The solution mentioned in the second post is also very smart, but there is still
+some problems.</p>
+<ol>
+<li><p>His idea of deploy two site to one repository is impossible since a
+repository can only have one home page.<br>In addition, you need a repository named <code>zh-CN</code> if you want your chinese
+site&#x2019;s root url is <code>https://yourname.github.io/zh-CN</code></p>
+</li>
+<li><p>it definitely waste a lot of time if we have to copy the markdown files to
+the source folder every time we generate the public folder.</p>
+</li>
+</ol>
+<p>As we can see, most multilingual site will give each site a different root url.
+Therefore, I decided to use <a href="https://leojhonsong.github.io">https://leojhonsong.github.io</a> to be the home of my
+english site and <a href="https://leojhonsong.github.io/zh-CN">https://leojhonsong.github.io/zh-CN</a> for Chinese site. That is
+to say, I need a repository called <a href="https://github.com/LeoJhonSong/LeoJhonSong.github.io" target="_blank" rel="noopener">leojhonsong.github.io</a>
+and a repository called <a href="https://github.com/LeoJhonSong/zh-CN" target="_blank" rel="noopener">zh-CN</a> for my
+blog.</p>
+<p>Things are simple until now, but <strong>here is the trick</strong>: since hexo allows us to
+add
+<a href="https://hexo.io/docs/configuration#Using-an-Alternate-Config" target="_blank" rel="noopener">alternate config</a>,
+we use the site&#x2019;s <code>_config.yml</code> for settings of the english site as well as the
+basic settings of the blog and create <code>_config.zh-CN.yml</code> for settings of
+Chinese site that differs from english site to override settings in
+<code>_config.yml</code>. There, we are able to set different source folder path, public
+folder path for each language and even different repository to deploy the site<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">&#x1F604;</span></p>
+<p>The following code are my settings.</p>
+<p>in <code>_config.yml</code>:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="attr">https://leojhonsong.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source/en</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public/en</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">LeoJhonSong</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:LeoJhonSong/LeoJhonSong.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></tbody></table></figure>
+<p>in <code>_config.zh-CN.yml</code>:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="attr">https://leojhonsong.github.io/zh-CN</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/zh-CN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source/zh-CN</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public/zh-CN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:LeoJhonSong/zh-CN.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Then after generation your directory should look like this:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">&#x251C;&#x2500;&#x2500;.deploy_git</span><br><span class="line">&#x251C;&#x2500;&#x2500;node_modules</span><br><span class="line">&#x251C;&#x2500;&#x2500;public</span><br><span class="line">&#x2502;       &#x251C;&#x2500;en</span><br><span class="line">&#x2502;       &#x2514;&#x2500;zh-CN</span><br><span class="line">&#x251C;&#x2500;&#x2500;scaffolds</span><br><span class="line">&#x251C;&#x2500;&#x2500;<span class="built_in">source</span></span><br><span class="line">&#x2502;       &#x251C;&#x2500;en</span><br><span class="line">&#x2502;       &#x2514;&#x2500;zh-CN</span><br><span class="line">&#x251C;&#x2500;&#x2500;themes</span><br><span class="line">&#x251C;&#x2500;&#x2500;_config.yml</span><br><span class="line">&#x251C;&#x2500;&#x2500;_config.zh-CN.yml</span><br><span class="line">&#x251C;&#x2500;&#x2500;_multiconfig.yml</span><br><span class="line">&#x251C;&#x2500;&#x2500;db.json</span><br><span class="line">&#x251C;&#x2500;&#x2500;debug.log</span><br><span class="line">&#x251C;&#x2500;&#x2500;LICENSE</span><br><span class="line">&#x251C;&#x2500;&#x2500;package-lock.json</span><br><span class="line">&#x2514;&#x2500;&#x2500;package.json</span><br></pre></td></tr></tbody></table></figure>
+<p>By this method, you can easily set up a multilingual blog!</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> notice that <code>db.json</code> is the cache file for generation, that is to
+say, if you generate the files for Chinese site right after generating files for
+English site, the English files will be mixed into <strong>public/zh-CN</strong>, which is
+annoying. So you should run <code>hexo clean</code> to delete <code>db.json</code> every time before
+generating files for <strong>different language</strong>.</p>
+<p>We can also write a batch script and python script to shorten the commands.</p>
+<p>put <code>a.bat</code> in the root directory:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">:: g <span class="keyword">for</span> generate, d <span class="keyword">for</span> deploy, e <span class="keyword">for</span> English, c <span class="keyword">for</span> Chinese, nc <span class="keyword">for</span> new</span><br><span class="line">:: Chinese post, ne <span class="keyword">for</span> new English post, n <span class="keyword">for</span> new post of all language</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;&quot;</span> goto generateDeployAll</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;g&quot;</span> goto generateAll</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;d&quot;</span> goto deployAll</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;e&quot;</span> goto english</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;c&quot;</span> goto chinese</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;ne&quot;</span> hexo new %2</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;nc&quot;</span> hexo new %2 --config _config.yml,_config.zh-CN.yml</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%1&quot;</span>==<span class="string">&quot;na&quot;</span> hexo new %2 &amp;&amp; hexo new %3 --config _config.yml,_config.zh-CN.yml &amp;&amp; multi-language.py %2 %3</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateDeployAll</span><br><span class="line">hexo clean &amp;&amp; hexo d -g &amp;&amp; hexo clean --config _config.yml,_config.zh-CN.yml &amp;&amp; hexo d -g --config _config.yml,_config.zh-CN.yml</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateAll</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo clean --config _config.yml,_config.zh-CN.yml &amp;&amp; hexo g --config _config.yml,_config.zh-CN.yml</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:deployAll</span><br><span class="line">hexo d &amp;&amp; hexo d --config _config.yml,_config.zh-CN.ymlhexo</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:english</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;&quot;</span> goto generateDeployEnglish</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;g&quot;</span> goto generateEnglish</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;d&quot;</span> goto deployEnglish</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;s&quot;</span> goto serverEnglish</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateDeployEnglish</span><br><span class="line">hexo clean &amp;&amp; hexo d -g</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateEnglish</span><br><span class="line">hexo clean &amp;&amp; hexo g</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:deployEnglish</span><br><span class="line">hexo d</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:serverEnglish</span><br><span class="line">start hexo server</span><br><span class="line">start http://localhost:4000</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:chinese</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;&quot;</span> goto generateDeployChinese</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;g&quot;</span> goto generateChinese</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;d&quot;</span> goto deployChinese</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%2&quot;</span>==<span class="string">&quot;s&quot;</span> goto serverChinese</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateDeployChinese</span><br><span class="line">hexo clean --config _config.yml,_config.zh-CN.yml &amp;&amp; hexo d -g --config _config.yml,_config.zh-CN.yml</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:generateChinese</span><br><span class="line">hexo clean --config _config.yml,_config.zh-CN.yml &amp;&amp; hexo g --config _config.yml,_config.zh-CN.yml</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:deployChinese</span><br><span class="line">hexo d --config _config.yml,_config.zh-CN.yml</span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:serverChinese</span><br><span class="line">start http://localhost:4000</span><br><span class="line">start hexo server --config _config.yml,_config.zh-CN.yml</span><br><span class="line"></span><br><span class="line">goto end</span><br><span class="line"></span><br><span class="line">:end</span><br></pre></td></tr></tbody></table></figure>
+<p>put <code>multi-language.py</code> in the root directory:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter</span><span class="params">(filename)</span>:</span></span><br><span class="line">        filename = filename.replace(<span class="string">&apos; &apos;</span>, <span class="string">&apos;-&apos;</span>)</span><br><span class="line">        filename = filename = re.sub(<span class="string">r&apos;[+/?#$%]&apos;</span>, <span class="string">&quot;&quot;</span>, filename)</span><br><span class="line">        <span class="keyword">return</span> filename</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">englishName = filter(sys.argv[<span class="number">1</span>])</span><br><span class="line">chineseName = filter(sys.argv[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">englishFile = <span class="string">&apos;source/en/_posts/&apos;</span> + englishName + <span class="string">&apos;.md&apos;</span></span><br><span class="line">chineseFile = <span class="string">&apos;source/zh-CN/_posts/&apos;</span> + chineseName + <span class="string">&apos;.md&apos;</span></span><br><span class="line">Files = [englishFile, chineseFile]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> filepath <span class="keyword">in</span> Files:</span><br><span class="line">        <span class="keyword">with</span> open(filepath, <span class="string">&apos;a&apos;</span>) <span class="keyword">as</span> post:</span><br><span class="line">                post.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                post.write(<span class="string">&quot;&lt;div align=&apos;right&apos;&gt;Language:\n&quot;</span>)</span><br><span class="line">                post.write(<span class="string">&quot;\t&lt;a href=&apos;{{ location.host }}/&quot;</span>+englishName+<span class="string">&quot;&apos;&gt;&lt;code&gt;English&lt;/code&gt;&lt;/a&gt;\n&quot;</span>)</span><br><span class="line">                post.write(<span class="string">&quot;\t&lt;a href=&apos;{{ location.host }}/zh-CN/&quot;</span>+chineseName.decode(<span class="string">&apos;gbk&apos;</span>).encode(<span class="string">&apos;utf-8&apos;</span>)+<span class="string">&quot;&apos;&gt;&lt;code&gt;&#x4E2D;&#x6587;&lt;/code&gt;&lt;/a&gt;\n&quot;</span>)</span><br><span class="line">                post.write(<span class="string">&quot;&lt;/div&gt;&quot;</span>)</span><br><span class="line">                post.write(<span class="string">&quot;\n&quot;</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>These will make things much easier. You just need to put these two file in the
+root of your hexo instance and you are good to go. <strong>%1, %2</strong> in the code are
+the parameters passed to the batch. For example, you can type <code>a c g</code> in cmd in
+the root of your hexo instance to generate the Chinese files. <strong>a</strong> is te name
+of my batch file as I named it <strong>a.bat</strong> but of course you can change it to want
+ever you want. By the way, the file name is also a parameter passed to the batch
+file, <strong>%0</strong>. <strong>c</strong> is the second parameter (<strong>%1</strong>) passed to the batch and
+<strong>g</strong> is <strong>%2</strong>. It is interesting that the parameter&#x2019;s value could be null,
+that is to say, if you simply type <code>a</code>, the English files will be generated and
+deployed then Chinese files will be generated and deployed. The commands <code>a ne</code>,
+<code>a nc</code>, <code>a na</code> are used to generate new post.But the best part is that the
+command <code>a na</code> will call the <strong>multi-language.py</strong> to write HTML code to link
+the Chinese post and the corresponding English post. For example, if you want to
+new a English post named <strong>Hello World</strong> and its Chinese version <strong>&#x4F60;&#x597D;&#x4E16;&#x754C;</strong>, the
+command should be <code>a na &apos;Hello World&apos; &apos;&#x4F60;&#x597D;&#x4E16;&#x754C;&apos;</code></p>
+<h3 id="Categories-About-page"><a href="#Categories-About-page" class="headerlink" title="Categories, About page"></a>Categories, About page</h3><p>Reference <a href="https://theme-next.org/docs/getting-started/#Configuring-Menu-Items" target="_blank" rel="noopener">here</a></p>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ol>
+<li><p>install the dependencies <a href="https://github.com/theme-next/hexo-generator-searchdb" target="_blank" rel="noopener">hexo-generator-searchdb</a>
+and <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener">hexo-generator-search</a>
+by:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search  --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>configure settings for <strong>hexo-generator-search</strong> in <strong>site</strong>&#x2018;s <code>_config.yml</code>:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">  field:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">  format:</span> <span class="string">html</span></span><br><span class="line"><span class="attr">  limit:</span> <span class="number">10000</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>configure settings for <strong>hexo-generator-searchdb</strong> in <strong>theme</strong>&#x2018;s <code>_config.yml</code>:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  trigger:</span> <span class="string">auto</span></span><br><span class="line"><span class="attr">  top_n_per_article:</span> <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<h3 id="Better-response-for-mobile-devices"><a href="#Better-response-for-mobile-devices" class="headerlink" title="Better response for mobile devices"></a>Better response for mobile devices</h3><p>In <code>themes/next/source/css/_custom/custom.styl</code>:</p>
+<figure class="highlight styl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@media (<span class="attribute">max-width</span>: <span class="number">425px</span>){</span><br><span class="line">    <span class="selector-class">.site-title</span> {</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">6vw</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-class">.content-wrap</span> {</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">10px</span> !important;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">@media (<span class="attribute">max-width</span>: <span class="number">767px</span>){</span><br><span class="line">    <span class="selector-class">.posts-expand</span> {</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0px</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Custom-colors"><a href="#Custom-colors" class="headerlink" title="Custom colors"></a>Custom colors</h3><blockquote>
+<p>To customize the background colors of your site, I recommend <a href="http://nipponcolors.com/" target="_blank" rel="noopener">this site</a>
+to you as it provides a lot of cool colors.</p>
+</blockquote>
+<p>Things could be quite simply as most colors can be reset using variables in
+<code>themes/next/css/_variables/base.styl</code> and
+<code>themes/next/css/_variables/YourScheme.styl</code>. You can preview your custom settings
+utilizing developer tools of your browser.
+(<a href="https://developers.google.com/web/tools/chrome-devtools/css/#declarations" target="_blank" rel="noopener">Here</a>
+is how we do this in Chrome DevTools.) After decided your custom settings, you
+reassign the variables which had been defined in the two yml files mentioned
+above in <code>themes/next/css/_variables/custom.styl</code>.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png?v8">&#x26A0;</span> you have to notice
+that only if your reassignments are in <code>themes/next/css/_variables/custom.styl</code>
+will they take effect. They are <strong>invalid</strong> if they are put in
+<code>themes/next/source/css/_custom/custom.styl</code>. Similarly, any other setting not related to the variables should be written in <code>themes/next/source/css/_custom/custom.styl</code>.</p>
+<p>you could find <a href="#My-custom.styl">my custom.styl</a> at the end.</p>
+<h3 id="Colorful-icons-for-social-links-in-sidebar"><a href="#Colorful-icons-for-social-links-in-sidebar" class="headerlink" title="Colorful icons for social links in sidebar"></a>Colorful icons for social links in sidebar</h3><p>As I see it, the single color font icons used by NexT are a little bit dual. In
+addition, fontawsome does not have some icons I want.</p>
+<p>So I use icons from <a href="https://www.iconfont.cn/" target="_blank" rel="noopener">iconfont</a> instead. This site even provides <strong>colorful font icons</strong>!</p>
+<ol>
+<li><p>in <code>themes/next/layout/_macro/sidebar.swig</code>:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% set sidebarIcon = &apos;&lt;i class=&quot;fa fa-fw fa-&apos; + link.split(&apos;||&apos;)[1] | trim | default(&apos;globe&apos;) + &apos;&quot;&gt;&lt;/i&gt;&apos; %}</span><br></pre></td></tr></tbody></table></figure>
+<p>comment out but not delete <code>line 108</code>(the line above) by replacing it with
+the following line, in case one day you want it back. Then we add a line to
+use font icons from iconfont.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{# % set sidebarIcon = &apos;&lt;i class=&quot;fa fa-fw fa-&apos; + link.split(&apos;||&apos;)[1] | trim | default(&apos;globe&apos;) + &apos;&quot;&gt;&lt;/i&gt;&apos; % #}</span><br><span class="line">{% set sidebarIcon = &apos;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href=&quot;#&apos; + link.split(&apos;||&apos;)[1] | trim + &apos;&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&apos; %}</span><br></pre></td></tr></tbody></table></figure>
+<p>Then add a line after <code>line 100</code> to import the source code of the icons:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https:{{ theme.social_icons.source }}&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>create a project in <a href="https://www.iconfont.cn/" target="_blank" rel="noopener">iconfont</a> to collect icons you
+want to use in your blog.</p>
+<blockquote>
+<p><a href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.dfd524534&amp;helptype=about" target="_blank" rel="noopener">here</a> is
+the tutorial of iconfont.</p>
+</blockquote>
+<p>You can log in with GitHub. After added icons you like to your project,
+choose quote as <code>symbol</code> and <code>View the Online Link</code>, copy it and put it in  your theme&#x2019;s<code>_config.yml</code> under the <strong>social_icons</strong> settings like this:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social_icons:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  icons_only:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  transition:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  source:</span> <span class="string">//at.alicdn.com/t/font_980470_nj2qfdk05jb.js</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>simply put the code of your icons after your social links in your theme&#x2019;s
+<code>_config.yml</code> like this:</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line"><span class="attr">  GitHub:</span> <span class="attr">https://github.com/LeoJhonSong</span> <span class="string">||</span> <span class="string">icon-github</span></span><br><span class="line"><span class="attr">  E-Mail:</span> <span class="attr">mailto:LeoJhon.Song@outlook.com</span> <span class="string">||</span> <span class="string">icon-OUTLOOK</span></span><br><span class="line">  <span class="string">FB</span> <span class="attr">Page:</span> <span class="attr">https://www.facebook.com/jhon.leo.100</span> <span class="string">||</span> <span class="string">icon-Facebook</span></span><br><span class="line"><span class="attr">  QQ:</span> <span class="attr">https://user.qzone.qq.com/719957017</span> <span class="string">||</span> <span class="string">icon-QQ</span></span><br><span class="line"><span class="attr">  WakaTime:</span> <span class="attr">https://wakatime.com/@LeoJhonSong</span> <span class="string">||</span> <span class="string">icon-waka-time</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8">&#x1F606;</span> quite easy right?</p>
+</li>
+</ol>
+<h3 id="Visitor-number"><a href="#Visitor-number" class="headerlink" title="Visitor number"></a>Visitor number</h3><p>find <code>busuanzi_count</code> in your theme&#x2019;s <code>_config.yml</code> and enable it.</p>
+<h3 id="Post-word-count"><a href="#Post-word-count" class="headerlink" title="Post word count"></a>Post word count</h3><p>Reference can be found <a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="noopener">here</a></p>
+<h3 id="Improved-the-arrangement-of-images-in-asset-folder"><a href="#Improved-the-arrangement-of-images-in-asset-folder" class="headerlink" title="Improved the arrangement of images in asset folder"></a>Improved the arrangement of images in asset folder</h3><p>Now suppose there is a image <strong>wow.jpg</strong> in the asset folder of a post named
+<strong>Hello</strong>. We could to use <code>![wow](wow.jpg)</code> to insert this image. But the
+annoying problem is that the image won&#x2019;t show up in your markdown preview unless
+you use <code>![wow](Hello/wow.jpg)</code>. But&#x2026; the image won&#x2019;t show up on your server
+if <code>Hello/wow.jpg</code> is used<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span></p>
+<p>This is because hexo will put the HTML page <strong>index.html</strong> of the post Hello and
+the image <strong>wow.jpg</strong> into the same folder <strong>Hello</strong> in <strong>public</strong> folder.</p>
+<p>So I modified following file to create a subfolder of the same name of the post in the folder where the post&#x2019;s <strong>index.html</strong> is put.</p>
+<p>in <strong>node_modules/hexo/lib/models/post_asset.js</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> pathFn.join(post.path.replace(<span class="regexp">/\.html?$/</span>, <span class="string">&apos;&apos;</span>), <span class="keyword">this</span>.slug);</span><br></pre></td></tr></tbody></table></figure>
+<p>change <code>line23</code> from <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2b06.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b06.png?v8">&#x2B06;</span> to <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2b07.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b07.png?v8">&#x2B07;</span></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> pathFn.join(post.path.replace(<span class="regexp">/\.html?$/</span>, <span class="string">&apos;&apos;</span>), post.path.replace(<span class="regexp">/\.html?$/</span>, <span class="string">&apos;&apos;</span>), <span class="keyword">this</span>.slug);</span><br></pre></td></tr></tbody></table></figure>
+<p>Unfortunately, according to my test, the tag method to insert images provided by <a href="https://hexo.io/docs/asset-folders.html#Tag-Plugins-For-Relative-Path-Referencing" target="_blank" rel="noopener">Hexo</a>
+does not work as it supposed to anymore after modifying the <strong>post_asset.js</strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f926-2642.png?v8">&#x1F926;&#x2642;</span>.
+Since I would use anything but the tags so this doesn&#x2019;t bothers me<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f601.png?v8">&#x1F601;</span>. But if you want to improve this situation, I suppose you should modify <strong>node_modules\hexo\lib\plugins\tag\asset_img.js</strong></p>
+<h3 id="Valine-comment-system"><a href="#Valine-comment-system" class="headerlink" title="Valine comment system"></a>Valine comment system</h3><ol>
+<li><p>Search for <strong>Valine</strong> in your theme&#x2019;s <code>_config.yml</code></p>
+</li>
+<li><p>then you just need to follow instructions <a href="https://valine.js.org/en/quickstart.html" target="_blank" rel="noopener">here</a>.</p>
+</li>
+</ol>
+<h3 id="My-custom-styl"><a href="#My-custom-styl" class="headerlink" title="My custom.styl"></a>My custom.styl</h3><p>Although as I mentioned <a href="#custom-colors">here</a>, some settings only take effet if
+is put in <code>themes/next/source/css/_custom/custom.styl</code> while some other should be
+put in <code>themes/next/source/css/_variables/custom.styl</code>, but it is a little bit
+annoying that I have to decide where do I put my settings. So I simply put all
+the settings in both styl custom.styl<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8">&#x1F606;</span>.</p>
+<figure class="highlight styl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Custom styles.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//better response for mobile devices</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line">@media (<span class="attribute">max-width</span>: <span class="number">425px</span>){</span><br><span class="line">    <span class="selector-class">.site-title</span> {</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">6vw</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-class">.content-wrap</span> {</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">10px</span> !important;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">@media (<span class="attribute">max-width</span>: <span class="number">767px</span>){</span><br><span class="line">    <span class="selector-class">.posts-expand</span> {</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0px</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//custom colors</span></span><br><span class="line"><span class="comment">//more colors here: http://nipponcolors.com/</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="variable">$site</span>-title-<span class="attribute">background</span>          = <span class="number">#828282</span></span><br><span class="line"><span class="variable">$site</span>-<span class="attribute">background</span>                = <span class="number">#828282</span></span><br><span class="line"><span class="variable">$post</span>-<span class="attribute">background</span>                = <span class="number">#828282</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>                     = <span class="number">#eee</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>-title               = <span class="number">#FFFFFB</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>-descript            = <span class="number">#ddd</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>-link                = <span class="number">#ccc</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>-menu                = <span class="number">#bbc</span></span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span>-hover               = <span class="number">#fc6423</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//backgrounds color</span></span><br><span class="line"><span class="variable">$body</span>-bg-<span class="attribute">color</span>                  = <span class="variable">$site</span>-background</span><br><span class="line"><span class="variable">$brand</span>-bg                       = <span class="variable">$site</span>-title-<span class="attribute">background</span></span><br><span class="line"><span class="selector-class">.content-wrap</span> {</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$site</span>-background;</span><br><span class="line">}</span><br><span class="line">.post-block{</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$post</span>-background;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.sidebar-inner</span>, <span class="selector-class">.header-inner</span>, <span class="selector-class">.sidebar</span> {</span><br><span class="line">    <span class="attribute">background</span>: rgba(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>); <span class="comment">//opacity = 0</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">//fonts color</span></span><br><span class="line"><span class="variable">$text</span>-<span class="attribute">color</span>                     = <span class="variable">$font</span>-color</span><br><span class="line"><span class="variable">$site</span>-author-name-<span class="attribute">color</span>         = <span class="variable">$font</span>-color</span><br><span class="line"><span class="variable">$sidebar</span>-nav-<span class="attribute">color</span>              = <span class="variable">$font</span>-color-descript</span><br><span class="line"><span class="variable">$site</span>-state-item-name-<span class="attribute">color</span>     = <span class="variable">$font</span>-color-descript</span><br><span class="line"><span class="variable">$link</span>-<span class="attribute">color</span>                     = <span class="variable">$font</span>-color</span><br><span class="line"><span class="variable">$link</span>-hover-<span class="attribute">color</span>               = <span class="variable">$font</span>-color-link</span><br><span class="line"><span class="variable">$link</span>-decoration-hover-<span class="attribute">color</span>    = <span class="variable">$font</span>-color-hover</span><br><span class="line"><span class="variable">$toc</span>-link-<span class="attribute">color</span>                 = <span class="variable">$font</span>-color</span><br><span class="line"><span class="variable">$toc</span>-link-hover-<span class="attribute">color</span>           = <span class="variable">$font</span>-color-link</span><br><span class="line"><span class="variable">$toc</span>-link-hover-<span class="attribute">border-color</span>    = <span class="variable">$font</span>-color-hover</span><br><span class="line"><span class="variable">$site</span>-subtitle-<span class="attribute">color</span>            = <span class="variable">$font</span>-color-descript</span><br><span class="line"><span class="variable">$site</span>-description-<span class="attribute">color</span>         = <span class="variable">$font</span>-color-descript</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.menu-item</span> <span class="selector-tag">a</span> {</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$font</span>-color-menu;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.links-of-author-item</span> <span class="selector-tag">a</span> {</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$font</span>-color;</span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.post-title-link</span>, <span class="selector-class">.post-title</span> {</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$font</span>-color-title !important;</span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">span</span>.site-state-item-count{</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$font</span>-color-title;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.site-state-item</span> {</span><br><span class="line">    &amp;:hover {</span><br><span class="line">        <span class="selector-tag">span</span><span class="selector-class">.site-state-item-count</span> {</span><br><span class="line">            <span class="attribute">color</span>: <span class="number">#ffd239</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">blockquote</span> {</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#abd</span> !important;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// shadow for post blocks</span></span><br><span class="line"><span class="selector-class">.post</span> {</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0px</span>;</span><br><span class="line">    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//colorful icons</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="selector-class">.icon</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1.5em</span> !important;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1.5em</span> !important;</span><br><span class="line">    <span class="attribute">vertical-align</span>: -<span class="number">0.4em</span>;</span><br><span class="line">    fill: currentColor;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//better organized post-block</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line">.post-block{</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">}</span><br><span class="line">.post-eof{</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//disable image border</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------------------</span></span><br><span class="line"><span class="selector-tag">img</span> {</span><br><span class="line">    <span class="attribute">border</span>: none !important;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Thank you for reading!</p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/When-VSCode-Becomes-A-Lifestyle/" rel="prev" title="When VSCode Becomes a Lifestyle">
+                When VSCode Becomes a Lifestyle <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="LeoJhon.Song">
+            
+              <p class="site-author-name" itemprop="name">LeoJhon.Song</p>
+              <p class="site-description motion-element" itemprop="description">Logging   /   and   /   Sharing</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              <script src="https://at.alicdn.com/t/font_980470_nj2qfdk05jb.js"></script>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://github.com/LeoJhonSong" title="GitHub &rarr; https://github.com/LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"/></svg>  GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="mailto:LeoJhon.Song@outlook.com" title="E-Mail &rarr; mailto:LeoJhon.Song@outlook.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-OUTLOOK"/></svg>  E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://www.facebook.com/jhon.leo.100" title="FB Page &rarr; https://www.facebook.com/jhon.leo.100" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Facebook"/></svg>  FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://user.qzone.qq.com/719957017" title="QQ &rarr; https://user.qzone.qq.com/719957017" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"/></svg>  QQ</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                      
+                      
+                  
+                    <a href="https://wakatime.com/@LeoJhonSong" title="WakaTime &rarr; https://wakatime.com/@LeoJhonSong" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-waka-time"/></svg>  WakaTime</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-I-met"><span class="nav-number">1.</span> <span class="nav-text">Problems I met</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Pages-says-I-am-using-a-unsupported-theme"><span class="nav-number">1.1.</span> <span class="nav-text">GitHub Pages says I am using a unsupported theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cannot-commit-theme-next-to-github"><span class="nav-number">1.2.</span> <span class="nav-text">Cannot commit theme/next to github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pages-do-not-change-after-modification"><span class="nav-number">1.3.</span> <span class="nav-text">Pages do not change after modification</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-modification-works-on-local-server"><span class="nav-number">1.3.1.</span> <span class="nav-text">The modification works on local server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-modification-even-does-not-work-on-local-server-man-facepalming"><span class="nav-number">1.3.2.</span> <span class="nav-text">The modification even does not work on local server🤦♂</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cannot-show-emoji"><span class="nav-number">1.4.</span> <span class="nav-text">Cannot show emoji</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Will-line-feed-whenever-there-is-a-return-in-the-markdown-file"><span class="nav-number">1.5.</span> <span class="nav-text">Will line feed whenever there is a return in the markdown file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sitemap-error"><span class="nav-number">1.6.</span> <span class="nav-text">Sitemap error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-word-count"><span class="nav-number">1.7.</span> <span class="nav-text">Error word-count</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My-custom-settings"><span class="nav-number">2.</span> <span class="nav-text">My custom settings</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Commit-site-to-Google"><span class="nav-number">2.1.</span> <span class="nav-text">Commit site to Google</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Language"><span class="nav-number">2.2.</span> <span class="nav-text">Multi-Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Categories-About-page"><span class="nav-number">2.3.</span> <span class="nav-text">Categories, About page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search"><span class="nav-number">2.4.</span> <span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Better-response-for-mobile-devices"><span class="nav-number">2.5.</span> <span class="nav-text">Better response for mobile devices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Custom-colors"><span class="nav-number">2.6.</span> <span class="nav-text">Custom colors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colorful-icons-for-social-links-in-sidebar"><span class="nav-number">2.7.</span> <span class="nav-text">Colorful icons for social links in sidebar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visitor-number"><span class="nav-number">2.8.</span> <span class="nav-text">Visitor number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post-word-count"><span class="nav-number">2.9.</span> <span class="nav-text">Post word count</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Improved-the-arrangement-of-images-in-asset-folder"><span class="nav-number">2.10.</span> <span class="nav-text">Improved the arrangement of images in asset folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valine-comment-system"><span class="nav-number">2.11.</span> <span class="nav-text">Valine comment system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-custom-styl"><span class="nav-number">2.12.</span> <span class="nav-text">My custom.styl</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-hand-peace-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeoJhon.Song</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">43k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">1:19</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Deow8GqoG1fagi4ODP568vxE-gzGzoHsz',
+        appKey: '4tRQARdokQJVTj0cOPYdeXE0',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
