@@ -63,14 +63,7 @@ symbols_count_time:
   exclude_codeblock: false
 marked:
   gfm: true
-  pedantic: false
-  sanitize: false
-  tables: true
   breaks: false
-  smartLists: true
-  smartypants: true
-  modifyAnchors: ''
-  autolink: true
 google_site_verification: MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4
 valine:
   lang: zh-cn
