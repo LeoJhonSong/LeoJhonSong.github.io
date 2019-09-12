@@ -1,7 +1,9 @@
 ---
 title: Python中的小技巧
 date: 2019-07-03 22:23:43
-categories: Python
+categories:
+- [Python]
+- [技巧]
 ---
 
 俺也记不住语法, 在这里记录一下常见语句.

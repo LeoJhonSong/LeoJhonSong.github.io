@@ -1,7 +1,9 @@
 ---
 title: 我将shell换为了zsh
 date: 2019-09-02 09:22:25
-categories: Linux
+categories:
+- [Linux]
+- [配置]
 ---
 
 我把shell从bash换到zsh了. 原本我是根本没动过换shell的念头的, 但因为这段时间用的
