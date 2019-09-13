@@ -2,7 +2,6 @@
 title: Verilog杂记
 date: 2019-05-21 23:15:54
 categories:
-  - [杂记]
   - [Verilog]
 ---
 
