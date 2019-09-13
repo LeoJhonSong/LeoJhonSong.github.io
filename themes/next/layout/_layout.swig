@@ -75,5 +75,6 @@
   {%- if theme.pjax %}
     </div>
   {%- endif %}
+  <script src="/js/hexo_resize_image.js"></script>
 </body>
 </html>
