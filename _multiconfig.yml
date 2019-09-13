@@ -7,7 +7,7 @@ language: zh-CN
 timezone: null
 url: 'https://leojhonsong.github.io/zh-CN'
 root: /zh-CN
-permalink: ':title/'
+permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 source_dir: source/zh-CN
 public_dir: public/zh-CN
@@ -17,7 +17,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: ':lang'
 skip_render: null
-new_post_name: ':title.md'
+new_post_name: ':year/:month/:title.md'
 default_layout: post
 auto_spacing: true
 titlecase: true
@@ -41,7 +41,7 @@ category_map: null
 tag_map: null
 date_format: YYYY-MM-DD
 time_format: 'HH:mm:ss'
-per_page: 10
+per_page: 100
 pagination_dir: page
 theme: LeoJhonSong
 deploy:
@@ -62,7 +62,6 @@ symbols_count_time:
   total_time: true
   exclude_codeblock: false
 marked:
-  gfm: true
   breaks: false
 google_site_verification: MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4
 valine:
