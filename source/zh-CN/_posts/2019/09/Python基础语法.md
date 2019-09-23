@@ -19,7 +19,7 @@ categories: Python
 | CPython    | C语言写的Python            | 速度快                                                  |
 | JPython    | 由Java编写的Python         | 可以直接调用Java的各种函数库                            |
 | PyPy       | 由rPython编写的Python      | 更灵活, 易于使用和试验                                  |
-| IronPython | 以. NET和Mono实现的[ython   | 面向NET和ECMA CLI的Python实现                           |
+| IronPython | 以. NET和Mono实现的Python   | 面向NET和ECMA CLI的Python实现                           |
 | ZhPy       | 只是把Python翻译了一遍而已 | 又称中蟒, 可以完全用中文编程. 但中蟒目前已经停止更新了.|
 
 我们通常所说的Python是**CPython**, 👇Python官方页面提供的是CPython
