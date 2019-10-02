@@ -2,14 +2,14 @@
     "git.ignoreLimitWarning": true,
     "markdown.extension.toc.levels": "1..6",
     "markdown.extension.toc.orderedList": true,
-    "todo-tree.excludeGlobs": [
-        "**/node_modules/**",
-        "**/python/**"
-    ],
     "cSpell.words": [
         "Infineon",
         "onedrive",
         "vsce",
         "workspaces"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/node_modules/**",
+        "**/python/**"
     ],
 }
