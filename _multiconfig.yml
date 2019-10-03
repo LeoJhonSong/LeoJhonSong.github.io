@@ -57,12 +57,11 @@ search:
   limit: 10000
 symbols_count_time:
   symbols: true
-  time: true
+  time: false
   total_symbols: true
-  total_time: true
+  total_time: false
   exclude_codeblock: false
 marked:
   breaks: false
-google_site_verification: MgaZs4EoTDqCTCMVBOft2UKu2g6AfLiKx2VTQ_KBeH4
 valine:
   lang: zh-cn

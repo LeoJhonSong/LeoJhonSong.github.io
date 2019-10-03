@@ -33,7 +33,7 @@ def deployChinese():
     os.system('hexo d --config _config.yml,_config.zh-CN.yml')
 
 def serverChinese():
-    os.system('xdg-open http://localhost:4000')
+    #  os.system('xdg-open http://localhost:4000')
     os.system('hexo server --config _config.yml,_config.zh-CN.yml')
 
 # ################################layer1 functions##############################
@@ -91,7 +91,7 @@ layer1 = {
 # ##############################################################################
 
 # add hexo to PATH
-os.environ['PATH'] = os.path.abspath('.') + '/node_modules/hexo-cli/bin/' + ':' + os.environ['PATH']
+os.environ['PATH'] = os.path.abspath('.') + '/node_modules/hexo/bin/' + ':' + os.environ['PATH']
 
 # the main process
 main = layer1[sys.argv[1] if len(sys.argv)>1 else 'default']

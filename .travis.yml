@@ -1,0 +1,24 @@
+language: node_js
+dist: bionic
+node_js: stable
+branches:
+  only:
+  - Root
+addons:
+  ssh_known_hosts:
+  - github.com
+  - ssh.github.com
+before_install:
+- export TZ='Asia/Shanghai'
+- openssl aes-256-cbc -K $encrypted_2bae0f9d1d0b_key -iv $encrypted_2bae0f9d1d0b_iv -in .travis/travis_key.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- git clone -b master git@github.com:uestc-msc/uestc-msc.github.io.git .deploy_git
+# cache:
+#   directories:
+#   - node_modules
+# install:
+# - npm install -g hexo-cli
+# - npm install
+script:
+- ./node_modules/hexo/bin/hexo clean
+- ./node_modules/hexo/bin/hexo d -g

@@ -1,0 +1,132 @@
+//------------------------------------------------------------------------------
+// colorful icons
+//------------------------------------------------------------------------------
+svg.icon {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    vertical-align: -0.4em;
+    fill: currentColor;
+    overflow: hidden
+}
+//------------------------------------------------------------------------------
+// friendlink card
+//------------------------------------------------------------------------------
+  .container {
+    width: 100%;
+  }
+
+  .links {
+    list-style: none;
+  }
+
+  .link {
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .card {
+    height: 72px;
+    width: 300px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+  }
+
+  .card:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+  }
+
+  .avatar {
+    float: left;
+    height: 72px;
+    width: 72px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .titles {
+    overflow: hidden;
+    height: 72px;
+    width: 227px;
+    margin-left: 72px;
+  }
+
+  .title{
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    margin: 0;
+    line-height: 20px;
+    margin-top: 14px;
+  }
+
+  .subtitle {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    margin: 0;
+    line-height: 20px;
+  }
+
+  small {
+    width: 100%;
+  }
+//------------------------------------------------------------------------------
+// highlight when hover on link
+//------------------------------------------------------------------------------
+.post-body p a{
+    color: #0593d3;
+    border-bottom: none;
+    border-bottom: 1px solid #0593d3;
+    &:hover {
+      color: #fc6423;
+      border-bottom: none;
+      border-bottom: 1px solid #fc6423;
+    }
+ }
+//------------------------------------------------------------------------------
+// shadow for post blocks
+//------------------------------------------------------------------------------
+article {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 0px;
+    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+}
+//------------------------------------------------------------------------------
+//better organized post-block
+//------------------------------------------------------------------------------
+.post-block.home{
+    padding: 15px;
+}
+.post-block.post{
+    padding: 5px;
+}
+.post-eof{
+    display: none;
+}
+//------------------------------------------------------------------------------
+//disable image border
+//------------------------------------------------------------------------------
+img {
+    border: none !important;
+}
+//------------------------------------------------------------------------------
+//better response for mobile devices
+//------------------------------------------------------------------------------
+@media (max-width: 425px){
+    .site-title {
+        font-size: 6vw;
+    }
+    .content-wrap {
+        padding: 10px !important;
+    }
+}
+@media (max-width: 767px){
+    .posts-expand {
+        margin: 0 0px;
+    }
+}
