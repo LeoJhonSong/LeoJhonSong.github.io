@@ -18,6 +18,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 8.10.0
+    - name: npm install and modify
+      run: |
+        npm install
+        cp themes/LeoJhonSong/asset/post_asset.js node_modules/hexo/lib/models/post_asset.js
+    - name: login git
+      run: |
+        git config --global user.email "LeoJHon.Song@outlook.com"
+        git config --global user.name "GitHub Action"
     - name: Generate and deploy English site if necessary
       run: |
         rm -rf .deploy_git
