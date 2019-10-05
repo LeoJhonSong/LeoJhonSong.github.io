@@ -5,3 +5,4 @@ db.json
 public/
 .deploy*/
 travis_key
+node_modules
