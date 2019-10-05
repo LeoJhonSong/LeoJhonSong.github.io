@@ -5,8 +5,8 @@ categories: Tools
 ---
 
 <div align='right'>Language:
-<a href='{{ location.host }}/Configure-C-C-environment-in-VSCode'><code>English</code></a>
-<a href='{{ location.host }}/zh-CN/配置VSCode中调试C-C-环境'><code>中文</code></a>
+<a href='{{ location.host }}/2018/12/30/Configure-C-C-environment-in-VSCode'><kbd>English</kbd></a>
+<a href='{{ location.host }}/zh-CN/2018/12/30/配置VSCode中调试C-C-环境'><kbd>中文</kbd></a>
 </div>
 
 Here is a tutorial for configuration of VSCode to run C/C++ programs on **Windows**.
@@ -20,22 +20,22 @@ Actually how can we run C/C++ code in VSCode has been described clearly in
 here is just my personal understanding of this work and I suppose my description
 is more friendly with beginners :smile:
 
-1. [Requirements](#requirements)
-   1. [Compiler](#compiler)
-      1. [Installation](#installation)
-      2. [Add to Path](#add-to-path)
-      3. [Test](#test)
-   2. [VSCode Extensions](#vscode-extensions)
-2. [Configuration files](#configuration-files)
-   1. [IntelliSense configuration](#intellisense-configuration)
-   2. [Compilation configuration](#compilation-configuration)
-      1. [In total](#in-total)
-   3. [Debugger configuration](#debugger-configuration)
-      1. [Program to debug](#program-to-debug)
-      2. [Debugger path and options](#debugger-path-and-options)
-      3. [Compile before launch](#compile-before-launch)
-      4. [In total](#in-total-1)
-3. [Enjoy](#enjoy)
+1. [Requirements](#Requirements)
+   1. [Compiler](#Compiler)
+      1. [Installation](#Installation)
+      2. [Add to Path](#Add-to-Path)
+      3. [Test](#Test)
+   2. [VSCode Extensions](#VSCode-Extensions)
+2. [Configuration files](#Configuration-files)
+   1. [IntelliSense configuration](#IntelliSense-configuration)
+   2. [Compilation configuration](#Compilation-configuration)
+      1. [In total](#In-total)
+   3. [Debugger configuration](#Debugger-configuration)
+      1. [Program to debug](#Program-to-debug)
+      2. [Debugger path and options](#Debugger-path-and-options)
+      3. [Compile before launch](#Compile-before-launch)
+      4. [In total](#In-total-1)
+3. [Enjoy](#Enjoy)
 
 # Requirements
 

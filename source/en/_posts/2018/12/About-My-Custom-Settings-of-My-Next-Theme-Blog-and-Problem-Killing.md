@@ -8,8 +8,8 @@ categories:
 ---
 
 <div align='right'>Language:
-<a href='{{ location.host }}/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing'><code>English</code></a>
-<a href='{{ location.host }}/zh-CN/关于我的NexT主题博客的个性化配置以及遇到的一些问题'><code>中文</code></a>
+<a href='{{ location.host }}/2018/12/24/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing'><kbd>English</kbd></a>
+<a href='{{ location.host }}/zh-CN/2019/01/07/关于我的NexT主题博客的个性化配置以及遇到的一些问题'><kbd>中文</kbd></a>
 </div>
 
 This blog site is powered by [Hexo](https://hexo.io), the theme is [NexT](https://theme-next.org/),

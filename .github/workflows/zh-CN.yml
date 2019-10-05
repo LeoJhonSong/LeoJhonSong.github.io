@@ -32,7 +32,7 @@ jobs:
         chmod 600 ~/.ssh/id_rsa_github_action
         git config --global user.email "LeoJHon.Song@outlook.com"
         git config --global user.name "GitHub Action"
-    - name: Generate and deploy Chinese site if necessary
+    - name: Generate and deploy Chinese site
       run: |
         rm -rf .deploy_git
         git clone -b master https://github.com/LeoJhonSong/zh-CN.git .deploy_git
