@@ -1,11 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches: 
-      - Root
-    paths:
-      - 'source/zh-CN/**'
+on: [push]
 
 jobs:
   build:
