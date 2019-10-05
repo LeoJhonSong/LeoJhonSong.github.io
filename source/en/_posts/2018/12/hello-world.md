@@ -5,7 +5,7 @@ date: 2018-12-22 22:29:00
 
 <div align='right'>Language:
     <a href='{{ location.host }}/hello-world'><code>English</code></a>
-    <a href='{{ location.host }}/zh-CN/大家好'><code>中文</code></a>
+    <a href='{{ location.host }}/zh-CN/2018/12/22/大家好'><code>中文</code></a>
 </div>
 
 <center><h3>My first blog on my own site</h3></center>
