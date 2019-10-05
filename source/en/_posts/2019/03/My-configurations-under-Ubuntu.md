@@ -6,8 +6,7 @@ categories:
 - [Configuration]
 ---
 
-I note down here my configurations in order to quick set up my environment on a new
-machine.
+I note down here my configurations in order to quick set up my environment on a new machine.
 
 <!-- More -->
 
