@@ -85,7 +85,7 @@ layer1 = {
     'c': chinese,
     'ne': newEnglish,
     'nc': newChinese,
-    'na': newAll,
+    # 'na': newAll,
     'clean': clean
 }
 # ##############################################################################
