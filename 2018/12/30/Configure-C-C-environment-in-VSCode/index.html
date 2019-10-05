@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
 <meta property="og:description" content="Language: English 中文   Here is a tutorial for configuration of VSCode to run C/C++ programs on Windows. Mainly I wrote it for my C/C++ Extension Pack 🎉">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-05T22:04:32.917Z">
+<meta property="og:updated_time" content="2019-10-05T22:43:36.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure C&#x2F;C++ Environment in VSCode">
 <meta name="twitter:description" content="Language: English 中文   Here is a tutorial for configuration of VSCode to run C/C++ programs on Windows. Mainly I wrote it for my C/C++ Extension Pack 🎉">
@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-05 22:04:32" itemprop="dateModified" datetime="2019-10-05T22:04:32+00:00">2019-10-05</time>
+                <time title="Modified: 2019-10-05 22:43:36" itemprop="dateModified" datetime="2019-10-05T22:43:36+00:00">2019-10-05</time>
               </span>
             
           
@@ -386,7 +386,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>0</span>
+              <span>9.4k</span>
             </span>
           
 
@@ -408,6 +408,7 @@
 Mainly I wrote it for my <a href="https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack" target="_blank" rel="noopener">C/C++ Extension Pack</a>
 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span></p>
 <a id="more"></a>
+
 <p>Actually how can we run C/C++ code in VSCode has been described clearly in
 <a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">the C++ part of VSCode document</a>,
 here is just my personal understanding of this work and I suppose my description
@@ -477,8 +478,10 @@ may helps you <span class="github-emoji" style="color: transparent;background:no
  in the cmd.</p>
 <p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span> What we should see is:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\LeoJh&gt;gcc</span><br><span class="line">gcc: fatal error: no input files</span><br><span class="line">compilation terminated.</span><br></pre></td></tr></tbody></table></figure>
+
 <p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">❌</span> What we should not see is:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`gcc`is not recognized as an internal or external command,</span><br><span class="line">operable program or batch file.</span><br></pre></td></tr></tbody></table></figure>
+
 <p>Which means you may have added wrong path to <strong>Path</strong>.</p>
 <h2 id="VSCode-Extensions"><a href="#VSCode-Extensions" class="headerlink" title="VSCode Extensions"></a>VSCode Extensions</h2><p>We are not far from completion as we have successfully get our compiler ready
 :smile: Actually we are now able to develop C/C++ code! (Although it may seems
@@ -508,6 +511,7 @@ point of view, IntelliSense which provides us with smart suggestions is a very
 important part of language support for C/C++ in VSCode. We could configure the
 IntelliSense by editing <code>settings.json</code>. The most useful ones are:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"C_Cpp.autocomplete": "Default",</span><br><span class="line">"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",</span><br><span class="line">"C_Cpp.default.cStandard": "c99",</span><br><span class="line">"C_Cpp.default.cppStandard": "c++11",</span><br><span class="line">"C_Cpp.default.intelliSenseMode": "gcc-x64",</span><br><span class="line">"C_Cpp.intelliSenseEngine": "Default",</span><br><span class="line">"C_Cpp.errorSquiggles": "Enabled",</span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
 <p>:heavy_check_mark: <code>tasks.json</code> and <code>launch.json</code> are prepared for specific
 piece of code as different program may require different configuration. But if
@@ -518,10 +522,12 @@ and <code>launch.json</code> in its folder.</p>
 <p>After you have generate a <code>tasks.json</code> following the instruction in VSCode’s document,
 add the following task to the <strong>tasks</strong> list:</p>
 <figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">   <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">   <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">   <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">   <span class="attr">"args"</span>: [</span><br><span class="line">         <span class="string">"${file}"</span>,</span><br><span class="line">         <span class="string">"-o"</span>,</span><br><span class="line">         <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">         <span class="string">"-g"</span>,</span><br><span class="line">         <span class="string">"-Wall"</span>,</span><br><span class="line">         <span class="string">"-std=c++17"</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="attr">"group"</span>: {</span><br><span class="line">         <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">         <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p><code>label</code> is the name of this task, it will be <a href="#Copile-before-launch">used later</a>.</p>
 <p>From this we can see that every time we call this task it actually inputs the
 following command to shell:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension}.exe -g -Wall -std=c++17</span><br></pre></td></tr></tbody></table></figure>
+
 <p>Things like ${file}, ${fileDirname} are actually
 <a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">variables defined by VSCode</a>.</p>
 <p>And the <code>-o</code> option allows us to specify the name of output file.</p>
@@ -530,27 +536,34 @@ following command to shell:</p>
 for more details.</p>
 <h3 id="In-total"><a href="#In-total" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>tasks.json</code> looks like this:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</span><br><span class="line">    // for the documentation about the tasks.json format</span><br><span class="line">    "version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [</span><br><span class="line">                <span class="string">"${file}"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"-Wall"</span>,</span><br><span class="line">                <span class="string">"-std=c++17"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: {</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="Debugger-configuration"><a href="#Debugger-configuration" class="headerlink" title="Debugger configuration"></a>Debugger configuration</h2><p>The last thing we need is <code>launch.json</code>. This is actually a easy task since
 VSCode provide us with a lot of templates, (normally I use the template <strong>(gdb)
 Launch</strong>) only a few options need modification:</p>
 <h3 id="Program-to-debug"><a href="#Program-to-debug" class="headerlink" title="Program to debug"></a>Program to debug</h3><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"program": "${workspaceFolder}/a.exe"</span><br></pre></td></tr></tbody></table></figure>
+
 <p><code>program</code> means the program we want to debug. If not specified, the name of the
 output file will be <strong>a.exe</strong>, so the program name is the above one. But if you
 have specified the name of output file just like what I did in the <code>tasks.json</code>,
 you should use this:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"program": "${workspaceFolder}/${fileBasenameNoExtension}.exe"</span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="Debugger-path-and-options"><a href="#Debugger-path-and-options" class="headerlink" title="Debugger path and options"></a>Debugger path and options</h3><p>Set your debugger path simply by this:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"miDebuggerPath": "gdb.exe"</span><br></pre></td></tr></tbody></table></figure>
+
 <p>And we can easliy find out that gdb will output something useless first every
 time evoked. We could use option <code>-q</code> to disable this:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"miDebuggerArgs": "-q"</span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="Compile-before-launch"><a href="#Compile-before-launch" class="headerlink" title="Compile before launch"></a>Compile before launch</h3><p>If you always forget to compile the modified code before debugging, VSCode
 provides a very useful option: <strong>preLaunchTask</strong>. We can specific this task to
 our task named <strong>Compile</strong>, so our code will be compiled first every time we
 start debugging <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"preLaunchTask": "Compile"</span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="In-total-1"><a href="#In-total-1" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>launch.json</code> look like this:</p>
 <figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    // Use IntelliSense to learn about possible attributes.</span><br><span class="line">    // Hover to view descriptions of existing attributes.</span><br><span class="line">    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    "version": "0.2.0",</span><br><span class="line">    "configurations": [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"${workspaceFolder}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"${workspaceFolder}"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"gdb.exe"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerArgs"</span>: <span class="string">"-q"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                {</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                }</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"Compile"</span></span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <h1 id="Enjoy"><a href="#Enjoy" class="headerlink" title="Enjoy"></a>Enjoy</h1><p>Congratulations! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span> You are now able to develop C/C++ code with VSCode and
 hope you enjoy it!</p>
 <script>
@@ -808,7 +821,7 @@ hope you enjoy it!</p>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">39k</span>
+    <span title="Symbols count total">36k</span>
 </div>
 
         
