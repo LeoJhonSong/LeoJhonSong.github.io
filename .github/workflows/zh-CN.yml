@@ -1,8 +1,8 @@
-name: CI
+name: Chinese Blog Site CI
 
 on:
   push:
-    branches: 
+    branches:
       - Root
     paths:
       - 'source/zh-CN/**'
@@ -11,8 +11,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
+    - uses: actions/checkout@v1
     - name: Use Node.js 8.10.0
       uses: actions/setup-node@v1
       with:
