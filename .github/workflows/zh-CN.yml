@@ -29,6 +29,7 @@ jobs:
         mkdir ~/.ssh
         echo -e "Host github.com\nStrictHostKeyChecking no\nIdentityFile ~/.ssh/id_rsa_github_action" > ~/.ssh/config
         echo -e $id_rsa_github_action > ~/.ssh/id_rsa_github_action
+        chmod 600 ~/.ssh/id_rsa_github_action
         git config --global user.email "LeoJHon.Song@outlook.com"
         git config --global user.name "GitHub Action"
     - name: Generate and deploy Chinese site if necessary
