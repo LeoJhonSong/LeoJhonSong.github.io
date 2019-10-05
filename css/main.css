@@ -1938,7 +1938,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2a7aa8;
+  background: #ffc4d4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
