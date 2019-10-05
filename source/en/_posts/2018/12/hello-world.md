@@ -8,7 +8,7 @@ date: 2018-12-22 22:29:00
     <a href='{{ location.host }}/zh-CN/2018/12/22/大家好'><kbd>中文</kbd></a>
 </div>
 
-<center><h3>My first blog on my own site</h3></center>
+## My first blog on my own site
 
 <!-- More -->
 

@@ -6,11 +6,6 @@ categories:
 - [配置]
 ---
 
-<div align='right'>Language:
-	<a href='{{ location.host }}/Building-SOFA-under-Windows-and-install-SoftRobotics-plugin'><code>English</code></a>
-	<a href='{{ location.host }}/zh-CN/记一次在Win10下安装SOFA仿真软件并加装SoftRobots插件的经历'><code>中文</code></a>
-</div>
-
 **前言** ：博主是个不怎么懂软件的菜鸟，前几天为了学习Soft Robotics企图装一个带SoftRobots插件的SOFA，但我搜了半天也没有较新的安装教程（连下载方式都变了好吗）。虽然有官网的安装教程但我在安装过程中还是出了很多意外。感慨于在身边诸多大佬们的帮助下我这个对软件一窍不通的人才安装成功，我以一个不怎么接触编程的人的角度写下这篇博客帮助也想学习Soft Robotics的各位。(博主为了写这篇教程忍痛把安好的SOFA删了又下了一遍）
 <!-- More -->
 **P.S.** 由于我并不是软件相关专业的有很多理解和做法可能并不准确，仅供参考，也欢迎指教。
