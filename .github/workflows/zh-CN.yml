@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - Root
+    paths:
+      - 'source/zh-CN/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Use Node.js 8.10.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 8.10.0
+    - name: Generate and deploy Chinese site if necessary
+      run: |
+        rm -rf .deploy_git
+        git clone -b master https://github.com/LeoJhonSong/zh-CN.git .deploy_git
+        ./a c
