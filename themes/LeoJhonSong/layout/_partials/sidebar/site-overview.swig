@@ -99,6 +99,11 @@
   </div>
 {%- endif %}
 
+<div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=bFSXKampqeUl7LSBi0lk9EqEYCDXkOi6RQZJE54uQIk&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'>
+</script>
+</div>
+
 {%- if theme.creative_commons.license and theme.creative_commons.sidebar %}
   <div class="cc-license motion-element" itemprop="license">
   {%- set ccLanguage = theme.creative_commons.language %}
