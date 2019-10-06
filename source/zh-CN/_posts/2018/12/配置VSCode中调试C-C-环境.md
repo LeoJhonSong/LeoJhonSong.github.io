@@ -135,11 +135,11 @@ C:\Users\LeoJh>gcc
 # 配置文件
 
 在有些教程中, 要在VSCode中开发C/C++需要配置`c_cpp_properties.json`, `tasks.json`,
-`launch.json`三样, 但现在不是这样了! :tada: 现在`c_cpp_properties.json`已经完全被
+`launch.json`三样, 但现在不是这样了! 🎉 现在`c_cpp_properties.json`已经完全被
 `settings.json`取代了, 也就是说在设置中就可以进行原来在`c_cpp_properties.json`中进行的
-配置! 这样的好处是我们可以针对不同的工作区进行不同的设置等.
+配置! 这样的好处是我们可以针对不同的工作区进行不同的设置等. 另外, 稍后你也会看到随着VSC的更新`tasks.json`和`launch.json`的生成也变得十分简单!
 
-:link:关于设置取代了`c_cpp_properties.json`的说明参见[这里](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md),
+🔗 关于设置取代了`c_cpp_properties.json`的说明参见[这里](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md),
 另外给出对原本可以在`c_cpp_properties.json`中配置的内容的描述的[链接](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md)
 
 :warning: 以下配置文件内容都以我的配置文件为例
@@ -152,8 +152,8 @@ IntelliSence是**cpptools**这个插件很重要的一部分, 通过在`settings
 
 ```json
 "C_Cpp.autocomplete": "Default",
-"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
-"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",
+"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",
 "C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
 "C_Cpp.default.cStandard": "c99",
 "C_Cpp.default.cppStandard": "c++11",
@@ -162,11 +162,27 @@ IntelliSence是**cpptools**这个插件很重要的一部分, 通过在`settings
 "C_Cpp.errorSquiggles": "Enabled",
 ```
 
+💡 其中**C_Cpp.clang_format_style**, **C_Cpp.clang_format_fallbackStyle**是VSC格式化C/C++代码的风格.
+上面的配置是近似于**Visual Studio**格式化C/C++代码的风格.
+我偏爱VS风格, 而如果你喜欢Google风格, 可以用下面这个值:
+
+```json
+"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+```
+
+随着VSC的更新, VSC提供了一些`tasks.json`和`launch.json`的模板, 这让生成这两个文件变得十分容易!
+下面这个gif👇 是一个生成`tasks.json`和`launch.json`的示例.
+
+![](配置VSCode中调试C-C-环境/example.gif)
+
+下面则是对这两个文件内容的一些解释.
+
 ## 配置编译配置文件
 
 然后配置编译用的`tasks.json`.
 
-:heavy_check_mark: 这个文件和之后配置的`launch.json`都是针对特定程序的,
+✔️ 这个文件和之后配置的`launch.json`都是针对特定程序的,
 如何生成这两个文件请参见VSCode官方文档. 但你可以将满意的`tasks.json`和`launch.json`放
 在一个包含许多工程的目录中, 那么这些工程都将使用这两个配置文件. 如果你想给这之中某个工程
 配置不同的配置你可以在这个工程的根目录另外生成`tasks.json`和`launch.json`, 会覆盖上一层

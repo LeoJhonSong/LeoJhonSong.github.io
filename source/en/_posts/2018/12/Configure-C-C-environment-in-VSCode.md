@@ -127,8 +127,10 @@ since it includes only a few but really useful tools.
 
 In some tutorials it is said that we have to generate `c_cpp_properties.json`,
 `tasks.json`, `launch.json` three files, but the situation has changed! :tada:
-`c_cpp_properties.json` has been totally replaced by settings in `settings.json`.
-The advantage is that we can set different values for different workspace.
+`c_cpp_properties.json` has been totally replaced by settings in
+`settings.json`. The advantage is that we can set different values for different
+workspace. Also, you will later see that configuring `tasks.json` and
+`launch.json` becomes REALLY easy too!
 
 :link: click
 [here](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md)
@@ -150,8 +152,8 @@ IntelliSense by editing `settings.json`. The most useful ones are:
 
 ```json
 "C_Cpp.autocomplete": "Default",
-"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
-"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",
+"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",
 "C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
 "C_Cpp.default.cStandard": "c99",
 "C_Cpp.default.cppStandard": "c++11",
@@ -160,12 +162,30 @@ IntelliSense by editing `settings.json`. The most useful ones are:
 "C_Cpp.errorSquiggles": "Enabled",
 ```
 
+the segments **C_Cpp.clang_format_style** and
+**C_Cpp.clang_format_fallbackStyle** specify the format style of how VSC format
+C/C++ code. The above value makes a code style similar to C/C++ code style in
+**Visual Studio**. If you prefer **Google Style**, the following piece is what
+you need.
+
+```json
+"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",
+```
+
+🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
+`tasks.json` and `launch.json` simply by this gif 👇
+
+![](Configure-C-C-environment-in-VSCode/example.gif)
+
+Following are some explanations of `tasks.json` and `launch.json`.
+
 ## Compilation configuration
 
 Then we generate the `tasks.json` to help us compile the code.
 
-:heavy_check_mark: `tasks.json` and `launch.json` are prepared for specific
-piece of code as different program may require different configuration. But if
+✔️ `tasks.json` and `launch.json` are prepared for specific
+piece of code as different programs may require different configurations. But if
 most of your code shares the same configuration, you can put your `tasks.json`
 and `launch.json` in the parent folder of all the programs. If a few programs
 among them require specific configuration, you can generate another `tasks.json`
