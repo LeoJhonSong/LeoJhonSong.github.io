@@ -66,10 +66,12 @@
 <meta property="og:site_name" content="LeoJhon.Song&#39;s Blog">
 <meta property="og:description" content="Language: English 中文   Here is a tutorial for configuration of VSCode to run C/C++ programs on Windows. Mainly I wrote it for my C/C++ Extension Pack 🎉">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-05T23:05:34.598Z">
+<meta property="og:image" content="https://leojhonsong.github.io/2018/12/30/Configure-C-C-environment-in-VSCode/Configure-C-C-environment-in-VSCode/example.gif">
+<meta property="og:updated_time" content="2019-10-06T21:32:55.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure C&#x2F;C++ Environment in VSCode">
 <meta name="twitter:description" content="Language: English 中文   Here is a tutorial for configuration of VSCode to run C/C++ programs on Windows. Mainly I wrote it for my C/C++ Extension Pack 🎉">
+<meta name="twitter:image" content="https://leojhonsong.github.io/2018/12/30/Configure-C-C-environment-in-VSCode/Configure-C-C-environment-in-VSCode/example.gif">
   <link rel="canonical" href="https://leojhonsong.github.io/2018/12/30/Configure-C-C-environment-in-VSCode/">
 
 
@@ -351,7 +353,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-05 23:05:34" itemprop="dateModified" datetime="2019-10-05T23:05:34+00:00">2019-10-05</time>
+                <time title="Modified: 2019-10-06 21:32:55" itemprop="dateModified" datetime="2019-10-06T21:32:55+00:00">2019-10-06</time>
               </span>
             
           
@@ -386,7 +388,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>9.4k</span>
+              <span>10k</span>
             </span>
           
 
@@ -496,8 +498,10 @@ situation.</p>
 since it includes only a few but really useful tools.</p>
 <h1 id="Configuration-files"><a href="#Configuration-files" class="headerlink" title="Configuration files"></a>Configuration files</h1><p>In some tutorials it is said that we have to generate <code>c_cpp_properties.json</code>,
 <code>tasks.json</code>, <code>launch.json</code> three files, but the situation has changed! :tada:
-<code>c_cpp_properties.json</code> has been totally replaced by settings in <code>settings.json</code>.
-The advantage is that we can set different values for different workspace.</p>
+<code>c_cpp_properties.json</code> has been totally replaced by settings in
+<code>settings.json</code>. The advantage is that we can set different values for different
+workspace. Also, you will later see that configuring <code>tasks.json</code> and
+<code>launch.json</code> becomes REALLY easy too!</p>
 <p>:link: click
 <a href="https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md" target="_blank" rel="noopener">here</a>
 to learn more about what has been replaced by <code>settings.json</code> in
@@ -510,11 +514,22 @@ to learn more about what could have been set in <code>c_cpp_properties.json</cod
 point of view, IntelliSense which provides us with smart suggestions is a very
 important part of language support for C/C++ in VSCode. We could configure the
 IntelliSense by editing <code>settings.json</code>. The most useful ones are:</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"C_Cpp.autocomplete": "Default",</span><br><span class="line">"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",</span><br><span class="line">"C_Cpp.default.cStandard": "c99",</span><br><span class="line">"C_Cpp.default.cppStandard": "c++11",</span><br><span class="line">"C_Cpp.default.intelliSenseMode": "gcc-x64",</span><br><span class="line">"C_Cpp.intelliSenseEngine": "Default",</span><br><span class="line">"C_Cpp.errorSquiggles": "Enabled",</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"C_Cpp.autocomplete": "Default",</span><br><span class="line">"C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",</span><br><span class="line">"C_Cpp.default.cStandard": "c99",</span><br><span class="line">"C_Cpp.default.cppStandard": "c++11",</span><br><span class="line">"C_Cpp.default.intelliSenseMode": "gcc-x64",</span><br><span class="line">"C_Cpp.intelliSenseEngine": "Default",</span><br><span class="line">"C_Cpp.errorSquiggles": "Enabled",</span><br></pre></td></tr></tbody></table></figure>
 
+<p>the segments <strong>C_Cpp.clang_format_style</strong> and
+<strong>C_Cpp.clang_format_fallbackStyle</strong> specify the format style of how VSC format
+C/C++ code. The above value makes a code style similar to C/C++ code style in
+<strong>Visual Studio</strong>. If you prefer <strong>Google Style</strong>, the following piece is what
+you need.</p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br></pre></td></tr></tbody></table></figure>
+
+<p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
+<code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
+<p><img src="Configure-C-C-environment-in-VSCode/example.gif" alt=""></p>
+<p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
 <h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
-<p>:heavy_check_mark: <code>tasks.json</code> and <code>launch.json</code> are prepared for specific
-piece of code as different program may require different configuration. But if
+<p>✔️ <code>tasks.json</code> and <code>launch.json</code> are prepared for specific
+piece of code as different programs may require different configurations. But if
 most of your code shares the same configuration, you can put your <code>tasks.json</code>
 and <code>launch.json</code> in the parent folder of all the programs. If a few programs
 among them require specific configuration, you can generate another <code>tasks.json</code>
@@ -821,7 +836,7 @@ hope you enjoy it!</p>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">37k</span>
 </div>
 
         
