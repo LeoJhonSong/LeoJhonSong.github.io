@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - Root
-    paths:
-      - 'source/zh-CN/**'
+    paths-ignore:
+      - 'source/en/**'
 
 jobs:
   build:
@@ -35,5 +35,5 @@ jobs:
     - name: Generate and deploy Chinese site
       run: |
         rm -rf .deploy_git
-        git clone -b master https://github.com/LeoJhonSong/zh-CN.git .deploy_git
+        git clone -b master git@github.com:LeoJhonSong/zh-CN.git .deploy_git
         ./a c

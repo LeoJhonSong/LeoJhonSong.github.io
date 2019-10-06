@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - Root
-    paths:
-      - 'source/en/**'
+    paths-ignore:
+      - 'source/zh-CN/**'
 
 jobs:
   build:
@@ -35,5 +35,5 @@ jobs:
     - name: Generate and deploy English site
       run: |
         rm -rf .deploy_git
-        git clone -b master https://github.com/LeoJhonSong/LeoJhonSong.github.io.git .deploy_git
+        git clone -b master git@github.com:LeoJhonSong/LeoJhonSong.github.io.git .deploy_git
         ./a e
