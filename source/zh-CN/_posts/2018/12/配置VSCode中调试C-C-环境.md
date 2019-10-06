@@ -176,6 +176,8 @@ IntelliSence是**cpptools**这个插件很重要的一部分, 通过在`settings
 
 ![](配置VSCode中调试C-C-环境/example.gif)
 
+💡 这个gif是在Linux系统 (Ubuntu) 下录制的.
+
 下面则是对这两个文件内容的一些解释.
 
 ## 配置编译配置文件

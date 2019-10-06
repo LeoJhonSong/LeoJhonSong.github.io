@@ -178,6 +178,8 @@ you need.
 
 ![](Configure-C-C-environment-in-VSCode/example.gif)
 
+💡 This gif is recorded under Linux system (Ubuntu).
+
 Following are some explanations of `tasks.json` and `launch.json`.
 
 ## Compilation configuration
