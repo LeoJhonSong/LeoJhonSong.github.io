@@ -6,3 +6,4 @@ public/
 .deploy*/
 travis_key
 node_modules
+_multiconfig.yml
