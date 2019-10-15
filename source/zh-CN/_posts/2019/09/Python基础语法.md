@@ -28,7 +28,9 @@ categories: Python
 
 ## 版本
 
-Python这种语言有Python2和Python3两个版本, 两者语法有少许不同, 一般不能直接把另一个版本的程序拿来运行
+Python这种语言有**Python2**和**Python3**两个版本, 两者语法有少许不同, 比如Python2和Python3中`print()`的使用有区别, Python2和Python3中`input()`接受的数据类型有区别等.
+
+最新的Python2对大部分Python2, 3不同的语法做了兼容, 而在Python3对Python2的语法兼容性很差, 但是提供了一个叫[2to3](https://docs.python.org/zh-cn/3.7/library/2to3.html)的脚本帮助我们将Python2的程序转换为Python3的程序.
 
 ## 哲学
 
@@ -36,7 +38,7 @@ Python这种语言有Python2和Python3两个版本, 两者语法有少许不同,
 
 python在设计初始是一种**面向对象**语言.
 
-:bulb: 面向对象是一种**编程范式**
+💡 面向对象是一种**编程范式**
 
 ## 数据类型
 
@@ -44,7 +46,7 @@ Python是一门**动态类型**语言
 
 ### 类型注解
 
-在Python3中有了新特性: **类型注解**
+在Python3中有了一个新特性: **类型注解**
 
 ``` python
 def add(x:int, y:int) -> int:
@@ -64,31 +66,15 @@ def add(x, y):
 
 之所以不使用 `type()` 是因为 `type()` 不会认为子类是一种父类类型, 不考虑继承关系. 举例说明:
 
-``` python
-class A(object):
-    pass
-
-class B(A):
-    pass
-i = 1
-print isinstance(i, int)
-print isinstance(A(), A)
-print type(A()) == A
-print isinstance(B(), A)
-print type(B()) == A
-```
-
-``` python
-# 获取变量内存地址
-id(变量名)
-# 得到变量类型
-type(变量名)
-# 得到变量的内存大小
-import sys
-sys.getsizeof(变量名)
-```
+![1571027624789](Python基础语法/1571027624789.png)
 
 ### 不可变对象
+
+❗️ **我们可以给不可变对象重新赋值, 但其内存地址会改变**. 以下是体现给可变对象/不可变对象重新赋值时它们的内存地址变化的例子.
+
+💡 `id()`能获取一个变量的内存地址
+
+![1571022411897](Python基础语法/1571022411897.png)
 
 #### Number (数字)
 
@@ -97,80 +83,68 @@ sys.getsizeof(变量名)
 * float (浮点数, 即小数)
 * bool (布尔值, 即 `True` 和 `False` )
 
-Python中的Number我认为是比较特殊的, 因为它**在内存中占用的空间大小是变动**的.(在CPython中是如此, 但不知道为什么在IronPython下不是)String (字符串)
+Python中的Number我认为是比较特殊的, 因为它**在内存中占用的空间大小是变动**的.(在CPython中是如此, 但不知道为什么在IronPython下不是)
+
+💡 用`sys.getsizeof()`可以知道一个变量的占用的内存大小
+
+![1571022628668](Python基础语法/1571022628668.png)
+
+#### String (字符串)
 
 #### Tuple (元组)
 
-:exclamation: 我们可以给不可变对象重新赋值, 但其内存地址会改变. 以下是体现给可变对象/不可变对象重新赋值时它们的内存地址变化的代码.
-
-``` python
-x = 3
-y = x
-print id(x), id(y)
-y = 4
-print id(x), id(y)
-print x, y
-a = [1, 2, 3]
-b = a
-print id(a), id(b)
-b.append(4)
-print id(a), id(b)
-print a, b
-```
-
 ### 可变对象
 
-#### List (列表)
-
-#### Set (集合)
-
-#### Dictionary (字典)
 
 可变对象可能带来的危险举例:
 
 ``` python
-def func(l = []):
+def myfunc(l = []):
     l.append('add')
     print(l)
-```
 
-``` shell
+
 myfunc([1, 2, 3])
 myfunc([1, 2, 3])
 myfunc()
 ```
 
+#### List (列表)
+
+💡 **string**和**tuple**都是特殊的**list**
+
+#### Set (集合)
+
+#### Dictionary (字典)
+
+👇 在网上偷的**string, tuple, list, dictionary的突出区别比较**.
+
+| 名字       | 是否可变 | 是否可迭代 | 是否可切片 | 访问方式   | 写法举例                 |
+| ---------- | -------- | ---------- | ---------- | ---------- | ------------------------ |
+| string     | no       | yes        | yes        | 下标索引   | “abcd”                   |
+| tuple      | no       | yes        | yes        | 下标索引   | (‘a’,‘b’,‘c’,‘d’,‘abcd’) |
+| list       | yes      | yes        | yes        | 下标索引   | [‘a’,‘b’,‘c’,‘d’,‘abcd’] |
+| dictionary | yes      | yes        | no         | 关键字索引 | {‘1’:‘a’,‘2’:‘b’}        |
+
+
+
+### Python中有关对象需要注意的问题
+
 python中向函数传递参数只是**引用传递**: 如果参数为可变对象, 在函数中变化会影响引用的这个变量, 而不可变对象不会. 在向类传递参数时也是如此.
 
-``` python
-l1 = [1, 2, 3]
-l2 = [[1, 2, 3],
-	[3, 4, 5],
-	[6, 7, 8]]
-l1x = l1
-l1x[0] = 4
-print(l1)
-l1x = l1.copy()
-l1x[0] = 5
-print(l1)
-l2x = l2.copy()
-l2x[1][1] = 'a'
-print(l2)
-import copy
-l2x = copy.deepcopy(l2)
-l2x[1][1] = 'b'
-print(l2)
-```
+![1571033275137](Python基础语法/1571033275137.png)
 
 ## 基础语法
 
-### 帮助文档
+### Python内置帮助文档
 
 ``` python
 help()
 ```
 
-按 `q` 退出帮助文档
+调用`help()`后就会进入Python内置帮助文档, 然后输入想查的类名/函数名/属性名就可以看到对应的帮助文档.
+
+:bulb: 要注意输入的只有名字, 不带括号什么的, 以及要看一个包里的函数文档时需要先引用该包. 比如如果想查看**time.time()**的帮助文档, 首先`import time`, 然后输入`help()`进入帮助文档, 然后输入`time.time`, 就会看到**time.time()**函数的帮助文档. 按一次<kbd>q</kbd>退出**time.time()**的文档, 再按一次<kbd>q</kbd>退出帮助文档返回交互式Python界面.
 
 ### 注释
 
@@ -178,9 +152,11 @@ help()
 
 #### 特殊注释
 
-###### shebang
+##### shebang
 
-shenbang, hashbang指的是以 `#!` 开头的语句. Linux操作系统的程序加载器会分析 Shebang 后的内容，将这些内容作为解释器指令，并调用该指令，并将载有 Shebang 的文件路径作为该解释器的参数. 因为在很多语言中以 `#` 开头的是注释, 所以不会影响程序.
+shenbang (hashbang) 指的是以 `#!` 开头的语句. Linux操作系统的程序加载器会分析 Shebang 后的内容，将这些内容作为解释器指令，并调用该指令，并将载有 Shebang 的文件路径作为该解释器的参数. 因为在很多语言中以 `#` 开头的是注释, 所以不会影响程序.
+
+##### 编码格式
 
 有的python文件是这么开头的:
 
@@ -189,9 +165,9 @@ shenbang, hashbang指的是以 `#!` 开头的语句. Linux操作系统的程序�
 # -*- coding:utf-8 -*-
 ```
 
-第一行是给Linux系统的程序加载器看的, 因此在Windows下不需要这句, 第二句是指定文件的编码格式为**UTF-8**, 避免出现乱码
+第一行是给**Linux系统**的程序加载器看的, 因此在Windows下不需要这句, 第二句是指定文件的编码格式为**UTF-8**, 避免文件中的**非ASCII字符**被识别为乱码.
 
-###### docstring
+##### docstring
 
 ``` python
 def func(int x, int y):
@@ -204,28 +180,39 @@ a = func(i)
 
 ### 条件语句及循环
 
-#### if elif
+#### if, elif, else
+
+下面是按a < 10, 10 < a < 20, 20 < a < 30, a > 30分类的举例.
 
 ``` python
-if True:
+if a < 10:
     pass
-elif True:
+elif a < 20:
+    pass
+elif a < 30:
     pass
 else:
     pass
-if 2 >3:
+```
+
+另外有一种one liner会很喜欢的用法:
+
+``` python
+a = 2 if 2 > 3 else 4
+```
+
+上面这句与下面这句等效.
+
+```python
+if 2 > 3:
     a = 2
 else:
     a = 4
 ```
 
-``` python
-a = (2 if (2 > 3) else 4)
-```
-
 #### 生成器 ·迭代器·range
 
-语法类似于切片
+语法类似于[切片](#切片)
 
 ### 推导式
 
@@ -251,23 +238,17 @@ names = ['Bob','Tom','alice','Jerry','Wendy','Smith']
 LONG_NAMES = [name.upper() for name in names if len(name)>3]
 # 3
 a = [x*y for x in range(1,5) if x > 2 for y in range(1,4) if y < 3]
-
-l = [a[i][0] for i in range(len(a))]
-
-h = ''
-for i in range(len(a)):
-    h.append(a[i][0])
 ```
 
-### 矩阵处理
+### 切片
 
-#### 切片
+因为tuple, string其实都是特殊的列表, 所以列表, 字符串, 元组都可以进行切片.
 
-因为tuple, 字符串其实都是特殊的列表, 列表, 字符串, 元组都可以进行切片.
+语法: l_sliced = a[begin : end : step]
 
 ``` python
-a = [1, 2, 3, 4, 5, 6, 7]
-b = a[begin:end:step]
+l = [1, 2, 3, 4, 5, 6, 7]
+l_sliced = l[1:5:2]
 ```
 
 在没有**numpy**库的情况下**多维切片**是通过推导式实现的:
@@ -279,7 +260,7 @@ b = [a[i][:-1] for i in range(1, 3)]
 
 ### 函数
 
-:bulb: 要注意函数名后的 `()` 也是一种运算符, 称为函数调用运算符. 如果调用函数的时候不加()只会创建一个该函数的对象而不会调用它.
+💡 要注意函数名后的 `()` 也是一种运算符, 称为**函数调用运算符**. 如果调用函数的时候不加()只会创建一个该函数的对象而不会调用它.
 
 #### 定义函数
 
@@ -303,8 +284,9 @@ def func3(x, y):
 
 ### 用字典来实现case
 
+示例:
+
 ``` python
-# -*- coding: cp936 -*-
 
 def print1():
     print('111')
@@ -323,7 +305,7 @@ dic = {
     'b': print2,
 	'default': printdefault}
 
-i = input('输入: ')
+i = input('input: ')
 main = dic[i if (i != 'a' or i != 'b') else 'default']
 main()
 ```
@@ -357,19 +339,36 @@ f.write("text")
 f.close()
 ```
 
-`r` 是普通模式, `r+` 是读写, `w` 是覆盖写入模式, `w+` 是覆盖读写, `a` 是追加模式, `a+` 是追加读写, b是以二进制方式打开
+或者
 
-``` python
-with open('test.txt', "r+") as f:
-    f.write()
+```python
+with open("test.txt", "r+") as f:
     f.read()
-    f.readlines()
-    f.readline()
+    f.write("test")
 ```
+
+💡 **使用with语句打开文件是最推荐的方式**, 原因见[这里](https://www.cnblogs.com/ymjyqsx/p/6554817.html)
+
+
+下表是open时要指定的读写模式的比较.
+
+| 读写模式 | 是否可读 | 是否可写 | 文件指针位置 | 作用                                       |
+| -------- | -------- | -------- | ------------ | ------------------------------------------ |
+| r        | 是       | 否       | 文件开头     | 读取文件, 如果文件不存在则报错             |
+| r+       | 是       | 是       | 文件开头     | 读取并写入文件, 如果文件不存在则报错       |
+| w        | 否       | 是       | 文件开头     | 覆写原文件, 如果文件不存在则创建           |
+| w+       | 是       | 是       | 文件开头     | 读取并覆盖写原内容, 如果文件不存在则创建   |
+| a        | 否       | 是       | 文件末尾     | 追加文件内容, 如果文件不存在则报错         |
+| a+       | 是       | 是       | 文件末尾     | 追加文件内容并且可读, 如果文件不存在则报错 |
+
+另外还有`b`模式, 以二进制打开, 允许我们对二进制文件进行编辑, `b`可以与其他模式组合使用, 比如
+`rb`
+
+🔗 [python基础-文件读写'r' 和 'rb'区别](https://www.cnblogs.com/nulige/p/6128948.html)
 
 ## 脚本和普通程序的区别
 
-脚本这个词来源于戏剧, 能用于舞台演出的戏剧文本就称为脚本. 在编程中的脚本是解释执行的程序, 通常只用来做简单的处理, 起辅助作用
+脚本这个词来源于戏剧, 能用于舞台演出的戏剧文本就称为**脚本**. 在编程中的脚本是解释执行的程序, 通常只用来做简单的处理, 做自动化处理
 
 ## 解释器的使用技巧
 
@@ -389,7 +388,9 @@ os.system('clear')
 
 ## 代码风格
 
-* 在除了函数调用符的运算符两侧加空格
-* 注释时在 `#` 后写个空格再写注释内容
-* 行尾注释时先写两个空格再写注释
+我推荐遵从[PEP8](https://www.python.org/dev/peps/pep-0008/). 当然一行一行看完这个规范不是一件令人愉快的事, 最简单的时刻遵守PEP8的方式是在代码工具里安一个**代码风格检查器** (linter).
+检查你的代码是否符合PEP8的linter是[pycodestyle](http://pycodestyle.pycqa.org/en/latest/intro.html)
 
+💡 在VSC中可以在设置中搜索**python.linting.pycodestyle**, 勾选**Pycodestyle Enabled**, 这样在VSC中编写Python代码时使用的linter就是pycodestyle啦
+
+![1571142193232](Python基础语法/1571142193232.png)
