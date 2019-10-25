@@ -7,7 +7,7 @@ import sys
 # ################################layer2 functions##############################
 
 def generateDeployEnglish():
-    os.system('hexo clean')
+    # os.system('hexo clean')
     os.system('hexo d -g')
 
 
@@ -26,7 +26,7 @@ def serverEnglish():
 
 
 def generateDeployChinese():
-    os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
+    # os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
     os.system('hexo d -g --config _config.yml,_config.zh-CN.yml')
 
 
