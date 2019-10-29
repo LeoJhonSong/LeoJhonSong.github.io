@@ -37,4 +37,6 @@ jobs:
       run: |
         rm -rf .deploy_git
         git clone -b master git@github.com:LeoJhonSong/LeoJhonSong.github.io.git .deploy_git
+        git clone -b master git@github.com:LeoJhonSong/LeoJhonSong.github.io.git public
+        rm -rf public/.git
         ./a e
