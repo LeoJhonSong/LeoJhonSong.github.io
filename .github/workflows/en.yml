@@ -22,6 +22,7 @@ jobs:
       run: |
         npm install
         cp themes/LeoJhonSong/asset/post_asset.js node_modules/hexo/lib/models/post_asset.js
+        sudo timedatectl set-timezone Asia/Shanghai
     - name: login ssh and git
       env:
         id_rsa_github_action: ${{ secrets.id_rsa_github_action }}
