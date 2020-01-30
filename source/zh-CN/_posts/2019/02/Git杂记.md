@@ -122,15 +122,45 @@ git push
 我也终于遇到了git仓库被搞太大需要瘦身的情况了.
 
 > [BFG](http://rtyley.github.io/bfg-repo-cleaner/) 是为将像大文件或者密码这些不想要的数据从 Git 仓库中删除而专门设计的，所以它有一一个简单的标志用来删除那些大的历史文件（不在当前的提交里面）：`--strip-blobs-bigger-than`
->
-> ```shell
-> $ java -jar bfg.jar --strip-blobs-than 100M
-> ```
->
-> 大小超过 100MB 的任何文件（不包含在你*最近的*提交中的文件——因为 BFG [默认会保护你的最新提交的内容](http://rtyley.github.io/bfg-repo-cleaner/#protected-commits)）将会从你的 Git 仓库的历史记录中删除。如果你想用名字来指明具体的文件，你也可以这样做：
->
-> ```shell
-> $ java -jar bfg.jar --delete-files *.mp4
-> ```
 
-这个体验不错.
+⚠️ 要用bfg你需要有java
+
+1. 首先以`--mirror`选项从远程端下载仓库. 按照bfg的说法这样下到的是一个"bare repo".
+
+> This is a bare repo, which means your normal files won't be visible, but it is a full copy of the Git database of your repository
+
+(我试了一下普通clone的仓库操作完最后推送不上去...)
+
+```shell
+git clone --mirror git://example.com/some-big-repo.git
+```
+
+2. 然后进入仓库, 然后按照文件大小或者文件名清理文件.
+
+❗️ 在这一步文件并没有在物理上被删除, 在这一步bfg会清理所有commit, branch, tag, 去掉该文件的记录.
+
+- 清理大于指定值的文件
+
+```shell
+java -jar bfg.jar --strip-blobs-bigger-than 100M
+```
+
+> 大小超过 100MB 的任何文件（不包含在你*最近的*提交中的文件——因为 BFG [默认会保护你的最新提交的内容](http://rtyley.github.io/bfg-repo-cleaner/#protected-commits)）将会从你的Git仓库的历史记录中删除.
+
+- 清理指定文件名文件:
+
+```shell
+java -jar bfg.jar --delete-files *.mp4
+```
+
+3. 将上面清理出来的文件删除
+
+```shell
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+```
+
+4. 当你觉得删得差不多就可以推送了. ❗️ 这样会改变远程端所有ref.
+
+```shell
+git push
+```
