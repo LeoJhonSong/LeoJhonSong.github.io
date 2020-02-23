@@ -151,7 +151,7 @@ template {
   color: #fff;
 }
 body {
-  background: #f5f7f9;
+  background: #252526;
   color: #555;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
@@ -946,7 +946,7 @@ pre .javascript .function {
   color: #d9534f;
 }
 .btn {
-  background: #fff;
+  background: #808080;
   border: 2px solid #555;
   border-radius: 2px;
   color: #555;
@@ -961,7 +961,7 @@ pre .javascript .function {
   transition-property: background-color;
 }
 .btn:hover {
-  background: #222;
+  background: #a9a9a9;
   border-color: #222;
   color: #fff;
 }
@@ -1069,7 +1069,7 @@ pre .javascript .function {
   margin: 0.1em 0.2em;
 }
 .comment-button-group .comment-button.active {
-  background: #222;
+  background: #a9a9a9;
   border-color: #222;
   color: #fff;
 }
@@ -1938,7 +1938,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #93043e;
+  background: #a486f1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2643,7 +2643,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .sidebar {
-  background: #f5f7f9;
+  background: #252526;
   box-shadow: none;
   float: left;
   position: static;
@@ -2979,6 +2979,12 @@ small {
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
+.posts-expand .post-title-link:hover {
+  color: #f5deb3;
+}
+.posts-expand .post-title-link::before {
+  background-color: #fff;
+}
 article {
   margin-top: 0px;
   margin-bottom: 60px;
@@ -3010,4 +3016,19 @@ img {
   .posts-expand {
     margin: 0 0px;
   }
+}
+.site-meta {
+  background: #3b3b3b;
+}
+.header-inner {
+  background: #252526;
+}
+.sidebar-inner {
+  background: #3b3b3b;
+}
+.content-wrap {
+  background: #252526;
+}
+.post-block {
+  background: #1e1e1e;
 }
