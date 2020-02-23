@@ -76,6 +76,9 @@ svg.icon {
 //------------------------------------------------------------------------------
 // highlight when hover on link
 //------------------------------------------------------------------------------
+.menu-item-active a, .menu .menu-item a:hover, .menu .menu-item span.exturl:hover {
+    color: black;
+}
 .post-body p a{
     color: #0593d3;
     border-bottom: none;
@@ -87,23 +90,30 @@ svg.icon {
     }
 }
 .posts-expand .post-title-link {
-  &:hover {
-    color: wheat;
-  }
-  &::before {
-    background-color: white;
-  }
+    color: gray;
+    &:hover {
+      color: wheat;
+    }
+    &::before {
+      background-color: white;
+    }
 }
-
 //------------------------------------------------------------------------------
-// shadow for post blocks
+// shadow
 //------------------------------------------------------------------------------
+.header-inner {
+    box-shadow: 0 0 5px 2px black;
+}
+.sidebar-inner {
+    box-shadow: 0 0 5px 2px black;
+}
 article {
     margin-top: 0px;
     margin-bottom: 60px;
     padding: 0px;
-    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    // -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    // -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    box-shadow: 0 0 6px 7px black;
 }
 //------------------------------------------------------------------------------
 //better organized post-block
@@ -142,6 +152,9 @@ img {
 //------------------------------------------------------------------------------
 //custom color theme
 //------------------------------------------------------------------------------
+body {
+  color: white;
+}
 .site-meta {
   background: #3b3b3b;
 }
@@ -152,7 +165,7 @@ img {
   background: #3b3b3b;
 }
 .content-wrap {
-  background: #252526;
+  background: dimgray;
 }
 .post-block {
   background: #1e1e1e
