@@ -85,7 +85,16 @@ svg.icon {
       border-bottom: none;
       border-bottom: 1px solid #fc6423;
     }
- }
+}
+.posts-expand .post-title-link {
+  &:hover {
+    color: wheat;
+  }
+  &::before {
+    background-color: white;
+  }
+}
+
 //------------------------------------------------------------------------------
 // shadow for post blocks
 //------------------------------------------------------------------------------
@@ -129,4 +138,22 @@ img {
     .posts-expand {
         margin: 0 0px;
     }
+}
+//------------------------------------------------------------------------------
+//custom color theme
+//------------------------------------------------------------------------------
+.site-meta {
+  background: #3b3b3b;
+}
+.header-inner {
+  background: #252526;
+}
+.sidebar-inner {
+  background: #3b3b3b;
+}
+.content-wrap {
+  background: #252526;
+}
+.post-block {
+  background: #1e1e1e
 }
