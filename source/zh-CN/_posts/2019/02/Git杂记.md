@@ -17,7 +17,7 @@ git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
 ```
 
-:warning: 每台机器要使用不同的`user.name`! 为了方便记忆可以统一使用**昵称-机器型号**
+⚠ 每台设备要使用不同的`user.name`, 这样才能区分它们. 为了方便记忆可以统一使用**昵称-机器型号**
 的命名方式.
 
 值得一提的是git的配置文件分三级: 系统级(所有用户的), 全局级(当前用户的), 仓库级.
