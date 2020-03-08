@@ -1938,7 +1938,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffcdff;
+  background: #905774;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3047,4 +3047,18 @@ body {
 }
 .post-block {
   background: #1e1e1e;
+}
+kbd {
+  background: #000;
+}
+table > tbody > tr:nth-of-type(odd) {
+  background: #333;
+  color: #fff;
+}
+table > tbody > tr:nth-of-type(even) {
+  background: #777;
+  color: #fff;
+}
+td:hover {
+  font-weight: bold;
 }
