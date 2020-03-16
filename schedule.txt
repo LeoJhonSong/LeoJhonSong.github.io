@@ -3,6 +3,7 @@ TODO: 案例收集
 TODO: VSC安利补全
 TODO: 卡尔曼滤波补全
 TODO: 英文博客的配置记录翻译为中文
+TODO: git
 
 buglist:
     c++ string的赋值用assign(), 不要用=
