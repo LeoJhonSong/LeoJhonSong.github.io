@@ -1938,7 +1938,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d52570;
+  background: #e473ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2106,12 +2106,12 @@ article:last-child .post-eof {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   border-bottom-color: #ccc;
-  color: #666;
+  color: #ccc;
   transition-property: all;
 }
 .post-toc ol a:hover {
   border-bottom-color: #fff;
-  color: #f5deb3;
+  color: #fff;
 }
 .post-toc .nav-item {
   overflow: hidden;
@@ -3060,5 +3060,15 @@ table > tbody > tr:nth-of-type(even) {
   color: #fff;
 }
 td:hover {
+  font-weight: bold;
+}
+a {
+  color: #0593d3;
+}
+a:hover {
+  color: #fc6423;
+}
+.menu .menu-item a {
+  color: #d3d3d3;
   font-weight: bold;
 }
