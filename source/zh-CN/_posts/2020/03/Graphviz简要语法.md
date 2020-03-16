@@ -124,28 +124,17 @@ graphviz提供了多种用于排布节点, 边线箭头头部, 边线标签位�
 
 DOT语言主要描述三种对象: **graph**, **node**, **edge**. 这里分别翻译为**图**, **节点**, **边线**. 每一种对象有各自可以设置的一组属性.
 
-#### graph (图)
+#### Graph (图)
 
 最外层的graph (main graph)可以被设定为**有向图**`digraph`(directed graph)或是**无向图**`graph`(undirected graph). main graph内可以用`subgraph`来定义一个节点和边线的集合. 也可以通过设定最外层图为`strict digraph`或者`strict graph`来禁用**multi-edges**. 也就是说`strict digraph`会让有向图中一个指向节点和一个被指向节点间只能有一条边线 (不过反过来还可以有一条, 也就是两节点间最多两条边线), `strict graph`则会让无向图中两节点间只能有一条边线.
 
-图的默认属性:
+最外层的图又称top-level graph, root graph (反正开发组文档都没能统一这东西的叫法). 图可以有子图 (subgraph), 子图会继承父级的显式设置的大部分属性. 有一种特殊的子图被称为[**簇**](#Cluster-簇).
 
-- labeljust="c"
-- labelloc="b" (簇的默认值为"t")
-
-#### node (节点)
+#### Node (节点)
 
 一个节点会**在第一次在DOT文件中出现时被创建**.
 
-节点的默认属性是:
-
-- shape=ellipse
-- width=0.75
-- height=0.5
-- 标签为节点名
-- labelloc="c"
-
-#### edge (边线)
+#### Edge (边线)
 
 一条边线会在几个节点被用`->`边线操作符连接时被创建.
 
@@ -187,11 +176,63 @@ digraph G {
 
 ![](Graphviz简要语法/attr.svg)
 
-### Cluster
+#### 常用属性的默认值
 
-TODO
+**图**的默认属性:
+
+- labeljust="c"
+- labelloc="b" (簇的默认值为"t")
+- clusterrank="local"
+- compound=false
+
+**节点**的默认属性是:
+
+- shape=ellipse
+- width=0.75
+- height=0.5
+- 标签为节点名
+- labelloc="c"
+
+### Cluster (簇)
+
+簇是一种会将属于这个子图的元素都**框在一个长方形里**的特殊子图. 如果一个子图的名字以**cluster**开头那么这个子图就会被认为是一个簇 (这个判定方式好暴力😅). 但是如果在根图中设置了`clusterrank=none`那么簇这种特殊的子图会被禁用.
+
+这里我又要来吐槽graphviz开发组了! 看看他们是怎么[说明clusterrank这个属性](https://emden.github.io/_pages/doc/info/attrs.html#a:clusterrank)的:
+
+> the modes "global" and "none" **appear** to be identical, both turning off the special cluster processing.
+
+为什么官方开发组都在用这种表推测的语气啊... 🙃这也太迷惑了
+
+如果根图中设置了`compound=true`, 那么dot布局允许用边线连接节点和簇的边框. 这是通过设置边线的`lhead`和`ltail`属性来实现的. 这样以来, 虽然边线仍然是从一个节点指向另一个节点的, 但是设置了`lhead`或者`ltail`的一侧**会看起来像是被簇的边框盖住了**.
+
+> 一个使用簇, 并且有连接节点与簇的边线的例子
+
+```graphviz
+digraph G {
+    compound=true;
+    subgraph cluster0 {
+        a -> b;
+        a -> c;
+        b -> d;
+        c -> d;
+    }
+    subgraph cluster1 {
+        e -> g;
+        e -> f;
+    }
+    b -> f [lhead=cluster1];
+    d -> e;
+    c -> g [ltail=cluster0,lhead=cluster1];
+    c -> e [ltail=cluster0];
+    d -> h;
+}
+```
+
+![](Graphviz简要语法/cluster.svg?20)
 
 ## 高级语法
+
+以下是几条我认为**用来提示图的美观程度**的语法.
 
 ### 优化布局
 
@@ -208,6 +249,16 @@ TODO
 ### Node Port
 
 TODO
+
+### Concentrators (边线合并)
+
+在根图中设置`concentrate=true`将允许边线融合来避免图变得一团乱麻.
+
+边线合并的条件是:
+
+- 他们的方向相同
+- 他们有相同的起点或终点
+- 他们的长度大于1
 
 ## 相关工具
 
