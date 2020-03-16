@@ -2,7 +2,7 @@
 title: Python中的小技巧
 date: 2019-07-03 22:23:43
 categories:
-- [Python]
+- [语言, Python]
 - [技巧]
 ---
 

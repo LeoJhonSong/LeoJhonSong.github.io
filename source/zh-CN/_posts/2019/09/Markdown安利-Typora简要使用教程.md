@@ -1,7 +1,8 @@
 ---
 title: Markdown安利&Typora简要使用教程
 date: 2019-09-23 14:45:31
-categories: 杂记
+categories:
+- [语言, Markdown]
 ---
 
 在此我来安利一下**Markdown**和**Typora**.

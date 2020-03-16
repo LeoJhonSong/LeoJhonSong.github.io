@@ -1,7 +1,8 @@
 ---
 title: MATLAB杂记
 date: 2019-08-05 22:25:20
-categories: MATLAB
+categories:
+- [语言, MATLAB]
 ---
 
 再开学的课程就要用MATLAB了, 而且了解很多机械系唯一要求学的编程语言就是MATLAB, 我
@@ -12,10 +13,9 @@ categories: MATLAB
 首先, [MATLAB到底是不是编程语言?](https://www.zhihu.com/question/37824202/answer/767114071)
 
 从**TIOBE**上有MATLAB而且MATLAB排名还不低可以看出MATLAB确实是一门编程语言, 但从
-上面链接可以看出MATLAB算是残疾的编程语言, 很多特性没有, 更多的是用来验证算法可行
-性.但我又想验证算法可行性为啥不用Python什么的? 然后我发现原本用Octave教深度学习
-的吴恩达现在用该用Python了 😁 而且因为商业使用MATLAB很贵, 速度也慢, 因此公司里基
-本没有用MATLAB的
+上面链接可以看出MATLAB算是**残疾**的编程语言, 很多特性没有, 更多的是**用来验证算法可行性**.但我又想验证算法可行性为啥不用Python什么的, 语法也不麻烦呀? 然后我发现原本用**Octave**教深度学习的吴恩达现在改用**Python**了 😁
+
+💡 (这条是后来补的) 但其实随着使用我发现在**矩阵计算方面**MATLAB的语法还是比python简单很多.
 
 因此我觉得MATLAB的优势主要就在:
 
@@ -24,22 +24,18 @@ categories: MATLAB
 - 能和多种语言交互, 编写界面简单
 - 很多工具都有图形界面, 操作简单, 按按键就可以, 不用写那么多代码.
 
-因此虽然缺点多多, MATLAB还是很值得一学的
+总而言之, 虽然缺点多多, MATLAB还是很值得一学的
 
 # MATLAB软件个性化设置
 
 ## 设置初始工作文件夹
 
-使用HOME目录作为起始工作文件夹我觉得不是什么好事, 所以最好自己指定一个合适的目录. 我使用的是MATLAB默认的`userpath`, 即**Documents/MATLAB**文件夹. 一方面这个文件夹看着比较合理一方面MATLAB说[使用userpath作为初始工作文件夹有一定好处](https://ww2.mathworks.cn/help/matlab/matlab_env/matlab-startup-folder.html#bujzf43)
+使用HOME目录作为起始工作文件夹我觉得不是什么好事, 所以最好自己指定一个合适的目录. 我使用的是MATLAB默认的`userpath`, 即**Documents/MATLAB**文件夹. 一方面这个文件夹看着比较合理, 一方面MATLAB说[使用userpath作为初始工作文件夹有一定好处](https://ww2.mathworks.cn/help/matlab/matlab_env/matlab-startup-folder.html#bujzf43).
 
-Linux下设置MATLAB的初始工作文件夹方法和在Windows下改快捷方式的起始位置这种方法不一样, 要
-达到这个目的有两种方式:
+Linux下设置MATLAB的初始工作文件夹方法和在Windows下改快捷方式的起始位置这种方法不一样, 要达到这个目的有两种方式:
 
-1. 在终端输入 `matlab -useStartupFolderPref` 打开MATLAB, -useStartupFolderPref选
-   项指定初始工作文件夹为在**Preference**中**Initial working folder option**的指
-   定文件夹.
-2. 在终端输入 `matlab -sd [folder]` 打开MATLAB, -sd选项指定初始工作文件夹为
-   [folder]文件夹.
+1. 在终端输入 `matlab -useStartupFolderPref` 打开MATLAB. -useStartupFolderPref选项指定初始工作文件夹为在**Preference**中**Initial working folder option**的指定文件夹.
+2. 在终端输入 `matlab -sd [folder]` 打开MATLAB. -sd选项指定初始工作文件夹为[folder]文件夹.
 
 ## 更改编辑界面颜色主题
 
@@ -49,16 +45,9 @@ Linux下设置MATLAB的初始工作文件夹方法和在Windows下改快捷方�
 
 ![界面](MATLAB杂记/appearance.png)
 
-- 颜色主题是通过[MATLAB Schemer](https://github.com/scottclowe/matlab-schemer)里
-  的脚本更换的, 一键更换好评👍 因为我比较喜欢糖果色的颜色主题然后又不喜欢注释是
-  灰色 (不管在黑色背景还是白色背景里辨析度都很低), 于是选择的主题是[Dark
-  Steel](https://github.com/scottclowe/matlab-schemer/tree/master/schemes#dark-steel)
-- 字体用的是[DejaVu Sans Mono for
-  Powerline](https://github.com/powerline/fonts/tree/master/DejaVuSansMono), 大
-  小是11, 不过不知道为什么MATLAB显示无效果的字体看着很粗糙, 边缘锯齿状过于明显,
-  效果设置为了 **bold**, 这回好多了!
-- 布局改成了和我常用的vim, VSC差不多的布局: 资源管理器在左上, 细节信息在左下, 编
-  辑窗口在右
+- 颜色主题是通过[MATLAB Schemer](https://github.com/scottclowe/matlab-schemer)里的脚本更换的, 一键更换好评👍 因为我比较喜欢糖果色的颜色主题然后又不喜欢注释是灰色 (不管在黑色背景还是白色背景里辨析度都很低), 于是选择的主题是[Dark Steel](https://github.com/scottclowe/matlab-schemer/tree/master/schemes#dark-steel).
+- 字体用的是[DejaVu Sans Mono for Powerline](https://github.com/powerline/fonts/tree/master/DejaVuSansMono), 大小是11, 不过不知道为什么MATLAB显示不带效果的字体看着很粗糙, **边缘锯齿状过于明显**, 效果设置为了 **bold**, 这回好多了!
+- 布局改成了和我常用的vim, VSC差不多的布局: 资源管理器在左上, 细节信息在左下, 编辑窗口在右
 
 # MATLAB语法和工具
 
@@ -94,4 +83,4 @@ matlab -batch [MATLAB_command]
 速可视化变量, 工具集成度非常高, 适合迅速验证各种算法, 二是社区非常完善, 提供了很
 多工具能轻松仿真很多模型.
 
-因此只在终端的MATLAB是没有灵魂的MATLAB. **如果终端里的MATLAB就能解决你的需求的话为什么不用Python?**
+因此只在终端的MATLAB是没有灵魂的MATLAB. **如果终端里的MATLAB就能解决你的需求的话为什么不用Python?** 🤤

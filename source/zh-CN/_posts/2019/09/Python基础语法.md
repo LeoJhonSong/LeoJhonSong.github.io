@@ -1,7 +1,8 @@
 ---
 title: Python基础语法
 date: 2019-09-12 03:50:22
-categories: Python
+categories:
+- [语言, Python]
 ---
 
 前阵子带学弟学妹们入门Python时自己整理的一些觉得初学者需要知道的Python知识. 我本

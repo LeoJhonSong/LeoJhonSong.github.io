@@ -1,7 +1,10 @@
 ---
 title: Linux终端呈现彩色输出
 date: 2019-09-12 02:35:48
-categories: Linux
+categories:
+- Linux
+- 技巧
+- 调试
 ---
 
 最近写的程序会在终端给出大量输出, 如果都是黑底白字那这一大堆字刷刷刷往上冒一会就
