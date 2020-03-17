@@ -163,6 +163,7 @@ menu:
   #tags: /tags/ || tags
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
+  friendlinks: /friendlinks/ || thumbs-up
   about: /about/ || user
   #commonweal: /404/ || heartbeat
   #sitemap: /sitemap.xml || sitemap
