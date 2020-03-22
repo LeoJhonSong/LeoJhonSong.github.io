@@ -1,6 +1,7 @@
 ---
 title: 记一次在Win10下安装SOFA仿真软件并加装SoftRobots插件的经历
 date: 2018-12-30 04:53:10
+updated: 2019-10-06 07:05:01
 categories:
 - [工具]
 - [配置]

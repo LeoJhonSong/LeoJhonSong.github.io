@@ -1,6 +1,7 @@
 ---
 title: Linux终端呈现彩色输出
 date: 2019-09-12 02:35:48
+updated: 2020-03-20 23:51:31
 categories:
 - [Linux]
 - [技巧]

@@ -13,4 +13,6 @@
         "**/node_modules/**",
         "**/python/**"
     ],
+    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
 }

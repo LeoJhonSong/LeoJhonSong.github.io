@@ -1,6 +1,7 @@
 ---
 title: 我将shell换为了zsh
 date: 2019-09-02 09:22:25
+updated: 2019-10-03 02:38:29
 categories:
 - [Linux]
 - [配置]
