@@ -1,6 +1,7 @@
 ---
 title: Python中的小技巧
 date: 2019-07-03 22:23:43
+updated: 2020-03-17 00:14:59
 categories:
 - [语言, Python]
 - [技巧]

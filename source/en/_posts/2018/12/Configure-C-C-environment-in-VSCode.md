@@ -1,6 +1,7 @@
 ---
 title: Configure C/C++ environment in VSCode
 date: 2018-12-30 02:43:32
+updated: 2019-10-07 06:13:56
 categories: Tools
 ---
 

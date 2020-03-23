@@ -1,6 +1,7 @@
 ---
 title: 关于Linux下开发单片机的猜测
 date: 2019-03-28 10:30:54
+updated: 2019-10-18 18:11:22
 categories:
 - [Linux]
 - [嵌入式]
