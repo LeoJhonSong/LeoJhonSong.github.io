@@ -74,31 +74,6 @@ svg.icon {
     width: 100%;
   }
 //------------------------------------------------------------------------------
-// highlight when hover on link
-//------------------------------------------------------------------------------
-.menu-item-active a, .menu .menu-item a:hover, .menu .menu-item span.exturl:hover {
-    color: black;
-}
-.post-body p a{
-    color: #0593d3;
-    border-bottom: none;
-    border-bottom: 1px solid #0593d3;
-    &:hover {
-      color: #fc6423;
-      border-bottom: none;
-      border-bottom: 1px solid #fc6423;
-    }
-}
-.posts-expand .post-title-link {
-    color: gray;
-    &:hover {
-      color: wheat;
-    }
-    &::before {
-      background-color: white;
-    }
-}
-//------------------------------------------------------------------------------
 // shadow
 //------------------------------------------------------------------------------
 .header-inner {
@@ -115,16 +90,27 @@ article {
     // -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
     box-shadow: 0 0 6px 7px black;
 }
+.post-block.page {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 0px;
+    // -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    // -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    box-shadow: 0 0 6px 7px black;
+}
 //------------------------------------------------------------------------------
 //better organized post-block
 //------------------------------------------------------------------------------
-.post-block.home{
+.post-block.home {
     padding: 15px;
 }
-.post-block.post{
+.post-block.post {
     padding: 5px;
 }
-.post-eof{
+.post-block.page {
+    padding: 5px;
+}
+.post-eof {
     display: none;
 }
 //------------------------------------------------------------------------------
@@ -136,7 +122,7 @@ img {
 //------------------------------------------------------------------------------
 //better response for mobile devices
 //------------------------------------------------------------------------------
-@media (max-width: 425px){
+@media (max-width: 425px) {
     .site-title {
         font-size: 6vw;
     }
@@ -144,7 +130,7 @@ img {
         padding: 10px !important;
     }
 }
-@media (max-width: 767px){
+@media (max-width: 767px) {
     .posts-expand {
         margin: 0 0px;
     }
@@ -186,11 +172,24 @@ td:hover {
 }
 a {
   color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
   &:hover {
     color: #fc6423;
+    border-bottom: none;
+    border-bottom: 1px solid #fc6423;
   }
 }
 .menu .menu-item a {
   color: lightgray;
   font-weight: bold
+}
+.posts-expand .post-title-link {
+    color: #cccccc;
+    &:hover {
+      color: white;
+    }
+    &::before {
+      background-color: white;
+    }
 }
