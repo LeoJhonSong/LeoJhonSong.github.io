@@ -247,9 +247,30 @@ digraph G {
 
 ![image-20200313010749024](Graphviz简要语法/image-20200313010749024.png?80)
 
-### Node Port
+### Node Port (节点端口)
 
-TODO
+Graphviz提供了节点端口来指定边线应连接到节点的什么位置. 这提供了更高的个性化. 当没有被指定节点端口时边线是指向节点中心并在节点边界处被截断的.
+
+一共有两种节点端口:
+
+- 基于方位的8个端口: n,ne, e, se, s, sw, w, nw
+- 由`shape=record`的节点的record structure提供的端口. 这是借助了有表格的HTML-like label的每个\<td\>元素都有PORT属性的特点.
+
+```DOT
+digraph G {
+    node [shape = box]
+    node0:n -> node1:n [label = "n"]
+    node2:ne -> node3:ne [label = "ne"]
+    node4:e -> node5:e [label = "e"]
+    node6:se -> node7:se [label = "se"]
+    node8:s -> node9:s [label = "s"]
+    node10:sw -> node11:sw [label = "sw"]
+    node12:w -> node13:w [label = "w"]
+    node14:nw -> node15:nw [label = "nw"]
+}
+```
+
+![](Graphviz简要语法/node_port.svg)
 
 ### Concentrators (边线合并)
 
@@ -265,8 +286,10 @@ TODO
 
 ### VSC的dot语言支持插件
 
-TODO
+我最喜欢的画graphviz图的工具是VSC里的[Graphviz(dot)语言支持插件](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz), 是的它**只支持dot布局**, 不过无伤大雅, 我基本只画dot布局的图. VSC里也有提供直接在markdown文档中渲染graphviz的dot布局图的插件, 不过我觉得这样的兼容性太低, 没有这个插件的人只会看到一串代码, 因此我选择的是一个能提供**DOT语法高亮**, 能提供**自动刷新**的预览图, **能生成svg图**的插件. 只要把这个svg插入markdown就能在文档看到graphviz图了, 而每次更改图片后只需要覆盖原本的svg即可更新md文档中的图, 也很方便的👍
 
 ### 在线编辑器
 
-手绘风 [sketchviz](https://sketchviz.com/new)
+也有很多在线网站提供在线绘制graphviz图的服务, 上网一搜就有, 不过我感觉做得都半斤八两, 体验不算好, 我认为只能拿来救急用, 因此也不给出推荐了.
+
+不过比较有意思的是这个[sketchviz](https://sketchviz.com/new), 绘制出的是**手绘风**的图.
