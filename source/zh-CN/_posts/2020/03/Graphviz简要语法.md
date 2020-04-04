@@ -1,7 +1,7 @@
 ---
 title: Graphviz简要语法
 date: 2020-03-12 03:46:33
-updated: 2020-03-17 00:14:00
+updated: 2020-04-04 14:59:20
 categories:
 - [语言, Graphviz]
 ---
@@ -58,6 +58,7 @@ digraph G{
 | 边线风格          | `splines`               | none, line, polyline, curved, ortho, spline                  | 图                 | 不显示边线/线段 (false)/线段 (true)/弧线/直角折线/常规. 到底什么样详见[splines说明](https://emden.github.io/_pages/doc/info/attrs.html#d:splines) emmmm我感觉**polyline**和**spline**并没有区别...再次吐槽graphviz开发组的混乱逻辑 😩 |
 | label水平对齐方式 | `labeljust`             | "l", "r"                                                     | 图, 簇             | "l"就是和图/簇的左边界对齐, "r"就是和图/簇的右边界对齐. 如果父级显性设置了这一属性, 子图会继承这一属性. :exclamation: 实际上还有一个可选值, 就是不设置这个属性, 那么label就会居中对齐. |
 | label垂直对齐方式 | `labelloc`              | "t", "b", "c"                                                | 节点, 图, 簇       | 对于图和簇只有"t"和"b"是可用的, 即标签只能设置在图/簇的顶部或者底部. 如果父级显性设置了这一属性, 子图会继承这一属性. 而对于一个节点, 只有当它的高度大于label这个属性才是可用的. |
+| 节点排布方向      | rankdir                 | TB, BT, LR, RL                                               | 图                 | 从上到下/从下到上/从左到右/从右到左                          |
 
 ### Layout (布局)
 
@@ -149,7 +150,91 @@ DOT语言主要描述三种对象: **graph**, **node**, **edge**. 这里分别�
 
 #### HTML-like Label
 
-TODO
+为了能提供更丰富的样式, dot布局支持使用HTML语法的HTML-like标签 (看了下似乎其他布局不支持这种东西).
+
+具体可用语法格式参见[graphviz官方文档-HTML-Like Labels](https://emden.github.io/_pages/doc/info/shapes.html#html). 总结下来就是目前支持以下几种类HTML元素:
+
+- 斜体 \<i\>
+- 粗体 \<b\>
+- 下划线 \<u\>
+- 上划线 \<o\>
+- 删除线 \<s\>
+- 下角标 \<sub\>
+- 上角标 \<sup\>
+- 指定字体 \<font\>
+- 换行符 \<br /\>
+- 表格 \<table\> \<tr\> \<td\>
+- 图片 \<img\>
+- 水平/竖直分割线 \<hr\> \<vr\>
+
+❗️ 要注意这种类HTML标签只是**借鉴自HTML**, 和HTML元素并不完全一样, 因此**并不支持html中其他写法和属性**. 再比如HTML中是没有上面这个`<vr>`tag的😅
+
+不得不说类HTML标签确实极大地提升了灵活性, 让我们能写出奇形怪状的节点形状, 能在标签中嵌入图片等, 详情参见[graphviz官方文档-HTML-Like Labels](https://emden.github.io/_pages/doc/info/shapes.html#html). 不过这东西写起来确实麻烦一些...
+
+> 一个展示类HTML标签能带来的丰富样式的例子
+
+```DOT
+digraph G {
+  rankdir=LR
+  node [shape=plaintext]
+  a [
+    label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+        <TR>
+          <TD ROWSPAN="3" BGCOLOR="yellow">class</TD>
+        </TR>
+        <TR>
+          <TD PORT="here" BGCOLOR="lightblue">qualifier</TD>
+        </TR>
+      </TABLE>
+    >
+  ]
+  b [shape=ellipse style=filled
+    label=<
+      <TABLE BGCOLOR="bisque">
+        <TR>
+          <TD COLSPAN="3">elephant</TD>
+          <TD ROWSPAN="2" BGCOLOR="chartreuse" VALIGN="bottom" ALIGN="right">two</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="2" ROWSPAN="2">
+            <TABLE BGCOLOR="grey">
+              <TR> <TD>corn</TD> </TR>
+              <TR> <TD BGCOLOR="yellow">c</TD> </TR>
+              <TR> <TD>f</TD> </TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="white">penguin</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="2" BORDER="4" ALIGN="right" PORT="there">4</TD>
+        </TR>
+      </TABLE>
+    >
+  ]
+  c [
+    label=<long line 1<BR/>line 2<BR ALIGN="LEFT"/>line 3<BR ALIGN="RIGHT"/>>
+  ]
+
+  subgraph { rank=same b c }
+  a:here -> b:there [dir=both arrowtail=diamond]
+  c -> b
+  d [shape=triangle]
+  d -> c [
+    label=<
+      <TABLE>
+        <TR>
+          <TD BGCOLOR="red" WIDTH="10"> </TD>
+          <TD>Edge labels<BR/>also</TD>
+          <TD BGCOLOR="blue" WIDTH="10"> </TD>
+        </TR>
+      </TABLE>
+    >
+  ]
+}
+```
+
+![](Graphviz简要语法/html-like_label.svg?60)
 
 ### 属性
 
@@ -185,6 +270,7 @@ digraph G {
 - labelloc="b" (簇的默认值为"t")
 - clusterrank="local"
 - compound=false
+- rankdir=TB
 
 **节点**的默认属性是:
 
@@ -208,7 +294,7 @@ digraph G {
 
 > 一个使用簇, 并且有连接节点与簇的边线的例子
 
-```graphviz
+```DOT
 digraph G {
     compound=true;
     subgraph cluster0 {
@@ -237,11 +323,11 @@ digraph G {
 
 ### 优化布局
 
-<!-- TODO: 关于ratio, rankdir -->
+知道了上面提到的[布局的原理](#Layout-布局)我们就可以进行一些更个性化的布局, 比如设置`rankdir`可以设置节点的排布方向, 默认为**TB**, top to bottom, 也就是从上到下. 可选值有**TB**, **BT**, **LR**, **RL**.
 
-知道了上面提到的[布局的原理](#Layout-布局)我们就可以进行一些更个性化的布局, 比如设置节点的`rank`属性我们可以改变节点的布局. `rank`的可选值有: **same**, **min**, **source**, **max**, **sink**.
+再比如设置节点的`rank`属性我们可以改变节点的布局. `rank`的可选值有: **same**, **min**, **source**, **max**, **sink**.
 
-> 一个展示设置rank属性能达到什么效果的例子 (代码和图形都截自旧版文档, 因为代码没给全我也懒得写就这么放着吧👍)
+> 一个展示设置rank属性能达到什么效果的例子 (代码和图形都截自旧版文档, 因为代码没给全我也懒得写, 就这么放着吧👍)
 
 ![image-20200313010630547](Graphviz简要语法/image-20200313010630547.png?60)
 
@@ -254,7 +340,7 @@ Graphviz提供了节点端口来指定边线应连接到节点的什么位置. �
 一共有两种节点端口:
 
 - 基于方位的8个端口: n,ne, e, se, s, sw, w, nw
-- 由`shape=record`的节点的record structure提供的端口. 这是借助了有表格的HTML-like label的每个\<td\>元素都有PORT属性的特点.
+- 基`record`结构的端口: `shape=record`的节点可以以记录结构来定义端口. 而因为有\<TABLE\>元素的[HTML-like标签](#html-like-label)与可以作为`shape=record`的扩展甚至替代品, 每个\<TD\>元素的**PORT**属性也都提供了一个到该单元格的端口名.
 
 ```DOT
 digraph G {
@@ -286,10 +372,14 @@ digraph G {
 
 ### VSC的dot语言支持插件
 
-我最喜欢的画graphviz图的工具是VSC里的[Graphviz(dot)语言支持插件](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz), 是的它**只支持dot布局**, 不过无伤大雅, 我基本只画dot布局的图. VSC里也有提供直接在markdown文档中渲染graphviz的dot布局图的插件, 不过我觉得这样的兼容性太低, 没有这个插件的人只会看到一串代码, 因此我选择的是一个能提供**DOT语法高亮**, 能提供**自动刷新**的预览图, **能生成svg图**的插件. 只要把这个svg插入markdown就能在文档看到graphviz图了, 而每次更改图片后只需要覆盖原本的svg即可更新md文档中的图, 也很方便的👍
+我最喜欢的画graphviz图的工具是VSC里的[Graphviz(dot)语言支持插件](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz), 是的它**只支持dot布局**. 虽然也可以用graph来声明顶层图, 但绘制出来的仍然是有向图🤦‍♂ 不过无伤大雅, 我基本只画dot布局的图.
+
+VSC里也有提供直接在markdown文档中渲染graphviz的dot布局图的插件, 不过我觉得这样的兼容性太低, 没有这个插件的人只会看到一串代码, 因此我选择的是一个能提供**DOT语法高亮**, 能提供**自动刷新**的预览图, **能生成svg图**的插件. 只要把这个svg插入markdown就能在文档看到graphviz图了, 而每次更改图片后只需要覆盖原本的svg即可更新md文档中的图, 也很方便的👍
 
 ### 在线编辑器
 
 也有很多在线网站提供在线绘制graphviz图的服务, 上网一搜就有, 不过我感觉做得都半斤八两, 体验不算好, 我认为只能拿来救急用, 因此也不给出推荐了.
+
+💡 实际上有些工具绘制出的图都有细微风格差异, 你可以挨个体验出一个最喜欢的风格的工具.
 
 不过比较有意思的是这个[sketchviz](https://sketchviz.com/new), 绘制出的是**手绘风**的图.
