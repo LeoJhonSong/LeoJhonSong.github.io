@@ -160,12 +160,13 @@ baidu_push: false
 menu:
   home: / || home
   categories: /categories/ || th
-  #tags: /tags/ || tags
   archives: /archives/ || archive
-  #schedule: /schedule/ || calendar
-  friendlinks: /friendlinks/ || thumbs-up
+  talks: /talks/ || comments
   my favorite books: /my-favorite-books/ || book
+  friendlinks: /friendlinks/ || thumbs-up
   about: /about/ || user
+  #tags: /tags/ || tags
+  #schedule: /schedule/ || calendar
   #commonweal: /404/ || heartbeat
   #sitemap: /sitemap.xml || sitemap
 
