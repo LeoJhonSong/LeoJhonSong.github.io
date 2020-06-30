@@ -138,13 +138,26 @@ git clone [url]
 
 一个社区活跃的项目通常会有许多分支, 其中会有很多是你不需要关注的, 别人正在开发feature或者修bug等的分支, 可以通过只克隆指定分支来减少不必要的下载时间.
 
-❗️ 这样的坏处是看不到其他分支.
+❗️ 这样的坏处是在本地看不到其他分支.
 
 ```shell
 git clone -b <branch> --single-branch <url>
 ```
 
-❗️ 如果不带`--single-branch`这个参数那效果仅仅是在完成克隆后切换到你指定的这个分支, 克隆的仍是完整的, 有多个分支的仓库 (如果你的仓库有多个分支的话)
+❗️ 如果不带`--single-branch`这个参数那效果仅仅是在完成克隆后切换到你指定的这个分支, 克隆的仍是**完整的, 有多个分支的仓库** (如果你的仓库有多个分支的话)
+
+当你想要从远程端再弄下来一个分支`B`, 但仍不想要其他分支:
+```shell
+git remote set-branches --add origin B
+git fetch
+git checkout B
+```
+
+当你强迫症犯了想要把所有分支都下下来时:
+```shell
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+git fetch
+```
 
 ###### 浅克隆
 
@@ -161,9 +174,9 @@ git clone -b master --single-branch --depth 1 https://github.com/LeoJhonSong/vim
 
 当你发现你克隆的提交次数少了, 你需要看更往前的提交但仍不想把所有提交都克隆下来的时候, 你可以:
 1. 再往前多下几个提交 `git fetch --deepen=<depth>`
-2. 把直到一个日期的提交都下下来 `git fetch --shallow-since=15/11/2012`
+2. 把直到一个指定日期的提交都下下来 `git fetch --shallow-since=15/11/2012`
 
-而当你有时间了又想要将这个浅克隆转为一个完整深度的克隆时, 输入:
+而当你又犯强迫症了😏想要将这个浅克隆转为一个完整深度的克隆时, 输入:
 ```shell
 git fetch --unshallow
 ```
