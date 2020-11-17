@@ -24,11 +24,11 @@ P.S. 我觉得网课的好处是有老师的讲解十分易懂, 同时通过倍�
 
 相较于国内老师从行列式入手, 这门课**从几何空间的角度更加直观揭示线代的内核**.
 
-🔗[b站链接](https://www.bilibili.com/video/av15463995) 🔗[网易公开课链接](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html)
+🔗[b站链接](https://www.bilibili.com/video/BV1zx411g7gq) 🔗[网易公开课链接](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html)
 
 ### MIT-概率论
 
-🔗[b站链接](https://www.bilibili.com/video/av6182731)
+🔗[b站链接](https://www.bilibili.com/video/BV19s41167TE)
 
 ### 张宇考研-数学 (微积分, 线性代数, 概率论)
 
@@ -48,13 +48,13 @@ P.S. 我觉得网课的好处是有老师的讲解十分易懂, 同时通过倍�
 
 **奥本海姆亲授版!** 相信国内大部分学信号与系统这门课的同学的课本都是奥本海姆编写的. 虽然这个是二十多年前录制的课程了, 演示时使用的是很古老的覆盖片和只有绿色荧光的电脑屏幕, 但是奥本海姆教授讲解得十分清晰, 处理信号的核心思想贯穿始终, 让人学得十分系统性.
 
-🔗[b站链接](https://www.bilibili.com/video/av316379371) 🔗[网易公开课链接](http://open.163.com/newview/movie/free?pid=M8AROL7GG&mid=M8AROOU9F)
+🔗[b站链接](https://www.bilibili.com/video/BV1xy4y167DD) 🔗[网易公开课链接](http://open.163.com/newview/movie/free?pid=M8AROL7GG&mid=M8AROOU9F)
 
 ### MIT-数字信号处理
 
 认准奥本海姆教授 👍
 
-🔗[b站链接](https://www.bilibili.com/video/BV1uk4y1R771/)
+🔗[b站链接](https://www.bilibili.com/video/BV1uk4y1R771)
 
 ## 计算机
 
@@ -62,15 +62,15 @@ P.S. 我觉得网课的好处是有老师的讲解十分易懂, 同时通过倍�
 
 这门课主要针对**从未接触过计算机科学或编程的人**. 基于**python**讲解了基础的程序编写, 调试, 算法, 数据结构, 面向对象等内容, 比起知识的深度更注重知识的广度 (内容较为简单).
 
-🔗[b站链接](https://www.bilibili.com/video/av63878167) 
+🔗[b站链接](https://www.bilibili.com/video/BV1m4411U7gs) 
 🔗[网易公开课链接](http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fbianchengdaolun.html)
 
 ### 翁恺-C语言程序设计
 
 C语言入门课.
 
-🔗[b站链接](https://www.bilibili.com/video/av15267247) 🔗[中国大学MOOC链接](https://www.icourse163.org/course/ZJU-9001)
+🔗[b站链接](https://www.bilibili.com/video/BV1sJ411E7St) 🔗[中国大学MOOC链接](https://www.icourse163.org/course/ZJU-9001)
 
 ### 清华-数据结构与算法
 
-🔗[b站链接](https://www.bilibili.com/video/av49361421/)
+🔗[b站链接](https://www.bilibili.com/video/BV1jt4y117KR)
