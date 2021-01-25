@@ -2,7 +2,8 @@
 title: vim使用杂记
 date: 2019-07-10 15:58:14
 updated: 2021-01-18 15:22:45
-categories: vim
+categories:
+- [编辑器, vim]
 ---
 
 使用vim开发也有半年多啦, 不过配置vim也是个漫长的过程. 记录一下常用快捷键和用法和配置过程.

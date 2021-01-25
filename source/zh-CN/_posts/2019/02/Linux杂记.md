@@ -1,9 +1,10 @@
 ---
 title: Linux杂记
 date: 2019-02-27 23:23:09
-updated: 2019-09-14 03:02:24
+updated: 2021-01-25 11:50:37
 categories:
-  - [Linux]
+  - [操作系统, Linux]
+  - [杂记]
 ---
 
 最近使用Linux频繁了起来, 接触到更多各种各样的命令, 然后我脑容量不够了:grin:
@@ -421,26 +422,26 @@ export PATH=$PATH:[path/to/append]
 |作用于哪些shell|Bourne系shell|仅Bash|Bourne系shell|仅Bash|
 |加载顺序|先|先|后|后|
 
-:link:关于何时哪个文件会被加载也可以参考[这里](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_02.html)
+🔗 实际上在Linux系统中有非常多配置文件可以用来设置环境变量, 可以看看[Linux的环境变量怎么设](https://blog.lilydjwg.me/2020/7/22/linux-environment-variables.215496.html)
 
-:warning: 在有些系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
+⚠️ 在有些系统中不是`/etc/bash.bashrc`, 而是`/etc/bashrc`
 
-:warning: `/etc/profile`仅针对Bourne系shell是指当shell为Bourne Shell, Bash, ksh
+⚠️ `/etc/profile`仅针对Bourne系shell是指当shell为Bourne Shell, Bash, ksh
 等的时候`/etc/profile`才可能被加载, 而当我唤起一个**zsh**时, **以上四个初始化文件都没有被加载**
 :man_shrugging:
 
-:warning: 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 系统会
+⚠️ 在用户目录可能还存在`~/.bash_profile`, `~/.bash_login`这两文件, 系统会
 依次查找`~/.bash_profile`, `~/.bash_login` 和 `~/.profile`这三个配置文件, 读取和执行
 这三个中的**第一个**存在且可读的文件中命令, 因此建议将三个合并为一个.
 
-:warning: 当**bashrc**一系和**profile**一系都会被加载时两者哪个会先被加载并不
+⚠️ 当**bashrc**一系和**profile**一系都会被加载时两者哪个会先被加载并不
 一定, 有点玄学... 经我测试运行`bash -cl bash` **profile**一系会先被加载, 而运行
 `bash -l`则**bashrc**一系会先被加载:man_facepalming: 但很明确的一点是:
 系统级初始化文件一定会先与用户级文件被加载. 即便根据应当允许用户个性化设置这种尝试也能
 推断出 (用户级初始化文件后于系统级初始化文件被加载, 所以用户级文件中的配置会覆盖系统级
 文件的对应配置)
 
-:heavy_check_mark:有关四种shell模式个人感觉坑挺多的:
+✔️ 有关四种shell模式个人感觉坑挺多的:
 
 - **login shell**: 笼统地理解就是有**输入用户名和密码**这一过程才能进入的shell, 比如
   **通过ssh访问远程服务器**, 否则
@@ -454,7 +455,7 @@ export PATH=$PATH:[path/to/append]
   第一个字符是-, 因此如果你输入`echo $0`输出的是**-bash**, 那么你就是在login shell中,
   如果是**bash**, 那就是在non-login shell中.
 
-:star2:有了以上的知识储备我们就知道需要将环境变量添加到什么文件里了.
+🌟 有了以上的知识储备我们就知道需要将环境变量添加到什么文件里了.
 
 ## 删除一个环境变量
 

@@ -3,8 +3,9 @@ title: Git杂记
 date: 2019-02-27 23:12:27
 updated: 2020-07-01 01:51:59
 categories:
-- [版本控制]
+- [CI/CD, 版本控制]
 - [语言, Git]
+- [杂记]
 ---
 
 先有git, 许久后才有了GitHub等代码托管平台. git是一个软件而GitHub是一个网站. 他们的关系是你可以通过git将你的代码托管给GitHub (就是把你的代码存到GitHub的服务器上). 不过随着发展, 这些代码托管平台现在提供极为丰富的服务, 我认为其中生态做得最好的还得是github. 从github自带的github pages, github action到应用市场的各种应用, 应有尽有.

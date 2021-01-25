@@ -3,7 +3,7 @@ title: 更好的shebang使用方式
 date: 2019-09-13 00:57:25
 updated: 2019-09-13 17:12:17
 categories:
-- [Linux]
+- [操作系统, Linux]
 - [技巧]
 ---
 

@@ -4,6 +4,7 @@ date: 2019-05-21 23:15:54
 updated: 2020-03-17 00:14:59
 categories:
   - [语言, Verilog]
+  - [杂记]
 ---
 
 Verilog学习笔记.
