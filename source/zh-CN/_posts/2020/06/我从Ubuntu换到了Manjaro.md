@@ -3,8 +3,8 @@ title: 我从Ubuntu换到了Manjaro
 date: 2020-07-26 10:26:37
 updated: 2020-07-26 10:26:37
 categories:
-- [系统, Linux]
-- [配置]
+- [操作系统, Linux]
+- [软件]
 ---
 
 前几天闲来无事下了一个听说了很久的Manjaro (KDE版), 在Live CD体验了一会果断装了实体机. 体验比Ubuntu好太多了!
