@@ -42,5 +42,3 @@ This extension help you to do word-wrap very smartly by simply press
 ## [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji)
 
 ## [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
-
-<!-- TODO -->

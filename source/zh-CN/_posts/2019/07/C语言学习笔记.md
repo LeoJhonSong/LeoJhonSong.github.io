@@ -107,12 +107,12 @@ Segment). 和其他段一样, 堆栈段也有自己的大小, 不能被越界访
 
 # 数组
 
-较大的数组时应在main函数之外声明.
+较大的数组应在main函数之外声明.
 
-`memset(a, 0, sizeof(a))`能方便地把数组a清零,它在**string.h**中定义.
+`memset(a, 0, sizeof(a))`能方便地把数组a清零,这个函数在**string.h**里.
 
-用strcpy(a, b), strcmp(a, b), strcat(a, b)来执行“赋值”、“比较”和“连接”操作, 在
-**string.h**中定义
+用`strcpy(a, b)`, `strcmp(a, b)`, `strcat(a, b)`来执行“赋值”、“比较”和“连接”操作, 这三个函数也在
+**string.h**中
 
 ## 字符串
 

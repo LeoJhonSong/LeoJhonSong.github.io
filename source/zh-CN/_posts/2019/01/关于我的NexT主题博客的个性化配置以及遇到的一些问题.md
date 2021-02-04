@@ -14,7 +14,7 @@ categories:
 
 <!-- More -->
 
-<!-- TODO -->
+<span style="color:red">**更多配置请见英文页面**</span>
 
 ## 遇到的问题
 
