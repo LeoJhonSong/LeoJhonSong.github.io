@@ -4,7 +4,7 @@ date: 2019-01-07 01:05:18
 updated: 2019-10-06 06:04:01
 categories:
 - [Web]
-- [软件配置]
+- [工具, 软件配置]
 ---
 
 <div align='right'>Language:

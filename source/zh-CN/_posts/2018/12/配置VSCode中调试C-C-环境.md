@@ -4,7 +4,7 @@ date: 2018-12-30 02:43:35
 updated: 2019-10-07 06:13:56
 categories:
 - [工具, VSC]
-- [软件配置]
+- [工具, 软件配置]
 ---
 
 <div align='right'>Language:
