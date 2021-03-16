@@ -290,7 +290,6 @@ def func3(x, y):
 示例:
 
 ``` python
-
 def print1():
     print('111')
 
@@ -299,18 +298,18 @@ def print2():
     print('222')
 
 
-def printdefault():
+def printDefault():
     print('default')
 
 
-dic = {
-    'a': print1,
-    'b': print2,
-	'default': printdefault}
+switch = {
+    1: print1,
+    2: print2,
+    'default': printDefault
+}
 
-i = input('input: ')
-main = dic[i if (i != 'a' or i != 'b') else 'default']
-main()
+case = int(input('input: '))
+switch[case if (case in range(1, 3)) else 'default']()
 ```
 
 ### 编码格式
