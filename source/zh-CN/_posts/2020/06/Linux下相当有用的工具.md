@@ -41,6 +41,8 @@ yay -S fcitx-im fcitx-configtool
 yay -S fcitx-sogoupinyin
 ```
 
+---
+
 安装完输入法框架和中文输入法后还需要在配置文件中设置几个环境变量. 有很多配置文件会在用户登录过程中被加载, 我是在`~/.pam_environment`中写了这样几行:
 
 ```shell
@@ -96,11 +98,24 @@ yay -S screenkey
 
 ### 显卡驱动
 
-这里又不得不点名表扬一下Manjaro, 在装机时勾选了安装**Proprietary Driver** (非自由驱动)的话会自动装好N卡驱动! 比如我的笔记本有一个UHD Graphics (集显) 和一个RTX2070 (独显), 安装好系统后已经自动安装了采用最新的intel集显与Nvidia独显共存的[Prime方案](https://wiki.archlinux.org/index.php/PRIME_(简体中文))的混合驱动**video-hybrid-intel-nvidia-prime** 🎉
+这里又不得不点名表扬一下Manjaro, 在装机时勾选了安装**Proprietary Driver** (非自由驱动)的话会自动装好N卡驱动! 比如我的笔记本有一个UHD Graphics (集显) 和一个RTX2070 (独显), 安装好系统后已经自动安装了采用最新的intel集显与Nvidia独显共存的[Prime方案](https://wiki.archlinux.org/index.php/PRIME)的混合驱动**video-hybrid-intel-nvidia-prime** 🎉
 
-再加上[optimus-manager](https://github.com/Askannz/optimus-manager)
+我也没有细看Prime方案和Bumblebee方案的具体差异, 看起来大概意思就是BUmblebee是软件实现, 有一定性能损失, 而Prime方案是更为推荐的新一代方案.
 
-- optimus manager qt
+Prime技术让我们能够同时使用两个显卡: 以intel核显渲染画面, 以独显运行高负荷任务. 但是目前无论Prime方案还是Bumblebee方案都有个缺陷: 同时使用两个显卡时N卡无法输出画面, 即从直连N卡的HDMI接口无法输出画面, 但仅使用N卡的话可以从N卡输出画面. 仅使用N卡从性能方面没什么问题, 但是耗电, 发热会很夸张, 这对日常使用来说很不划算. 因此我们还是需要一个方法让我们能在需要N卡输出画面时能切换到仅N卡模式.
+
+> 至于外接屏幕, 我的解决办法是买一个有雷电接口 (雷电接口是直连CPU的, 其视频输出由intel核显承担) 的电脑, 这样一来在混合模式也能从雷电接口输出视频信号 😅
+
+```shell
+yay -S optimus-manager-qt
+```
+
+💡 optimus-manager的文档说Manjaro KDE用户[需要编辑一个文件](https://github.com/Askannz/optimus-manager#important--manjaro-kde-users), 但我没动似乎使用起来也没什么问题
+
+[optimus-manager](https://github.com/Askannz/optimus-manager)允许我们在**仅intel显卡模式**, **仅N卡模式**, **混合模式**三种模式间切换. 而optimus-manager-qt则为我们提供了一个GUI界面来进行设置, 一个系统托盘小图标来进行快速切换 (和装饰)
+
+除了显卡模式切换这个主要功能, optimus-manager也能用来进行独显的电源管理, 根据自己的情况选择适合的方案. 因为我的笔记本满足 "N卡为Turing架构及以上, intel CPU为CoffeeLake架构及以上" 的条件, 因此用N卡自带的动态电源管理, Runtime D3 Power Management, 省心又省电 👍 不用时我的N卡功耗可以低到**4W**, 整个电脑的功耗最低到过9W (虽然还是被长续航轻薄本吊打)
+
 - xrandr
 - balenaEtcher
 - powertop
@@ -203,9 +218,16 @@ yay -S imagemagick
 yay -S vlc
 ```
 
-vlc是一个很神奇的播放器, 不光支持很多种视频文件格式, 还可以播放网络视频流, 比如RTSP视频流, IPTV网络电视, 还可以播放摄像头视频流... 加上它可以截取视频一帧画面, 也可以录制视频流, 因此可以当Linux上的相机软件用了 🐮🍺
+**vlc是一个很神奇的播放器**.
 
-另外vlc允许很高倍速播放, 截取画面时可以显示视频时间, 是看网课视频一大利器
+它不光支持非常多种视频文件格式, 还可以播放网络视频流, 比如RTSP视频流, IPTV网络电视, 还可以播放摄像头视频流... 加上它有截取视频一帧画面, 录制视频流, 高倍速播放, 在截取的画面上显示当前视频时间等功能, 他可以:
+
+- 当Linux上的相机软件
+- 用来调试usb摄像头/IP摄像头
+- 当网络电视 (顺便放一个非常全的[IPTV频道合集](https://github.com/iptv-org/iptv))
+- 看网课视频利器
+
+🐮🍺
 
 ### 视频编辑器
 
@@ -213,7 +235,7 @@ vlc是一个很神奇的播放器, 不光支持很多种视频文件格式, 还�
 yay -S kdenlive
 ```
 
-**Kdenlive**是一个界面很像Adobe Premiere的软件, 操作起来还是很简单的, (也有Windows版, 而且安装包只有80MB)虽然特效没有Pr那么多, 但是也完全够用了.
+**Kdenlive**是一个界面很像Adobe Premiere的软件, 现在是KDE旗下项目. Kdenlive的语言看起来是继承的系统语言, 支持中文 (汉化得还是比较全面的). Kdenlive操作起来还是很简单的, 零基础随便看一看教程也就会用个大概了. Kdenlive的特效我感觉和Pr差不多多, 我觉得定位和Pr应该是一样也是视频剪辑软件 (Linux平台也有对标Ae的软件, Natron).Kdenlive也有Windows版, 而且安装包只有80MB, 很值得尝试的 👍
 
 ### 制图
 
