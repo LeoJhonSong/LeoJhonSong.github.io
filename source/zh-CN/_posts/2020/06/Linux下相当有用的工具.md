@@ -13,7 +13,7 @@ categories:
 
 <!-- TODO -->
 
-> 首先, 不得不吹一下Manjaro是一个多么贴心的系统. Manjaro自带了一个叫**Manjaro Hello**的入门程序, 点进这个程序的`Applications`入口能看到Manjaro为各常见用途已经提供了一些推荐, 勾选就可以安装. (其中Office套件下的MS Office Online是Manjaro专门为微软Office Online写的本地客户端) 可以说没有更贴心的系统了!
+> 首先, 不得不吹一下Manjaro是一个多么贴心的系统. Manjaro自带了一个叫**Manjaro Hello**的入门程序, 点进这个程序的`Applications`入口能看到Manjaro社区为各常见用途已经提供了一些推荐, 勾选就可以安装. 可以说没有更贴心的系统了!
 >
 > ![](Linux下相当有用的工具/Manjaro_Hello.png?70)
 
@@ -43,7 +43,7 @@ yay -S fcitx-sogoupinyin
 
 ---
 
-安装完输入法框架和中文输入法后还需要在配置文件中设置几个环境变量. 有很多配置文件会在用户登录过程中被加载, 我是在`~/.pam_environment`中写了这样几行:
+安装完输入法框架和中文输入法后还需要在配置文件中设置几个环境变量. 因为有很多配置文件会在用户登录过程中被加载, 所以这里的设置方式其实不唯一. 我是在`~/.pam_environment`中写了这样几行:
 
 ```shell
 GTK_IM_MODULE DEFAULT=fcitx
@@ -51,7 +51,7 @@ QT_IM_MODULE DEFAULT=fcitx
 XMODIFIERS DEFAULT=@im=fcitx
 ```
 
-我目前使用的是fcitx5的方案. 我一个同学体验后觉得搜狗的词库做得更好, 能提供更精确的联想. 这点我倒是没什么感觉, 完全满足我的使用. 但另一方面fcitx5配套的中文输入法的优势非常明显:
+我目前使用的是fcitx5的方案. 我一个同学体验后觉得搜狗的词库做得更好, 能提供更精确的联想. 这点我倒是没什么感觉, fcitx5这个方案完全满足我的使用. 但另一方面fcitx5配套的中文输入法的优势非常明显:
 
 - 有一个Quick Phrase功能, 支持类似snippets一样根据关键词插入设定好的内容的功能. 默认提供了一些颜文字, emoji, LeTaX片段, 也可以自己加
 - 整个方案成体系, 使用体验非常好! fcitx4+搜狗输入法这个方案始终是缝合怪, 很容易有点小问题. 比如我之前用的时候每次从英文输入法切换回搜狗输入法, 我对搜狗输入法的一些设置 (比如使用半角标点符号) 都会恢复默认值
@@ -63,17 +63,19 @@ XMODIFIERS DEFAULT=@im=fcitx
 
 ### 截图
 
-很遗憾我没有找到一个像snipaste那样功能非常齐全的Linux平台截图/贴图软件. 我下了两个软件, 结合着用:
+很遗憾我没有找到一个像snipaste那样功能非常齐全的Linux平台截图/贴图软件. 我下了两个软件, 和我manjaro-kde自带的spectacle结合着用:
 
 ```shell
+yay -S spectacle
 yay -S flameshot
 yay -S deepin-screenshot
 ```
 
-|                   | 优点                                                     | 缺点                                                         |
-| ----------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
-| Flameshot         | 支持像snipaste一样将截图贴在屏幕最上层                   | 1. 在KDE上无法设置截图质量, 只能是原画质, 2. 无法自动贴靠屏幕上的窗口 |
-| Deepin Screenshot | 1. 能将截图区域自动贴靠屏幕上的窗口, 2. 可以调节截图质量 | 因为[一些原因](https://github.com/linuxdeepin/deepin-screenshot/issues/8)KDE版无法将截图存到剪贴板 |
+|                   | 优点                                                         | 缺点                                                         |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Spectacle         | 1.作为KDE官方开发的截图软件, 对多屏幕支持是最好的, 下面两款对多屏幕的支持都完全没法看; 2. 全屏截图, 选定窗口截图, 选定矩形截图, 截图后做一些编辑, 设置存储图片的质量这些功能都是全的 | 1. 不能像下面两款软件一样在后台运行; 2. 没有下面两款那样在截图的时候就能编辑, 选是存到剪贴板还是本地的交互界面, 还是不太方便 |
+| Flameshot         | 支持像snipaste一样将截图贴在屏幕最上层                       | 1. 在KDE上无法设置截图质量, 只能是原画质; 2. 无法自动贴靠屏幕上的窗口 |
+| Deepin Screenshot | 1. 能将截图区域自动贴靠屏幕上的窗口; 2. 可以调节截图质量     | 因为[一些原因](https://github.com/linuxdeepin/deepin-screenshot/issues/8)KDE版无法将截图存到剪贴板 |
 
 ### 录屏
 
@@ -84,7 +86,7 @@ yay -S peek
 
 SimpleScreenRecorder名字里虽然有simple, 但是实际上关于录屏的功能非常全, 有好几屏的设置项, 可以设置帧率, 视频源可以来自屏幕, 摄像头, 也可以设置音频源, 支持录制成`mkv`, `mp4`, `gif`, `mp3`等多种各种格式, 视频编码参数, etc... 可以说功能非常全面了.
 
-而如果只是想随手录一个gif, 那使用**peek**是很好的.
+而如果只是想随手录一个gif, 那使用**peek**还是很好的.
 
 ### 显示按键
 
@@ -100,11 +102,13 @@ yay -S screenkey
 
 这里又不得不点名表扬一下Manjaro, 在装机时勾选了安装**Proprietary Driver** (非自由驱动)的话会自动装好N卡驱动! 比如我的笔记本有一个UHD Graphics (集显) 和一个RTX2070 (独显), 安装好系统后已经自动安装了采用最新的intel集显与Nvidia独显共存的[Prime方案](https://wiki.archlinux.org/index.php/PRIME)的混合驱动**video-hybrid-intel-nvidia-prime** 🎉
 
-我也没有细看Prime方案和Bumblebee方案的具体差异, 看起来大概意思就是BUmblebee是软件实现, 有一定性能损失, 而Prime方案是更为推荐的新一代方案.
+我也没有细看Prime方案和Bumblebee方案的具体差异, 看起来大概意思就是Bumblebee是软件实现, 有一定性能损失, 而Prime方案是更为推荐的新一代方案.
 
-Prime技术让我们能够同时使用两个显卡: 以intel核显渲染画面, 以独显运行高负荷任务. 但是目前无论Prime方案还是Bumblebee方案都有个缺陷: 同时使用两个显卡时N卡无法输出画面, 即从直连N卡的HDMI接口无法输出画面, 但仅使用N卡的话可以从N卡输出画面. 仅使用N卡从性能方面没什么问题, 但是耗电, 发热会很夸张, 这对日常使用来说很不划算. 因此我们还是需要一个方法让我们能在需要N卡输出画面时能切换到仅N卡模式.
+Prime技术让我们能够同时使用两个显卡: 以intel核显渲染画面, 以独显运行高负荷任务. ~~但是目前无论Prime方案还是Bumblebee方案都有个缺陷: 同时使用两个显卡时N卡无法输出画面, 即从直连N卡的HDMI接口无法输出画面, 但仅使用N卡的话可以从N卡输出画面. 仅使用N卡从性能方面没什么问题, 但是耗电, 发热会很夸张, 这对日常使用来说很不划算. 因此我们还是需要一个方法让我们能在需要N卡输出画面时能切换到仅N卡模式.~~
 
-> 至于外接屏幕, 我的解决办法是买一个有雷电接口 (雷电接口是直连CPU的, 其视频输出由intel核显承担) 的电脑, 这样一来在混合模式也能从雷电接口输出视频信号 😅
+> ~~至于外接屏幕, 我的解决办法是买一个有雷电接口 (雷电接口是直连CPU的, 其视频输出由intel核显承担) 的电脑, 这样一来在混合模式也能从雷电接口输出视频信号 😅~~
+
+卧槽我前几天试了一下现在在混合显卡模式也能从直连N卡的HDMI接口输出视频信号了! 😲
 
 ```shell
 yay -S optimus-manager-qt
@@ -116,12 +120,23 @@ yay -S optimus-manager-qt
 
 除了显卡模式切换这个主要功能, optimus-manager也能用来进行独显的电源管理, 根据自己的情况选择适合的方案. 因为我的笔记本满足 "N卡为Turing架构及以上, intel CPU为CoffeeLake架构及以上" 的条件, 因此用N卡自带的动态电源管理, Runtime D3 Power Management, 省心又省电 👍 不用时我的N卡功耗可以低到**4W**, 整个电脑的功耗最低到过9W (虽然还是被长续航轻薄本吊打)
 
-- xrandr
-- balenaEtcher
-- powertop
-- filelight
-- kde partition
-- ventoy
+### OLED屏幕亮度调节
+
+[我自己写的脚本](https://github.com/LeoJhonSong/Shell-Scripts/blob/master/oled-brightness) 😏
+
+目前Linux对OLED屏幕支持很差, 似乎还没有发行版默认支持OLED屏幕亮度调节. 普通LCD屏幕的亮度调节是通过调整屏幕背光板的电压, 即背光板亮度来实现的. 当你在滑动你的Linux系统提供的亮度调节滑条时, `/sys/class/backlight/intel_backlight/brightness`的值会被改动, 然后系统会根据这个值和`/sys/class/backlight/intel_backlight/max_brightness`所记录的亮度最大值来调节背光板电压. 然而OLED屏幕根本没有背光板, 每个LED的亮度是可以单独调节的. 因此目前调节OLED屏幕亮度的方案是调整画面的Gamma值. 于是我写了这个基于`xrandr`的脚本, 这个脚本会监控`/sys/class/backlight/intel_backlight/brightness`值的变化并据此改变指定屏幕 (默认为主屏幕) 画面的gamma值.
+
+顺带一提`xrandr`是一个功能很强大的设置屏幕画面的分辨率, 方向, 位置等参数的强大工具.
+
+### 镜像烧录
+
+```shell
+yay -S ventoy-bin
+# 使用的时候用:
+sudo ventoyweb
+```
+
+有了[Ventoy](https://www.ventoy.net/cn/index.html)这个项目, balenaEtcher, rufus这些传统意义上的镜像烧录软件就可以丢弃了! Ventoy支持一个U盘里放多个镜像, 在以这个U盘启动时会进入一个GRUB界面, 在这个页面再选择到底进入哪个镜像 🐮 我在我U盘里放了Windows镜像, Manjaro-KDE, Ubuntu20.04, 还有一个可以用来修复分区的[GParted](https://gparted.org/download.php)镜像, 还换了个GRUB主题, 爽到.
 
 ## 系统工具
 
@@ -137,6 +152,17 @@ yay -S optimus-manager-qt
 
 **htop**是升级版的top. 一是交互人性化很多, 支持鼠标交互, 设置页面分了页, 直观很多. 二是能以列表或者树的样式显示丰富得多的值, 比如该进程的线程数等, 还支持以关键词过滤显示的进程等功能.
 
+### 磁盘管理器
+
+```shell
+yay -S filelight
+yay -S partitionmanager
+```
+
+**Filelight**是KDE的图形化磁盘空间使用情况分析工具, 能以很多环同心扇形的形式直观地显示出哪里有大文件. **partitionmanager**是KDE的磁盘管理工具, 就类似Windows的磁盘管理器. 这两个应用Gnome社区也有类似的, 但感觉还是KDE的做得更人性化一些.
+
+💡 用`du -sh /path/to/check/* | sort -hr`可以在命令行列出指定文件夹下按大小降序列出各文件夹/文件
+
 ### "电脑管家"
 
 ```shell
@@ -145,7 +171,25 @@ yay -S stacer
 
 虽然很多Linux老哥们认为Linux用户不需要这种东西, 但如果是习惯了在各种电脑管家打卡的Windows用户, 我推荐**Stacer**. 这是一个系统优化与监控软件 (和CCleaner等电脑管家画风很像), 可以看系统资源使用该要, 有任务管理器一栏, 可以清理垃圾, 可以管理开机自启项, 卸载已安装软件等... (是个很Windows画风的东西😅)
 
-TODO: nmap+ncat
+### TCP调试助手
+
+```shell
+yay -S nmap
+```
+
+netcat被称为网络编程的瑞士军刀, 功能属实很多👍 要注意netcat有好几个版本, 给的参数略有区别. **ncat**是为Nmap项目写的netcat, 包含在nmap包中. 在其man中自称是诸多netcat版本中的巅峰之作 (水平有限俺也不知道是不是). **nmap**同样是一个用法很多的网络编程工具, 我主要用来扫端口.
+
+```shell
+# ncat监听本地8080端口
+ncat -l 8080
+# ncat连接本地8080端口
+ncat 127.0.0.1 8080
+# ncat监听本地8080端口, 发送一串16进制数据 (socket一个字节的内容为两位16进制数)过去并以双字节16进制显示输出
+# 如果不满意显示格式的话可以换用hexdump -C然后加参数设置显示格式. hexdump支持的显示格式比xxd要丰富些. 注意不加-C参数的话hexdump默认按双字节小端转换
+echo '0006303030304e43' | xxd -r -p | ncat -l 8080 | xxd
+# nmap扫描当前路由器192.168.1.1下所有设备的端口 (找树莓派之类设备IP时很方便)
+nmap 192.168.1.1/24
+```
 
 ## 通讯
 
@@ -187,7 +231,18 @@ yay -S com.tencent.meeting.deepin
 
 ## 下载/云盘
 
-- 百度云 (官方)
+```shell
+yay -S baidunetdisk-bin
+# yay -S xunlei-bin
+yay -S qbittorrent
+```
+
+在国内的话总体来说下载大文件体验最好的可能还是百度云... 现在百度云盘出了官方的Linux版deb系安装包, 有热心网友适配后发布到arch源里了.Linux版的和Windows版用起来并没有区别, 仍然是有限速的, 😁
+
+磁力链和torrent我是用KDE自带的**qbittorrent**下的, 支持添加tracker, 界面也比较现代, 不过我暂时还没下到过速度超过100Kb/s的... 顺带一提[这里](https://github.com/XIU2/TrackersListCollection)有一份日更Tracker list👍
+
+💡据我同学说迅雷对一些资源有更快的速度, 我试了下还真是... 比用tracker的qbittorrent还要快很多 (是正经资源)
+
 ## 图片/视频处理
 
 ### 视频压缩
@@ -257,39 +312,161 @@ yay -S kdenlive
 
 ### 文档
 
-- typora
-- okular (与gnome的evience)
-- Chrome
-- PDFMod
+```shell
+yay -S typora
+yay -S okular
+yay -S google-chrome
+```
+
+做文档我首推Markdown, Markdown编辑器我首推**Typora**. (我还写过[Markdown安利&Typora简要使用教程](/zh-CN/2019/09/23/Markdown安利-Typora简要使用教程/))
+
+普通看pdf的话KDE的**okular**和GNOME的**evience**我觉得界面还比较简洁而不简陋, 现代. 看文章时我更喜欢在**Chrome**的[沙拉查词](https://saladict.crimx.com/)插件提供的pdf.js的pdf阅读器里看, 查单词, 搜索很方便. 如果要做笔记的话我是在我的Windows系统平板上看的. 顺带一提用下面这行代码可以实现pdf.js暗黑模式效果. 解释见[这里](https://github.com/mozilla/pdf.js/issues/2071#issuecomment-830446509)
+
+```javascript
+javascript:void(document.documentElement.style.filter='invert(64%) contrast(228%) brightness(80%) hue-rotate(180deg)')
+```
+
+```shell
+yay -S ps2pdf
+```
+
+补充一个压缩pdf的小工具, 还是挺实用的. 用`ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf`就可以将pdf压缩为150dpi的质量. `-dPDFSETTINGS=/prepress`参数的话能得到质量为300dpi的pdf, 完全满足打印的需求了.
 
 ### latex
 
-- overleaf
-- vsc/vim + tex + okular
+```shell
+yay -S visual-studio-code-bin
+yay -S perl
+yay -S texlive-full
+```
+
+TeX Live是很大一套软件, 嫌麻烦的话最好就直接把包含了所有部件的**texlive-full**下下来. 其中CTeX包含在**texlive-langchinese**这个包中. TeX Live中的一些工具比如**latexindent.pl**需要perl并且依赖于一些perl包. **latexindent.pl**贴心地提供了一个依赖安装脚本, 通过运行` perl latexindent-module-installer.pl`就可以安装上所需全部依赖了.
+
+在Linux上使用LaTeX我只推荐两种方案:
+
+1. 在[Overleaf](https://www.overleaf.com/)中在线编辑
+
+   Overleaf以TeX Live作为后端, 开箱支持选择编译器, 支持基础的vim键映射, 提供看得过去的补全, 提供拼写和语法 (指LaTeX)检查... 点开Overleaf就有了一个还不错的LaTeX环境, 不需要担心缺少依赖, 不需要设置编译工具链, 编辑界面还算好看, 编译速度也很快, 是真的很省心了 👍 除此以外Overleaf支持git同步, 也支持多人协作编辑, 对于不想费心配置环境的人来说是真的很棒了
+
+2. 借助[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)插件在VSCode中本地编辑
+
+   曾经看了[这篇文章](https://zhuanlan.zhihu.com/p/60049290?utm_source=qq&utm_medium=social&utm_oi=911363543885045760)我也一度想试试在vim中编辑TeX文件, 以Okular显示的方案, 但体验后发现用vim编辑富文本文档真是傻逼. 我原本是馋这样快捷的补全, 但事实证明装几个补全插件, 都还不需要自己添加snipet补全体验就已经很不错了 (毕竟我不是数学专业, 并不会频繁用到奇怪公式). 另一方面, 我试了好几个pdf软件, 反向搜索都只能具体到行, 不能让光标精确定位到我在pdf中点到的词/图上, 而LaTeX Worshop提供的VSC内置pdf阅读器支持精确的反向搜索. 另外我在VSC中装了[拼写检查](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)和[查单词](https://marketplace.visualstudio.com/items?itemName=CodeInChinese.EnglishChineseDictionary)的插件, (有拼写检查很重要!) 而我很久以前搜的时候并没有搜到好用的vim拼写检查插件. 其他方面vim倒是和VSC差不多.
+
+
 
 ### Office套件
 
-- libreoffice
-- 在线Office365
-- onedrive Linux版
-- ao
+```shell
+yay -S wps-office-cn  # wps套件国内版
+yay -S wps-office-mui-zh-cn  # wps中文语言包
+yay -S ttf-wps-fonts  # wps需要的字体和符号
+```
 
-- 邮件 在线outlook
+我体验了Office365 Online, LibreOffice, Google Docs, WPS后发现在Linux用Office套件只能是用WPS, 而且很好用. 其他软件简直是一坨💩
+
+Office365 Online当然是格式兼容最好的, 但是必须在线使用的, 而且打开一个本地文件时会先把这个文件上传到onedrive中然后从云端打开, 文件稍微大点那体验很差. 在线版Office表面看岁月静好, 其实功能阉割非常严重. Google Docs虽然可以安装为chrome插件离线使用, 但是功能更加简陋了! 而LibreOffice就很离谱了, 明明是一个本地使用的Office套件, 但支持的功能并不比前两者多多少, 同时界面还有点古老.
+
+这三者的功能缺失到底有多严重呢? 我来举几个例子:
+
+1. 都没有内置插入富文本公式的功能
+2. 都不可以设置插入的矩形的透明度 (有时候我会用一个带透明度的矩形来作为图片蒙版)
+3. Office365 Online和LibreOffice的PPT软件都不支持插入本地视频, Google Docs我就没试了. Office365 Online倒是可以插入视频, 但是只支持来自于youtube等几个有限选择的联机视频... 而LibreOffice的PPT软件在编辑时可以插入本地视频, 但是保存为`.ppt`后这个视频不知道为什么没了... (我没试保存为它自己的格式的话能不能行, 因为那也没什么用)
+4. ...如果上面几个功能都不支持我不如写Markdown文档了所以不用试了
+
+而另一边, **WPS出乎我意料的好!** 以上功能WPS统统支持, 用起来和MS Office真的是区别不大了👍 目前注意到的也就是没有平滑切换效果和不支持3D模型编辑 (但是也能显示成图片) 这两个MS Office的特色功能, 以及选中一些对象右键另存为图片时不能另存为svg或其他矢量图格式, 无伤大雅. 格式不完全兼容这个问题当然还是存在, 但是在接受范围内. 而且, WPS现在还挺好看的🐮
+
+![](Linux下相当有用的工具/wps.png)
+
+至于MS Office套件提供的其他我使用的软件:
+
+- Outlook, 微软待办事项, 日历我使用的是网页版 (在Windows我也用的网页版, 因为可以和微软待办事项, 日历联动我觉得体验反而比Outlook本地客户端体验更加良好)
+
+- teams则是有官方Linux版本, 可以执行`yay -S teams`安装. 不过网页版也能获得完整的体验, 我感觉没什么差别
+
+- OneDrive的话虽然有人开发了[OneDrive Linux客户端](https://abraunegg.github.io/), 但我并没有使用. 虽然我平时使用Linux系统, 但是我把我的Windows盘挂载在了我的Linux系统里, 可以访问并编辑OneDrive文件夹里的文件, 然后我对同步频率的要求没多高, 因此暂时没感觉不方便 (主要是很久以前试过这个客户端, 当时体验很一般). 比较有意思的是目前在企业版Office365 (学校给的) 中直接有列出OneDrive Linux版的图标, 但链接到的是一个[有很多bug功能很不全的版本](https://github.com/skilion/onedrive), 而且我的个人版Office365并没有列出这个 😅![](Linux下相当有用的工具/onedrive.png)
+
+  在[这个issue](https://github.com/skilion/onedrive/issues/518)中可以看出skilion完全不想为社区开发, 但同样拒绝向abraunegg的版本引流或注明自己的版本的问题... 👎
 
 ## 工程
 
-- 串口调试助手 cutecom
+```shell
+yay -S minicom  # 终端串口调试助手, 也有GUI版, cutecom
+# 未完待续...
+```
 
-- Ventoy
-- Gparted
 
-### 终端
+### 命令行工具
 
-- zsh
-- tmux
-- fzf
-- lsd
+```shell
+yay -S zsh
+chsh -s /usr/bin/zsh  # 切换默认shell为zsh, 要注意你的zsh也许不在/usr/bin/zsh
 
-### 服务器
+yay -S tmux
+# 使用gpakosz的tmux主题
+cd ~ && git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
 
-- sshfs
+yay -S lsd
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+yay -S bat
+```
+
+在这里我想先辨析一下`终端`, `shell`, `命令行`这三个词:
+
+- **终端** (terminal), 最开始指的是一种用来与计算机主机交互的输入输出设备, 是硬件, 而我们如今绝大多数情况下说的终端实际上是终端模拟器 (terminal emulator) 的简称, 是一类模拟终端这种提供与计算机交互界面的功能的软件.  有的终端模拟器不仅可以显示字符还可以显示图像. 我用的终端是KDE提供的**Konsole**. 去掉标题栏及边框后能达到👇这样的效果, 我感觉还挺好看😁 ![](Linux下相当有用的工具/terminal.png)
+
+- **shell**, 指的是一种让用户能够与操作系统内核进行交互的软件 (我们通常说的是命令行界面shell, 但实际上shell这个概念还包含了GUI的shell, 比如KDE). Ubuntu及Manjaro等系统自带的shell程序是bash, MacOS自带的shell则是zsh. 实际上zsh是比bash体验好很多的shell程序, 自身的补全更加智能, 有很丰富的插件选择, 有[Oh My Zsh](https://ohmyz.sh/)这样的便利shell配置管理框架... 反正谁用谁知道 👍 我也不清楚为什么一种Linux系统仍将bash作为系统默认shell, 这点表扬MacOS. 用下面的命令来安装并切换默认shell为zsh.
+
+- **命令行**, 看了前两者的描述能发现指的只是相对于图形化界面操作的一种操作方式, 一般是纯文本界面, 少数命令行程序支持鼠标操作, 比如vim (需要设置), htop (命令行任务管理器), ranger (命令行资源管理器), w3m (命令行浏览器), tmux.
+
+- tmux是一个终端复用器 (解释起来比较复杂, 建议自行搜索一下), 我主要用来在一个终端里开多个窗口 / 连服务器. tmux的设计使得与服务器交互时在服务器侧开一个tmux后即便丢失与服务器的连接, 服务器端tmux中的任务仍会正常执行下去, 并且下次连上服务器后进入tmux就可以回到这个工作现场. 推荐一下[这个tmux主题](https://github.com/gpakosz/.tmux), 开箱就能有很不错的体验, 颜值很高, 配置也很容易个性化.
+
+
+- lsd是`ls`命令的替代品, 最主要的价值是让ls命令的输出变成彩色而且每种文件有对应图标显示的了 😁 要注意需要安装[特定类型的字体](https://github.com/ryanoasis/nerd-fonts/blob/master/readme.md)
+
+- fzf是一个模糊查找器, 不止可以在zsh里用, vim, tmux中也有支持. 我主要喜欢用来在zsh中能模糊输入我设定了的几个命令, 结合**bat**, 这个升级版cat, 能获得很流畅的 (装逼) 体验. 之所以不从aur装fzf是因为从aur装的fzf不知为什么会缺少`.fzf.zsh`这个文件. 贴上我在`.zshrc`中对fzf的配置:
+
+  ```shell
+  # fzf config
+      export FZF_COMPLETION_TRIGGER=']'
+      # Use fd (https://github.com/sharkdp/fd) instead of the default find
+      # command for listing path candidates.
+      # - The first argument to the function ($1) is the base path to start traversal
+      # - See the source code (completion.{bash,zsh}) for the details.
+      _fzf_compgen_path() {
+        fd --hidden --follow --exclude ".git" . "$1" --exclude ".deepinwine"
+      }
+  
+      # Use fd to generate the list for directory completion
+      _fzf_compgen_dir() {
+        fd --type d --hidden --follow --exclude ".git" . "$1" --exclude ".deepinwine"
+      }
+      # (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+      # - The first argument to the function is the name of the command.
+      # - You should make sure to pass the rest of the arguments to fzf.
+      _fzf_comprun() {
+        local command=$1
+        shift
+  
+        case "$command" in
+          cd)           fzf "$@" --preview 'lt {} | head -200' ;;
+          export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+          ssh)          fzf "$@" --preview 'dig {}' ;;
+          vim)          fzf "$@" --preview 'bat --style=numbers --color=always --line-range :500 {}' ;;
+          *)            fzf "$@" ;;
+        esac
+      }
+  
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  ```
+
+### 服务器相关
+
+```shell
+yay -S sshfs
+yay -S frp
+```
+
+sshfs允许以SFTP将SSH服务器的指定路径挂载到本机, 在懒得配服务器的IDE/编辑器时可以用这种方式在本地编辑, 对不需要IDE/编辑器的高阶调试时还是挺方便的. frp则是一种以反向代理的方式让我们能非常方便地ssh到一台内网服务器的方式! 使用非常简单, 在要访问的内网机器和作为跳板的公网服务器上分别放一个程序和配置文件就能用了👍 参见[frp文档](https://gofrp.org/docs/setup/)
