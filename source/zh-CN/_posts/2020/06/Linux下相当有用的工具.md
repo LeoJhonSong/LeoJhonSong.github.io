@@ -1,13 +1,15 @@
 ---
 title: Linux下各用途我最认可的工具推荐
 date: 2020-07-26 10:26:37
-updated: 2021-05-20 04:35:12
+updated: 2021-05-20 18:12:00
 categories:
 - [操作系统, Linux]
 - [工具]
 ---
 
 用Linux的时间已经比用Windows的时间还长了, 随着使用逐渐找到了各用途我最认可的工具, 或从软件源安装, 或在线使用. 在此整理一份我的Linux下各用途好用工具推荐. (出于私心将从一个Manjaro用户角度介绍)
+
+💡各位如果有什么推荐的软件也可以跟我说, 我觉得好用会加进去的
 
 <!-- More -->
 
@@ -203,13 +205,13 @@ yay -S com.qq.tim.spark  # 比起QQ我更喜欢简洁的TIM (夹带私货)
 yay -S com.qq.weixin.spark
 ```
 
-如果使用的是高清屏, deepin-wine系软件显示得很小, 可以在**deepin-wine5`中**行设置屏幕分辨率. 比如设置**com.qq.tim.spark**的分辨率:
+如果使用的是高清屏, deepin-wine系软件显示得很小, 可以在**deepin-wine5中**设置屏幕分辨率. 比如设置**com.qq.tim.spark**的分辨率:
 
 ```shell
 env WINEPREFIX=$HOME/.deepinwine/Spark-TIM deepin-wine5 winecfg
 ```
 
-然后会打开一个设置界面. 调节其中的`Graphics > Screen resolution`. 我是4k屏幕, 感觉设成**192dpi**比较OK
+然后会打开一个设置界面. 调节其中的`Graphics > Screen resolution`一项. 我是4k屏幕, 感觉设成**192dpi**比较OK
 
 ### 会议
 
@@ -234,12 +236,32 @@ yay -S com.tencent.meeting.deepin
 ```shell
 yay -S baidunetdisk-bin
 # yay -S xunlei-bin
-yay -S qbittorrent
+yay -S aria2
+# 后台运行启用了RPC, aria2
+nohup aria2c --enable-rpc --allow-piece-length-change &
+# yay -S motrix-bin
+# sudo motrix --no-sandbox  # 然后右键系统托盘里的图标退出
 ```
 
-在国内的话总体来说下载大文件体验最好的可能还是百度云... 现在百度云盘出了官方的Linux版deb系安装包, 有热心网友适配后发布到arch源里了.Linux版的和Windows版用起来并没有区别, 仍然是有限速的, 😁
+在国内的话总体来说下载大文件体验最好的可能还是百度云... 现在百度云盘出了官方的Linux版deb系安装包, 有热心网友适配后发布到arch源里了. Linux版的和Windows版用起来并没有区别, 仍然是有限速的 😁
 
-磁力链和torrent我是用KDE自带的**qbittorrent**下的, 支持添加tracker, 界面也比较现代, 不过我暂时还没下到过速度超过100Kb/s的... 顺带一提[这里](https://github.com/XIU2/TrackersListCollection)有一份日更Tracker list👍
+磁力链和torrent我是用chrome插件[Aria2 for Chrome](https://chrome.google.com/webstore/detail/aria2-for-chrome/mpkodccbngfoacfalldjimigbofkhgjn)下的. 这个插件以aria2为后端, 能够自动拦截chrome中http, 磁力链, FTP等协议下载任务, 也支持torrent. 在插件的设置页面中设置触发自动拦截下载任务的文件大小为0MB的话torrent文件也会通过aria2下载, 而aria2默认开启了下载的是torrent文件时自动开始BT下载任务的选项, 体验会很好. 有点遗憾的是这个插件所使用的前端虽然可以对aria2进行设置, 但是这些设置在aria2重启后会丢失. 如果想要每次启动aria2后都能自动加载这些配置的话还是需要写一个aria2的配置文件`~/.config/aria2/aria2.conf`:
+
+```shell
+# 默认下载路径
+dir=/home//Downloads
+continue=true  # 断点续传
+max-concurrent-downloads=10  # 最大同时下载任务数
+max-connection-per-server=15  # 单服务器最大连接数
+min-split-size=10M  # 
+rpc-allow-origin-all=true  # 允许所有来源
+rpc-listen-all=true  # 允许非外部访问
+seed-time=0  # 最小做种时间. 当设置为0时在BT下载任务完成后不再做种
+```
+
+然后运行来自[P3TERX/aria2.conf](https://github.com/P3TERX/aria2.conf/blob/master/tracker.md)的脚本`bash <(curl -fsSL git.io/tracker.sh) "/home/leo/.config/aria2/aria2.conf"`添加一个Tracker列表给aria2配置文件, 提升torrent下载速度.
+
+如果想用本地客户端下载磁力链和torrent的话强推**motrix**: 集成了每日自动更新的Tracker服务器列表的支持, 支持迅雷链接下载协议, 而且因为是electron做的所以界面非常美观! 不过除了Ubuntu镜像我能以30MB/s的速度下载我暂时还没下到过速度超过100Kb/s的... 这个软件在Arch系下似乎有bug, 安装好后需要用上面那条命令sudo启动然后关闭一次, 然后就能正常使用了.
 
 💡据我同学说迅雷对一些资源有更快的速度, 我试了下还真是... 比用tracker的qbittorrent还要快很多 (是正经资源)
 
@@ -290,18 +312,19 @@ yay -S vlc
 yay -S kdenlive
 ```
 
-**Kdenlive**是一个界面很像Adobe Premiere的软件, 现在是KDE旗下项目. Kdenlive的语言看起来是继承的系统语言, 支持中文 (汉化得还是比较全面的). Kdenlive操作起来还是很简单的, 零基础随便看一看教程也就会用个大概了. Kdenlive的特效我感觉和Pr差不多多, 我觉得定位和Pr应该是一样也是视频剪辑软件 (Linux平台也有对标Ae的软件, Natron).Kdenlive也有Windows版, 而且安装包只有80MB, 很值得尝试的 👍
+**Kdenlive**是一个界面很像Adobe Premiere的软件, 现在是KDE旗下项目. Kdenlive的语言看起来是继承的系统语言, 支持中文 (汉化得还是比较全面的). Kdenlive操作起来还是很简单的, 零基础随便看一看教程也就会用个大概了. Kdenlive的特效种类我感觉和Pr差不多多, 定位应该是和Pr一样也是视频剪辑软件 (Linux平台也有对标Ae的软件, Natron). Kdenlive也有Windows版, 而且安装包只有80MB, 很值得尝试的 👍
 
 ### 制图
 
 #### 图片
 
-因为我处理图片的需求不大, 因此我有稍微复杂一点的PS需求时都是使用的这个[在线PS](https://www.uupoop.com/#/old), 支持PhotoShop的**PSD**, sketch的**sketch**格式, GIMP的**XCF**格式等, 覆盖了常见格式, 十分方便 😆
+因为我处理图片的需求不大, 因此普通一些的需求我就在WPS的PPT软件里处理的, 有稍微复杂一点的PS需求时都是使用的这个[在线PS](https://www.uupoop.com/#/old), 支持PhotoShop的**PSD**, sketch的**sketch**格式, GIMP的**XCF**格式等, 覆盖了常见格式, 十分方便 😆
 
 #### UML图
 
-- [**diagrams.net**](https://www.diagrams.net/): 这个是全平台的, 有在线版, 也有各系统的安装包. 它有非常丰富的元素, 能画出很好看很复杂的图, 但是无法自动整理布局
-- Graphviz: 这是一个根据"代码"自动生成图形的程序, 有[在线版](https://dreampuf.github.io/GraphvizOnline/), 也有[VSCode插件版本](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz)什么的. (顺便[这里](/zh-CN/2020/03/12/Graphviz简要语法/)是我写的介绍Graphviz语法的博客)
+- Graphviz: 这是一个根据代码自动生成图形的程序, 有[在线版](https://dreampuf.github.io/GraphvizOnline/), 也有[VSCode插件版本](https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz)什么的. (顺便[这里](/zh-CN/2020/03/12/Graphviz简要语法/)是我写的介绍Graphviz语法的博客)
+- [**diagrams.net**](https://www.diagrams.net/): 这个是全平台的, 有在线版, 也有各系统的安装包. 它有非常丰富的元素, 能画出很好看很复杂的UML图, 但是无法自动整理布局. 不过它**可以打开Visio的.vsdx文件** 👍
+- [PlantUML](): 这个则是以代码生成UML图的强大工具, 后端其实也是Graphviz (Graphviz本身用起来真的有点阴间), 提供有很多种类的模板, 可以几行代码画出一个非常好看的UML图! [在线编辑器](https://www.planttext.com/)在此
 - [ASCIIFlow Infinity](http://asciiflow.com/): 这个在线绘图工具是用来绘制**纯文本**框图. 不过因为它开源了, 因此也可以在本地使用 `yay -S asciiflow2-git`
 
 #### 其他
@@ -364,13 +387,13 @@ yay -S ttf-wps-fonts  # wps需要的字体和符号
 
 我体验了Office365 Online, LibreOffice, Google Docs, WPS后发现在Linux用Office套件只能是用WPS, 而且很好用. 其他软件简直是一坨💩
 
-Office365 Online当然是格式兼容最好的, 但是必须在线使用的, 而且打开一个本地文件时会先把这个文件上传到onedrive中然后从云端打开, 文件稍微大点那体验很差. 在线版Office表面看岁月静好, 其实功能阉割非常严重. Google Docs虽然可以安装为chrome插件离线使用, 但是功能更加简陋了! 而LibreOffice就很离谱了, 明明是一个本地使用的Office套件, 但支持的功能并不比前两者多多少, 同时界面还有点古老.
+Office365 Online当然是格式兼容最好的, 但是必须在线使用, 而且打开一个本地文件时会先把这个文件上传到onedrive中然后从云端打开, 文件稍微大点那体验很差. 在线版Office表面看岁月静好, 其实功能阉割非常严重. Google Docs虽然可以安装为chrome插件离线使用, 但是功能更加简陋了! 而LibreOffice就很离谱了, 明明是一个本地使用的Office套件, 但支持的功能并不比前两者多多少, 同时界面还有点古老.
 
 这三者的功能缺失到底有多严重呢? 我来举几个例子:
 
 1. 都没有内置插入富文本公式的功能
 2. 都不可以设置插入的矩形的透明度 (有时候我会用一个带透明度的矩形来作为图片蒙版)
-3. Office365 Online和LibreOffice的PPT软件都不支持插入本地视频, Google Docs我就没试了. Office365 Online倒是可以插入视频, 但是只支持来自于youtube等几个有限选择的联机视频... 而LibreOffice的PPT软件在编辑时可以插入本地视频, 但是保存为`.ppt`后这个视频不知道为什么没了... (我没试保存为它自己的格式的话能不能行, 因为那也没什么用)
+3. Office365 Online和LibreOffice的PPT软件都不支持插入本地视频, Google Docs我就没试了. Office365 Onlineq其实是可以插入视频, 但是只支持来自于youtube等几个有限选择的联机视频... 而LibreOffice的PPT软件在编辑时可以插入本地视频, 但是保存为`.ppt`后这个视频不知道为什么没了... (我没试保存为它自己的格式的话能不能行, 因为那也没什么用)
 4. ...如果上面几个功能都不支持我不如写Markdown文档了所以不用试了
 
 而另一边, **WPS出乎我意料的好!** 以上功能WPS统统支持, 用起来和MS Office真的是区别不大了👍 目前注意到的也就是没有平滑切换效果和不支持3D模型编辑 (但是也能显示成图片) 这两个MS Office的特色功能, 以及选中一些对象右键另存为图片时不能另存为svg或其他矢量图格式, 无伤大雅. 格式不完全兼容这个问题当然还是存在, 但是在接受范围内. 而且, WPS现在还挺好看的🐮
@@ -383,9 +406,9 @@ Office365 Online当然是格式兼容最好的, 但是必须在线使用的, 而
 
 - teams则是有官方Linux版本, 可以执行`yay -S teams`安装. 不过网页版也能获得完整的体验, 我感觉没什么差别
 
-- OneDrive的话虽然有人开发了[OneDrive Linux客户端](https://abraunegg.github.io/), 但我并没有使用. 虽然我平时使用Linux系统, 但是我把我的Windows盘挂载在了我的Linux系统里, 可以访问并编辑OneDrive文件夹里的文件, 然后我对同步频率的要求没多高, 因此暂时没感觉不方便 (主要是很久以前试过这个客户端, 当时体验很一般). 比较有意思的是目前在企业版Office365 (学校给的) 中直接有列出OneDrive Linux版的图标, 但链接到的是一个[有很多bug功能很不全的版本](https://github.com/skilion/onedrive), 而且我的个人版Office365并没有列出这个 😅![](Linux下相当有用的工具/onedrive.png)
+- OneDrive的话虽然有人开发了[OneDrive Linux客户端](https://abraunegg.github.io/), 但我并没有使用. 虽然我平时使用Linux系统, 但是我把我的Windows盘挂载在了我的Linux系统里, 可以访问并编辑OneDrive文件夹里的文件, 然后我对同步频率的要求没多高, 因此暂时没感觉不方便 (主要是很久以前试过这个客户端, 当时体验很一般). 比较有意思的是目前在企业版Office365 (学校给的) 的应用列表中直接有列出OneDrive Linux版的图标, 但链接到的是一个[有很多bug功能很不全的版本](https://github.com/skilion/onedrive), 而且我的个人版Office365的应用列表并没有列出这个 😅![](Linux下相当有用的工具/onedrive.png)
 
-  在[这个issue](https://github.com/skilion/onedrive/issues/518)中可以看出skilion完全不想为社区开发, 但同样拒绝向abraunegg的版本引流或注明自己的版本的问题... 👎
+  在[这个issue](https://github.com/skilion/onedrive/issues/518)中可以看出skilion完全不想为社区开发, 但同时拒绝向abraunegg的版本引流或注明自己的版本的问题... 👎
 
 ## 工程
 
@@ -420,6 +443,8 @@ yay -S bat
 - **shell**, 指的是一种让用户能够与操作系统内核进行交互的软件 (我们通常说的是命令行界面shell, 但实际上shell这个概念还包含了GUI的shell, 比如KDE). Ubuntu及Manjaro等系统自带的shell程序是bash, MacOS自带的shell则是zsh. 实际上zsh是比bash体验好很多的shell程序, 自身的补全更加智能, 有很丰富的插件选择, 有[Oh My Zsh](https://ohmyz.sh/)这样的便利shell配置管理框架... 反正谁用谁知道 👍 我也不清楚为什么一种Linux系统仍将bash作为系统默认shell, 这点表扬MacOS. 用下面的命令来安装并切换默认shell为zsh.
 
 - **命令行**, 看了前两者的描述能发现指的只是相对于图形化界面操作的一种操作方式, 一般是纯文本界面, 少数命令行程序支持鼠标操作, 比如vim (需要设置), htop (命令行任务管理器), ranger (命令行资源管理器), w3m (命令行浏览器), tmux.
+
+然后我来介绍几个好用的命令行工具:
 
 - tmux是一个终端复用器 (解释起来比较复杂, 建议自行搜索一下), 我主要用来在一个终端里开多个窗口 / 连服务器. tmux的设计使得与服务器交互时在服务器侧开一个tmux后即便丢失与服务器的连接, 服务器端tmux中的任务仍会正常执行下去, 并且下次连上服务器后进入tmux就可以回到这个工作现场. 推荐一下[这个tmux主题](https://github.com/gpakosz/.tmux), 开箱就能有很不错的体验, 颜值很高, 配置也很容易个性化.
 
