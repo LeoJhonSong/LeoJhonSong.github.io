@@ -359,11 +359,18 @@ yay -S ps2pdf
 
 ```shell
 yay -S visual-studio-code-bin
-yay -S perl
-yay -S texlive-full
+yay -S texlive-most texlive-lang biber
+# 进入cpan后添加阿里源
+o conf urllist push https://mirrors.aliyun.com/CPAN/
+o conf commit
+# 在cpan中安装包
+install YAML::Tiny
+install File::HomeDir
+install Log::Dispatch
+install Log::Log4perl
 ```
 
-TeX Live是很大一套软件, 嫌麻烦的话最好就直接把包含了所有部件的**texlive-full**下下来. 其中CTeX包含在**texlive-langchinese**这个包中. TeX Live中的一些工具比如**latexindent.pl**需要perl并且依赖于一些perl包. **latexindent.pl**贴心地提供了一个依赖安装脚本, 通过运行` perl latexindent-module-installer.pl`就可以安装上所需全部依赖了.
+TeX Live是很大一套软件, 嫌麻烦的话最好就直接把包含了绝大多数部件的**texlive-most**以及语言包**texlive-lang**下下来. 其中CTeX包含在**texlive-langchinese**这个包中. **biber**则是比biblatex更先进的引用处理工具. TeX Live中的一些工具比如**latexindent.pl**需要perl并且依赖于一些perl包. 输入`cpan`后首先会要求进行一下交互式配置, 然后用上面的语句添加阿里源, 然后安装缺少的包.
 
 在Linux上使用LaTeX我只推荐两种方案:
 
@@ -374,8 +381,6 @@ TeX Live是很大一套软件, 嫌麻烦的话最好就直接把包含了所有�
 2. 借助[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)插件在VSCode中本地编辑
 
    曾经看了[这篇文章](https://zhuanlan.zhihu.com/p/60049290?utm_source=qq&utm_medium=social&utm_oi=911363543885045760)我也一度想试试在vim中编辑TeX文件, 以Okular显示的方案, 但体验后发现用vim编辑富文本文档真是傻逼. 我原本是馋这样快捷的补全, 但事实证明装几个补全插件, 都还不需要自己添加snipet补全体验就已经很不错了 (毕竟我不是数学专业, 并不会频繁用到奇怪公式). 另一方面, 我试了好几个pdf软件, 反向搜索都只能具体到行, 不能让光标精确定位到我在pdf中点到的词/图上, 而LaTeX Worshop提供的VSC内置pdf阅读器支持精确的反向搜索. 另外我在VSC中装了[拼写检查](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)和[查单词](https://marketplace.visualstudio.com/items?itemName=CodeInChinese.EnglishChineseDictionary)的插件, (有拼写检查很重要!) 而我很久以前搜的时候并没有搜到好用的vim拼写检查插件. 其他方面vim倒是和VSC差不多.
-
-
 
 ### Office套件
 
