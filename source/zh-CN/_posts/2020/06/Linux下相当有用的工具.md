@@ -246,8 +246,8 @@ nohup aria2c --enable-rpc --allow-piece-length-change &
 磁力链和torrent我是用chrome插件[Aria2 for Chrome](https://chrome.google.com/webstore/detail/aria2-for-chrome/mpkodccbngfoacfalldjimigbofkhgjn)下的. 这个插件以aria2为后端, 能够自动拦截chrome中http, 磁力链, FTP等协议下载任务, 也支持torrent. 在插件的设置页面中设置触发自动拦截下载任务的文件大小为0MB的话torrent文件也会通过aria2下载, 而aria2默认开启了下载的是torrent文件时自动开始BT下载任务的选项, 体验会很好. 有点遗憾的是这个插件所使用的前端虽然可以对aria2进行设置, 但是这些设置在aria2重启后会丢失. 如果想要每次启动aria2后都能自动加载这些配置的话还是需要写一个aria2的配置文件`~/.config/aria2/aria2.conf`:
 
 ```shell
-# 默认下载路径
-dir=/home//Downloads
+# 默认下载路径, n
+dir=/home/leo/Downloads
 # 断点续传
 continue=true
 # 最大同时下载任务数
