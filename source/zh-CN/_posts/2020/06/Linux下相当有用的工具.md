@@ -1,7 +1,7 @@
 ---
 title: Linux下各用途我最认可的工具推荐
 date: 2020-07-26 10:26:37
-updated: 2021-05-20 18:12:00
+updated: 2021-05-24 16:18:00
 categories:
 - [操作系统, Linux]
 - [工具]
@@ -12,8 +12,6 @@ categories:
 💡各位如果有什么推荐的软件也可以跟我说, 我觉得好用会加进去的
 
 <!-- More -->
-
-<!-- TODO -->
 
 > 首先, 不得不吹一下Manjaro是一个多么贴心的系统. Manjaro自带了一个叫**Manjaro Hello**的入门程序, 点进这个程序的`Applications`入口能看到Manjaro社区为各常见用途已经提供了一些推荐, 勾选就可以安装. 可以说没有更贴心的系统了!
 >
@@ -250,13 +248,20 @@ nohup aria2c --enable-rpc --allow-piece-length-change &
 ```shell
 # 默认下载路径
 dir=/home//Downloads
-continue=true  # 断点续传
-max-concurrent-downloads=10  # 最大同时下载任务数
-max-connection-per-server=15  # 单服务器最大连接数
-min-split-size=10M  # 
-rpc-allow-origin-all=true  # 允许所有来源
-rpc-listen-all=true  # 允许非外部访问
-seed-time=0  # 最小做种时间. 当设置为0时在BT下载任务完成后不再做种
+# 断点续传
+continue=true
+# 最大同时下载任务数
+max-concurrent-downloads=10
+# 单服务器最大连接数
+max-connection-per-server=15
+# 最小文件分片大小
+min-split-size=10M
+# 允许所有来源
+rpc-allow-origin-all=true
+# 允许非外部访问
+rpc-listen-all=true
+# 最小做种时间. 当设置为0时在BT下载任务完成后不再做种
+seed-time=0
 ```
 
 然后运行来自[P3TERX/aria2.conf](https://github.com/P3TERX/aria2.conf/blob/master/tracker.md)的脚本`bash <(curl -fsSL git.io/tracker.sh) "/home/leo/.config/aria2/aria2.conf"`添加一个Tracker列表给aria2配置文件, 提升torrent下载速度.
@@ -343,7 +348,7 @@ yay -S google-chrome
 
 做文档我首推Markdown, Markdown编辑器我首推**Typora**. (我还写过[Markdown安利&Typora简要使用教程](/zh-CN/2019/09/23/Markdown安利-Typora简要使用教程/))
 
-普通看pdf的话KDE的**okular**和GNOME的**evience**我觉得界面还比较简洁而不简陋, 现代. 看文章时我更喜欢在**Chrome**的[沙拉查词](https://saladict.crimx.com/)插件提供的pdf.js的pdf阅读器里看, 查单词, 搜索很方便. 如果要做笔记的话我是在我的Windows系统平板上看的. 顺带一提用下面这行代码可以实现pdf.js暗黑模式效果. 解释见[这里](https://github.com/mozilla/pdf.js/issues/2071#issuecomment-830446509)
+普通看pdf的话KDE的**okular**和GNOME的**evince**我觉得界面还比较简洁而不简陋, 现代. 相比起来okular功能更多一些, 对触控笔/手写等操作支持好许多 (虽然我不怎么用). 看文章时我更喜欢在**Chrome**的[沙拉查词](https://saladict.crimx.com/)插件提供的pdf.js的pdf阅读器里看, 查单词, 搜索很方便. 如果要做笔记的话我是在我的Windows系统平板上看的. 顺带一提用下面这行代码可以实现pdf.js暗黑模式效果. 解释见[这里](https://github.com/mozilla/pdf.js/issues/2071#issuecomment-830446509).
 
 ```javascript
 javascript:void(document.documentElement.style.filter='invert(64%) contrast(228%) brightness(80%) hue-rotate(180deg)')
