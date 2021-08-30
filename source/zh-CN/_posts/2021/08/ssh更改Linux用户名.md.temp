@@ -1,0 +1,28 @@
+
+因为更改用户名同时也要更改家目录位置, 不能在需要改名的用户里操作, 不然会因为不能结束当前用户所有进程而无法完成家目录的移动. 要另外建一个用户的话还要给sudo权限, 因此不如就在root用户下操作算了. 那首先需要能以root用户ssh.
+
+```shell
+# 首先su试一下确保设置了root密码, 如果没有设置或者忘了就用sudo passwd设置一个
+# 然后在系统级ssh配置中允许以root用户ssh登录
+sudo vi /etc/ssh/sshd_config
+# 找到有PermitRootLogin这一行, 取消注释并改成:
+PermitRootLogin yes
+# 然后重启ssh服务
+sudo service ssh restart
+# 此时就能以root用户ssh登录啦
+```
+
+然后在root下更改用户名, 假设当前用户名是**nvidia**, 想改成**buaa**
+
+```shell
+export OLD_USER=nvidia
+export NEW_USER=buaa
+# 修改用户名
+usermod -l $NEW_USER $OLD_USER
+# 移动家目录
+usermod -d /home/$NEW_USER -m $NEW_USER
+# 修改用户组名
+groupmod -n $NEW_USER $OLD_USER
+```
+
+就好了. 然后把root用户ssh登陆再关掉就完了.

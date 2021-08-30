@@ -1,0 +1,15 @@
+ 
+
+| 操作符       | 含义                               |
+| ------------ | ---------------------------------- |
+| `FOO ?= bar` | 当变量未定义时给变量赋值, 否则无效 |
+| `FOO := bar` |                                    |
+| `FOO = bar`  |                                    |
+|              |                                    |
+|              |                                    |
+
+[GNU-几种赋值方式](https://www.gnu.org/software/make/manual/make.html#Flavors)
+
+[BSD-几种赋值方式](http://man.openbsd.org/make#VARIABLE_ASSIGNMENTS)
+
+[GNU-通配符](https://www.gnu.org/software/make/manual/make.html#Wildcards)
