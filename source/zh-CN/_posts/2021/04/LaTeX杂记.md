@@ -1,7 +1,7 @@
 ---
 title: LaTeX杂记
 date: 2021-05-24 00:00:00
-updated: 2022-01-04        
+updated: 2022-01-31
 categories:
 - [语言, LaTeX]
 - [杂记]
@@ -16,6 +16,8 @@ categories:
 - [简单粗暴LaTeX](https://github.com/wklchris/Note-by-LaTeX): 这份入门教材比上面这个短许多, 因为它更注重实用性内容, 讲解相对更少. 但对于在有模板的情况下写本科毕业论文的需求仍然是妥妥够用的. 而且因为这本书给出了源代码, 你甚至可以看看作者到底是怎么用LaTeX的 (如果你有那个闲心的话)
 - [Overleaf的LaTeX文档](https://www.overleaf.com/learn): Overleaf的文档更是讲解很少, 基本每个内容直接是使用示例.
 - 要是你还想看更多内容, 可以先看看[LaTeX工作室推荐的资料](https://www.latexstudio.net/archives/51802.html).
+
+另外推荐一个[LaTeX命令参考手册](http://latexref.xyz/), 可以在这搜索想查的命令.
 
 我是在Linux系统下用安装了[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)插件的VSCode写的LaTeX, 这个插件通过调用你安装的LeTaX发行版来提供丰富的LeTaX支持. 我使用的发行版正是LaTeX Workshop最推荐的[Tex Live](https://www.tug.org/texlive/). 这东西离线安装包有点大, 而且很有可能需要单独下一些包, 有点麻烦. 幸好我Manjaro系统一句`yay -S texlive-most texlive-lang biber`就把我下面需要用到的所有工具都安装好了. **如果你目前没有安装Tex Live, 不妨先试试在[Overleaf](https://www.overleaf.com/)在线编辑LaTeX试试, 操作很简便, 下述操作中大部分都能实现, 非常省事.**
 
@@ -37,7 +39,7 @@ categories:
    ```
 2. 如果你已经正确安装了Tex Live那么环境里应当已经有`xelatex`这个可以生成tex文件对应pdf的工具了. 在**first.tex**所在文件夹执行`xelatex first.tex`. 然后你会发现文件夹里多了三个文件: **first.pdf**, **first.aux**, **fisrt.log**. 后两个文件基本是无关紧要的东西, 我在我的VSCode里设置了每次构建后删除这些文件. 而这个**first.pdf**正是我们需要的pdf文件 🎉
 
-要用LaTeX写一个简单文档需要的语法都很简单没有争议, 需要的工具也只有`xelatex`. 想快速了解LaTeX最基本的语法可以看看[Overleaf的30min入门教程](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). 不过其实用不了30分钟, 因为只讲了最基础的内容因此大致看一遍了解一下就好😂. 看了一些教程后我觉得Overleaf的文档是非常清晰易懂非常全面的了, 最重要的是**基本用的都是最新最简洁的语法** (正如现在有些python问题还有人在给出python2的绕来绕去的方案, 随便看网上说法会觉得LaTeX怎么这么麻烦功能这么少 🤦‍♂️). 因此后文的教程参考我也基本是给出的是Overleaf的文档.
+要用LaTeX写一个简单文档需要的语法都很简单没有争议, 需要的工具也只有`xelatex`. 想快速了解LaTeX最基本的语法可以看看[Overleaf的30min入门教程](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). 不过其实用不了30分钟, 因为只讲了最基础的内容因此大致看一遍了解一下就好😂. 看了一些教程后我觉得Overleaf的文档是非常简短 (因此很不详细) 但足够全面的了, 最重要的是**基本用的都是最新最简洁的语法** (正如现在有些python问题还有人在给出python2的绕来绕去的方案, 随便看网上说法会觉得LaTeX怎么这么麻烦功能这么少 🤦‍♂️). 因此后文的文档参考我也基本是给出的是Overleaf的文档.
 
 大致看了一遍上面链接后就知道怎么用LaTeX写一份用Markdown或者word写也很方便的文档啦. 但要用来写一份高逼格论文的话还需要深入一些, 不然LaTeX的优势也体现不出来了. 首先来看一些绕不开且容易的语法, 然后是各种插入富文本的语法, 最后是关于让引用不管是插入还是看起来体验都更好的内容 (因为需要更改构建工具链这个部分在overleaf无法实现).
 
@@ -182,44 +184,77 @@ LaTeX原生提供了7级标题:
 
 ## 加速生成
 
+### 草稿模式
+
 随着工程大起来生成pdf会变慢, 有一些技巧可以加速生成不完整的pdf, 在写作过程中快速检查. 因为LaTeX每次生成并不能利用.
 
-draft
+一种方式是开启草稿模式. 方式是在上面提到的`\documentclass[]{}`的参数里加个`draft`. 以草稿模式生成的pdf里图片不会实际插入, 是用一个同样大小的方框来表示. 超链接, 书签等功能也会被关闭. 另外比较好的一点是在underfull/overfull的行会被在行末添加一个黑色方块标记出来.
 
-xelatex压缩等级0/9
+### xelatex的pdf压缩等级
+
+xelatex在生成pdf时默认会进行压缩, 这会让生成的pdf相对很小, 同时也会耗时更长. 写作过程中其实并没有必要压缩pdf, 那可以设置压缩等级为0加速pdf生成, 等生成最终版pdf时再把压缩等级拉满设为9.
+
 ```latex
-\special{dvipdfmx:config z 0}
-\begin{document}
+% 放在导言部分
+\special{dvipdfmx:config z 0}  % 👈这个0换成9就是最大压缩等级了.
 ```
 
 ## 插入
 
-### 数学公式, 样式, 符号
+### 数学公式, 样式
 
-[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)
+这个CSDN上的[LaTeX基本数学公式语法](https://blog.csdn.net/ethmery/article/details/50670297)列出了希腊字母, 上下标, 矢量, 特殊符号, 矩阵等数学公式常用命令, 还挺全的.
 
-[数学相关内容合集](https://www.overleaf.com/learn/latex/Mathematics)
+作为一个菜鸟我还没用LaTeX写过很复杂的公式, 因此还没有用过`amsmath`这个增强[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)的包, 但据overleaf这篇文章原生支持对排版支持不够好, 因此我先码住.
 
-### 图片
+然后这还有一篇Overleaf的[数学相关内容合集](https://www.overleaf.com/learn/latex/Mathematics) 🐮
 
-[插入图片](https://www.overleaf.com/learn/latex/Inserting_Images#Generating_high-res_and_low-res_images)
+### 浮动体
 
-[图片短: 长描述](https://tex.stackexchange.com/questions/24496/use-caption-and-long-description-for-figure/422496)
+figure和table是LaTeX原生的两种浮动体环境, 用于灵活排版图片和表格. 但其实这两种环境中什么都能放, 没有限定只能放图片或表格. 这两种环境都可以给[*placement*]参数 (默认是`btp`), 通过指定`htb`限制只能放在这三种位置 (也就是不允许单独成页). 可用参数参见[这附近有的一个表格](https://www.overleaf.com/learn/latex/Inserting_Images#Positioning). 值得一提的是LaTeX总是以h-t-b-p的优先级来决定浮动体位置, 和填的参数的顺序无关. 💡 除单独成页外, 默认每页不超过3个浮动体, 其中顶部不超过2个, 底部不超过1个以及浮动体空间占页面的百分比 (默认顶部不超过70%, 底部不超过30%)
 
-[表格中插入图片](https://tex.stackexchange.com/a/53062)
+关于双栏环境下浮动体的排版以及其他细节见*一份不太简短的LaTeX2ε介绍*的**3.9 浮动体**.
 
-[旋转图片](https://tex.stackexchange.com/questions/101645/how-to-turn-latex-figure-by-90-degrees-along-with-the-caption)
+#### 图片
 
-[插入svg](https://tex.stackexchange.com/questions/2099/how-to-include-svg-diagrams-in-latex)
-TLDR: 直接插入svg很麻烦, 转pdf
+先上一个论文利用的懒人模板样例 (效果如图):
 
-[inkscape的latex支持](https://tex.stackexchange.com/a/458474)  不要用pdf_latex, 直接用pdf
+![](LaTeX杂记/figure.jpg?80)
 
-svgnames
+```latex
+% 导言部分
+\usepackage{graphicx}  % 图片插入支持宏包
+\graphicspath{{./}}  % 将之后插入图片的检索路径设为根文件所在目录, 不然插入图片时的图片地址是相对于当前tex文件的, 会比较麻烦
+% \graphicspath{{./Figures}}  % 其实更常见的是直接将检索路径设为你的图片文件夹, 但我为了能触发我VSC的路径补全所以只设成了根文件所在目录
+\usepackage[
+   colorlinks=true,
+]{hyperref}  % 给交叉引用的引用编号添加超链接支持
 
-![image-20210420201512181](LaTeX杂记/image-20210420201512181.png)
+% 正文部分
+\begin{figure}[htb]
+      \centering  % 让图片居中. 默认是左对齐
+      \includegraphics[width=0.8\textwidth]{Figures/mesh.jpg}  % 限制图片宽度为0.8倍版面宽度
+      \caption[Test]{Test: blablabla}\label{f:mesh}
+\end{figure}
 
-### 表格
+As you can see in \autoref{f:mesh}, the function grows near 0.
+```
+
+用`\caption`命令可以给图片等浮动体加标题, 在`{}`中的是长标题, 就是显示在图下那个. 而在`[]`中的短标题是会显示在图目录中的标题 (用`\listoffigures`来生成图目录). 我习惯在长标题里开头用短标题, 能实现很多论文里**概要: 详细描述**的图标题形式.
+
+`\lable`是交叉引用, 可以用来在文中提及章节/公式/图表等. 导入**hyperref**包能支持点击引用处跳转, 这样体验才够良好. 用`\autoref`而不是`\ref`能让整个引用编号 (比如上面的红色的**Figure 1**)而不是只有**1**是超链接. `\ref{}`或者`\autoref{}`的参数可以随便写, 之所以加个`f:`的前缀是为了将图片, 表格等类交叉引用区别开, 方便管理, 比如说VSC的LaTeX Workshop支持交叉引用的补全提示.
+
+细节解释可以参考这几个链接:
+- [Overleaf的插入图片全教程](https://www.overleaf.com/learn/latex/Inserting_Images#Generating_high-res_and_low-res_images)
+- [如何添加图片短标题](https://tex.stackexchange.com/questions/24496/use-caption-and-long-description-for-figure/422496)
+- [如何在表格中插入图片](https://tex.stackexchange.com/a/53062)
+- [如何旋转图片](https://tex.stackexchange.com/questions/101645/how-to-turn-latex-figure-by-90-degrees-along-with-the-caption)
+
+还有一点是如何插入矢量图形. 目前所有LaTeX编译器都没有对svg提供原生支持, 倒是[有办法可以强行插入svg](https://tex.stackexchange.com/questions/2099/how-to-include-svg-diagrams-in-latex), 但是也很麻烦. 其实解决办法很简单: **不要插入svg** 😁 svg可以很容易地被转为pdf, 而LaTeX对pdf插入支持很好 (其实现在这年代LaTeX中插入矢量图片就是插入pdf). 在Linux下可以用**inkscape**打开svg然后直接另存为pdf. ❗注意不要勾选*Omit text in PDF and create LaTeX file*. 这狗屎东西会把你svg里的文字无脑转为LaTeX然后你会发现你好不容易排版的文字在LaTeX里绘制出来后大小, 字体都是正文字体, 经常直接没法看. 直接转为pdf的话会生成一个和svg同样尺寸的pdf, 透明部分会被填充为白色, 不过写论文的话这样刚好.
+
+关于制作论文用矢量图, 因为我目前并不需要绘制复杂的矢量图, 基本是给位图或者程序生成的矢量图加点箭头文字然后排版一下之类. 因此我目前就是PPT做图, 全选当前页上所有东西 (如果你也是一页PPT画一张图的话), 然后另存为svg, 免得想在其他电脑/WPS编辑时发现不太兼容 (更保险一点你可以[将字体嵌入PPT](https://support.microsoft.com/zh-cn/office/%E5%B5%8C%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93%E7%9A%84%E5%A5%BD%E5%A4%84-cb3982aa-ea76-4323-b008-86670f222dbc), 防止出字体问题). 如果你做的这张图用到了PPT的背景, 存svg是没法把背景一块存下来的. 此样的话选打印, 然后选仅打印当前页, 这样就能获得一个单页的pdf矢量图了!
+
+#### 表格
 
 [overleaf-表格](https://www.overleaf.com/learn/latex/tables)
 
@@ -241,9 +276,6 @@ svgnames
 
 [minted调整caption与code距离](https://tex.stackexchange.com/questions/320185/adjust-vertical-spacing-between-caption-and-listing-in-koma-scrartcl)
 
-### 引文
-
-[引文](https://www.overleaf.com/learn/latex/typesetting_quotations#csquotes)
 
 ### 特殊符号
 
@@ -278,5 +310,7 @@ svgnames
 [自定义样式\ref](https://tex.stackexchange.com/questions/266434/extend-the-hyperref-link-to-figure-and-a-b-c)
 
 [链接颜色](https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref)
+
+![image-20210420201512181](LaTeX杂记/image-20210420201512181.png)
 
 [list of notations](https://tex.stackexchange.com/questions/348640/how-to-effectively-use-list-of-symbols-for-a-thesis)
