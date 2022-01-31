@@ -627,7 +627,7 @@ comments:
 
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: leojhonsongs-blog
   count: true
   lazyload: true
@@ -729,7 +729,7 @@ vkontakte_api:
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
-  enable: true
+  enable: false
   id:     33731
   color:  fc6423
 
