@@ -464,7 +464,7 @@ you need.</p>
 
 <p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
 <code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
-<p><img alt="" data-src="Configure-C-C-environment-in-VSCode/example.gif"></p>
+<p><img src="Configure-C-C-environment-in-VSCode/example.gif" alt=""></p>
 <p>💡 This gif is recorded under Linux system (Ubuntu).</p>
 <p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
 <h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
