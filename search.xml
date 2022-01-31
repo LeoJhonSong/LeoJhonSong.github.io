@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CAN Bus With RaspberryPi</title>
+    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
+    <content><![CDATA[<div align="right">Language:
+    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
+    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
+</div>
+
+<p>Recently I am working on A Formula E car, trying to do something with data in
+the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
+<a id="more"></a>
+
+<!-- TODO -->
+
+<blockquote>
+<p>Reference:</p>
+</blockquote>
+<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
+<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
+<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Communication</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>My Configurations Under Ubuntu</title>
+    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
+    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
+<a id="more"></a>
+
+<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
+<p>1.install it.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
+<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
+<p>💡 e.g. the location of the script on my computer is
+<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
+<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
+<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
+onedrive business are not supported. Someone recommended <code>GoodSync</code>,
+unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
+find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
+confusing name), which <strong>support personal account and onedrive 365 and even
+onedrive business</strong>!</p>
+<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
+<p>the guide is clear enough! 👍</p>
+<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
+<p>1.install <strong>dconf-editor</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
+and check isolate-workspaces</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>About My Custom Settings of My Next Theme Blog and Problem Killing</title>
     <url>/2018/12/24/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/</url>
     <content><![CDATA[<div align="right">Language:
@@ -464,7 +566,7 @@ you need.</p>
 
 <p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
 <code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
-<p><img src="Configure-C-C-environment-in-VSCode/example.gif" alt=""></p>
+<p><img alt="" data-src="Configure-C-C-environment-in-VSCode/example.gif"></p>
 <p>💡 This gif is recorded under Linux system (Ubuntu).</p>
 <p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
 <h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
@@ -624,107 +726,5 @@ same with taking drug</strong>.</p>
             document.body.appendChild(img);
           });
       </script>]]></content>
-  </entry>
-  <entry>
-    <title>CAN Bus With RaspberryPi</title>
-    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
-    <content><![CDATA[<div align="right">Language:
-    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
-    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
-</div>
-
-<p>Recently I am working on A Formula E car, trying to do something with data in
-the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
-<a id="more"></a>
-
-<!-- TODO -->
-
-<blockquote>
-<p>Reference:</p>
-</blockquote>
-<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
-<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
-<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Communication</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>My Configurations Under Ubuntu</title>
-    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
-    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
-<a id="more"></a>
-
-<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
-<p>1.install it.</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
-<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
-<p>💡 e.g. the location of the script on my computer is
-<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
-<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
-<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
-onedrive business are not supported. Someone recommended <code>GoodSync</code>,
-unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
-find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
-confusing name), which <strong>support personal account and onedrive 365 and even
-onedrive business</strong>!</p>
-<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
-<p>the guide is clear enough! 👍</p>
-<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
-<p>1.install <strong>dconf-editor</strong></p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
-and check isolate-workspaces</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Configuration</category>
-        <category>Linux</category>
-      </categories>
   </entry>
 </search>
