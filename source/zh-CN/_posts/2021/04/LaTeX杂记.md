@@ -12,10 +12,15 @@ categories:
 <!-- More -->
 
 为了专注一个主题, 我只想在这里记录一些我可能用到的语法 (要是你只是想写一份精美本科毕设论文的话也不用管太多). 想更系统更详细了解LaTeX的话, 我推荐下列三个详细程度递减的教程:
+
+{% note info %}
+
 - [一份不太简短的LaTeX2ε介绍 (lshot中文版)](http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf): 这是一份比较详细的入门教程的中文翻译版, 看完会解开许多初学时可能会有的疑惑, 比如它甚至列出了一些写LaTeX时可能用到或生成的文件类型都是什么用途. 网上各种中文LeTaX资料的名词翻译很不统一, 可以以这份教程的翻译为准. 这份lshort中文版其实不是单纯的翻译, 还增添了涉及中文使用的内容, 这无疑是十分有用的 (对于以后可能要写中文论文的我)
 - [简单粗暴LaTeX](https://github.com/wklchris/Note-by-LaTeX): 这份入门教材比上面这个短许多, 因为它更注重实用性内容, 讲解相对更少. 但对于在有模板的情况下写本科毕业论文的需求仍然是妥妥够用的. 而且因为这本书给出了源代码, 你甚至可以看看作者到底是怎么用LaTeX的 (如果你有那个闲心的话)
 - [Overleaf的LaTeX文档](https://www.overleaf.com/learn): Overleaf的文档更是讲解很少, 基本每个内容直接是使用示例.
 - 要是你还想看更多内容, 可以先看看[LaTeX工作室推荐的资料](https://www.latexstudio.net/archives/51802.html).
+
+{% endnote %}
 
 另外推荐一个[LaTeX命令参考手册](http://latexref.xyz/), 可以在这搜索想查的命令.
 
