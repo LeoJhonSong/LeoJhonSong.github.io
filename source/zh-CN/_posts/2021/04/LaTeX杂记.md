@@ -219,7 +219,7 @@ figure和table是LaTeX原生的两种浮动体环境, 用于灵活排版图片�
 
 先上一个论文利用的懒人模板样例 (效果如图):
 
-![](LaTeX杂记/figure.jpg?80)
+![](LaTeX杂记/figure.jpg?60)
 
 ```latex
 % 导言部分
