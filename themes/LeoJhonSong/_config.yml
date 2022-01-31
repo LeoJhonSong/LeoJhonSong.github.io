@@ -628,9 +628,9 @@ comments:
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: leojhonsongs-blog
   count: true
-  lazyload: false
+  lazyload: true
   #post_meta_order: 0
 
 # DisqusJS
