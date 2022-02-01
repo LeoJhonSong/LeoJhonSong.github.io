@@ -299,9 +299,22 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 ### 特殊符号
 
-[画圆圈1](https://tex.stackexchange.com/questions/374932/a-white-number-inside-a-black-circle)
+![](LaTeX杂记/symbol.jpg?70)
 
-[手绘查询符号](http://detexify.kirelabs.org/classify.html)
+LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
+
+```latex
+% 导言区
+\usepackage{tikz}  % 绘图宏包
+\newcommand{\ballnumber}[1]{
+    \tikz[baseline=(myanchor.base)]
+    \node[circle,fill=.,inner sep=1pt](myanchor){\color{-.}\bfseries\footnotesize #1};
+}
+```
+
+这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
+
+![](LaTeX杂记/snippet.jpg?60)
 
 ## 中文支持
 
