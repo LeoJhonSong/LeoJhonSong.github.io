@@ -338,6 +338,189 @@ the settings in both styl custom.styl<span class="github-emoji" style="color: tr
       </categories>
   </entry>
   <entry>
+    <title>When VSCode Becomes a Lifestyle</title>
+    <url>/2018/12/25/When-VSCode-Becomes-A-Lifestyle/</url>
+    <content><![CDATA[<div align="right">Language:
+<a href="/2018/12/25/When-VSCode-Becomes-A-Lifestyle"><kbd>English</kbd></a>
+<a href="/zh-CN/2019/01/07/当VSCode成为一种生活方式"><kbd>中文</kbd></a>
+</div>
+
+<a id="more"></a>
+
+<h2 id="IntelliSense-for-CSS-class-names-in-HTML"><a href="#IntelliSense-for-CSS-class-names-in-HTML" class="headerlink" title="IntelliSense for CSS class names in HTML"></a><a href="https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion" target="_blank" rel="noopener">IntelliSense for CSS class names in HTML</a></h2><h2 id="rewrap"><a href="#rewrap" class="headerlink" title="rewrap"></a><a href="https://marketplace.visualstudio.com/items?itemName=stkb.rewrap" target="_blank" rel="noopener">rewrap</a></h2><h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a><a href="https://marketplace.visualstudio.com/items?itemName=dan-c-underwood.arm" target="_blank" rel="noopener">ARM</a></h2><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a><a href="https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino" target="_blank" rel="noopener">Arduino</a></h2><h2 id="Better-Comments"><a href="#Better-Comments" class="headerlink" title="Better Comments"></a><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener">Better Comments</a></h2><h2 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Markdown All in One</a></h2><p>This extension includes nearly everything you need for Markdown, the only extra
+stuff you need are <a href="#Reflow-Markdown">Reflow Markdown</a> and <a href="#Markdown-Emoji">Markdown Emoji</a>.</p>
+<h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener">Markdown Preview Enhanced</a></h2><p>This extension seems really powerful that it can do nearly everything you can
+imagine of about Markdown. Unfortunately it seems that it don’t support emojis
+by itself in preview tab either. I have not tried this extension since I have
+got <code>Markdown All in One</code></p>
+<h2 id="Reflow-Markdown"><a href="#Reflow-Markdown" class="headerlink" title="Reflow Markdown"></a><a href="https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown" target="_blank" rel="noopener">Reflow Markdown</a></h2><p>This extension help you to do word-wrap very smartly by simply press
+<code>Alt+Q</code> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><br><strong>I LOVE THIS ONE!</strong></p>
+<h2 id="Markdown-Emoji"><a href="#Markdown-Emoji" class="headerlink" title="Markdown Emoji"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji" target="_blank" rel="noopener">Markdown Emoji</a></h2><h2 id="Markdown-Preview-Mermaid-Support"><a href="#Markdown-Preview-Mermaid-Support" class="headerlink" title="Markdown Preview Mermaid Support"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid" target="_blank" rel="noopener">Markdown Preview Mermaid Support</a></h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CAN Bus With RaspberryPi</title>
+    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
+    <content><![CDATA[<div align="right">Language:
+    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
+    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
+</div>
+
+<p>Recently I am working on A Formula E car, trying to do something with data in
+the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
+<a id="more"></a>
+
+<!-- TODO -->
+
+<blockquote>
+<p>Reference:</p>
+</blockquote>
+<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
+<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
+<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Communication</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2018/12/22/hello-world/</url>
+    <content><![CDATA[<div align="right">Language:
+    <a href="/2018/12/22/hello-world"><kbd>English</kbd></a>
+    <a href="/zh-CN/2018/12/22/大家好"><kbd>中文</kbd></a>
+</div>
+
+<h2 id="My-first-blog-on-my-own-site"><a href="#My-first-blog-on-my-own-site" class="headerlink" title="My first blog on my own site"></a>My first blog on my own site</h2><a id="more"></a>
+
+<hr>
+<p><strong>Hi, here is LeoJhon.Song’s first post!</strong> I suppose the only reason you are here is that you have nothing else to do. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8">😉</span>  </p><div><sub><sub><sup><sup>or
+because I shamefully wrote nothing else than this.</sup></sup></sub></sub></div><p></p>
+<hr>
+<p>OK. Finally, I build my own sweet little blog independent from annoy Chinese blog sites. It looks far much better don’t it?</p>
+<p>I plan to <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8">1⃣</span> <strong>log my study experience</strong> (I found posting my schedule could force me doing things which I intend to do but not do at last
+because of laziness) and maybe some casual essay if I have the mood. It is really a good way to arrange your knowledge since there are too many small
+pieces of knowledge nowadays. Besides, a most important reason is that I want to <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8">2⃣</span> <strong>share the cool things</strong> I found as <strong>I find it tastes the
+same with taking drug</strong>.</p>
+<p>I hope the future me won’t forget this.</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>My Configurations Under Ubuntu</title>
+    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
+    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
+<a id="more"></a>
+
+<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
+<p>1.install it.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
+<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
+<p>💡 e.g. the location of the script on my computer is
+<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
+<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
+<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
+onedrive business are not supported. Someone recommended <code>GoodSync</code>,
+unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
+find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
+confusing name), which <strong>support personal account and onedrive 365 and even
+onedrive business</strong>!</p>
+<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
+<p>the guide is clear enough! 👍</p>
+<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
+<p>1.install <strong>dconf-editor</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
+and check isolate-workspaces</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Configure C/C++ Environment in VSCode</title>
     <url>/2018/12/30/Configure-C-C-environment-in-VSCode/</url>
     <content><![CDATA[<div align="right">Language:
@@ -464,7 +647,7 @@ you need.</p>
 
 <p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
 <code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
-<p><img src="Configure-C-C-environment-in-VSCode/example.gif" alt=""></p>
+<p><img alt="" data-src="Configure-C-C-environment-in-VSCode/example.gif"></p>
 <p>💡 This gif is recorded under Linux system (Ubuntu).</p>
 <p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
 <h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
@@ -542,189 +725,6 @@ hope you enjoy it!</p>
       </script>]]></content>
       <categories>
         <category>Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>When VSCode Becomes a Lifestyle</title>
-    <url>/2018/12/25/When-VSCode-Becomes-A-Lifestyle/</url>
-    <content><![CDATA[<div align="right">Language:
-<a href="/2018/12/25/When-VSCode-Becomes-A-Lifestyle"><kbd>English</kbd></a>
-<a href="/zh-CN/2019/01/07/当VSCode成为一种生活方式"><kbd>中文</kbd></a>
-</div>
-
-<a id="more"></a>
-
-<h2 id="IntelliSense-for-CSS-class-names-in-HTML"><a href="#IntelliSense-for-CSS-class-names-in-HTML" class="headerlink" title="IntelliSense for CSS class names in HTML"></a><a href="https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion" target="_blank" rel="noopener">IntelliSense for CSS class names in HTML</a></h2><h2 id="rewrap"><a href="#rewrap" class="headerlink" title="rewrap"></a><a href="https://marketplace.visualstudio.com/items?itemName=stkb.rewrap" target="_blank" rel="noopener">rewrap</a></h2><h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a><a href="https://marketplace.visualstudio.com/items?itemName=dan-c-underwood.arm" target="_blank" rel="noopener">ARM</a></h2><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a><a href="https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino" target="_blank" rel="noopener">Arduino</a></h2><h2 id="Better-Comments"><a href="#Better-Comments" class="headerlink" title="Better Comments"></a><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener">Better Comments</a></h2><h2 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Markdown All in One</a></h2><p>This extension includes nearly everything you need for Markdown, the only extra
-stuff you need are <a href="#Reflow-Markdown">Reflow Markdown</a> and <a href="#Markdown-Emoji">Markdown Emoji</a>.</p>
-<h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener">Markdown Preview Enhanced</a></h2><p>This extension seems really powerful that it can do nearly everything you can
-imagine of about Markdown. Unfortunately it seems that it don’t support emojis
-by itself in preview tab either. I have not tried this extension since I have
-got <code>Markdown All in One</code></p>
-<h2 id="Reflow-Markdown"><a href="#Reflow-Markdown" class="headerlink" title="Reflow Markdown"></a><a href="https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown" target="_blank" rel="noopener">Reflow Markdown</a></h2><p>This extension help you to do word-wrap very smartly by simply press
-<code>Alt+Q</code> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><br><strong>I LOVE THIS ONE!</strong></p>
-<h2 id="Markdown-Emoji"><a href="#Markdown-Emoji" class="headerlink" title="Markdown Emoji"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji" target="_blank" rel="noopener">Markdown Emoji</a></h2><h2 id="Markdown-Preview-Mermaid-Support"><a href="#Markdown-Preview-Mermaid-Support" class="headerlink" title="Markdown Preview Mermaid Support"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid" target="_blank" rel="noopener">Markdown Preview Mermaid Support</a></h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2018/12/22/hello-world/</url>
-    <content><![CDATA[<div align="right">Language:
-    <a href="/2018/12/22/hello-world"><kbd>English</kbd></a>
-    <a href="/zh-CN/2018/12/22/大家好"><kbd>中文</kbd></a>
-</div>
-
-<h2 id="My-first-blog-on-my-own-site"><a href="#My-first-blog-on-my-own-site" class="headerlink" title="My first blog on my own site"></a>My first blog on my own site</h2><a id="more"></a>
-
-<hr>
-<p><strong>Hi, here is LeoJhon.Song’s first post!</strong> I suppose the only reason you are here is that you have nothing else to do. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8">😉</span>  </p><div><sub><sub><sup><sup>or
-because I shamefully wrote nothing else than this.</sup></sup></sub></sub></div><p></p>
-<hr>
-<p>OK. Finally, I build my own sweet little blog independent from annoy Chinese blog sites. It looks far much better don’t it?</p>
-<p>I plan to <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8">1⃣</span> <strong>log my study experience</strong> (I found posting my schedule could force me doing things which I intend to do but not do at last
-because of laziness) and maybe some casual essay if I have the mood. It is really a good way to arrange your knowledge since there are too many small
-pieces of knowledge nowadays. Besides, a most important reason is that I want to <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8">2⃣</span> <strong>share the cool things</strong> I found as <strong>I find it tastes the
-same with taking drug</strong>.</p>
-<p>I hope the future me won’t forget this.</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title>CAN Bus With RaspberryPi</title>
-    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
-    <content><![CDATA[<div align="right">Language:
-    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
-    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
-</div>
-
-<p>Recently I am working on A Formula E car, trying to do something with data in
-the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
-<a id="more"></a>
-
-<!-- TODO -->
-
-<blockquote>
-<p>Reference:</p>
-</blockquote>
-<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
-<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
-<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Communication</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>My Configurations Under Ubuntu</title>
-    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
-    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
-<a id="more"></a>
-
-<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
-<p>1.install it.</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
-<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
-<p>💡 e.g. the location of the script on my computer is
-<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
-<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
-<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
-onedrive business are not supported. Someone recommended <code>GoodSync</code>,
-unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
-find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
-confusing name), which <strong>support personal account and onedrive 365 and even
-onedrive business</strong>!</p>
-<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
-<p>the guide is clear enough! 👍</p>
-<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
-<p>1.install <strong>dconf-editor</strong></p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
-and check isolate-workspaces</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Configuration</category>
-        <category>Linux</category>
       </categories>
   </entry>
 </search>
