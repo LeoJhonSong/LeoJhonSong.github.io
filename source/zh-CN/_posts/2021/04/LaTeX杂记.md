@@ -118,7 +118,7 @@ categories:
 \usepackage{xeCJK}  % 中文支持
 ```
 
-当使用`xelatex`作为编译器时可以使用*fontspec*包来指定字体. 更详细的指定方式参见[Overleaf的文档](https://es.overleaf.com/learn/latex/XeLaTeX). 不过虽然我们学院的论文格式要求也对字体提出了要求, 但所要求的**Times New Roman**, **Arial**这几个字体其实都是Windows系统专有的. 我的Manjaro系统虽然也有替代字体, 但是我感觉默认字体看着也挺好而且老师其实没管所以就没折腾. 实际写作我并没有主动使用过切换字体的命令, 暂时感觉用不到.
+当使用`xelatex`作为编译器时可以使用***fontspec***包来指定字体. 更详细的指定方式参见[Overleaf的文档](https://es.overleaf.com/learn/latex/XeLaTeX). 不过虽然我们学院的论文格式要求也对字体提出了要求, 但所要求的**Times New Roman**, **Arial**这几个字体其实都是Windows系统专有的. 我的Manjaro系统虽然也有替代字体, 但是我感觉默认字体看着也挺好而且老师其实没管所以就没折腾. 实际写作我并没有主动使用过切换字体的命令, 暂时感觉用不到.
 
 当设置好全文字体大小及字体后, 在文中想设置文字的样式, 比如加粗/斜体/下划线/小型大写字母, 或者大点/小点的, 用到的命令[这里](https://www.overleaf.com/learn/latex/Font_sizes%2C_families%2C_and_styles#Reference_guide)有一个列表可查. 注意变更样式的部分用大括号括起来, 不然后面所有字符的样式都会维持这样.
 
@@ -144,7 +144,7 @@ LaTeX原生提供了7级标题:
 
 #### underfull和overfull警告是什么
 
-这两种警告是在编译后非常常见的警告, 意味着编译器在这一行找不到合适的换行的地方, 导致这一行在文字框限制内排版出来要不是太空了 (underfull) 要不就是太挤了 (overfull). 也就是说这基本是英文这样的字母语言才会遇到的问题. Overleaf[这篇文章](https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings)很详细讲了原因, 但几乎没给处理办法. 💡 要注意其中提到的*microtype*包xelatex[目前几乎不支持](https://tex.stackexchange.com/questions/118713/is-microtype-fully-supported-now-by-xelatex-if-not-how-can-i-keep-myself-up-to), 但我感觉我就用默认排版工具生成的pdf排版也还挺好的? 以下是一些关于断行的小技巧.
+这两种警告是在编译后非常常见的警告, 意味着编译器在这一行找不到合适的换行的地方, 导致这一行在文字框限制内排版出来要不是太空了 (underfull) 要不就是太挤了 (overfull). 也就是说这基本是英文这样的字母语言才会遇到的问题. Overleaf[这篇文章](https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings)很详细讲了原因, 但几乎没给处理办法. 💡 要注意其中提到的***microtype***包xelatex[目前几乎不支持](https://tex.stackexchange.com/questions/118713/is-microtype-fully-supported-now-by-xelatex-if-not-how-can-i-keep-myself-up-to), 但我感觉我就用默认排版工具生成的pdf排版也还挺好的? 以下是一些关于断行的小技巧.
 
 ##### 断词与不要断词
 
@@ -206,7 +206,7 @@ xelatex在生成pdf时默认会进行压缩, 这会让生成的pdf相对很小, 
 
 这个CSDN上的[LaTeX基本数学公式语法](https://blog.csdn.net/ethmery/article/details/50670297)列出了希腊字母, 上下标, 矢量, 特殊符号, 矩阵等数学公式常用命令, 还挺全的.
 
-作为一个菜鸟我还没用LaTeX写过很复杂的公式, 因此还没有用过*amsmath*这个增强[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)的包, 但据overleaf这篇文章原生支持对排版支持不够好, 因此我先码住.
+作为一个菜鸟我还没用LaTeX写过很复杂的公式, 因此还没有用过***amsmath***这个增强[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)的包, 但据overleaf这篇文章原生支持对排版支持不够好, 因此我先码住.
 
 然后这还有一篇Overleaf的[数学相关内容合集](https://www.overleaf.com/learn/latex/Mathematics) 🐮
 
@@ -243,7 +243,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 用`\caption`命令可以给图片等浮动体加标题, 在`{}`中的是长标题, 就是显示在图下那个. 而在`[]`中的短标题是会显示在图目录中的标题 (用`\listoffigures`来生成图目录). 我习惯在长标题里开头用短标题, 能实现很多论文里**概要: 详细描述**的图标题形式.
 
-`\lable`是交叉引用, 可以用来在文中提及章节/公式/图表等. 导入**hyperref**包能支持点击引用处跳转, 这样体验才够良好. 用`\autoref`而不是`\ref`能让整个引用编号 (比如上面的红色的**Figure 1**)而不是只有**1**是超链接. `\ref{}`或者`\autoref{}`的参数可以随便写, 之所以加个`f:`的前缀是为了将图片, 表格等类交叉引用区别开, 方便管理, 比如说VSC的LaTeX Workshop支持交叉引用的补全提示.
+`\lable`是交叉引用, 可以用来在文中提及章节/公式/图表等. 导入***hyperref***包能支持点击引用处跳转, 这样体验才够良好. 用`\autoref`而不是`\ref`能让整个引用编号 (比如上面的红色的**Figure 1**)而不是只有**1**是超链接. `\ref{}`或者`\autoref{}`的参数可以随便写, 之所以加个`f:`的前缀是为了将图片, 表格等类交叉引用区别开, 方便管理, 比如说VSC的LaTeX Workshop支持交叉引用的补全提示.
 
 细节解释可以参考这几个链接:
 - [Overleaf的插入图片全教程](https://www.overleaf.com/learn/latex/Inserting_Images#Generating_high-res_and_low-res_images)
@@ -281,9 +281,9 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 <img src="./LaTeX杂记/table.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
 
-图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, *tabularx*这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比*tabular*环境更智能省心. *tabularx*环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
+图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, `tabularx`这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比`tabular`环境更智能省心. `tabularx`环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
 
-`&`用来分隔一行中的单元格, `\\`表示一行的末尾. *booktabs*这个包里好像只有一些分隔线, `\toprule`, `\midrule`这些的. 更多画边框线的方式参加[overleaf-表格](https://www.overleaf.com/learn/latex/tables).
+`&`用来分隔一行中的单元格, `\\`表示一行的末尾. ***booktabs***这个包里好像只有一些分隔线, `\toprule`, `\midrule`这些的. 更多画边框线的方式参加[overleaf-表格](https://www.overleaf.com/learn/latex/tables).
 
 ### 列表
 
@@ -293,7 +293,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 ### 代码
 
-`lstlisting`环境 (需要导入*listings*宏包*) 是传统的插入代码用环境, 只是插入个代码的话倒是语法也很简单, 但是要想让插入的代码有语法高亮的话就必须[这样](https://www.overleaf.com/learn/latex/Code_listing#Code_styles_and_colours)自己在导言区放一个语法高亮配色方案, 很不简洁. 强推一下`minted`环境 (需要导入*minted*宏包), 这是一个自带多种语法高亮配色方案且支持绝大多数语言语法高亮的很现代的代码插入环境! 使用方式见[overleaf-用minted语法高亮](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Introduction). 如果你追求比较高, 觉得minted自带的语法高亮不够细致,  比如minted对yaml的语法高亮不会像VSC那样将布尔值, 数字, 字符串等类型值用颜色标示出来, 那可以看看stackoverflow上这个[自定义语法高亮问题](https://tex.stackexchange.com/questions/152829/how-can-i-highlight-yaml-code-in-a-pretty-way-with-listings).
+`lstlisting`环境 (需要导入***listings***宏包) 是传统的插入代码用环境, 只是插入个代码的话倒是语法也很简单, 但是要想让插入的代码有语法高亮的话就必须[这样](https://www.overleaf.com/learn/latex/Code_listing#Code_styles_and_colours)自己在导言区放一个语法高亮配色方案, 很不简洁. 强推一下`minted`环境 (需要导入***minted***宏包), 这是一个自带多种语法高亮配色方案且支持绝大多数语言语法高亮的很现代的代码插入环境! 使用方式见[overleaf-用minted语法高亮](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Introduction). 如果你追求比较高, 觉得minted自带的语法高亮不够细致,  比如minted对yaml的语法高亮不会像VSC那样将布尔值, 数字, 字符串等类型值用颜色标示出来, 那可以看看stackoverflow上这个[自定义语法高亮问题](https://tex.stackexchange.com/questions/152829/how-can-i-highlight-yaml-code-in-a-pretty-way-with-listings).
 
 补充: [跨页代码无法caption问题](https://tex.stackexchange.com/questions/12428/code-spanning-over-two-pages-with-minted-inside-listing-with-caption).
 
@@ -301,7 +301,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 <img src="./LaTeX杂记/symbol.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
 
-LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
+LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
 
 ```latex
 % 导言区
@@ -314,11 +314,11 @@ LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这�
 
 这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
 
-<img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">
+*<img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">*
 
 ## 中文支持
 
-我目前还没用LaTeX写过中文内容, 不过看起来*xeCJK*宏包提供的中文支持效果还不错 (前提是用xelatex作为编译器), 不知道大量使用中文时会不会出问题. 这篇[overleaf-中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)我先码住.
+我目前还没用LaTeX写过中文内容, 不过看起来***xeCJK***宏包提供的中文支持效果还不错 (前提是用xelatex作为编译器), 不知道大量使用中文时会不会出问题. 这篇[overleaf-中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)我先码住.
 
 ## 构建流程
 
