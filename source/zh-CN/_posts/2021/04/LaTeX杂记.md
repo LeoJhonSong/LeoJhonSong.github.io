@@ -138,7 +138,7 @@ LaTeX原生提供了7级标题:
 
 但是`\paragraph{}`和`\subparagraph{}`并不会被显示在目录中, 在文中也看着不太像是标题而只是加粗的正文. 下图中**test 1**为`\paragraph{}`, **test 2**为`\subparagraph{}`, **test 3**为`\subsubsection{}`.
 
-<img src="./LaTeX杂记/sections.jpg" width=80% style="display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/sections.jpg" style="width:80%; display:block; margin-left:auto; margin-right:auto;">
 
 因此真要说的话在article这种文档类型中LaTeX原生提供的标题只有三级. 要是写短篇论文的话确实也不需要更小的标题了, 但是记个笔记之类还是有可能需要更多级的标题. [这个stackoverflow问题](https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection)有给出一些解决方案.
 
@@ -175,7 +175,7 @@ LaTeX原生提供了7级标题:
 - 在LaTeX中多个空格会被当成一个空格 (多个回车也只会产生到下一段的效果). 想用word那样的空格魔法或者回车魔法的话用`\hspace{len}`和`\vspace{len}` 😏.
 - **带子** (tie) `~`. 在两个单词间加`~`而不是空格能产生一个不会被断行的空格. 一般用在人名之类的地方.
 - 句末标点 (**小写字母**后的./?/!) 后的空格会比普通空格长一些. 之所以强调是小写字母后的, 是因为以大写字母结尾会被LaTeX认为最后这个词是人名因而不加长空格. 此时 (如果你真在意这个的话) 用`\@`手动指明. 你会发现下面这个图里`OK.`后的空格长度确实有区别, 但区别非常小:
-  <img src="./LaTeX杂记/space.jpg" width=80% style="display:block; margin-left:auto; margin-right:auto;">
+  <img src="./LaTeX杂记/space.jpg" style="width:80%; display:block; margin-left:auto; margin-right:auto;">
   另一种情况则是非句末标点被识别为句末标点了, 比如"Prof. Smith". 此时可以用`~`或者`\ ` (👈 注意\\后面有个空格)来缩短间距. 不过`~`不允许空格处断行而`\ `允许.
 - 还有时会看到`\Tex{} Live`或`\Tex\ Live`这样明明不支持参数的命令 (如`\Tex`) 后却有{}或者`\ `, 这是为了让不支持参数的命令后的空格能被正常排版.
 
@@ -220,7 +220,7 @@ figure和table是LaTeX原生的两种浮动体环境, 用于灵活排版图片�
 
 先上一个论文利用的懒人模板样例 (效果如图):
 
-<img src="./LaTeX杂记/figure.jpg" width=60% style="display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/figure.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
 
 ```latex
 % 导言部分
@@ -279,7 +279,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 \end{table}
 ```
 
-<img src="./LaTeX杂记/table.jpg" width=60% style="display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/table.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
 
 图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, *tabularx*这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比*tabular*环境更智能省心. *tabularx*环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
 
@@ -299,7 +299,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 ### 特殊符号
 
-<img src="./LaTeX杂记/symbol.jpg" width=70% style="display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/symbol.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
 
 LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
 
@@ -314,13 +314,11 @@ LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这�
 
 这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
 
-<img src="./LaTeX杂记/snippet.jpg" width=35% style="display: block;margin-left: auto; margin-right: auto;">
+<img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">
 
 ## 中文支持
 
 我目前还没用LaTeX写过中文内容, 不过看起来*xeCJK*宏包提供的中文支持效果还不错 (前提是用xelatex作为编译器), 不知道大量使用中文时会不会出问题. 这篇[overleaf-中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)我先码住.
-
-
 
 ## 构建流程
 
