@@ -314,7 +314,7 @@ LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面
 
 这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
 
-*<img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">*
+   <img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">
 
 ## 中文支持
 
