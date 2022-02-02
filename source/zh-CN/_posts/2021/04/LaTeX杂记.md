@@ -56,7 +56,7 @@ categories:
 └── 📑References.bib    所有引用的bibtex放这里
 ```
 
-在Overleaf的快速教程中能看到只用一个tex文件就可以写LaTeX了, 但一般见到的论文模板都是多个文件的 (比如我更新的[学院毕设模板](https://github.com/LeoJhonSong/UESTC-Glasgow-Final-Year-Report-Template/blob/master/README.md)), 类似上面这样的结构. 将不同内容分别放在不同文件, 不然太长了不能方便组织以及查找出错地方. 通常在根目录的**main.tex**被作为根文件 (root file), **只有根文件中有`\begin{document}`**. 通常习惯将各种全局设置, 包的引用, 标题, 作者, 自己定义的新命令, 宏定义等导言 ([preamble](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#The_preamble_of_a_document)), 都放在**main.tex**中. 而`\begin{document}`后的正文内容基本是以`\include{}`插入在**Front**, **Sections**, **Appendices**中的tex文件, 以及插入目录, 插入图表索引, 插入引用的语句等. 也就是说**main.tex**中没有具体内容, 基本是环境配置, 参数设置, 大纲这样子. main.tex的大致结构如下:
+在Overleaf的快速教程中能看到只用一个tex文件就可以写LaTeX了, 但一般见到的论文模板都是多个文件的 (比如我更新的[学院毕设模板](https://github.com/LeoJhonSong/UESTC-Glasgow-Final-Year-Report-Template/blob/master/README.md)), 类似上面这样的结构. 将不同内容分别放在不同文件, 不然太长了不方便组织以及查找出错地方. 通常在根目录的**main.tex**被作为根文件 (root file), **只有根文件中有`\begin{document}`**. 通常习惯将各种全局设置, 包的引用, 标题, 作者, 自己定义的新命令, 宏定义等导言 ([preamble](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#The_preamble_of_a_document)), 都放在**main.tex**中. 而`\begin{document}`后的正文内容基本是以`\include{}`插入在**Front**, **Sections**, **Appendices**中的tex文件, 以及插入目录, 插入图表索引, 插入引用的语句等. 也就是说**main.tex**中没有具体内容, 基本是环境配置, 参数设置, 大纲这样子. main.tex的大致结构如下:
 
 ```latex
 \documentclass{article}
@@ -118,7 +118,7 @@ categories:
 \usepackage{xeCJK}  % 中文支持
 ```
 
-当使用`xelatex`作为编译器时可以使用`fontspec`包来指定字体. 更详细的指定方式参见[Overleaf的文档](https://es.overleaf.com/learn/latex/XeLaTeX). 不过虽然我们学院的论文格式要求也对字体提出了要求, 但所要求的**Times New Roman**, **Arial**这几个字体其实都是Windows系统专有的. 我的Manjaro系统虽然也有替代字体, 但是我感觉默认字体看着也挺好而且老师其实没管所以就没折腾. 实际写作我并没有主动使用过切换字体的命令, 暂时感觉用不到.
+当使用`xelatex`作为编译器时可以使用*fontspec*包来指定字体. 更详细的指定方式参见[Overleaf的文档](https://es.overleaf.com/learn/latex/XeLaTeX). 不过虽然我们学院的论文格式要求也对字体提出了要求, 但所要求的**Times New Roman**, **Arial**这几个字体其实都是Windows系统专有的. 我的Manjaro系统虽然也有替代字体, 但是我感觉默认字体看着也挺好而且老师其实没管所以就没折腾. 实际写作我并没有主动使用过切换字体的命令, 暂时感觉用不到.
 
 当设置好全文字体大小及字体后, 在文中想设置文字的样式, 比如加粗/斜体/下划线/小型大写字母, 或者大点/小点的, 用到的命令[这里](https://www.overleaf.com/learn/latex/Font_sizes%2C_families%2C_and_styles#Reference_guide)有一个列表可查. 注意变更样式的部分用大括号括起来, 不然后面所有字符的样式都会维持这样.
 
@@ -138,13 +138,13 @@ LaTeX原生提供了7级标题:
 
 但是`\paragraph{}`和`\subparagraph{}`并不会被显示在目录中, 在文中也看着不太像是标题而只是加粗的正文. 下图中**test 1**为`\paragraph{}`, **test 2**为`\subparagraph{}`, **test 3**为`\subsubsection{}`.
 
-![](LaTeX杂记/sections.jpg?80)
+<img src="./LaTeX杂记/sections.jpg" width=80% style="display:block; margin-left:auto; margin-right:auto;">
 
 因此真要说的话在article这种文档类型中LaTeX原生提供的标题只有三级. 要是写短篇论文的话确实也不需要更小的标题了, 但是记个笔记之类还是有可能需要更多级的标题. [这个stackoverflow问题](https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection)有给出一些解决方案.
 
 #### underfull和overfull警告是什么
 
-这两种警告是在编译后非常常见的警告, 意味着编译器在这一行找不到合适的换行的地方, 导致这一行在文字框限制内排版出来要不是太空了 (underfull) 要不就是太挤了 (overfull). 也就是说这基本是英文这样的字母语言才会遇到的问题. Overleaf[这篇文章](https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings)很详细讲了原因, 但几乎没给处理办法. 💡 要注意其中提到的`microtype`包xelatex[目前几乎不支持](https://tex.stackexchange.com/questions/118713/is-microtype-fully-supported-now-by-xelatex-if-not-how-can-i-keep-myself-up-to), 但我感觉我就用默认排版工具生成的pdf排版也还挺好的? 以下是一些关于断行的小技巧.
+这两种警告是在编译后非常常见的警告, 意味着编译器在这一行找不到合适的换行的地方, 导致这一行在文字框限制内排版出来要不是太空了 (underfull) 要不就是太挤了 (overfull). 也就是说这基本是英文这样的字母语言才会遇到的问题. Overleaf[这篇文章](https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings)很详细讲了原因, 但几乎没给处理办法. 💡 要注意其中提到的*microtype*包xelatex[目前几乎不支持](https://tex.stackexchange.com/questions/118713/is-microtype-fully-supported-now-by-xelatex-if-not-how-can-i-keep-myself-up-to), 但我感觉我就用默认排版工具生成的pdf排版也还挺好的? 以下是一些关于断行的小技巧.
 
 ##### 断词与不要断词
 
@@ -175,7 +175,7 @@ LaTeX原生提供了7级标题:
 - 在LaTeX中多个空格会被当成一个空格 (多个回车也只会产生到下一段的效果). 想用word那样的空格魔法或者回车魔法的话用`\hspace{len}`和`\vspace{len}` 😏.
 - **带子** (tie) `~`. 在两个单词间加`~`而不是空格能产生一个不会被断行的空格. 一般用在人名之类的地方.
 - 句末标点 (**小写字母**后的./?/!) 后的空格会比普通空格长一些. 之所以强调是小写字母后的, 是因为以大写字母结尾会被LaTeX认为最后这个词是人名因而不加长空格. 此时 (如果你真在意这个的话) 用`\@`手动指明. 你会发现下面这个图里`OK.`后的空格长度确实有区别, 但区别非常小:
-  ![](LaTeX杂记/space.jpg?80)
+  <img src="./LaTeX杂记/space.jpg" width=80% style="display:block; margin-left:auto; margin-right:auto;">
   另一种情况则是非句末标点被识别为句末标点了, 比如"Prof. Smith". 此时可以用`~`或者`\ ` (👈 注意\\后面有个空格)来缩短间距. 不过`~`不允许空格处断行而`\ `允许.
 - 还有时会看到`\Tex{} Live`或`\Tex\ Live`这样明明不支持参数的命令 (如`\Tex`) 后却有{}或者`\ `, 这是为了让不支持参数的命令后的空格能被正常排版.
 
@@ -206,7 +206,7 @@ xelatex在生成pdf时默认会进行压缩, 这会让生成的pdf相对很小, 
 
 这个CSDN上的[LaTeX基本数学公式语法](https://blog.csdn.net/ethmery/article/details/50670297)列出了希腊字母, 上下标, 矢量, 特殊符号, 矩阵等数学公式常用命令, 还挺全的.
 
-作为一个菜鸟我还没用LaTeX写过很复杂的公式, 因此还没有用过`amsmath`这个增强[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)的包, 但据overleaf这篇文章原生支持对排版支持不够好, 因此我先码住.
+作为一个菜鸟我还没用LaTeX写过很复杂的公式, 因此还没有用过*amsmath*这个增强[公式排版](https://www.overleaf.com/learn/latex/Aligning%20equations%20with%20amsmath)的包, 但据overleaf这篇文章原生支持对排版支持不够好, 因此我先码住.
 
 然后这还有一篇Overleaf的[数学相关内容合集](https://www.overleaf.com/learn/latex/Mathematics) 🐮
 
@@ -220,7 +220,7 @@ figure和table是LaTeX原生的两种浮动体环境, 用于灵活排版图片�
 
 先上一个论文利用的懒人模板样例 (效果如图):
 
-![](LaTeX杂记/figure.jpg?60)
+<img src="./LaTeX杂记/figure.jpg" width=60% style="display:block; margin-left:auto; margin-right:auto;">
 
 ```latex
 % 导言部分
@@ -279,11 +279,11 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 \end{table}
 ```
 
-![](LaTeX杂记/table.jpg?60)
+<img src="./LaTeX杂记/table.jpg" width=60% style="display:block; margin-left:auto; margin-right:auto;">
 
-图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, `tabularx`这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比`tabular`环境更智能省心. `tabularx`环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
+图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, *tabularx*这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比*tabular*环境更智能省心. *tabularx*环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
 
-`&`用来分隔一行中的单元格, `\\`表示一行的末尾. `booktabs`这个包里好像只有一些分隔线, `\toprule`, `\midrule`这些的. 更多画边框线的方式参加[overleaf-表格](https://www.overleaf.com/learn/latex/tables).
+`&`用来分隔一行中的单元格, `\\`表示一行的末尾. *booktabs*这个包里好像只有一些分隔线, `\toprule`, `\midrule`这些的. 更多画边框线的方式参加[overleaf-表格](https://www.overleaf.com/learn/latex/tables).
 
 ### 列表
 
@@ -299,7 +299,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 ### 特殊符号
 
-![](LaTeX杂记/symbol.jpg?70)
+<img src="./LaTeX杂记/symbol.jpg" width=70% style="display:block; margin-left:auto; margin-right:auto;">
 
 LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
 
@@ -314,11 +314,13 @@ LaTeX里更特殊的符号其实是靠`tkiz`包绘制出来的, 比如上面这�
 
 这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
 
-![](LaTeX杂记/snippet.jpg?60)
+<img src="./LaTeX杂记/snippet.jpg" width=35% style="display: block;margin-left: auto; margin-right: auto;">
 
 ## 中文支持
 
-[中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)
+我目前还没用LaTeX写过中文内容, 不过看起来*xeCJK*宏包提供的中文支持效果还不错 (前提是用xelatex作为编译器), 不知道大量使用中文时会不会出问题. 这篇[overleaf-中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)我先码住.
+
+
 
 ## 构建流程
 
