@@ -20,13 +20,18 @@ categories:
 
 另外推荐一个[LaTeX命令参考手册](http://latexref.xyz/), 可以在这搜索想查的命令.
 
-我是在Linux系统下用安装了[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)插件的VSCode写的LaTeX, 这个插件通过调用你安装的LeTaX发行版来提供丰富的LeTaX支持. 我使用的发行版正是LaTeX Workshop最推荐的[Tex Live](https://www.tug.org/texlive/). 这东西离线安装包有点大, 而且很有可能需要单独下一些包, 有点麻烦. 幸好我Manjaro系统一句`yay -S texlive-most texlive-lang biber`就把我下面需要用到的所有工具都安装好了. **如果你目前没有安装Tex Live, 不妨先试试在[Overleaf](https://www.overleaf.com/)在线编辑LaTeX试试, 操作很简便, 下述操作中大部分都能实现, 非常省事.**
+## 给我用Overleaf/VSCode写
+
+我是在Linux系统下用安装了[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)插件的VSCode写的LaTeX, 这个插件通过调用你安装的LeTaX发行版来提供丰富的LeTaX支持. 我使用的发行版正是LaTeX Workshop最推荐的[Tex Live](https://www.tug.org/texlive/). 这东西的离线安装包有点大, 而且很有可能需要单独下一些包, 有点麻烦. 幸好我Manjaro系统一句`yay -S texlive-most texlive-lang biber`就把我下面需要用到的所有工具都安装好了. **如果你目前没有安装Tex Live, 不妨先试试在[Overleaf](https://www.overleaf.com/)在线编辑LaTeX试试, 操作很简便, 下述操作中除了[术语表](#术语表)处我的方案需要额外工具`bib2gls`Overleaf上没有外都支持, 非常省事.** 比本地编辑器好的一点是Overleaf开箱即用地支持多人在线协作.
+
+只要你不是要写上百页的论文, Overleaf绝对是够用的, 但反正Manjaro上Tex Live下着很容易, 而且我又喜欢折腾, 我就试着本地写LaTeX. 试了一圈后**我只推荐用VSCode当本地编辑器**. 那些LaTeX专用编辑器看网上说法体验起来功能并没有比Overleaf多什么, 而且很丑 (我已经搜的是这些软件最新版的截图了)... 而用VSCode就不一样了, 如果你熟悉VSCode你就应当知道VSCode能做到非常高度的自定义 (补全, 代码段, 语法检查, 拼写检查, 皮肤等), 而且因为VCSode是基于Chromium开发的因此天然支持内置浏览pdf. 相比`vim + Okular`这样的尴尬方案, VSCode的LaTeX Workshop插件使得在VSCode中的LaTeX与pdf的正反向搜索 (正向搜索就是在生成的pdf中搜索指定LaTeX源代码对应的内容, 反向搜索就是反过来) 精度非常高, 比起`vim + Okular`方案只能精准到对应行, VSCode能精准到单词! 此外LaTeX Workshop也提供了许多贴心的功能, 比如可以很容易地自己配置编译工具链, 自动格式化并排序bib引用文件等, 支持[pdf反色](https://github.com/James-Yu/LaTeX-Workshop/wiki/View#invert-mode晚上长时间写LaTeX也不怕泪目...
 
 💡 关于如何安装Tex Live可以看看[这个说明](https://oi-wiki.org/tools/latex/#_4).
 
 <!-- TODO: 是哪个没法实现最好指出 基本就bib2gls? -->
 
-## 项目文件结构
+
+## 项目结构
 
 首先是关于这东西从哪开始写. 不了解的话会觉得LaTeX的文件又多语法又乱七八糟, 那么要写个LaTeX的"Hello World"该怎么做? 这个其实很简单:
 
@@ -43,8 +48,6 @@ categories:
 要用LaTeX写一个简单文档需要的语法都很简单没有争议, 需要的工具也只有`xelatex`. 想快速了解LaTeX最基本的语法可以看看[Overleaf的30min入门教程](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). 不过其实用不了30分钟, 因为只讲了最基础的内容因此大致看一遍了解一下就好😂. 看了一些教程后我觉得Overleaf的文档是非常简短 (因此很不详细) 但足够全面的了, 最重要的是**基本用的都是最新最简洁的语法** (正如现在有些python问题还有人在给出python2的绕来绕去的方案, 随便看网上说法会觉得LaTeX怎么这么麻烦功能这么少 🤦‍♂️). 因此后文的文档参考我也基本是给出的是Overleaf的文档.
 
 大致看了一遍上面链接后就知道怎么用LaTeX写一份用Markdown或者word写也很方便的文档啦. 但要用来写一份高逼格论文的话还需要深入一些, 不然LaTeX的优势也体现不出来了. 首先来看一些绕不开且容易的语法, 然后是各种插入富文本的语法, 最后是关于让引用不管是插入还是看起来体验都更好的内容 (因为需要更改构建工具链这个部分在overleaf无法实现).
-
-## 项目结构
 
 ```
 .
@@ -183,6 +186,25 @@ LaTeX原生提供了7级标题:
 
 用`\\`可以在段落内手动换行. 但不同于在word中到处用回车, [无脑`\\`似乎是不被推荐的](https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings?#Notes_on_using_.5C.5C). 在上文中推荐的*一份不太简短的LaTeX2ε介绍*中**2.4.2 手动断行和断页**这节有提到几种断行命令的具体区别 (但我感觉没必要管就没看).
 
+## 超链接
+
+```latex
+\usepackage[svgnames]{xcolor}  % colouring
+\definecolor{bleu_cite}{RGB}{34,111,212}
+
+\usepackage{hyperref}  % 这个包的导入最好放在导言区最后
+\hypersetup{
+    colorlinks=true,
+    linkcolor=LightSlateGray,  % 默认值red
+    citecolor=bleu_cite,  % 默认值green
+}
+```
+
+这年代写论文超链接肯定得有, 不然逼格不太够. 导入了***hyperref***这个包, 目录, 参考文献引用, 图表的交叉引用, 网页链接等才会具有超链接的特性. 上面是我的配置. 导入***xcolor***包可以用`\definecolor{}`命令自定义一些颜色, 带参数的话也可以使用***xcolor***提供的很多种颜色, 比如上面用的`svgnames`这个颜色集里有`LightSlateGray`. 我基本就用这个颜色集, 下图列出了*svgnames*提供的所有颜色. 这里的*linkcolor*指的不是网页链接的颜色, 是页内链接的, 比如目录, 术语到术语表的跳转链接等. 网页链接的颜色值对应的是*urlcolor*, 默认颜色是品红色, 还挺好看的, 我就没改. 正如在有的论文中见到的那样, 超链接也可以改成带颜色框的样式, 操作方式参考[这个回答](https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref).
+
+<img src="./LaTeX杂记/color1.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/color2.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
+
 ## 加速生成
 
 ### 草稿模式
@@ -320,32 +342,62 @@ LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面
 
 我目前还没用LaTeX写过中文内容, 不过看起来***xeCJK***宏包提供的中文支持效果还不错 (前提是用xelatex作为编译器), 不知道大量使用中文时会不会出问题. 这篇[overleaf-中文支持](https://www.overleaf.com/learn/latex/Chinese#xeCJK_with_XeLaTeX)我先码住.
 
-## 构建流程
-
-[选择overleaf编译器](https://www.overleaf.com/learn/latex/Choosing_a_LaTeX_Compiler)
-
 ## 引用
 
-[各种东西的bibtex](https://libguides.nps.edu/citation/ieee-bibtex)
+`biblatex`是毋庸置疑比`bibtex`更现代使用更简洁灵活的参考文献管理工具. 先上个我偏好的配置:
 
-[biblatex引用](https://www.overleaf.com/learn/latex/Biblatex_citation_styles)
+```latex
+% 导言区
+\usepackage[
+    backend=biber,
+    style=ieee,  % 参考文献列表显示格式
+    citestyle=authoryear,  % 引用显示格式
+    backref=true,  % 在参考文献列表中反向列出当前引用条目被引用的页码
+    maxcitenames=1,  % 在引用处最多显示作者数量
+    maxbibnames=999,  % 在参考文献列表中最多显示作者数量. 直接拉到一个很大的数强制显示全部作者
+    sorting=ynt,  % 参考文献列表中条目排序主键: year-name-title
+]{biblatex}
+% 添加参考文献bib文件 (可以有多个)
+\addbibresource{References.bib}  % 然后放一个References.bib在根目录
+% 让链接包含整个\cite{}对应的内容
+\makeatletter
+    \let\abx@macro@citeOrig\abx@macro@cite{}
+    \renewbibmacro{cite}{\bibhyperref{\let\bibhyperref\relax\relax\abx@macro@citeOrig{}}}
+\makeatother{}
+% 使\citetitle{}对应内容支持超链接
+\DeclareCiteCommand{\citetitle}{\usebibmacro{prenote}}{
+    \ifciteindex{\indexfield{indextitle}}{}\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}
+}{\multicitedelim}{\usebibmacro{postnote}}
 
-[biblatx作者at el.](https://tex.stackexchange.com/questions/470123/how-to-make-a-citation-with-more-than-2-authors-as-at-el-in-text-but-the-ful)
+\usepackage[colorlinks=true]{hyperref}  % 开启超链接支持
 
-[biblatex使用/@online](https://www.overleaf.com/learn/latex/bibliography_management_with_biblatex)
+% 正文
+\cite{test}  %在要引用的地方用个这个就行, 参数填bib文件中这个参考文献条目的标识 (大括号后第一个东西)
 
-[biblatex中@online的urldata字段自动更新](https://tex.stackexchange.com/questions/149506/biblatex-urldate-set-to-today)
+\printbibliography  % 输出参考文献列表
+```
 
-[biblatex中authoryear风格整个引用为链接](https://tex.stackexchange.com/questions/27607/biblatex-authoryear-comp-and-hyperlinks)
+<img src="./LaTeX杂记/cite.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/bib.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
 
-[citetitle超链接](https://tex.stackexchange.com/questions/27607/biblatex-authoryear-comp-and-hyperlinks)
+- `style=ieee`指的参考文献列表显示参考文献信息的格式, [这里](https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles)有一个各种格式的列表. 基本我看到的短篇论文用的是*authoryear*格式, 长篇论文用的是*ieee*格式. 我个人相对更喜欢*ieee*格式一些, 因为有序号.
+- `citestyle=authoryear`则是指在文中引用处用`\cite{}`显示出的内容的格式. *Zhangsan et al. 2020*这样的格式是我最常见到的引用格式 (Overleaf有列出[biblatex可用的引用格式](https://www.overleaf.com/learn/latex/Biblatex_citation_styles#Citation_styles)). 要实现上面这样整个引用内容被包含在超链接中, 而不是只有年份带超链接还需要自己加一段宏. biblatex的维护者在[github仓库的issue](https://github.com/plk/biblatex/issues/1024)回答了之所以不将超链接包含整个引用内容做成一个自带功能, 是因为这会使有其他自定义需求的用户实现起来更麻烦 (咱也不知道是不是, 反正自己想实现的话一小段网上找的宏就实现了). 这块要想玩得花很有可能需要自定义一段宏, 那自己不会写能咋办, 只能上网偷几段呗.
+- `maxcitenames=1, maxbibnames=999`是为了像上图展示的那样在引用处只显示一个作者, 而在参考文献列表里显示全部作者. 如果不强制拉满的话有时候在参考文献列表中作者也列不全, 带"et al.". 这不是什么大问题, 但看着尴尬了点.
+- 想让引用内容可点击且颜色不一样还需要导入***hyperref***这个包, 这个稍后介绍.
 
-[自定义样式\ref](https://tex.stackexchange.com/questions/266434/extend-the-hyperref-link-to-figure-and-a-b-c)
+之所以说biblatex是比bibtex更现代的参考文献管理工具, 一大原因是因为biblatex原生支持一些现代人写论文会用到的"参考文献"类型, 比如网页对应*online*类型 (对我目前就多用到这一个). 给出[overleaf上biblatex支持的参考文献类型列表](https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#Reference_guide). 顺带一提我还看到了能让[biblatex中@online的urldata字段自动更新到今日](https://tex.stackexchange.com/questions/149506/biblatex-urldate-set-to-today)的神奇代码, 但想了想写论文出于严谨态度就该哪天确认的网页有效就写哪天, 单纯自动更新日期没有意义.
 
-[链接颜色](https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref)
+## 目录
 
-[LaTeX中颜色](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX)
+### 图表目录
+```latex
+\usepackage[nottoc]{tocbibind}  % add LofF, LofT to TOC
+```
 
-![image-20210420201512181](LaTeX杂记/image-20210420201512181.png)
+### 术语表
+
+[overleaf-术语表](https://www.overleaf.com/learn/latex/Glossaries#Compiling_the_glossary)
+
+[方法比较表](http://mirror.ctan.org/macros/latex/contrib/glossaries/glossaries-user.html#tab:options)
 
 [list of notations](https://tex.stackexchange.com/questions/348640/how-to-effectively-use-list-of-symbols-for-a-thesis)
