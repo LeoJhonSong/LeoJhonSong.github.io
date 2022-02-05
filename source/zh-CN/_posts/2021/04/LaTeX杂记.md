@@ -123,7 +123,7 @@ categories:
 
 ### 术语表
 
-<img src="./LaTeX杂记/notation.jpg" style="width:40%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/notation.jpg" style="width:40%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 论文中有很多专业名词/缩写/符号的话可以放一个术语表在前头, 类似上面☝这样, 在这个表上也可以反向列出这些词都在哪里出现过. 在术语表的实现上[overleaf给出的方案](https://www.overleaf.com/learn/latex/Glossaries#Compiling_the_glossary)只是最基础的方式, 这里有个[术语表实现方案比较表](http://mirror.ctan.org/macros/latex/contrib/glossaries/glossaries-user.html#tab:options), 不过对比得比较细节. 大意就是用`bib2gls`的方案除了需要额外安装`bib2gls`和java的缺点全是优点. 而这两个东西一点都不难安: `bib2gls`似乎并不需要额外安装, 至少我这安装了*texlive-most*后就已经有了. 而Java, 至少在Linux系统上, 网上随便一搜就一堆教程, 基本也就是几句命令的事. 从上图我的示例可以看出这个方案生成的术语表可以很好的排序混杂有希腊字母以及下标的各种术语, 而且用一个单独的bib文件管理所有术语, 只有文章里实际用到的术语才会列在术语表里, 很省心.
 
@@ -217,7 +217,7 @@ LaTeX原生提供了7级标题:
 
 `\paragraph{}`和`\subparagraph{}`无法被显示在目录中, 在文中看着也不太像是标题, 更像加粗的正文. 下图中**test 1**为`\paragraph{}`, **test 2**为`\subparagraph{}`, **test 3**为`\subsubsection{}`.
 
-<img src="./LaTeX杂记/sections.jpg" style="width:80%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/sections.jpg" style="width:80%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 因此真要说的话在article这种文档类型中LaTeX原生提供的标题只有三级. 要是写短篇论文的话确实也不需要更小的标题了, 但是记个笔记之类还是有可能需要更多级的标题. [这个stackoverflow问题](https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection)有给出一些解决方案.
 
@@ -278,8 +278,10 @@ LaTeX原生提供了7级标题:
 
 这年代写论文超链接肯定得有, 不然逼格不太够. 导入了***hyperref***这个包, 目录, 参考文献引用, 图表的交叉引用, 网页链接等才会具有超链接的特性. 上面是我的配置. 导入***xcolor***包可以用`\definecolor{}`命令自定义一些颜色, 带参数的话也可以使用***xcolor***提供的很多种颜色, 比如上面用的`svgnames`这个颜色集里有`LightSlateGray`. 我基本就用这个颜色集, 下图列出了*svgnames*提供的所有颜色. 这里的*linkcolor*指的不是网页链接的颜色, 是页内链接的, 比如目录, 术语到术语表的跳转链接等. 网页链接的颜色值对应的是*urlcolor*, 默认颜色是品红色, 还挺好看的, 我就没改. 正如在有的论文中见到的那样, 超链接也可以改成带颜色框的样式, 操作方式参考[这个回答](https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref).
 
+<div>
 <img src="./LaTeX杂记/color1.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
 <img src="./LaTeX杂记/color2.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
+</div>
 
 ## 加速生成
 
@@ -318,7 +320,7 @@ figure和table是LaTeX原生的两种浮动体环境, 用于灵活排版图片�
 
 先上一个论文利用的懒人模板样例 (效果如图):
 
-<img src="./LaTeX杂记/figure.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/figure.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 ```latex
 % 导言部分
@@ -377,7 +379,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 \end{table}
 ```
 
-<img src="./LaTeX杂记/table.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/table.jpg" style="width:60%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 图中前一个表格是上面的模板的效果, 后一个表格是没有增大行间距的表格的效果. 插入表格有几种环境可用, `tabularx`这个环境是允许指定整个表的宽度和每列的对齐方式后自动计算每列宽度, 我觉得比`tabular`环境更智能省心. `tabularx`环境接受两个参数, 前一个是整个表格的宽度, 后一个是每列的对齐方式. `X`和`l`都是左对齐, 但`X`会让这列的列宽更宽, 让内容能占满整个表格. 比如上图前面的表格第一列就是`X`而后一个表格第一列是`l`, 就只有刚好适应单元格内容的列宽. 从单元格的侧边框可以看出最后一列确实是居中对齐, 但因为LaTeX是从左到右排版表格的, 因此多了些空余... `c`和`r`则是适应单元格宽度的居中对齐和右对齐. 想要智能宽度的居中对齐和右对齐的话用`>{\centering\arraybackslash}X`和`>{\raggedleft\arraybackslash}X` (没错这一长串和`l`一样往里填)
 
@@ -399,7 +401,7 @@ As you can see in \autoref{f:mesh}, the function grows near 0.
 
 ### 特殊符号
 
-<img src="./LaTeX杂记/symbol.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/symbol.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面这段话里的圆圈1, 是通过在导言区定义了一个新的命令`\ballnumber{}`然后在文中调用的方式来实现的:
 
@@ -414,7 +416,7 @@ LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面
 
 这样的东西要用只能是现场上网搜了. 在这个[手绘查询符号网站](http://detexify.kirelabs.org/classify.html)可以通过手绘的方式查到绝大多数符号 (但上面说的这个圆圈1查不到). 这里再吹一下VSC的LaTeX Workshop插件, 提供了一个快速插入常见符号LaTeX命令的面板, 还能快速插入常用tkiz绘制 🐮
 
-   <img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/snippet.jpg" style="width:35%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 ## 中文支持
 
@@ -455,8 +457,8 @@ LaTeX里更特殊的符号其实是靠***tkiz***包绘制出来的, 比如上面
 \printbibliography  % 输出参考文献列表
 ```
 
-<img src="./LaTeX杂记/cite.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
-<img src="./LaTeX杂记/bib.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
+<div><img src="./LaTeX杂记/cite.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;">
+<img src="./LaTeX杂记/bib.jpg" style="width:70%; display:block; margin-left:auto; margin-right:auto;"></div>
 
 - `backend=biber`是因为`biblatex`需要额外工具**biber**作为后端来生成参考文献列表. 因此我[这附近](#术语表)给出的VSCode的LaTeX编译工具链配置里有一环是**biber**.
 - `style=ieee`指的参考文献列表显示参考文献信息的格式, [这里](https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles)有一个各种格式的列表. 基本我看到的短篇论文用的是*authoryear*格式, 长篇论文用的是*ieee*格式. 我个人相对更喜欢*ieee*格式一些, 因为有序号.
