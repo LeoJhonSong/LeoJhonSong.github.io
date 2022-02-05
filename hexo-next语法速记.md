@@ -3,6 +3,7 @@
 用法:
 ```
 {% note [class_name] %}
+{% endnote %}
 ```
 
 类型有:
