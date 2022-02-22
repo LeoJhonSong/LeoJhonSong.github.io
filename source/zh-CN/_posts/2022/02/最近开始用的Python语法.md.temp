@@ -1,0 +1,18 @@
+---
+title: 最近开始用的Python语法
+date: 2022-02-20 15:14:00
+updated: 2022-02-20 15:14:00
+categories:
+- [语言, Python]
+---
+
+- [海象运算符](https://docs.python.org/zh-cn/3/whatsnew/3.8.html#assignment-expressions) [详情](https://www.python.org/dev/peps/pep-0572/#examples-from-the-python-standard-library)
+- [fstring](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html#formatted-string-literals)
+
+
+## 装饰器
+
+- 内置装饰器
+- 函数装饰器
+- 类装饰器
+- functools.wraps
