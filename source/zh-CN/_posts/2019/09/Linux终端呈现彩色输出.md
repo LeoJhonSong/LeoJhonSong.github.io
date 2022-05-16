@@ -14,37 +14,16 @@ categories:
 
 比如这样:
 
-<p  style="color:purple">
-[MESSAGE] Turning left
-</p>
-<p style="color:yellow">
-[DEBUG] target: 4
-</p>
-<p style="color:red">
-[Error] target not found
-</p>
-<p  style="color:purple">
-[MESSAGE] Turning left
-</p>
-<p  style="color:purple">
-[MESSAGE] Diving
-</p>
-<p style="color:green">
-[INFO] depth: 9m
-</p>
-<p  style="color:purple">
-[MESSAGE] Diving
-</p>
-<p style="color:green">
-[INFO] depth: 10m
-</p>
-<p  style="color:purple">
-[MESSAGE] Forward
-</p>
-<p  style="color:purple">
-[MESSAGE] Turing right
-</p>
-
+<p  style="color:purple">[MESSAGE] Turning left</p>
+<p style="color:yellow">[DEBUG] target: 4</p>
+<p style="color:red">[Error] target not found</p>
+<p  style="color:purple">[MESSAGE] Turning left</p>
+<p  style="color:purple">[MESSAGE] Diving</p>
+<p style="color:green">[INFO] depth: 9m</p>
+<p  style="color:purple">[MESSAGE] Diving</p>
+<p style="color:green">[INFO] depth: 10m</p>
+<p  style="color:purple">[MESSAGE] Forward</p>
+<p  style="color:purple">[MESSAGE] Turing right</p>
 
 能极大的增强终端信息的可读性!😆
 
@@ -52,6 +31,8 @@ categories:
 彩色文字语法几乎是一样的.
 
 ## 颜色表
+
+[维基的表](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors)
 
 |前景色 (字体颜色) 代码|背景色代码|颜色|
 |-|-|-|
@@ -74,6 +55,10 @@ categories:
 |5|闪烁|
 |7|反色|
 |8|不可见|
+
+## 常见问题
+
+- [readline的提示符误将不可见字符认为可见](https://stackoverflow.com/a/55773513/10088906)
 
 ## 语法
 

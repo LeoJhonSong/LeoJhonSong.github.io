@@ -16,3 +16,24 @@ categories:
 - 函数装饰器
 - 类装饰器
 - functools.wraps
+
+## 类型注释
+
+- [古早教程](https://cuiqingcai.com/7071.html)
+
+- [Syntax for Variable Annotations](https://www.python.org/dev/peps/pep-0526/)
+
+- [TypedDict: Type Hints for Dictionaries with a Fixed Set of Keys](https://www.python.org/dev/peps/pep-0589/)
+
+- [typing --- 类型提示支持](https://docs.python.org/zh-cn/3/library/typing.html)
+
+- dict与Typing.Dict与Mapping
+
+  ```
+  dict: (class) dict
+  typing.Dict: (variable) Dict: Type[Dict[_KT@dict, _VT@dict]]
+  ```
+  
+- [嵌套字典的type hint](https://stackoverflow.com/questions/58400724/type-hint-for-nested-dict)
+
+- ![QQ图片20220225193004](最近开始用的Python语法.md/QQ图片20220225193004.jpg)
