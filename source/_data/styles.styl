@@ -11,101 +11,99 @@ svg.icon {
 //------------------------------------------------------------------------------
 // friendlink card
 //------------------------------------------------------------------------------
-  .container {
-    width: 100%;
-  }
-
-  .links {
-    list-style: none;
-  }
-
-  .link {
-    margin: 10px;
-    display: inline-block;
-  }
-
-  .card {
-    height: 72px;
-    width: 300px;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
-  }
-
-  .card:hover {
-    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
-  }
-
-  .avatar {
-    float: left;
-    height: 72px;
-    width: 72px;
-  }
-
-  img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .titles {
-    overflow: hidden;
-    height: 72px;
-    width: 227px;
-    margin-left: 72px;
-  }
-
-  .title{
-    text-align: center;
-    height: 20px;
-    width: 100%;
-    margin: 0;
-    line-height: 20px;
-    margin-top: 14px;
-  }
-
-  .subtitle {
-    text-align: center;
-    height: 20px;
-    width: 100%;
-    margin: 0;
-    line-height: 20px;
-  }
-
-  small {
-    width: 100%;
-  }
+.container {
+  width: 100%;
+}
+.links {
+  list-style: none;
+}
+.link {
+  margin: 10px;
+  display: inline-block;
+}
+.card {
+  height: 72px;
+  width: 300px;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+}
+.card:hover {
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+}
+.avatar {
+  float: left;
+  height: 72px;
+  width: 72px;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.titles {
+  overflow: hidden;
+  height: 72px;
+  width: 227px;
+  margin-left: 72px;
+}
+.title{
+  text-align: center;
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  line-height: 20px;
+  margin-top: 14px;
+}
+.subtitle {
+  text-align: center;
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  line-height: 20px;
+}
+small {
+  width: 100%;
+}
 //------------------------------------------------------------------------------
 // shadow
 //------------------------------------------------------------------------------
+$shadow = 5px 5px 10px #242424, -5px -5px 10px #424242;
 .header-inner {
-    box-shadow: 0 0 5px 2px black;
+    border-radius: 5px;
+    box-shadow: $shadow;
 }
 .sidebar-inner {
-    box-shadow: 0 0 5px 2px black;
+    border-radius: 5px;
+    box-shadow: $shadow;
 }
-article {
+.post-block {
     margin-top: 0px;
     margin-bottom: 60px;
     padding: 0px;
-    // -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-    // -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-    box-shadow: 0 0 6px 7px black;
+    border-radius: 10px;
+    box-shadow: $shadow;
 }
-.post-block.page {
-    margin-top: 0px;
-    margin-bottom: 60px;
-    padding: 0px;
-    // -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-    // -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-    box-shadow: 0 0 6px 7px black;
+.btn {
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(145deg, #373737, #2e2e2e);
+  box-shadow: 5px 5px 7px #2a2a2a, -5px -5px 7px #3c3c3c;
+  &:hover {
+    border: none;
+    background: $body-bg-color;
+    box-shadow: inset 5px 5px 7px #2a2a2a, inset -5px -5px 7px #3c3c3c;
+  }
 }
 //------------------------------------------------------------------------------
-//better organized post-block
+//better organized sidebar and post-block
 //------------------------------------------------------------------------------
+.menu {
+  margin: 0;
+}
 .post-block.home {
     padding: 15px;
 }
 .post-block.post {
-    padding: 5px;
+    padding: 10px;
 }
 .post-block.page {
     padding: 5px;
@@ -136,25 +134,65 @@ img {
     }
 }
 //------------------------------------------------------------------------------
+// heads style improve
+//------------------------------------------------------------------------------
+.post-body {
+  h2 {
+    border-bottom: 3px solid #949a76;
+  }
+  h3 {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, white, #ffffff00) 1;
+  }
+}
+//------------------------------------------------------------------------------
 //custom color theme
 //------------------------------------------------------------------------------
 body {
   color: white;
 }
 .site-meta {
-  background: #3b3b3b;
+  background: $body-bg-color;
+}
+.site-author-name {
+  color: white;
+}
+.site-state-item-count {
+  color: lightgray;
+}
+.links-of-author-item a {
+  color: lightgray;
 }
 .header-inner {
-  background: #252526;
+  background: $body-bg-color;
+  &:hover {
+    background: $body-bg-color;
+  }
+}
+.menu .menu-item a {
+  margin: 5px 12px;
+  border: none;
+  color: lightgray;
+  font-weight: bold
+  background: $body-bg-color;
+}
+.menu-item-active a, .menu .menu-item a:hover {
+  background: $body-bg-color;
+  border-radius: 3px;
+  box-shadow: inset 5px 5px 5px #2c2c2c, inset -5px -5px 5px #3a3a3a;
+}
+.menu .menu-item .badge {
+  background: $body-bg-color;
+  filter: brightness(130%);
 }
 .sidebar-inner {
-  background: #3b3b3b;
+  background: $body-bg-color;
 }
 .content-wrap {
-  background: dimgray;
+  background: $body-bg-color;
 }
 .post-block {
-  background: #1e1e1e
+  background: $body-bg-color;
 }
 kbd {
   background: black;
@@ -180,9 +218,17 @@ a {
     border-bottom: 1px solid #fc6423;
   }
 }
-.menu .menu-item a {
-  color: lightgray;
-  font-weight: bold
+b, strong {
+  color: #faaaaa;
+}
+em {
+  border-bottom: 1px dashed white;
+  filter: brightness(0.5);
+}
+code {
+  color: #a88443;
+  background: $body-bg-color;
+  border: 0.5px solid gray;
 }
 .posts-expand .post-title-link {
     color: #cccccc;
