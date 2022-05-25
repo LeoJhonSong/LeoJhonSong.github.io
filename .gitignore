@@ -7,3 +7,4 @@ public/
 travis_key
 node_modules
 _multiconfig.yml
+package-lock.json
