@@ -1985,7 +1985,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b92f0a;
+  background: #f0ff2d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3052,7 +3052,7 @@ small {
   padding: 10px;
 }
 .post-block.page {
-  padding: 5px;
+  padding: 15px;
 }
 .post-eof {
   display: none;
