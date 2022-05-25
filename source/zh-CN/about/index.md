@@ -4,7 +4,7 @@ date: 2018-12-28 02:14:34
 comments: false
 ---
 
-<img src="/zh-CN/images/gravatar.svg" style="width: 50%">
+<img src="/zh-CN/images/gravatar.svg" style="width: 30%">
 
 大家好，我是LeoJhon.Song。Leo是从幼儿园就开始用的英文名，Jhon是无名氏的Jhon。
 

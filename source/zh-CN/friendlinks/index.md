@@ -17,38 +17,32 @@ date: 2020-03-17 08:50:40
 
 🔗[张逸霄的技术小站](https://ldzhangyx.github.io/)🔗
 
-> 我是张逸霄，电子科技大学2015级本科毕业生。我的研究兴趣集中在自然语言生成和音乐生成相关领域。目前我正在上海纽约大学（NYU Shanghai）做人工智能音乐领域的相关研究。
+> 我是张逸霄(Yixiao Zhang)，目前是Center for Digital Music(C4DM)的博士生，由CSC与Apple UK资助。目前我跟随QMUL的Prof. Simon Dixon和Apple UK的Dr. Mark Levy进行音乐表示学习的研究。
+
+---
+
+🔗[依云's Blog](https://blog.lilydjwg.me/)🔗
+
+这是一位Arch Linux社区非常活跃的大佬. 她的关于很有意思, 是一个[维基百科页面](https://zh.wikipedia.org/wiki/User:Lilydjwg).
 
 ---
 
 🔗[laike9m's blog](https://laike9m.com/blog/)🔗
 
-> Software Engineer at Google Shanghai  
-> Free Software developer  
-> Crazy Atlético Madrid fan  
-> Founder of 捕蛇者说 podcast  
+> Software Engineer at Google Shanghai
+> Free Software developer
+> Crazy Atlético Madrid fan
+> Founder of 捕蛇者说 podcast
 > I code in Python, C++, JavaScript/Node.js
 
 ---
 
 🔗[Xris·take a deep dive](https://xr1s.me/)🔗
 
-没能从他的about页面摘录到很好的概括性话语😂 不过确实是个很厉害的人
+没能从他的about页面摘录到很好的概括性话语😂 不过确实是个很厉害的学长
 
 ---
 
 🔗[I code it](http://icodeit.org/)🔗
 
 > 我是**邱俊涛**，是一名软件工程师。热爱编程，热爱知识分享。喜欢旅行，喜欢摄影，更喜欢骑着山地车~~在云南的红山绿水之间~~秦岭里骑行。
-
----
-
-🔗[依云's Blog](https://blog.lilydjwg.me/)🔗
-
-这个人的关于很有意思, 是一个[维基百科页面](https://zh.wikipedia.org/wiki/User:Lilydjwg)
-
----
-
-🔗[Skywind Inside](https://skywind3000.com/)
-
-他的配置相关教程实在很不错.
