@@ -18,10 +18,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 8.10.0
-    - name: npm install and modify
+    - name: npm install and set timezone
       run: |
         npm install
-        cp themes/LeoJhonSong/asset/post_asset.js node_modules/hexo/lib/models/post_asset.js
         sudo timedatectl set-timezone Asia/Shanghai
     - name: login ssh and git
       env:
@@ -37,6 +36,4 @@ jobs:
       run: |
         rm -rf .deploy_git
         git clone -b master git@github.com:LeoJhonSong/LeoJhonSong.github.io.git .deploy_git
-        git clone -b master git@github.com:LeoJhonSong/LeoJhonSong.github.io.git public
-        rm -rf public/.git
         ./a e

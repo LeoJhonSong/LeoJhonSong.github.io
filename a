@@ -5,13 +5,17 @@ import sys
 
 
 # ################################layer2 functions##############################
+os.chdir(sys.path[0])
+def prepare():
+    os.system('cp themes/LeoJhonSong/asset/post_asset.js node_modules/hexo/lib/models/post_asset.js')
 
 def generateDeployEnglish():
-    # os.system('hexo clean')
-    os.system('hexo d -g')
+    generateEnglish()
+    deployEnglish()
 
 
 def generateEnglish():
+    prepare()
     os.system('hexo clean')
     os.system('hexo g')
 
@@ -21,16 +25,16 @@ def deployEnglish():
 
 
 def serverEnglish():
-    os.system('xdg-open http://localhost:4000')
     os.system('hexo s')
 
 
 def generateDeployChinese():
-    # os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
-    os.system('hexo d -g --config _config.yml,_config.zh-CN.yml')
+    generateChinese()
+    deployChinese()
 
 
 def generateChinese():
+    prepare()
     os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
     os.system('hexo g --config _config.yml,_config.zh-CN.yml')
 
@@ -40,16 +44,13 @@ def deployChinese():
 
 
 def serverChinese():
-    #  os.system('xdg-open http://localhost:4000')
     os.system('hexo server --config _config.yml,_config.zh-CN.yml')
 
 
 # ################################layer1 functions##############################
 def generateDeployAll():
-    os.system('hexo clean')
-    os.system('hexo d -g')
-    os.system('hexo clean --config _config.yml,_config.zh-CN.yml')
-    os.system('hexo d -g --config _config.yml,_config.zh-CN.yml')
+    generateDeployEnglish()
+    generateDeployChinese()
 
 
 def english():
@@ -80,12 +81,6 @@ def newEnglish():
 
 def newChinese():
     os.system('hexo new ' + ' '.join(sys.argv[2:]) + ' --config _config.yml,_config.zh-CN.yml')
-
-# def newAll():
-#     os.system('hexo new' + ' "' + sys.argv[2])
-#     os.system('hexo new' + ' "' + sys.argv[3] + ' --config _config.yml,_config.zh-CN.yml')
-#     os.system('python\python.exe multi-language.py' + sys.argv[2] + sys.argv[3])
-
 
 def clean():
     os.system('hexo clean')
