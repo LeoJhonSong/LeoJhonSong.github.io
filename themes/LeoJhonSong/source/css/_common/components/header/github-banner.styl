@@ -4,11 +4,11 @@
   }
 
   20%, 60% {
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
   }
 
   40%, 80% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
 }
 
@@ -23,16 +23,22 @@
 
   svg {
     border: 0;
-    color: white;
-    fill: $bg-color;
+    fill: white;
+    color: $body-bg-color;
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    background: $body-bg-color;
+    box-shadow: 5px 5px 10px #202020, -5px -5px 10px #464646;
+    &:hover {
+    box-shadow: inset 5px 5px 10px #202020, inset -5px -5px 10px #464646;
+    }
   }
 
   +tablet-mobile() {
     svg {
-      if (($scheme == 'Pisces') || ($scheme == 'Gemini')) {
+      if ($scheme == 'Gemini') {
         color: $bg-color;
         fill: white;
       }
@@ -58,6 +64,10 @@
           }
         }
       }
+      top: 5px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
     }
   }
 }
