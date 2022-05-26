@@ -1304,17 +1304,19 @@ pre .javascript .function {
 }
 .github-corner svg {
   border: 0;
-  color: #fff;
-  fill: #222;
+  fill: #fff;
+  color: #333;
   position: absolute;
-  right: 0;
-  top: 0;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background: #333;
+  box-shadow: 5px 5px 10px #202020, -5px -5px 10px #464646;
+}
+.github-corner svg:hover {
+  box-shadow: inset 5px 5px 10px #202020, inset -5px -5px 10px #464646;
 }
 @media (max-width: 991px) {
-  .github-corner svg {
-    color: #222;
-    fill: #fff;
-  }
   .github-corner .github-corner:hover .octo-arm {
     animation: none;
   }
@@ -1322,15 +1324,23 @@ pre .javascript .function {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
+@media (max-width: 767px) {
+  .github-corner svg {
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+  }
+}
 @-moz-keyframes octocat-wave {
   0%, 100% {
     transform: rotate(0);
   }
   20%, 60% {
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
   }
   40%, 80% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
 }
 @-webkit-keyframes octocat-wave {
@@ -1338,10 +1348,10 @@ pre .javascript .function {
     transform: rotate(0);
   }
   20%, 60% {
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
   }
   40%, 80% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
 }
 @-o-keyframes octocat-wave {
@@ -1349,10 +1359,10 @@ pre .javascript .function {
     transform: rotate(0);
   }
   20%, 60% {
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
   }
   40%, 80% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
 }
 @keyframes octocat-wave {
@@ -1360,10 +1370,10 @@ pre .javascript .function {
     transform: rotate(0);
   }
   20%, 60% {
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
   }
   40%, 80% {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
   }
 }
 .post-body {
@@ -1985,7 +1995,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f0ff2d;
+  background: #ff4f09;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
