@@ -1,30 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CAN Bus With RaspberryPi</title>
-    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
+    <title>Configure C/C++ Environment in VSCode</title>
+    <url>/2018/12/30/Configure-C-C-environment-in-VSCode/</url>
     <content><![CDATA[<div align="right">Language:
-    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
-    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
+<a href="/2018/12/30/Configure-C-C-environment-in-VSCode"><kbd>English</kbd></a>
+<a href="/zh-CN/2018/12/30/配置VSCode中调试C-C-环境"><kbd>中文</kbd></a>
 </div>
 
-<p>Recently I am working on A Formula E car, trying to do something with data in
-the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
+<p>Here is a tutorial for configuration of VSCode to run C/C++ programs on <strong>Windows</strong>.
+Mainly I wrote it for my <a href="https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack" target="_blank" rel="noopener">C/C++ Extension Pack</a>
+<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span></p>
 <a id="more"></a>
 
-<!-- TODO -->
+<p>Actually how can we run C/C++ code in VSCode has been described clearly in
+<a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">the C++ part of VSCode document</a>,
+here is just my personal understanding of this work and I suppose my description
+is more friendly with beginners <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
+<ol>
+<li><a href="#Requirements">Requirements</a><ol>
+<li><a href="#Compiler">Compiler</a><ol>
+<li><a href="#Installation">Installation</a></li>
+<li><a href="#Add-to-Path">Add to Path</a></li>
+<li><a href="#Test">Test</a></li>
+</ol>
+</li>
+<li><a href="#VSCode-Extensions">VSCode Extensions</a></li>
+</ol>
+</li>
+<li><a href="#Configuration-files">Configuration files</a><ol>
+<li><a href="#IntelliSense-configuration">IntelliSense configuration</a></li>
+<li><a href="#Compilation-configuration">Compilation configuration</a><ol>
+<li><a href="#In-total">In total</a></li>
+</ol>
+</li>
+<li><a href="#Debugger-configuration">Debugger configuration</a><ol>
+<li><a href="#Program-to-debug">Program to debug</a></li>
+<li><a href="#Debugger-path-and-options">Debugger path and options</a></li>
+<li><a href="#Compile-before-launch">Compile before launch</a></li>
+<li><a href="#In-total-1">In total</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#Enjoy">Enjoy</a></li>
+</ol>
+<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><p>VSCode itself is just a editor, can not do things like compilation, even we add
+VSCode’s official extension for C/C++ called
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank" rel="noopener">cpptools</a>,
+it does not install a compiler for us.</p>
+<h2 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h2><p>So undoubtedly, our first step is to install a compiler. There are a few
+choices, the one recommended by VSCode’s document on Windows platform is <a href="https://sourceforge.net/projects/mingw-w64/" target="_blank" rel="noopener">MinGW-w64</a>.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span> we have to notice that there is another thing called <a href="http://www.mingw.org/" target="_blank" rel="noopener">MinGW</a>
+which is different from <strong>MinGW-w64</strong>. Although <strong>MinGW</strong> also works, but this
+project hasn’t update for a while and we need more steps to install it. In
+addition, there should be a reason that VSCode document does not recommend it
+but <strong>MinGW-w64</strong>.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>after downloaded the installer we are good to start installation, there are
+mainly two options we have to change and leave the other options as the default:</p>
+<ul>
+<li>on the first page of the install wizard you are asked to choose your
+<code>Architecture</code>, set it to <strong>x86_64</strong> if your computer is 64-bit, set it to
+<strong>i386</strong> if your computer is 32-bit.</li>
+<li>you can install it to where ever you want but make sure you can find it later,
+since we have to add it to <strong>Path</strong> manually after the installation.</li>
+</ul>
+<h3 id="Add-to-Path"><a href="#Add-to-Path" class="headerlink" title="Add to Path"></a>Add to Path</h3><p>After the installation we have to add our compiler to the <strong>Path</strong> so that it
+can be called from the command line / powershell. (this is actually how VSCode
+calls the compiler)</p>
+<p>But what path to add?</p>
+<p>The path add to the <strong>Path</strong> is actually the folder path of the executable file
+of the application we want to call. For example I installed MinGW-w64 to
+<strong>D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0</strong>, then I should add
+<strong>D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</strong> to the
+<strong>Path</strong>. You can see the two applications we are going to call, <code>gcc.exe</code> and
+<code>gdb.exe</code> are exactly there <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">✌</span></p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">🔗</span> If you are no sure how to add something to the <strong>Path</strong>,
+<a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/" target="_blank" rel="noopener">this</a>
+may helps you <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>Now! We can test if we successfully add the compiler to the <strong>Path</strong> by typing <code>gcc</code>
+ in the cmd.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span> What we should see is:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">C:\Users\LeoJh&gt;gcc</span><br><span class="line">gcc: fatal error: no input files</span><br><span class="line">compilation terminated.</span><br></pre></td></tr></tbody></table></figure>
 
-<blockquote>
-<p>Reference:</p>
-</blockquote>
-<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
-<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
-<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
-<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">❌</span> What we should not see is:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">`gcc`is not recognized as an internal or external command,</span><br><span class="line">operable program or batch file.</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Which means you may have added wrong path to <strong>Path</strong>.</p>
+<h2 id="VSCode-Extensions"><a href="#VSCode-Extensions" class="headerlink" title="VSCode Extensions"></a>VSCode Extensions</h2><p>We are not far from completion as we have successfully get our compiler ready
+:smile: Actually we are now able to develop C/C++ code! (Although it may seems
+hardcore) Don’t believe? Open cmd and get into te folder where you have a piece
+of C/C++ code to test, type <code>gcc test.c</code> or <code>gcc test.cpp</code> and you will find a
+<strong>a.exe</strong> is generated in the current folder. This is exactly the executable
+file we just compiled!</p>
+<p>But this does not feels good, so we use extensions in VSCode to improve the
+situation.</p>
+<p>I recommend my
+<a href="https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack" target="_blank" rel="noopener">C/C++ Extension Pack</a>
+since it includes only a few but really useful tools.</p>
+<h1 id="Configuration-files"><a href="#Configuration-files" class="headerlink" title="Configuration files"></a>Configuration files</h1><p>In some tutorials it is said that we have to generate <code>c_cpp_properties.json</code>,
+<code>tasks.json</code>, <code>launch.json</code> three files, but the situation has changed! :tada:
+<code>c_cpp_properties.json</code> has been totally replaced by settings in
+<code>settings.json</code>. The advantage is that we can set different values for different
+workspace. Also, you will later see that configuring <code>tasks.json</code> and
+<code>launch.json</code> becomes REALLY easy too!</p>
+<p>:link: click
+<a href="https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md" target="_blank" rel="noopener">here</a>
+to learn more about what has been replaced by <code>settings.json</code> in
+<code>c_cpp_properties.json</code>.</p>
+<p>:link: click
+<a href="https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md" target="_blank" rel="noopener">here</a>
+to learn more about what could have been set in <code>c_cpp_properties.json</code>.</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span> the following configuration uses my settings as an example.</p>
+<h2 id="IntelliSense-configuration"><a href="#IntelliSense-configuration" class="headerlink" title="IntelliSense configuration"></a>IntelliSense configuration</h2><p>As mentioned above, we are able to develop C/C++ without VSCode, so, from my
+point of view, IntelliSense which provides us with smart suggestions is a very
+important part of language support for C/C++ in VSCode. We could configure the
+IntelliSense by editing <code>settings.json</code>. The most useful ones are:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"C_Cpp.autocomplete": "Default",</span><br><span class="line">"C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",</span><br><span class="line">"C_Cpp.default.cStandard": "c99",</span><br><span class="line">"C_Cpp.default.cppStandard": "c++11",</span><br><span class="line">"C_Cpp.default.intelliSenseMode": "gcc-x64",</span><br><span class="line">"C_Cpp.intelliSenseEngine": "Default",</span><br><span class="line">"C_Cpp.errorSquiggles": "Enabled",</span><br></pre></td></tr></tbody></table></figure>
+
+<p>the segments <strong>C_Cpp.clang_format_style</strong> and
+<strong>C_Cpp.clang_format_fallbackStyle</strong> specify the format style of how VSC format
+C/C++ code. The above value makes a code style similar to C/C++ code style in
+<strong>Visual Studio</strong>. If you prefer <strong>Google Style</strong>, the following piece is what
+you need.</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br></pre></td></tr></tbody></table></figure>
+
+<p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
+<code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
+<p><img alt="" data-src="Configure-C-C-environment-in-VSCode/example.gif"></p>
+<p>💡 This gif is recorded under Linux system (Ubuntu).</p>
+<p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
+<h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
+<p>✔️ <code>tasks.json</code> and <code>launch.json</code> are prepared for specific
+piece of code as different programs may require different configurations. But if
+most of your code shares the same configuration, you can put your <code>tasks.json</code>
+and <code>launch.json</code> in the parent folder of all the programs. If a few programs
+among them require specific configuration, you can generate another <code>tasks.json</code>
+and <code>launch.json</code> in its folder.</p>
+<p>After you have generate a <code>tasks.json</code> following the instruction in VSCode’s document,
+add the following task to the <strong>tasks</strong> list:</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">   <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">   <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">   <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">   <span class="attr">"args"</span>: [</span><br><span class="line">         <span class="string">"${file}"</span>,</span><br><span class="line">         <span class="string">"-o"</span>,</span><br><span class="line">         <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">         <span class="string">"-g"</span>,</span><br><span class="line">         <span class="string">"-Wall"</span>,</span><br><span class="line">         <span class="string">"-std=c++17"</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="attr">"group"</span>: {</span><br><span class="line">         <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">         <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>label</code> is the name of this task, it will be <a href="#Copile-before-launch">used later</a>.</p>
+<p>From this we can see that every time we call this task it actually inputs the
+following command to shell:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension}.exe -g -Wall -std=c++17</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Things like ${file}, ${fileDirname} are actually
+<a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">variables defined by VSCode</a>.</p>
+<p>And the <code>-o</code> option allows us to specify the name of output file.</p>
+<p>The settings about <strong>group</strong> allow us to call this task by shortcut
+<code>Ctrl+shift+B</code>. check <a href="https://code.visualstudio.com/docs/editor/tasks#_typescript-hello-world" target="_blank" rel="noopener">this</a>
+for more details.</p>
+<h3 id="In-total"><a href="#In-total" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>tasks.json</code> looks like this:</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [</span><br><span class="line">                <span class="string">"${file}"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"-Wall"</span>,</span><br><span class="line">                <span class="string">"-std=c++17"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: {</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Debugger-configuration"><a href="#Debugger-configuration" class="headerlink" title="Debugger configuration"></a>Debugger configuration</h2><p>The last thing we need is <code>launch.json</code>. This is actually a easy task since
+VSCode provide us with a lot of templates, (normally I use the template <strong>(gdb)
+Launch</strong>) only a few options need modification:</p>
+<h3 id="Program-to-debug"><a href="#Program-to-debug" class="headerlink" title="Program to debug"></a>Program to debug</h3><figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"program": "${workspaceFolder}/a.exe"</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>program</code> means the program we want to debug. If not specified, the name of the
+output file will be <strong>a.exe</strong>, so the program name is the above one. But if you
+have specified the name of output file just like what I did in the <code>tasks.json</code>,
+you should use this:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"program": "${workspaceFolder}/${fileBasenameNoExtension}.exe"</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Debugger-path-and-options"><a href="#Debugger-path-and-options" class="headerlink" title="Debugger path and options"></a>Debugger path and options</h3><p>Set your debugger path simply by this:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"miDebuggerPath": "gdb.exe"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>And we can easliy find out that gdb will output something useless first every
+time evoked. We could use option <code>-q</code> to disable this:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"miDebuggerArgs": "-q"</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Compile-before-launch"><a href="#Compile-before-launch" class="headerlink" title="Compile before launch"></a>Compile before launch</h3><p>If you always forget to compile the modified code before debugging, VSCode
+provides a very useful option: <strong>preLaunchTask</strong>. We can specific this task to
+our task named <strong>Compile</strong>, so our code will be compiled first every time we
+start debugging <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"preLaunchTask": "Compile"</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="In-total-1"><a href="#In-total-1" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>launch.json</code> look like this:</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"${workspaceFolder}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"${workspaceFolder}"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"gdb.exe"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerArgs"</span>: <span class="string">"-q"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                {</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                }</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"Compile"</span></span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="Enjoy"><a href="#Enjoy" class="headerlink" title="Enjoy"></a>Enjoy</h1><p>Congratulations! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span> You are now able to develop C/C++ code with VSCode and
+hope you enjoy it!</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -45,40 +204,28 @@ the car’s CAN Bus. The very basic idea is first transmit data into a Raspberry
           });
       </script>]]></content>
       <categories>
-        <category>Communication</category>
+        <category>Tools</category>
       </categories>
   </entry>
   <entry>
-    <title>My Configurations Under Ubuntu</title>
-    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
-    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
+    <title>When VSCode Becomes a Lifestyle</title>
+    <url>/2018/12/25/When-VSCode-Becomes-A-Lifestyle/</url>
+    <content><![CDATA[<div align="right">Language:
+<a href="/2018/12/25/When-VSCode-Becomes-A-Lifestyle"><kbd>English</kbd></a>
+<a href="/zh-CN/2019/01/07/当VSCode成为一种生活方式"><kbd>中文</kbd></a>
+</div>
+
 <a id="more"></a>
 
-<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
-<p>1.install it.</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
-<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
-<p>💡 e.g. the location of the script on my computer is
-<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
-<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
-<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
-onedrive business are not supported. Someone recommended <code>GoodSync</code>,
-unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
-find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
-confusing name), which <strong>support personal account and onedrive 365 and even
-onedrive business</strong>!</p>
-<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
-<p>the guide is clear enough! 👍</p>
-<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
-<p>1.install <strong>dconf-editor</strong></p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
-
-<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
-and check isolate-workspaces</p>
-<script>
+<h2 id="IntelliSense-for-CSS-class-names-in-HTML"><a href="#IntelliSense-for-CSS-class-names-in-HTML" class="headerlink" title="IntelliSense for CSS class names in HTML"></a><a href="https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion" target="_blank" rel="noopener">IntelliSense for CSS class names in HTML</a></h2><h2 id="rewrap"><a href="#rewrap" class="headerlink" title="rewrap"></a><a href="https://marketplace.visualstudio.com/items?itemName=stkb.rewrap" target="_blank" rel="noopener">rewrap</a></h2><h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a><a href="https://marketplace.visualstudio.com/items?itemName=dan-c-underwood.arm" target="_blank" rel="noopener">ARM</a></h2><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a><a href="https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino" target="_blank" rel="noopener">Arduino</a></h2><h2 id="Better-Comments"><a href="#Better-Comments" class="headerlink" title="Better Comments"></a><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener">Better Comments</a></h2><h2 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Markdown All in One</a></h2><p>This extension includes nearly everything you need for Markdown, the only extra
+stuff you need are <a href="#Reflow-Markdown">Reflow Markdown</a> and <a href="#Markdown-Emoji">Markdown Emoji</a>.</p>
+<h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener">Markdown Preview Enhanced</a></h2><p>This extension seems really powerful that it can do nearly everything you can
+imagine of about Markdown. Unfortunately it seems that it don’t support emojis
+by itself in preview tab either. I have not tried this extension since I have
+got <code>Markdown All in One</code></p>
+<h2 id="Reflow-Markdown"><a href="#Reflow-Markdown" class="headerlink" title="Reflow Markdown"></a><a href="https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown" target="_blank" rel="noopener">Reflow Markdown</a></h2><p>This extension help you to do word-wrap very smartly by simply press
+<code>Alt+Q</code> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><br><strong>I LOVE THIS ONE!</strong></p>
+<h2 id="Markdown-Emoji"><a href="#Markdown-Emoji" class="headerlink" title="Markdown Emoji"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji" target="_blank" rel="noopener">Markdown Emoji</a></h2><h2 id="Markdown-Preview-Mermaid-Support"><a href="#Markdown-Preview-Mermaid-Support" class="headerlink" title="Markdown Preview Mermaid Support"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid" target="_blank" rel="noopener">Markdown Preview Mermaid Support</a></h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -98,8 +245,7 @@ and check isolate-workspaces</p>
           });
       </script>]]></content>
       <categories>
-        <category>Linux</category>
-        <category>Configuration</category>
+        <category>Tools</category>
       </categories>
   </entry>
   <entry>
@@ -440,47 +586,6 @@ the settings in both styl custom.styl<span class="github-emoji" style="color: tr
       </categories>
   </entry>
   <entry>
-    <title>When VSCode Becomes a Lifestyle</title>
-    <url>/2018/12/25/When-VSCode-Becomes-A-Lifestyle/</url>
-    <content><![CDATA[<div align="right">Language:
-<a href="/2018/12/25/When-VSCode-Becomes-A-Lifestyle"><kbd>English</kbd></a>
-<a href="/zh-CN/2019/01/07/当VSCode成为一种生活方式"><kbd>中文</kbd></a>
-</div>
-
-<a id="more"></a>
-
-<h2 id="IntelliSense-for-CSS-class-names-in-HTML"><a href="#IntelliSense-for-CSS-class-names-in-HTML" class="headerlink" title="IntelliSense for CSS class names in HTML"></a><a href="https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion" target="_blank" rel="noopener">IntelliSense for CSS class names in HTML</a></h2><h2 id="rewrap"><a href="#rewrap" class="headerlink" title="rewrap"></a><a href="https://marketplace.visualstudio.com/items?itemName=stkb.rewrap" target="_blank" rel="noopener">rewrap</a></h2><h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a><a href="https://marketplace.visualstudio.com/items?itemName=dan-c-underwood.arm" target="_blank" rel="noopener">ARM</a></h2><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a><a href="https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino" target="_blank" rel="noopener">Arduino</a></h2><h2 id="Better-Comments"><a href="#Better-Comments" class="headerlink" title="Better Comments"></a><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener">Better Comments</a></h2><h2 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Markdown All in One</a></h2><p>This extension includes nearly everything you need for Markdown, the only extra
-stuff you need are <a href="#Reflow-Markdown">Reflow Markdown</a> and <a href="#Markdown-Emoji">Markdown Emoji</a>.</p>
-<h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener">Markdown Preview Enhanced</a></h2><p>This extension seems really powerful that it can do nearly everything you can
-imagine of about Markdown. Unfortunately it seems that it don’t support emojis
-by itself in preview tab either. I have not tried this extension since I have
-got <code>Markdown All in One</code></p>
-<h2 id="Reflow-Markdown"><a href="#Reflow-Markdown" class="headerlink" title="Reflow Markdown"></a><a href="https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown" target="_blank" rel="noopener">Reflow Markdown</a></h2><p>This extension help you to do word-wrap very smartly by simply press
-<code>Alt+Q</code> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">😍</span><br><strong>I LOVE THIS ONE!</strong></p>
-<h2 id="Markdown-Emoji"><a href="#Markdown-Emoji" class="headerlink" title="Markdown Emoji"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji" target="_blank" rel="noopener">Markdown Emoji</a></h2><h2 id="Markdown-Preview-Mermaid-Support"><a href="#Markdown-Preview-Mermaid-Support" class="headerlink" title="Markdown Preview Mermaid Support"></a><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid" target="_blank" rel="noopener">Markdown Preview Mermaid Support</a></h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2018/12/22/hello-world/</url>
     <content><![CDATA[<div align="right">Language:
@@ -521,189 +626,30 @@ same with taking drug</strong>.</p>
       </script>]]></content>
   </entry>
   <entry>
-    <title>Configure C/C++ Environment in VSCode</title>
-    <url>/2018/12/30/Configure-C-C-environment-in-VSCode/</url>
+    <title>CAN Bus With RaspberryPi</title>
+    <url>/2019/01/17/CAN-Bus-with-RaspberryPi/</url>
     <content><![CDATA[<div align="right">Language:
-<a href="/2018/12/30/Configure-C-C-environment-in-VSCode"><kbd>English</kbd></a>
-<a href="/zh-CN/2018/12/30/配置VSCode中调试C-C-环境"><kbd>中文</kbd></a>
+    <a href="/CAN-Bus-with-RaspberryPi"><code>English</code></a>
+    <a href="/zh-CN/树莓派的CAN总线通信"><code>中文</code></a>
 </div>
 
-<p>Here is a tutorial for configuration of VSCode to run C/C++ programs on <strong>Windows</strong>.
-Mainly I wrote it for my <a href="https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack" target="_blank" rel="noopener">C/C++ Extension Pack</a>
-<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span></p>
+<p>Recently I am working on A Formula E car, trying to do something with data in
+the car’s CAN Bus. The very basic idea is first transmit data into a RaspberryPi.</p>
 <a id="more"></a>
 
-<p>Actually how can we run C/C++ code in VSCode has been described clearly in
-<a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">the C++ part of VSCode document</a>,
-here is just my personal understanding of this work and I suppose my description
-is more friendly with beginners <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
-<ol>
-<li><a href="#Requirements">Requirements</a><ol>
-<li><a href="#Compiler">Compiler</a><ol>
-<li><a href="#Installation">Installation</a></li>
-<li><a href="#Add-to-Path">Add to Path</a></li>
-<li><a href="#Test">Test</a></li>
-</ol>
-</li>
-<li><a href="#VSCode-Extensions">VSCode Extensions</a></li>
-</ol>
-</li>
-<li><a href="#Configuration-files">Configuration files</a><ol>
-<li><a href="#IntelliSense-configuration">IntelliSense configuration</a></li>
-<li><a href="#Compilation-configuration">Compilation configuration</a><ol>
-<li><a href="#In-total">In total</a></li>
-</ol>
-</li>
-<li><a href="#Debugger-configuration">Debugger configuration</a><ol>
-<li><a href="#Program-to-debug">Program to debug</a></li>
-<li><a href="#Debugger-path-and-options">Debugger path and options</a></li>
-<li><a href="#Compile-before-launch">Compile before launch</a></li>
-<li><a href="#In-total-1">In total</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><a href="#Enjoy">Enjoy</a></li>
-</ol>
-<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><p>VSCode itself is just a editor, can not do things like compilation, even we add
-VSCode’s official extension for C/C++ called
-<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank" rel="noopener">cpptools</a>,
-it does not install a compiler for us.</p>
-<h2 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h2><p>So undoubtedly, our first step is to install a compiler. There are a few
-choices, the one recommended by VSCode’s document on Windows platform is <a href="https://sourceforge.net/projects/mingw-w64/" target="_blank" rel="noopener">MinGW-w64</a>.</p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span> we have to notice that there is another thing called <a href="http://www.mingw.org/" target="_blank" rel="noopener">MinGW</a>
-which is different from <strong>MinGW-w64</strong>. Although <strong>MinGW</strong> also works, but this
-project hasn’t update for a while and we need more steps to install it. In
-addition, there should be a reason that VSCode document does not recommend it
-but <strong>MinGW-w64</strong>.</p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>after downloaded the installer we are good to start installation, there are
-mainly two options we have to change and leave the other options as the default:</p>
-<ul>
-<li>on the first page of the install wizard you are asked to choose your
-<code>Architecture</code>, set it to <strong>x86_64</strong> if your computer is 64-bit, set it to
-<strong>i386</strong> if your computer is 32-bit.</li>
-<li>you can install it to where ever you want but make sure you can find it later,
-since we have to add it to <strong>Path</strong> manually after the installation.</li>
-</ul>
-<h3 id="Add-to-Path"><a href="#Add-to-Path" class="headerlink" title="Add to Path"></a>Add to Path</h3><p>After the installation we have to add our compiler to the <strong>Path</strong> so that it
-can be called from the command line / powershell. (this is actually how VSCode
-calls the compiler)</p>
-<p>But what path to add?</p>
-<p>The path add to the <strong>Path</strong> is actually the folder path of the executable file
-of the application we want to call. For example I installed MinGW-w64 to
-<strong>D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0</strong>, then I should add
-<strong>D:\Softwares\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</strong> to the
-<strong>Path</strong>. You can see the two applications we are going to call, <code>gcc.exe</code> and
-<code>gdb.exe</code> are exactly there <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">✌</span></p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f517.png?v8">🔗</span> If you are no sure how to add something to the <strong>Path</strong>,
-<a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/" target="_blank" rel="noopener">this</a>
-may helps you <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
-<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>Now! We can test if we successfully add the compiler to the <strong>Path</strong> by typing <code>gcc</code>
- in the cmd.</p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span> What we should see is:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">C:\Users\LeoJh&gt;gcc</span><br><span class="line">gcc: fatal error: no input files</span><br><span class="line">compilation terminated.</span><br></pre></td></tr></tbody></table></figure>
+<!-- TODO -->
 
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">❌</span> What we should not see is:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">`gcc`is not recognized as an internal or external command,</span><br><span class="line">operable program or batch file.</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Which means you may have added wrong path to <strong>Path</strong>.</p>
-<h2 id="VSCode-Extensions"><a href="#VSCode-Extensions" class="headerlink" title="VSCode Extensions"></a>VSCode Extensions</h2><p>We are not far from completion as we have successfully get our compiler ready
-:smile: Actually we are now able to develop C/C++ code! (Although it may seems
-hardcore) Don’t believe? Open cmd and get into te folder where you have a piece
-of C/C++ code to test, type <code>gcc test.c</code> or <code>gcc test.cpp</code> and you will find a
-<strong>a.exe</strong> is generated in the current folder. This is exactly the executable
-file we just compiled!</p>
-<p>But this does not feels good, so we use extensions in VSCode to improve the
-situation.</p>
-<p>I recommend my
-<a href="https://marketplace.visualstudio.com/items?itemName=LeoJhonSong.ccpp-extension-pack" target="_blank" rel="noopener">C/C++ Extension Pack</a>
-since it includes only a few but really useful tools.</p>
-<h1 id="Configuration-files"><a href="#Configuration-files" class="headerlink" title="Configuration files"></a>Configuration files</h1><p>In some tutorials it is said that we have to generate <code>c_cpp_properties.json</code>,
-<code>tasks.json</code>, <code>launch.json</code> three files, but the situation has changed! :tada:
-<code>c_cpp_properties.json</code> has been totally replaced by settings in
-<code>settings.json</code>. The advantage is that we can set different values for different
-workspace. Also, you will later see that configuring <code>tasks.json</code> and
-<code>launch.json</code> becomes REALLY easy too!</p>
-<p>:link: click
-<a href="https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md" target="_blank" rel="noopener">here</a>
-to learn more about what has been replaced by <code>settings.json</code> in
-<code>c_cpp_properties.json</code>.</p>
-<p>:link: click
-<a href="https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md" target="_blank" rel="noopener">here</a>
-to learn more about what could have been set in <code>c_cpp_properties.json</code>.</p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span> the following configuration uses my settings as an example.</p>
-<h2 id="IntelliSense-configuration"><a href="#IntelliSense-configuration" class="headerlink" title="IntelliSense configuration"></a>IntelliSense configuration</h2><p>As mentioned above, we are able to develop C/C++ without VSCode, so, from my
-point of view, IntelliSense which provides us with smart suggestions is a very
-important part of language support for C/C++ in VSCode. We could configure the
-IntelliSense by editing <code>settings.json</code>. The most useful ones are:</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"C_Cpp.autocomplete": "Default",</span><br><span class="line">"C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }",</span><br><span class="line">"C_Cpp.default.compilerPath": "D:\\Softwares\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",</span><br><span class="line">"C_Cpp.default.cStandard": "c99",</span><br><span class="line">"C_Cpp.default.cppStandard": "c++11",</span><br><span class="line">"C_Cpp.default.intelliSenseMode": "gcc-x64",</span><br><span class="line">"C_Cpp.intelliSenseEngine": "Default",</span><br><span class="line">"C_Cpp.errorSquiggles": "Enabled",</span><br></pre></td></tr></tbody></table></figure>
-
-<p>the segments <strong>C_Cpp.clang_format_style</strong> and
-<strong>C_Cpp.clang_format_fallbackStyle</strong> specify the format style of how VSC format
-C/C++ code. The above value makes a code style similar to C/C++ code style in
-<strong>Visual Studio</strong>. If you prefer <strong>Google Style</strong>, the following piece is what
-you need.</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"C_Cpp.clang_format_style": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br><span class="line">"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyleStyle: Google, IndentWidth: 4}",</span><br></pre></td></tr></tbody></table></figure>
-
-<p>🌟 In latest VSC, things becomes REALLY easy. You can learn how to generate
-<code>tasks.json</code> and <code>launch.json</code> simply by this gif 👇</p>
-<p><img alt="" data-src="Configure-C-C-environment-in-VSCode/example.gif"></p>
-<p>💡 This gif is recorded under Linux system (Ubuntu).</p>
-<p>Following are some explanations of <code>tasks.json</code> and <code>launch.json</code>.</p>
-<h2 id="Compilation-configuration"><a href="#Compilation-configuration" class="headerlink" title="Compilation configuration"></a>Compilation configuration</h2><p>Then we generate the <code>tasks.json</code> to help us compile the code.</p>
-<p>✔️ <code>tasks.json</code> and <code>launch.json</code> are prepared for specific
-piece of code as different programs may require different configurations. But if
-most of your code shares the same configuration, you can put your <code>tasks.json</code>
-and <code>launch.json</code> in the parent folder of all the programs. If a few programs
-among them require specific configuration, you can generate another <code>tasks.json</code>
-and <code>launch.json</code> in its folder.</p>
-<p>After you have generate a <code>tasks.json</code> following the instruction in VSCode’s document,
-add the following task to the <strong>tasks</strong> list:</p>
-<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">   <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">   <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">   <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">   <span class="attr">"args"</span>: [</span><br><span class="line">         <span class="string">"${file}"</span>,</span><br><span class="line">         <span class="string">"-o"</span>,</span><br><span class="line">         <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">         <span class="string">"-g"</span>,</span><br><span class="line">         <span class="string">"-Wall"</span>,</span><br><span class="line">         <span class="string">"-std=c++17"</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="attr">"group"</span>: {</span><br><span class="line">         <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">         <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>label</code> is the name of this task, it will be <a href="#Copile-before-launch">used later</a>.</p>
-<p>From this we can see that every time we call this task it actually inputs the
-following command to shell:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension}.exe -g -Wall -std=c++17</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Things like ${file}, ${fileDirname} are actually
-<a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">variables defined by VSCode</a>.</p>
-<p>And the <code>-o</code> option allows us to specify the name of output file.</p>
-<p>The settings about <strong>group</strong> allow us to call this task by shortcut
-<code>Ctrl+shift+B</code>. check <a href="https://code.visualstudio.com/docs/editor/tasks#_typescript-hello-world" target="_blank" rel="noopener">this</a>
-for more details.</p>
-<h3 id="In-total"><a href="#In-total" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>tasks.json</code> looks like this:</p>
-<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"Compile"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [</span><br><span class="line">                <span class="string">"${file}"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"${fileDirname}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"-Wall"</span>,</span><br><span class="line">                <span class="string">"-std=c++17"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: {</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="Debugger-configuration"><a href="#Debugger-configuration" class="headerlink" title="Debugger configuration"></a>Debugger configuration</h2><p>The last thing we need is <code>launch.json</code>. This is actually a easy task since
-VSCode provide us with a lot of templates, (normally I use the template <strong>(gdb)
-Launch</strong>) only a few options need modification:</p>
-<h3 id="Program-to-debug"><a href="#Program-to-debug" class="headerlink" title="Program to debug"></a>Program to debug</h3><figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"program": "${workspaceFolder}/a.exe"</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>program</code> means the program we want to debug. If not specified, the name of the
-output file will be <strong>a.exe</strong>, so the program name is the above one. But if you
-have specified the name of output file just like what I did in the <code>tasks.json</code>,
-you should use this:</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"program": "${workspaceFolder}/${fileBasenameNoExtension}.exe"</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Debugger-path-and-options"><a href="#Debugger-path-and-options" class="headerlink" title="Debugger path and options"></a>Debugger path and options</h3><p>Set your debugger path simply by this:</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"miDebuggerPath": "gdb.exe"</span><br></pre></td></tr></tbody></table></figure>
-
-<p>And we can easliy find out that gdb will output something useless first every
-time evoked. We could use option <code>-q</code> to disable this:</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"miDebuggerArgs": "-q"</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Compile-before-launch"><a href="#Compile-before-launch" class="headerlink" title="Compile before launch"></a>Compile before launch</h3><p>If you always forget to compile the modified code before debugging, VSCode
-provides a very useful option: <strong>preLaunchTask</strong>. We can specific this task to
-our task named <strong>Compile</strong>, so our code will be compiled first every time we
-start debugging <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">"preLaunchTask": "Compile"</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="In-total-1"><a href="#In-total-1" class="headerlink" title="In total"></a>In total</h3><p>So in total my <code>launch.json</code> look like this:</p>
-<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        {</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"${workspaceFolder}/${fileBasenameNoExtension}.exe"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"${workspaceFolder}"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"gdb.exe"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerArgs"</span>: <span class="string">"-q"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                {</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                }</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"Compile"</span></span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="Enjoy"><a href="#Enjoy" class="headerlink" title="Enjoy"></a>Enjoy</h1><p>Congratulations! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span> You are now able to develop C/C++ code with VSCode and
-hope you enjoy it!</p>
+<blockquote>
+<p>Reference:</p>
+</blockquote>
+<p><a href="https://www.cowfishstudios.com/blog/canned-pi-part1" target="_blank" rel="noopener">https://www.cowfishstudios.com/blog/canned-pi-part1</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30657287" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30657287</a>
+<a href="https://zhuanlan.zhihu.com/p/30247549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30247549</a></p>
+<p><a href="https://www.gridconnect.com/collections/can-pc-interfaces" target="_blank" rel="noopener">https://www.gridconnect.com/collections/can-pc-interfaces</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=141052" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?t=141052</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=524910" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=524910</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=7027</a>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=444938" target="_blank" rel="noopener">https://www.raspberrypi.org/forums/viewtopic.php?p=444938</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -724,7 +670,61 @@ hope you enjoy it!</p>
           });
       </script>]]></content>
       <categories>
-        <category>Tools</category>
+        <category>Communication</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>My Configurations Under Ubuntu</title>
+    <url>/2019/03/20/My-configurations-under-Ubuntu/</url>
+    <content><![CDATA[<p>I note down here my configurations in order to quick set up my environment on a new machine.</p>
+<a id="more"></a>
+
+<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><h2 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h2><p>💡root is another user, need extra configurations.</p>
+<p>1.install it.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">pip install --user git+git://github.com/powerline/powerline</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.run <code>pip show powerline-status</code> to show where the package is.</p>
+<p>3.add its launch script to <strong>~/.bashrc</strong>.</p>
+<p>💡 e.g. the location of the script on my computer is
+<strong>~/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh</strong></p>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>goto my <a href="https://github.com/LeoJhonSong/vimrc" target="_blank" rel="noopener">vimrc</a>.</p>
+<h1 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h1><p>there are a few onedrive tools on Linux platform, but most of them, for example
+<code>onedrive-d</code> just support personal onedrive account, onedrive 365 as well as
+onedrive business are not supported. Someone recommended <code>GoodSync</code>,
+unfortunately I didn’t figure out how on earth do I use it 😢. Good news is I
+find a thing called <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">onedrive</a> (what a
+confusing name), which <strong>support personal account and onedrive 365 and even
+onedrive business</strong>!</p>
+<p>goto <a href="https://github.com/abraunegg/onedrive" target="_blank" rel="noopener">abraunegg/onedrive</a> for instructions.</p>
+<p>the guide is clear enough! 👍</p>
+<h1 id="workspace"><a href="#workspace" class="headerlink" title="workspace"></a>workspace</h1><h2 id="isolated-workspaces"><a href="#isolated-workspaces" class="headerlink" title="isolated workspaces"></a>isolated workspaces</h2><p>🔗<a href="https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher" target="_blank" rel="noopener">related question on Stack Exchange</a></p>
+<p>1.install <strong>dconf-editor</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt install dconf-editor</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.open the app and Navigate to <strong>org &gt; gnome &gt; shell &gt; extensions &gt; dash-to-dock</strong>
+and check isolate-workspaces</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Configuration</category>
       </categories>
   </entry>
 </search>
