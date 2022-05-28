@@ -354,10 +354,10 @@ yay -S google-chrome
 普通看pdf的话KDE的**okular**和GNOME的**evince**我觉得界面还比较简洁而不简陋, 现代. 相比起来okular功能更多一些, 对触控笔/手写等操作支持好许多 (虽然我不怎么用). 看文章时我更喜欢在**Chrome**的[沙拉查词](https://saladict.crimx.com/)插件提供的pdf.js的pdf阅读器里看, 查单词, 搜索很方便. 如果要做笔记的话我是在我的Windows系统平板上看的.
 
 ```shell
-yay -S ps2pdf
+yay -S ghostscript
 ```
 
-补充一个压缩pdf的小工具, 还是挺实用的. 用`ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf`就可以将pdf压缩为150dpi的质量. `-dPDFSETTINGS=/prepress`参数的话能得到质量为300dpi的pdf, 完全满足打印的需求了.
+补充一个可以用来压缩pdf的小工具`ps2pdf`, 在ghostscript软件包中, 还是挺实用的. 用`ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf`就可以将pdf压缩为150dpi的质量. `-dPDFSETTINGS=/prepress`参数的话能得到质量为300dpi的pdf, 完全满足打印的需求了.
 
 ### latex
 
