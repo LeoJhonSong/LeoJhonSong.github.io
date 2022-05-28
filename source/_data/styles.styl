@@ -68,21 +68,35 @@ small {
 //------------------------------------------------------------------------------
 $shadow = 5px 5px 10px #242424, -5px -5px 10px #424242;
 .header-inner {
-    border-radius: 5px;
-    box-shadow: $shadow;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  +tablet-mobile() {
+    margin: 5px 5px 0;
+    border-radius: 20px;
+  }
+}
+.site-nav-toggle {
+  left: 15px;
+  border-radius: 5px;
+  box-shadow: $shadow;
 }
 .sidebar-inner {
-    border-radius: 5px;
-    box-shadow: $shadow;
+  border-radius: 5px;
+  box-shadow: $shadow;
+}
+.site-meta {
+  +tablet-mobile() {
+    box-shadow: none;
+  }
 }
 .post-block {
-    margin-top: 0px;
-    margin-bottom: 60px;
-    padding: 0px;
-    border-radius: 10px;
-    box-shadow: $shadow;
+  margin-top: 0px;
+  margin-bottom: 60px;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: $shadow;
 }
-.btn {
+.post-button .btn {
   border-radius: 15px;
   border: none;
   background: linear-gradient(145deg, #373737, #2e2e2e);
@@ -100,16 +114,26 @@ $shadow = 5px 5px 10px #242424, -5px -5px 10px #424242;
   margin: 0;
 }
 .post-block.home {
-    padding: 15px;
+  margin: 0 0 30px;
+  padding: 15px;
 }
 .post-block.post {
-    padding: 10px;
+  padding: 10px;
 }
 .post-block.page {
-    padding: 15px;
+  padding: 15px;
+}
+.post-meta {
+  margin: 3px 0 30px 0 !important;
+}
+.post-button {
+  margin-top: 15px;
+}
+.post-button .btn {
+  padding: 5px 20px;
 }
 .post-eof {
-    display: none;
+  display: none;
 }
 //------------------------------------------------------------------------------
 //disable image border
