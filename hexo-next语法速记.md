@@ -24,3 +24,7 @@
 ```
 {% pdf blog/file.pdf %}
 ```
+
+### LaTeX数学公式
+
+❗需要Mathjax支持的博客需要在front matter中加上`mathjax: true`.

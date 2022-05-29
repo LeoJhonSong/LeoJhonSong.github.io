@@ -18,9 +18,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 8.10.0
-    - name: npm install and set timezone
+    - name: npm install, install pandoc and set timezone
       run: |
         npm install
+        sudo apt install -y pandoc
         sudo timedatectl set-timezone Asia/Shanghai
     - name: login ssh and git
       env:
