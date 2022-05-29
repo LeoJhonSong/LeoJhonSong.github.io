@@ -21,7 +21,3 @@ deploy:
   type: git
   repo: git@github.com:LeoJhonSong/zh-CN.git
   branch: master
-
-# Comment
-valine:
-  lang: 'zh-cn'

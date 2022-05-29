@@ -108,4 +108,5 @@ symbols_count_time:
 #disable break as return
 #----------------------------------------------------------------
 marked:
-  breaks: false
+  gfm: true
+  breaks: true
