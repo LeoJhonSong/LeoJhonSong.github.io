@@ -31,8 +31,8 @@ jobs:
         echo -e "Host github.com\nStrictHostKeyChecking no\nIdentityFile ~/.ssh/id_rsa_github_action" > ~/.ssh/config
         echo -e "$id_rsa_github_action" > ~/.ssh/id_rsa_github_action
         chmod 600 ~/.ssh/id_rsa_github_action
-        git config --global user.email "LeoJHon.Song@outlook.com"
-        git config --global user.name "GitHub Action"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "gitHub-actions"
     - name: Generate and deploy English site
       run: |
         rm -rf .deploy_git
