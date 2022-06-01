@@ -1999,7 +1999,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #45a1b5;
+  background: #ff4567;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3101,6 +3101,11 @@ blockquote {
 }
 .post-eof {
   display: none;
+}
+@media (max-width: 425px) {
+  .MJXc-display {
+    font-size: xx-small !important;
+  }
 }
 img {
   border: none !important;
