@@ -1999,7 +1999,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c75d5b;
+  background: #cfbf03;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3129,6 +3129,15 @@ img {
 .post-body h3 {
   border-bottom: 1px solid;
   border-image: linear-gradient(to right, #fff, rgba(255,255,255,0)) 1;
+}
+.post-body h4 {
+  text-align: center;
+  text-decoration: underline solid #ff0 3px;
+}
+.post-body h5 {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: lighter;
 }
 body {
   color: #fff;
