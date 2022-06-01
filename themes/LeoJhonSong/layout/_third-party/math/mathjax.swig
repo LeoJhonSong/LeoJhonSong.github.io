@@ -10,6 +10,12 @@
       processEscapes: true,
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
+    "CommonHTML": {
+      linebreaks: {
+        automatic: true,
+        width: "container"
+      }
+    },
     TeX: {
       {%- if theme.math.mathjax.mhchem %}
         extensions: ['[mhchem]/mhchem.js'],
