@@ -10,15 +10,11 @@
       processEscapes: true,
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
-    "CommonHTML": {
-      linebreaks: {
-        automatic: true,
-        width: "container"
-      }
-    },
     TeX: {
       {%- if theme.math.mathjax.mhchem %}
-        extensions: ['[mhchem]/mhchem.js'],
+        extensions: ['[mhchem]/mhchem.js', 'color.js'],
+      {%- else %}
+        extensions: ['color.js'],
       {%- endif %}
       equationNumbers: {
         autoNumber: 'AMS'
