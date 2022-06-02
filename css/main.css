@@ -1999,7 +1999,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cfbf03;
+  background: #b3b006;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3102,11 +3102,6 @@ blockquote {
 .post-eof {
   display: none;
 }
-@media (max-width: 425px) {
-  .MJXc-display {
-    font-size: xx-small !important;
-  }
-}
 img {
   border: none !important;
 }
@@ -3122,6 +3117,29 @@ img {
   .posts-expand {
     margin: 0 0px;
   }
+}
+.MJXc-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.MJXc-display::-webkit-scrollbar {
+  width: 20px;
+  background: transparent;
+}
+.MJXc-display::-webkit-scrollbar-track {
+  background: transparent;
+}
+.MJXc-display::-webkit-scrollbar-thumb {
+  background: rgba(170,170,170,0.31);
+  background-clip: content-box;
+  border: 6px solid transparent;
+  border-radius: 20px;
+}
+.MJXc-display::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+  background-clip: content-box;
+  border: 6px solid transparent;
+  border-radius: 20px;
 }
 .post-body h2 {
   border-bottom: 3px solid #949a76;
