@@ -1999,7 +1999,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #26945b;
+  background: #a44df2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3006,7 +3006,7 @@ img {
   height: 100%;
   width: 100%;
 }
-div.post-body img {
+div.post-body img:not(.fancybox-image) {
   max-width: 700px !important;
   display: block;
   margin-left: auto;
