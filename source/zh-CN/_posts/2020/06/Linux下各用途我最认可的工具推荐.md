@@ -19,7 +19,7 @@ categories:
 
 > 首先, 不得不吹一下Manjaro是一个多么贴心的系统. Manjaro自带了一个叫**Manjaro Hello**的入门程序, 点进这个程序的`Applications`入口能看到Manjaro社区为各常见用途已经提供了一些推荐, 勾选就可以安装. 可以说没有更贴心的系统了!
 >
-> ![](Linux下各用途我最认可的工具推荐/Manjaro_Hello.jpg?70)
+> <img src="Linux下各用途我最认可的工具推荐/Manjaro_Hello.jpg" style="zoom:70%;" />
 
 ## 日常使用
 
@@ -36,7 +36,7 @@ yay -S fcitx5-material-color
 ```
 
 这个**fcitx5-material-color**是一个模仿win10的中文输入法的皮肤, 在fcitx5的设置中可以更换皮肤, 可以做到下面这样的效果 👇
-![](Linux下各用途我最认可的工具推荐/inputMethod.gif?80)
+<img src="Linux下各用途我最认可的工具推荐/inputMethod.gif" style="zoom:80%;" />
 
 #### fcitx4框架+搜狗输入法
 
@@ -148,7 +148,7 @@ sudo ventoyweb
 
 而Dolphin最突出的功能是按<kbd>F4</kbd>可以直接打开一个**Dolphin内嵌终端**. 这个终端的路径会随着在资源管理器里点击自动切换 (除非已经打开类似vim这样的程序), 使用起来超方便, 结合了终端的便捷和GUI的可视化等优势.
 
-![](Linux下各用途我最认可的工具推荐/Dolphin.png?70)
+<img src="Linux下各用途我最认可的工具推荐/Dolphin.png" style="zoom:70%;" />
 
 ### 任务管理器
 

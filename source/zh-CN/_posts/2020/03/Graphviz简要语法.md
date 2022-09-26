@@ -39,7 +39,7 @@ digraph G{
 }
 ```
 
-![](Graphviz简要语法/helloworld.svg?20)
+<img src="Graphviz简要语法/helloworld.svg" style="zoom:25%;" />
 
 ### 常见用法
 
@@ -87,7 +87,7 @@ graphviz提供了多种**用于排布节点, 边线箭头头部, 边线标签位
 
 ❗️ 注意dot布局和DOT语言不是一个东西.
 
-![img](Graphviz简要语法/cluster.png?20)
+<img src="Graphviz简要语法/cluster.png" alt="img" style="zoom:25%;" />
 
 #### neato
 
@@ -95,19 +95,19 @@ graphviz提供了多种**用于排布节点, 边线箭头头部, 边线标签位
 
 💡 当图较大 (超过100个节点)时就该考虑换成fdp或者sfdp布局了
 
-![在这里插入图片描述](Graphviz简要语法/ER.png?30)
+<img src="Graphviz简要语法/ER.png" style="zoom:33%;" />
 
 #### fdp
 
 同样是基于弹簧模型. 区别在于fdp算法的迭代是在试图减小节点间弹簧的力的大小而不是弹簧能量大小.
 
-![在这里插入图片描述](Graphviz简要语法/fdpclust.png?40)
+<img src="Graphviz简要语法/fdpclust.png" style="zoom:40%;" />
 
 #### sfdp
 
 为大规模图而生的多尺度版fdp
 
-![在这里插入图片描述](Graphviz简要语法/JGD_BIBD@bibd_17_3.gif?40)
+<img src="Graphviz简要语法/JGD_BIBD@bibd_17_3.gif" style="zoom:40%;" />
 
 上面这个图得自🔗 [A Gallery of Large Graphs](http://yifanhu.net/GALLERY/GRAPHS/index.html). 这个网站还有**很多**很壮观的图😳
 
@@ -115,13 +115,13 @@ graphviz提供了多种**用于排布节点, 边线箭头头部, 边线标签位
 
 径向布局.
 
-![在这里插入图片描述](Graphviz简要语法/twopi2.png?50)
+<img src="Graphviz简要语法/twopi2.png" style="zoom:50%;" />
 
 #### circo
 
 圆形布局. 很适合有许多环路结构的图, 比如电信网络.
 
-![在这里插入图片描述](Graphviz简要语法/circo.png?30)
+<img src="Graphviz简要语法/circo.png" style="zoom:33%;" />
 
 ### 有关三种主要描述对象
 
@@ -235,7 +235,7 @@ digraph G {
 }
 ```
 
-![](Graphviz简要语法/html-like_label.svg?60)
+<img src="Graphviz简要语法/html-like_label.svg" style="zoom:60%;" />
 
 ### 属性
 
@@ -316,7 +316,7 @@ digraph G {
 }
 ```
 
-![](Graphviz简要语法/cluster.svg?20)
+<img src="Graphviz简要语法/cluster.svg" style="zoom:20%;" />
 
 ## 高级语法
 
@@ -330,9 +330,9 @@ digraph G {
 
 > 一个展示设置rank属性能达到什么效果的例子 (代码和图形都截自旧版文档, 因为代码没给全我也懒得写, 就这么放着吧👍)
 
-![image-20200313010630547](Graphviz简要语法/image-20200313010630547.png?60)
+<img src="Graphviz简要语法/image-20200313010630547.png" style="zoom:60%;" />
 
-![image-20200313010749024](Graphviz简要语法/image-20200313010749024.png?80)
+<img src="Graphviz简要语法/image-20200313010749024.png" style="zoom:80%;" />
 
 ### Node Port (节点端口)
 
