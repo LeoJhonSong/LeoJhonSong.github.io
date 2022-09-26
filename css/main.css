@@ -1999,7 +1999,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #52e72f;
+  background: #26945b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3003,12 +3003,14 @@ svg.icon {
   width: 72px;
 }
 img {
+  height: 100%;
+  width: 100%;
+}
+div.post-body img {
+  max-width: 700px !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 700px !important;
 }
 .titles {
   overflow: hidden;
